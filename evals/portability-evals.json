@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "release": "v1.0",
+  "checks": [
+    {
+      "id": "canonical",
+      "path": "skill.zip",
+      "expect": "one canonical Agent Skill package validated by the target skill packager"
+    },
+    {
+      "id": "agent-plugin-v1",
+      "path": "agent-plugin-v1.zip",
+      "expect": "root plugin.json uses Agent Plugins v1 schema and skills/skick/SKILL.md exists"
+    },
+    {
+      "id": "codex-plugin",
+      "path": "codex-plugin.zip",
+      "expect": ".codex-plugin/plugin.json and bundled skills/ directory"
+    },
+    {
+      "id": "claude-code-plugin",
+      "path": "claude-code-plugin.zip",
+      "expect": ".claude-plugin/plugin.json and bundled skills/ directory"
+    },
+    {
+      "id": "claude-web",
+      "path": "claude-web-skill.zip",
+      "expect": "top-level skick folder contains lowercase skill.md"
+    },
+    {
+      "id": "gemini-apps",
+      "path": "gemini-apps-skill.zip",
+      "expect": "SKILL.md exists at archive root and package contains only plain-text/code/config-compatible assets"
+    },
+    {
+      "id": "runtime-skill",
+      "path": "runtime-skill.zip",
+      "expect": "one top-level skick/ directory with SKILL.md and the complete portable runtime Skill; use it for filesystem hosts that need a plain directory archive, including Antigravity only where its installed surface documents compatible directory Skills"
+    },
+    {
+      "id": "kimi-plugin",
+      "path": "kimi-plugin.zip",
+      "expect": "root kimi.plugin.json plus skills/skick/SKILL.md"
+    },
+    {
+      "id": "zcode-plugin",
+      "path": "zcode-plugin.zip",
+      "expect": ".zcode-plugin/plugin.json plus skills/skick/SKILL.md"
+    },
+    {
+      "id": "shared-agent-skill",
+      "path": "shared-agent-skill.zip",
+      "expect": ".agents/skills/skick/SKILL.md for compatible filesystem hosts"
+    },
+    {
+      "id": "python-vanilla-web-profile",
+      "path": "core/python-vanilla-web-stack.md",
+      "expect": "canonical host-neutral Python backend plus vanilla HTML/CSS/JS web profile is bundled into every generated platform distribution"
+    },
+    {
+      "id": "dual-lens-research-profile",
+      "path": "core/offensive-defensive.md",
+      "expect": "canonical offensive plus defensive research methodology is bundled into every generated platform distribution"
+    },
+    {
+      "id": "direct-zip-bootstrap",
+      "path": "START_HERE.md",
+      "expect": "an AI receiving the archive directly is told to inspect first, identify the actual runtime/surface, route through INSTALLATION_MANIFEST.json, verify discovery, and avoid silent optional installs"
+    },
+    {
+      "id": "machine-install-router",
+      "path": "INSTALLATION_MANIFEST.json",
+      "expect": "every non-generic adapter directory has a machine-readable runtime entry with support status, surfaces, install routing, verification and adapter path"
+    },
+    {
+      "id": "ai-maintenance-handoff",
+      "path": "AI_HANDOFF.md",
+      "expect": "a future AI can reconstruct SKick identity, invariants, repository ownership, maintenance workflow and release gates without conversation history"
+    },
+    {
+      "id": "fork-contribution-guide",
+      "path": "CONTRIBUTING.md",
+      "expect": "fork maintainers change canonical source first, verify current platform evidence, add regression coverage, rebuild distributions and avoid hand-patching generated outputs"
+    },
+    {
+      "id": "github-bootstrap-prompts",
+      "path": "BOOTSTRAP_PROMPTS.md",
+      "expect": "contains one short universal GitHub install/update prompt plus runtime-specific fast paths and provider-to-host routing"
+    },
+    {
+      "id": "github-bootstrap-protocol",
+      "path": "docs/GITHUB_BOOTSTRAP.md",
+      "expect": "requires inspect-first source handling, real-host detection, manifest adapter routing, conservative scope, runtime discovery verification and Serena status reporting"
+    },
+    {
+      "id": "factory-droid-adapter",
+      "path": "adapters/factory-droid/README.md",
+      "expect": "uses verified Factory Agent Skill roots and native discovery verification"
+    },
+    {
+      "id": "crush-adapter",
+      "path": "adapters/crush/README.md",
+      "expect": "uses verified Crush Agent Skill roots and native discovery verification"
+    },
+    {
+      "id": "manus-adapter",
+      "path": "adapters/manus/README.md",
+      "expect": "uses managed upload/direct GitHub import without inventing a filesystem root"
+    },
+    {
+      "id": "language-framework-core",
+      "path": "core/language-and-framework-intelligence.md",
+      "expect": "language/framework/version fingerprinting and native proof-surface methodology is bundled into every portable runtime distribution"
+    },
+    {
+      "id": "ui-render-core",
+      "path": "core/ui-system-and-render-intelligence.md",
+      "expect": "design-system and rendered/measured UI validation methodology is bundled into every portable runtime distribution"
+    },
+    {
+      "id": "research-evidence-lifecycle",
+      "path": "core/research-evidence-lifecycle.md",
+      "expect": "frontier/claim-lineage/counterevidence research methodology is bundled into every portable runtime distribution"
+    },
+    {
+      "id": "purple-team-core",
+      "path": "core/purple-team-research-and-validation.md",
+      "expect": "authorized red-blue-purple research and detection-validation methodology is bundled into every portable runtime distribution"
+    },
+    {
+      "id": "skill-supply-chain-core",
+      "path": "core/skill-supply-chain-and-lifecycle.md",
+      "expect": "full-bundle inventory, pin/hash, composition and update-requalification rules are bundled into every portable runtime distribution"
+    },
+    {
+      "id": "engineering-wayfinding-core",
+      "path": "core/engineering-wayfinding-and-slicing.md",
+      "expect": "decision-frontier, tracer-bullet, prototype and migration slicing methodology is bundled into every portable runtime distribution"
+    },
+    {
+      "id": "plans-surfaces-guide",
+      "path": "docs/PLANS_AND_SURFACES.md",
+      "expect": "separates model provider, host runtime, account/surface and plan/region gating instead of treating Skill support as universal entitlement"
+    },
+    {
+      "id": "chatgpt-codex-gating",
+      "path": "INSTALLATION_MANIFEST.json",
+      "expect": "ChatGPT managed custom Skill availability is plan/workspace gated while Codex Skill support and plan availability are tracked separately"
+    },
+    {
+      "id": "github-copilot-gh-skill",
+      "path": "BOOTSTRAP_PROMPTS.md",
+      "expect": "uses current inspect-first gh skill workflow when available and does not make legacy copilot skill add the canonical installer"
+    },
+    {
+      "id": "kilo-current-path",
+      "path": "adapters/kilo-code/README.md",
+      "expect": "uses .kilo/skills/skick or shared .agents/skills and treats .kilocode/skills only as legacy compatibility"
+    },
+    {
+      "id": "devin-repo-scope",
+      "path": "adapters/devin/README.md",
+      "expect": "prefers repository .agents/skills/skick and does not invent a global ~/.devin/skills route"
+    },
+    {
+      "id": "qoder-current-path",
+      "path": "adapters/qoder/README.md",
+      "expect": "uses .qoder/skills and distinguishes QoderWork as a separate surface"
+    },
+    {
+      "id": "zed-trust-boundary",
+      "path": "adapters/zed/README.md",
+      "expect": "uses .agents/skills and preserves trusted-worktree and discovery-budget caveats"
+    },
+    {
+      "id": "zencoder-current-path",
+      "path": "adapters/zencoder/README.md",
+      "expect": "prefers .agents/skills and marks legacy .zencoder/skills as deprecated compatibility"
+    },
+    {
+      "id": "kimi-explicit-invocation",
+      "path": "BOOTSTRAP_PROMPTS.md",
+      "expect": "documents /skill:skick as the preferred explicit Kimi Code form when a command is needed"
+    },
+    {
+      "id": "official-skill-ecosystem-guide",
+      "path": "docs/SKILL_ECOSYSTEM_GUIDE.md",
+      "expect": "uses official-first discovery, metadata-first shortlisting, preview/value/security gates, provenance, and discovery-not-trust boundaries"
+    },
+    {
+      "id": "design-reference-playbook",
+      "path": "docs/DESIGN_REFERENCE_PLAYBOOK.md",
+      "expect": "classifies surface type, triangulates design references without cloning, prefers HTML/CSS-first expression where sufficient, and uses bounded rendered QA"
+    }
+  ]
+}

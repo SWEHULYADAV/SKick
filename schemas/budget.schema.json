@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/budget.schema.json",
+  "title": "SKick Resource Budget",
+  "type": "object",
+  "required": ["schema_version"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "tokens_total": {"type": ["integer", "null"], "minimum": 0},
+    "tokens_final_reserve": {"type": ["integer", "null"], "minimum": 0},
+    "wall_time_seconds": {"type": ["number", "null"], "minimum": 0},
+    "web_queries": {"type": ["integer", "null"], "minimum": 0},
+    "source_reads": {"type": ["integer", "null"], "minimum": 0},
+    "tool_calls": {"type": ["integer", "null"], "minimum": 0},
+    "browser_runs": {"type": ["integer", "null"], "minimum": 0},
+    "subagent_calls": {"type": ["integer", "null"], "minimum": 0},
+    "external_cost": {"type": ["number", "null"], "minimum": 0},
+    "currency": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

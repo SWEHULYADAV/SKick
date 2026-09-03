@@ -1,0 +1,765 @@
+{
+  "schema_version": 1,
+  "release": "v1.0",
+  "policy": "one workflow owner per phase; invoke/reference optional specialists only after availability, provenance, license, security and overlap checks",
+  "integrations": [
+    {
+      "id": "superpowers",
+      "kind": "skill-plugin",
+      "upstream": "https://github.com/obra/superpowers",
+      "role": [
+        "planning",
+        "tdd",
+        "debugging",
+        "subagents",
+        "review"
+      ],
+      "decision": "invoke",
+      "license": "MIT",
+      "activation": "installed-and-phase-matched",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "huggingface-skills",
+      "kind": "skills",
+      "upstream": "https://github.com/huggingface/skills",
+      "role": [
+        "ai-ml",
+        "hub",
+        "datasets",
+        "models",
+        "training",
+        "evals",
+        "papers"
+      ],
+      "decision": "invoke",
+      "license": "Apache-2.0",
+      "activation": "installed-and-ai-ml-matched",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "trailofbits-skills",
+      "kind": "skills",
+      "upstream": "https://github.com/trailofbits/skills",
+      "role": [
+        "security-audit",
+        "context-building",
+        "differential-review",
+        "fuzzing"
+      ],
+      "decision": "invoke-reference",
+      "license": "CC-BY-SA-4.0",
+      "activation": "installed-and-security-matched",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "sentry-skills",
+      "kind": "skills",
+      "upstream": "https://github.com/getsentry/skills",
+      "role": [
+        "skill-security",
+        "engineering",
+        "sentry"
+      ],
+      "decision": "invoke-reference",
+      "license": "Apache-2.0",
+      "activation": "installed-and-matched",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "vercel-agent-skills",
+      "kind": "skills",
+      "upstream": "https://github.com/vercel-labs/agent-skills",
+      "role": [
+        "react-next-performance",
+        "web-design",
+        "vercel"
+      ],
+      "decision": "invoke",
+      "license": "MIT",
+      "activation": "installed-and-stack-matched",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "agent-browser",
+      "kind": "skill-cli-mcp",
+      "upstream": "https://github.com/vercel-labs/agent-browser",
+      "role": [
+        "browser-automation",
+        "exploratory-qa",
+        "a11y"
+      ],
+      "decision": "invoke",
+      "license": "Apache-2.0",
+      "activation": "installed-and-browser-fast-matched",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "coderabbit",
+      "kind": "review-specialist",
+      "upstream": "https://www.coderabbit.ai/",
+      "role": [
+        "code-review",
+        "pr-review"
+      ],
+      "decision": "invoke",
+      "license": "provider-managed",
+      "activation": "installed-authenticated-and-review-matched",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "codex-security",
+      "kind": "security-specialist",
+      "upstream": "https://github.com/openai/",
+      "role": [
+        "security-scan",
+        "triage",
+        "threat-model",
+        "attack-path",
+        "fix-validation"
+      ],
+      "decision": "invoke",
+      "license": "provider-plugin-specific",
+      "activation": "installed-and-security-matched",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "mini-swe-agent",
+      "kind": "harness",
+      "upstream": "https://github.com/SWE-agent/mini-swe-agent",
+      "role": [
+        "minimal-coding-harness",
+        "benchmark",
+        "trajectory"
+      ],
+      "decision": "reference",
+      "license": "MIT",
+      "activation": "external-harness-when-useful",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "open-swe",
+      "kind": "harness",
+      "upstream": "https://github.com/langchain-ai/open-swe",
+      "role": [
+        "async-coding-agent",
+        "isolated-sandbox",
+        "subagents"
+      ],
+      "decision": "reference",
+      "license": "MIT",
+      "activation": "external-harness-when-useful",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "deepagents",
+      "kind": "harness-library",
+      "upstream": "https://github.com/langchain-ai/deepagents",
+      "role": [
+        "long-horizon",
+        "sandbox",
+        "subagents",
+        "memory",
+        "hitl"
+      ],
+      "decision": "reference",
+      "license": "MIT",
+      "activation": "external-harness-when-useful",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "pydantic-ai-harness",
+      "kind": "harness-library",
+      "upstream": "https://github.com/pydantic/pydantic-ai-harness",
+      "role": [
+        "typed-capabilities",
+        "deferred-tools",
+        "budgets",
+        "sandbox"
+      ],
+      "decision": "reference",
+      "license": "MIT",
+      "activation": "external-harness-when-useful",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "inspect-ai",
+      "kind": "eval-harness",
+      "upstream": "https://github.com/UKGovernmentBEIS/inspect_ai",
+      "role": [
+        "agent-evals",
+        "model-evals",
+        "trajectory"
+      ],
+      "decision": "wrap-reference",
+      "license": "MIT",
+      "activation": "external-eval-when-valid",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "harbor",
+      "kind": "eval-harness",
+      "upstream": "https://github.com/laude-institute/harbor",
+      "role": [
+        "isolated-agent-benchmarks",
+        "terminal-bench",
+        "cost-traces"
+      ],
+      "decision": "wrap-reference",
+      "license": "Apache-2.0",
+      "activation": "external-eval-when-valid",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "openai-symphony",
+      "kind": "orchestration-reference",
+      "upstream": "https://github.com/openai/symphony",
+      "role": [
+        "isolated-task-workspaces",
+        "bounded-concurrency",
+        "reconciliation",
+        "proof-of-work"
+      ],
+      "decision": "reference",
+      "license": "Apache-2.0",
+      "activation": "durable-orchestration-design-reference",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "compound-engineering",
+      "kind": "workflow-plugin",
+      "upstream": "https://github.com/EveryInc/compound-engineering-plugin",
+      "role": [
+        "planning",
+        "review",
+        "project-learning"
+      ],
+      "decision": "reference-invoke",
+      "license": "verify-current-before-use",
+      "activation": "optional-alternative-workflow-owner",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "freshtechbro-claude-design-skillstack",
+      "kind": "design-skill-marketplace",
+      "upstream": "https://github.com/freshtechbro/claudedesignskills",
+      "role": [
+        "motion",
+        "interaction-design",
+        "web3d",
+        "creative-web",
+        "design-audit"
+      ],
+      "decision": "absorb-reference-invoke",
+      "license": "MIT",
+      "activation": "installed-and-design-stack-matched",
+      "verified_at": "2026-08-23"
+    },
+    {
+      "id": "piebald-claude-code-prompts",
+      "kind": "reverse-engineering-reference",
+      "upstream": "https://github.com/Piebald-AI/claude-code-system-prompts",
+      "role": [
+        "tool-routing",
+        "action-security",
+        "review",
+        "memory",
+        "batch-worktrees",
+        "simplification"
+      ],
+      "decision": "absorb-reference",
+      "license": "MIT repository; extracted prompt provenance caution",
+      "activation": "research-reference-only",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "gemini-cli-auto-memory",
+      "kind": "agent-memory-reference",
+      "upstream": "https://github.com/google-gemini/gemini-cli",
+      "role": [
+        "reviewed-memory-candidates",
+        "skill-candidates",
+        "patch-validation"
+      ],
+      "decision": "absorb-reference",
+      "license": "Apache-2.0",
+      "activation": "pattern-reference-only",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "qwen-code-memory",
+      "kind": "agent-memory-reference",
+      "upstream": "https://github.com/QwenLM/qwen-code",
+      "role": [
+        "auto-memory",
+        "team-memory",
+        "consolidation",
+        "freshness-lessons"
+      ],
+      "decision": "absorb-reference",
+      "license": "Apache-2.0",
+      "activation": "pattern-reference-only",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "karpathy-autoresearch",
+      "kind": "experiment-loop-reference",
+      "upstream": "https://github.com/karpathy/autoresearch",
+      "role": [
+        "measurable-optimization",
+        "keep-revert",
+        "experiment-ledger"
+      ],
+      "decision": "absorb-reference",
+      "license": "README labels MIT; recheck standalone license before copying",
+      "activation": "pattern-reference-only",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "kimi-cli-hooks",
+      "kind": "agent-lifecycle-reference",
+      "upstream": "https://github.com/MoonshotAI/kimi-cli",
+      "role": [
+        "lifecycle-hooks",
+        "subagents",
+        "compaction-hooks",
+        "policy-seams"
+      ],
+      "decision": "absorb-reference",
+      "license": "Apache-2.0",
+      "activation": "pattern-reference-only",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "cline-agent-runtime",
+      "kind": "agent-harness-reference",
+      "upstream": "https://github.com/cline/cline",
+      "role": [
+        "checkpoints",
+        "worktrees",
+        "dependency-chains",
+        "headless-automation"
+      ],
+      "decision": "absorb-reference",
+      "license": "Apache-2.0",
+      "activation": "pattern-reference-only",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "mcpproxy-go",
+      "kind": "mcp-gateway-reference",
+      "upstream": "https://github.com/smart-mcp-proxy/mcpproxy-go",
+      "role": [
+        "deferred-tool-loading",
+        "quarantine",
+        "intent-routing",
+        "audit"
+      ],
+      "decision": "absorb-reference",
+      "license": "MIT",
+      "activation": "optional-external-gateway-when-justified",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "mattpocock-skills",
+      "kind": "engineering-skill-reference",
+      "upstream": "https://github.com/mattpocock/skills",
+      "role": [
+        "domain-modeling",
+        "decision-frontier",
+        "architecture",
+        "tracer-bullets",
+        "prototyping",
+        "merge-intent"
+      ],
+      "decision": "absorb-reference",
+      "license": "MIT",
+      "activation": "pattern-reference-only",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "android-skills",
+      "kind": "official-language-skills",
+      "upstream": "https://github.com/android/skills",
+      "role": [
+        "android",
+        "kotlin",
+        "agp-migration",
+        "perfetto",
+        "ui",
+        "intent-security"
+      ],
+      "decision": "invoke-reference",
+      "license": "Apache-2.0",
+      "activation": "installed-and-android-gap-matched",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "kotlin-agent-skills",
+      "kind": "official-language-skills",
+      "upstream": "https://github.com/Kotlin/kotlin-agent-skills",
+      "role": [
+        "kotlin",
+        "jvm",
+        "backend",
+        "tooling",
+        "migration"
+      ],
+      "decision": "invoke-reference",
+      "license": "Apache-2.0",
+      "activation": "installed-and-kotlin-gap-matched",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "angular-skills",
+      "kind": "official-framework-skills",
+      "upstream": "https://github.com/angular/skills",
+      "role": [
+        "angular",
+        "signals",
+        "ssr",
+        "accessibility",
+        "testing",
+        "architecture"
+      ],
+      "decision": "invoke-reference",
+      "license": "verify-current-before-use",
+      "activation": "installed-and-angular-gap-matched",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "dotnet-skills",
+      "kind": "official-language-skills",
+      "upstream": "https://github.com/dotnet/skills",
+      "role": [
+        "dotnet",
+        "diagnostics",
+        "msbuild",
+        "data",
+        "lsp",
+        "skill-value-evals"
+      ],
+      "decision": "invoke-reference",
+      "license": "verify-current-before-use",
+      "activation": "installed-and-dotnet-gap-matched",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "microsoft-skills",
+      "kind": "official-multilanguage-skills",
+      "upstream": "https://github.com/microsoft/skills",
+      "role": [
+        "python",
+        "dotnet",
+        "typescript",
+        "java",
+        "rust",
+        "azure",
+        "deep-wiki",
+        "skill-evals"
+      ],
+      "decision": "invoke-reference",
+      "license": "verify-current-before-use",
+      "activation": "installed-and-domain-language-matched",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "rewrite-rs-skills",
+      "kind": "language-skill-reference",
+      "upstream": "https://github.com/rewrite-rs/skills",
+      "role": [
+        "rust",
+        "porting",
+        "ownership",
+        "unsafe",
+        "differential-parity"
+      ],
+      "decision": "absorb-reference",
+      "license": "BSD-3-Clause",
+      "activation": "pattern-reference-or-installed-rust-matched",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "playwright-agent-tools",
+      "kind": "browser-skill-cli-mcp",
+      "upstream": "https://github.com/microsoft/playwright",
+      "role": [
+        "browser-qa",
+        "accessibility-tree",
+        "testing",
+        "trace",
+        "network",
+        "visual-validation"
+      ],
+      "decision": "invoke",
+      "license": "Apache-2.0",
+      "activation": "installed-and-browser-phase-matched",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "skills-lock",
+      "kind": "skill-supply-chain-reference",
+      "upstream": "https://github.com/luisalima/skills-lock",
+      "role": [
+        "skill-lockfile",
+        "commit-pinning",
+        "content-integrity",
+        "frozen-ci",
+        "safe-install"
+      ],
+      "decision": "absorb-reference",
+      "license": "MIT",
+      "activation": "pattern-reference-or-optional-tool",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "caldera",
+      "kind": "adversary-emulation-harness",
+      "upstream": "https://github.com/mitre/caldera",
+      "role": [
+        "authorized-adversary-emulation",
+        "purple-team",
+        "detection-validation",
+        "incident-response-exercises"
+      ],
+      "decision": "reference-invoke",
+      "license": "verify-current-apache-incubator-status",
+      "activation": "authorized-isolated-security-validation-only",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "sigmahq",
+      "kind": "detection-as-code-reference",
+      "upstream": "https://github.com/SigmaHQ/sigma-specification",
+      "role": [
+        "detection-engineering",
+        "siem",
+        "portable-rules",
+        "false-positive-contract"
+      ],
+      "decision": "reference",
+      "license": "verify-spec-and-rule-corpus-separately",
+      "activation": "detection-engineering-reference",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "owasp-agentic-redteam",
+      "kind": "security-taxonomy-reference",
+      "upstream": "https://genai.owasp.org/",
+      "role": [
+        "ai-red-team",
+        "agentic-security",
+        "purple-team",
+        "capability-taxonomy"
+      ],
+      "decision": "reference",
+      "license": "content-terms-apply",
+      "activation": "ai-agent-security-reference",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "openai-figma-skills",
+      "kind": "design-plugin-skills",
+      "upstream": "https://github.com/openai/plugins/tree/main/plugins/figma",
+      "role": [
+        "figma",
+        "design-system",
+        "design-to-code",
+        "code-to-design",
+        "deferred-design-tools"
+      ],
+      "decision": "invoke-reference",
+      "license": "Figma Developer Terms and per-skill licenses apply",
+      "activation": "connected-and-figma-task-matched",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "google-stitch-skills",
+      "kind": "design-skill-plugin-reference",
+      "upstream": "https://github.com/google-labs-code/stitch-skills",
+      "role": [
+        "design-system",
+        "design-md",
+        "code-to-design",
+        "design-generation"
+      ],
+      "decision": "reference-invoke",
+      "license": "verify-current-before-use",
+      "activation": "stitch-mcp-available-and-task-matched",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "skillguard-reference",
+      "kind": "skill-security-scanner-reference",
+      "upstream": "https://github.com/RudrenduPaul/skillguard",
+      "role": [
+        "skill-scan",
+        "cross-skill-privilege-chaining",
+        "prompt-injection",
+        "supply-chain"
+      ],
+      "decision": "reference",
+      "license": "Apache-2.0",
+      "activation": "optional-second-opinion-after-tool-review",
+      "verified_at": "2026-08-31"
+    },
+    {
+      "id": "anthropic-skills",
+      "kind": "skills-plugin-ecosystem",
+      "upstream": "https://github.com/anthropics/skills",
+      "role": [
+        "skill-patterns",
+        "frontend-design",
+        "host-specialists"
+      ],
+      "decision": "invoke-reference",
+      "license": "per-upstream",
+      "activation": "official-first-and-task-matched",
+      "verified_at": "2026-09-03"
+    },
+    {
+      "id": "openai-skills",
+      "kind": "skills",
+      "upstream": "https://github.com/openai/skills",
+      "role": [
+        "openai",
+        "codex",
+        "official-specialists"
+      ],
+      "decision": "invoke-reference",
+      "license": "per-upstream",
+      "activation": "official-first-and-task-matched",
+      "verified_at": "2026-09-03"
+    },
+    {
+      "id": "google-skills",
+      "kind": "skills",
+      "upstream": "https://github.com/google/skills",
+      "role": [
+        "google",
+        "gemini",
+        "cloud",
+        "official-specialists"
+      ],
+      "decision": "invoke-reference",
+      "license": "per-upstream",
+      "activation": "official-first-and-task-matched",
+      "verified_at": "2026-09-03"
+    },
+    {
+      "id": "aws-agent-toolkit",
+      "kind": "skill-plugin-mcp-ecosystem",
+      "upstream": "https://github.com/awslabs/agent-toolkit-for-aws",
+      "role": [
+        "aws",
+        "cloud",
+        "skill-routing",
+        "mcp"
+      ],
+      "decision": "invoke-reference",
+      "license": "Apache-2.0",
+      "activation": "aws-task-matched",
+      "verified_at": "2026-09-03"
+    },
+    {
+      "id": "supabase-agent-skills",
+      "kind": "skills",
+      "upstream": "https://github.com/supabase/agent-skills",
+      "role": [
+        "supabase",
+        "database",
+        "well-known-discovery"
+      ],
+      "decision": "invoke-reference",
+      "license": "MIT",
+      "activation": "supabase-task-matched",
+      "verified_at": "2026-09-03"
+    },
+    {
+      "id": "stripe-ai",
+      "kind": "skill-plugin-ecosystem",
+      "upstream": "https://github.com/stripe/ai",
+      "role": [
+        "payments",
+        "stripe",
+        "integration"
+      ],
+      "decision": "invoke-reference",
+      "license": "per-upstream",
+      "activation": "stripe-task-matched",
+      "verified_at": "2026-09-03"
+    },
+    {
+      "id": "cloudflare-skills",
+      "kind": "skills",
+      "upstream": "https://github.com/cloudflare/skills",
+      "role": [
+        "cloudflare",
+        "current-docs",
+        "platform"
+      ],
+      "decision": "invoke-reference",
+      "license": "per-upstream",
+      "activation": "cloudflare-task-matched",
+      "verified_at": "2026-09-03"
+    },
+    {
+      "id": "expo-skills",
+      "kind": "skills",
+      "upstream": "https://github.com/expo/skills",
+      "role": [
+        "expo",
+        "react-native",
+        "mobile",
+        "service-prerequisites"
+      ],
+      "decision": "invoke-reference",
+      "license": "MIT",
+      "activation": "expo-task-matched",
+      "verified_at": "2026-09-03"
+    },
+    {
+      "id": "impeccable",
+      "kind": "design-skills-reference",
+      "upstream": "https://github.com/pbakaus/impeccable",
+      "role": [
+        "design-direction",
+        "product-context",
+        "visual-qa"
+      ],
+      "decision": "reference",
+      "license": "per-upstream",
+      "activation": "design-task-matched",
+      "verified_at": "2026-09-03"
+    },
+    {
+      "id": "skills-sh",
+      "kind": "skill-discovery-index",
+      "upstream": "https://skills.sh",
+      "role": [
+        "skill-discovery",
+        "cross-agent-install"
+      ],
+      "decision": "discover-only",
+      "license": "service-and-upstream-dependent",
+      "activation": "candidate-discovery-only",
+      "verified_at": "2026-09-03"
+    },
+    {
+      "id": "vercel-web-interface-guidelines",
+      "kind": "web-guidelines",
+      "upstream": "https://github.com/vercel-labs/web-interface-guidelines",
+      "role": [
+        "ui-review",
+        "accessibility",
+        "forms",
+        "motion",
+        "performance"
+      ],
+      "decision": "invoke-reference",
+      "license": "per-upstream",
+      "activation": "web-ui-review-matched",
+      "verified_at": "2026-09-03"
+    }
+  ]
+}

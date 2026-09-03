@@ -1,0 +1,476 @@
+{
+  "schema_version": 2,
+  "release": "v1.0",
+  "policy": "host-native first; activate the smallest trusted task-matched capability set; no silent installs, credentials, production writes, or unknown stdio execution",
+  "servers": [
+    {
+      "id": "serena",
+      "upstream": "https://github.com/oraios/serena",
+      "role": [
+        "semantic-code",
+        "symbols",
+        "references",
+        "targeted-edits"
+      ],
+      "profiles": [
+        "core-code",
+        "engineering"
+      ],
+      "priority": 100,
+      "activation": "preferred-when-available",
+      "write_capable": true,
+      "external_data": false,
+      "install_policy": "official-quick-start-only",
+      "secrets": [],
+      "notes": "Use host-specific contexts and project-aware startup; semantic edits remain subject to diff/test verification.",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "context7",
+      "upstream": "https://github.com/upstash/context7",
+      "role": [
+        "current-library-docs",
+        "sdk-docs",
+        "framework-docs"
+      ],
+      "profiles": [
+        "core-code",
+        "engineering"
+      ],
+      "priority": 90,
+      "activation": "on-changing-external-api-need",
+      "write_capable": false,
+      "external_data": true,
+      "install_policy": "optional-local-or-remote",
+      "secrets": [
+        "optional Context7 API key"
+      ],
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "github",
+      "upstream": "https://github.com/github/github-mcp-server",
+      "role": [
+        "forge",
+        "issues",
+        "pull-requests",
+        "actions",
+        "code-security"
+      ],
+      "profiles": [
+        "forge"
+      ],
+      "priority": 92,
+      "activation": "when-github-is-actual-forge",
+      "write_capable": true,
+      "external_data": true,
+      "install_policy": "official-server-only",
+      "secrets": [
+        "OAuth or scoped GitHub token depending host/mode"
+      ],
+      "notes": "Prefer read-only/lockdown and least scopes for research; writes require action gate.",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "agent-browser",
+      "upstream": "https://github.com/vercel-labs/agent-browser",
+      "role": [
+        "fast-browser-automation",
+        "exploratory-qa",
+        "a11y",
+        "browser-skills"
+      ],
+      "profiles": [
+        "browser-fast",
+        "engineering"
+      ],
+      "priority": 88,
+      "activation": "optional-fast-browser-provider",
+      "write_capable": true,
+      "external_data": true,
+      "install_policy": "optional-local-current-version",
+      "secrets": [
+        "browser/auth state only when explicitly configured"
+      ],
+      "notes": "Default MCP tools profile core keeps context small; inspect current package because installation includes postinstall behavior.",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "playwright",
+      "upstream": "https://github.com/microsoft/playwright-mcp",
+      "role": [
+        "browser-automation",
+        "e2e",
+        "accessibility-tree",
+        "network-mocking"
+      ],
+      "profiles": [
+        "browser-e2e"
+      ],
+      "priority": 90,
+      "activation": "deterministic-e2e-or-stateful-browser",
+      "write_capable": true,
+      "external_data": true,
+      "install_policy": "optional-local",
+      "secrets": [],
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "chrome-devtools",
+      "upstream": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "role": [
+        "browser-debugging",
+        "console",
+        "network",
+        "performance-trace"
+      ],
+      "profiles": [
+        "browser-diagnostics"
+      ],
+      "priority": 90,
+      "activation": "deep-browser-diagnostics",
+      "write_capable": true,
+      "external_data": true,
+      "install_policy": "optional-local",
+      "secrets": [
+        "authenticated browser/session data if attached"
+      ],
+      "notes": "Use isolated profiles for untrusted work and redact sensitive headers where supported.",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "huggingface",
+      "upstream": "https://huggingface.co/docs/hub/agents-mcp",
+      "role": [
+        "models",
+        "datasets",
+        "papers",
+        "hub-docs",
+        "jobs",
+        "community-tools"
+      ],
+      "profiles": [
+        "ai-ml"
+      ],
+      "priority": 88,
+      "activation": "ai-ml-hub-workflows",
+      "write_capable": true,
+      "external_data": true,
+      "install_policy": "official-remote-mcp-or-host-integration",
+      "secrets": [
+        "Hugging Face authentication for gated/write workflows"
+      ],
+      "notes": "Community Spaces/tools are third-party executable capabilities; inspect license/trust before use.",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "mcp-toolbox-databases",
+      "upstream": "https://github.com/googleapis/mcp-toolbox",
+      "role": [
+        "database-schema",
+        "database-query",
+        "structured-db-tools",
+        "database-observability"
+      ],
+      "profiles": [
+        "database"
+      ],
+      "priority": 88,
+      "activation": "project-conditional-database",
+      "write_capable": true,
+      "external_data": true,
+      "install_policy": "official-server-project-config",
+      "secrets": [
+        "database-specific credentials via environment/identity"
+      ],
+      "notes": "Prefer read-only discovery and structured restricted tools; generic execute_sql writes are not default production behavior.",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "aws-agent-toolkit",
+      "upstream": "https://github.com/aws/agent-toolkit-for-aws",
+      "role": [
+        "aws-docs",
+        "aws-api",
+        "cloud-architecture",
+        "deployment",
+        "operations"
+      ],
+      "profiles": [
+        "cloud-aws"
+      ],
+      "priority": 90,
+      "activation": "aws-project-only",
+      "write_capable": true,
+      "external_data": true,
+      "install_policy": "official-agent-toolkit",
+      "secrets": [
+        "AWS identity/credentials for API actions"
+      ],
+      "notes": "Prefer agent-specific IAM controls/audit; pin proxy/tool versions for persistent configs and resolve current tool names.",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "azure-mcp",
+      "upstream": "https://github.com/microsoft/mcp",
+      "role": [
+        "azure-docs",
+        "azure-resources",
+        "cloud-architecture",
+        "deployment",
+        "operations"
+      ],
+      "profiles": [
+        "cloud-azure"
+      ],
+      "priority": 88,
+      "activation": "azure-project-only",
+      "write_capable": true,
+      "external_data": true,
+      "install_policy": "official-stable-server",
+      "secrets": [
+        "Microsoft Entra/Azure identity depending mode"
+      ],
+      "notes": "Prefer stable GA unless beta is explicitly required; enforce RBAC/least privilege.",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "sentry",
+      "upstream": "https://github.com/getsentry/sentry-mcp",
+      "role": [
+        "production-debugging",
+        "errors",
+        "traces",
+        "performance"
+      ],
+      "profiles": [
+        "prod-debug"
+      ],
+      "priority": 80,
+      "activation": "only-when-project-uses-sentry",
+      "write_capable": true,
+      "external_data": true,
+      "install_policy": "project-conditional",
+      "secrets": [
+        "Sentry authorization; some features may require model-provider credentials"
+      ],
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "docker-mcp-gateway",
+      "upstream": "https://github.com/docker/mcp-gateway",
+      "role": [
+        "mcp-isolation",
+        "server-lifecycle",
+        "secrets",
+        "profiles",
+        "tool-routing",
+        "trace"
+      ],
+      "profiles": [
+        "gateway"
+      ],
+      "priority": 75,
+      "activation": "multi-server-isolation-when-docker-acceptable",
+      "write_capable": true,
+      "external_data": false,
+      "install_policy": "environment-conditional",
+      "secrets": [],
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "exa",
+      "upstream": "https://github.com/exa-labs/exa-mcp-server",
+      "role": [
+        "semantic-web-search",
+        "research-discovery"
+      ],
+      "profiles": [
+        "research-web"
+      ],
+      "priority": 78,
+      "activation": "one-of-research-provider",
+      "write_capable": false,
+      "external_data": true,
+      "install_policy": "optional-keyed-provider",
+      "secrets": [
+        "Exa API key"
+      ],
+      "notes": "Use only if it materially outperforms native search for the query; verify current package metadata/version.",
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "tavily",
+      "upstream": "https://github.com/tavily-ai/tavily-mcp",
+      "role": [
+        "web-search",
+        "extract",
+        "map",
+        "crawl"
+      ],
+      "profiles": [
+        "research-web"
+      ],
+      "priority": 78,
+      "activation": "one-of-research-provider",
+      "write_capable": false,
+      "external_data": true,
+      "install_policy": "optional-keyed-provider",
+      "secrets": [
+        "Tavily API key or supported OAuth depending mode"
+      ],
+      "verified_at": "2026-08-21"
+    },
+    {
+      "id": "firecrawl",
+      "upstream": "https://github.com/mendableai/firecrawl-mcp-server",
+      "role": [
+        "web-search",
+        "scrape",
+        "crawl",
+        "js-heavy-extraction",
+        "browser-interaction"
+      ],
+      "profiles": [
+        "research-web"
+      ],
+      "priority": 78,
+      "activation": "one-of-research-provider",
+      "write_capable": true,
+      "external_data": true,
+      "install_policy": "optional-keyed-provider",
+      "secrets": [
+        "Firecrawl API key for hosted service"
+      ],
+      "notes": "Prefer read-only/search-only surfaces for research; never use crawling to bypass access controls/site policy.",
+      "verified_at": "2026-08-21"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "core-code",
+      "mode": "all",
+      "providers": [
+        "serena",
+        "context7"
+      ],
+      "notes": "Context7 only when changing external APIs/docs matter."
+    },
+    {
+      "id": "forge",
+      "mode": "all",
+      "providers": [
+        "github"
+      ]
+    },
+    {
+      "id": "browser-fast",
+      "mode": "all",
+      "providers": [
+        "agent-browser"
+      ]
+    },
+    {
+      "id": "browser-e2e",
+      "mode": "all",
+      "providers": [
+        "playwright"
+      ]
+    },
+    {
+      "id": "browser-diagnostics",
+      "mode": "all",
+      "providers": [
+        "chrome-devtools"
+      ]
+    },
+    {
+      "id": "ai-ml",
+      "mode": "all",
+      "providers": [
+        "huggingface"
+      ]
+    },
+    {
+      "id": "database",
+      "mode": "all",
+      "providers": [
+        "mcp-toolbox-databases"
+      ]
+    },
+    {
+      "id": "cloud-aws",
+      "mode": "all",
+      "providers": [
+        "aws-agent-toolkit"
+      ]
+    },
+    {
+      "id": "cloud-azure",
+      "mode": "all",
+      "providers": [
+        "azure-mcp"
+      ]
+    },
+    {
+      "id": "prod-debug",
+      "mode": "all",
+      "providers": [
+        "sentry"
+      ]
+    },
+    {
+      "id": "gateway",
+      "mode": "all",
+      "providers": [
+        "docker-mcp-gateway"
+      ]
+    },
+    {
+      "id": "research-web",
+      "mode": "one_of",
+      "providers": [
+        "exa",
+        "tavily",
+        "firecrawl"
+      ],
+      "notes": "Native web first; activate at most one unless independent comparison is justified."
+    },
+    {
+      "id": "engineering",
+      "mode": "all",
+      "providers": [
+        "serena",
+        "context7",
+        "agent-browser"
+      ],
+      "notes": "Switch agent-browser to Playwright/Chrome DevTools when deterministic e2e or deep diagnostics are the actual need."
+    }
+  ],
+  "validators": [
+    {
+      "id": "mcp-inspector",
+      "upstream": "https://github.com/modelcontextprotocol/inspector",
+      "role": "protocol/capability qualification in an isolated environment",
+      "external_data": false,
+      "executes_server": true,
+      "notes": "Unknown stdio servers must be source/config reviewed and sandboxed before Inspector launches them."
+    },
+    {
+      "id": "snyk-agent-scan",
+      "upstream": "https://github.com/snyk/agent-scan",
+      "role": "optional independent skill/MCP security scan",
+      "external_data": true,
+      "executes_server": true,
+      "notes": "MCP config scanning can execute configured stdio commands and may share component metadata with Snyk; use sandbox/consent."
+    },
+    {
+      "id": "skick-static-scan",
+      "upstream": "local:scripts/scan_skill_package.py",
+      "role": "deterministic local skill/plugin package preflight",
+      "external_data": false,
+      "executes_server": false,
+      "notes": "Heuristic findings require human/agent review; no network or external execution."
+    }
+  ]
+}

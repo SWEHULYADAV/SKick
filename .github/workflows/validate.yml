@@ -1,0 +1,48 @@
+name: Validate SKick
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Python syntax
+        run: python -m compileall -q scripts
+      - name: Static security scan
+        run: python scripts/scan_skill_package.py . --strict
+      - name: MCP catalog
+        run: python scripts/validate_mcp_catalog.py mcp/catalog.json
+      - name: Package structure
+        run: python scripts/validate_package.py .
+      - name: Release audit
+        run: python scripts/audit_release.py
+      - name: Eval suite load checks
+        run: |
+          python scripts/run_evals.py evals/evals.json --output /tmp/evals.json --list
+          python scripts/run_evals.py evals/trigger-evals.json --output /tmp/trigger-evals.json --list
+          python scripts/run_evals.py evals/portability-evals.json --output /tmp/portability-evals.json --list
+      - name: Distribution structure
+        run: |
+          python scripts/build_distributions.py . /tmp/skick-dist
+          python scripts/validate_distributions.py /tmp/skick-dist
+      - name: Installer dry-run smoke tests
+        run: |
+          mkdir -p /tmp/skick-project/.opencode /tmp/skick-browser/.bcode /tmp/skick-qwen/.qwen /tmp/skick-mimo/.mimocode
+          python scripts/install_skick.py --target opencode --scope project --project /tmp/skick-project --dry-run
+          python scripts/install_skick.py --target browsercode --scope project --project /tmp/skick-browser --dry-run
+          python scripts/install_skick.py --target qwen --scope project --project /tmp/skick-qwen --dry-run
+          python scripts/install_skick.py --target mimo --scope project --project /tmp/skick-mimo --dry-run
+          python scripts/install_skick.py --target agents --scope project --project /tmp/skick-project --dry-run
+      - name: Provenance
+        run: python scripts/verify_provenance.py .

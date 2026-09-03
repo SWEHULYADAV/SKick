@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/evidence-lock.schema.json",
+  "title": "SKick Evidence Lock Record",
+  "type": "object",
+  "required": ["schema_version", "id", "location", "accessed_at"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "id": {"type": "string"},
+    "location": {"type": "string"},
+    "accessed_at": {"type": "string"},
+    "owner": {"type": ["string", "null"]},
+    "version": {"type": ["string", "null"]},
+    "commit": {"type": ["string", "null"]},
+    "vintage": {"type": ["string", "null"]},
+    "etag": {"type": ["string", "null"]},
+    "sha256": {"type": ["string", "null"], "pattern": "^[0-9a-fA-F]{64}$"},
+    "license": {"type": ["string", "null"]},
+    "claim_ids": {"type": "array", "items": {"type": "string"}},
+    "derived_from": {"type": "array", "items": {"type": "string"}},
+    "notes": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/trace.schema.json",
+  "title": "SKick Trace Event",
+  "type": "object",
+  "required": ["schema_version", "trace_id", "operation", "status"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "trace_id": {"type": "string"},
+    "span_id": {"type": ["string", "null"]},
+    "parent_span_id": {"type": ["string", "null"]},
+    "task_id": {"type": ["string", "null"]},
+    "operation": {"type": "string"},
+    "status": {"enum": ["started", "ok", "error", "cancelled", "blocked"]},
+    "started_at": {"type": ["string", "null"]},
+    "finished_at": {"type": ["string", "null"]},
+    "tool": {"type": ["string", "null"]},
+    "source_handles": {"type": "array", "items": {"type": "string"}},
+    "artifact_handles": {"type": "array", "items": {"type": "string"}},
+    "retry_count": {"type": "integer", "minimum": 0},
+    "usage": {"type": "object"},
+    "error_class": {"type": ["string", "null"]},
+    "verification": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

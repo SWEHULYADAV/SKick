@@ -1,0 +1,1869 @@
+{
+  "schema_version": "1.0",
+  "package": {
+    "name": "skick",
+    "release": "v1.0",
+    "version": "1.0",
+    "entrypoint": "SKILL.md",
+    "bootstrap": "START_HERE.md",
+    "warnings": "docs/WARNINGS.md",
+    "ai_install_protocol": "docs/AI_INSTALL_PROTOCOL.md",
+    "generic_fallback": "adapters/generic/PROMPT.md"
+  },
+  "installer_policy": {
+    "inspect_before_execute": true,
+    "prefer_project_scope_when_unspecified": true,
+    "never_overwrite_existing_install_blindly": true,
+    "never_install_optional_dependencies_silently": true,
+    "never_copy_credentials_into_package_or_config": true,
+    "never_invent_unverified_runtime_paths_or_commands": true,
+    "verify_discovery_after_copy_or_upload": true,
+    "report_structural_vs_runtime_verification_separately": true
+  },
+  "platforms": {
+    "aider-desk": {
+      "aliases": [
+        "aider-desk",
+        "aiderdesk"
+      ],
+      "status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "kind": "agent_skill",
+      "surfaces": [
+        "AiderDesk"
+      ],
+      "preferred_install": "Use the AiderDesk Agent Skills path shown below only after confirming the installed release still supports it; otherwise use the shared .agents/skills path if documented or the generic fallback.",
+      "project_paths": [
+        ".aider-desk/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.aider-desk/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Verify the active runtime discovers SKick after installation.",
+        "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
+      ],
+      "adapter": "adapters/aider-desk/README.md",
+      "source": "https://auth0.github.io/auth0-cli/auth0_agent_skills_install.html"
+    },
+    "amazon-nova": {
+      "aliases": [
+        "amazon nova",
+        "nova model"
+      ],
+      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "kind": "model_provider_only",
+      "surfaces": [
+        "Amazon Nova"
+      ],
+      "preferred_install": "Do not install SKick on the model name. Install it in the actual host coding agent/harness; if no persistent host exists, use the generic prompt fallback for the session.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Confirm which agent/harness actually runs the model, then verify SKick in that host."
+      ],
+      "adapter": "adapters/model-provider/README.md",
+      "source": "https://agentskills.io/home"
+    },
+    "amp": {
+      "aliases": [
+        "amp",
+        "amp"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Amp"
+      ],
+      "preferred_install": "Use .agents/skills/skick for project scope. For user/machine scope use ~/.config/agents/skills/skick or another path explicitly documented by the active Amp release. Amp can also add Skills from supported sources through its native skill commands.",
+      "project_paths": [
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.config/agents/skills/skick/",
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Run Amp native Skill listing/discovery and confirm SKick is present.",
+        "Invoke a low-risk matching task and verify the complete Skill resources load."
+      ],
+      "adapter": "adapters/amp/README.md",
+      "source": "https://ampcode.com/docs/customize/skills",
+      "sources": [
+        "https://ampcode.com/docs/customize/skills"
+      ],
+      "availability": "Skill discovery is an Amp host capability; model/provider billing and account limits are separate from the Skill format.",
+      "availability_source": "https://ampcode.com/docs/customize/skills"
+    },
+    "antigravity": {
+      "aliases": [
+        "antigravity",
+        "google antigravity"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Antigravity visual agent/IDE"
+      ],
+      "preferred_install": "Use <workspace>/.agents/skills/skick for workspace scope or ~/.gemini/config/skills/skick for global scope. Do not use a fabricated plugin manifest.",
+      "project_paths": [
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.gemini/config/skills/skick/"
+      ],
+      "distribution": "shared-agent-skill.zip",
+      "verification": [
+        "Confirm SKick appears in the Antigravity skill inventory or is selected automatically for a matching low-risk prompt."
+      ],
+      "adapter": "adapters/antigravity/README.md",
+      "source": "https://antigravity.google/docs/skills/"
+    },
+    "antigravity-cli": {
+      "aliases": [
+        "antigravity cli",
+        "agy",
+        "google antigravity cli"
+      ],
+      "status": "VERIFIED_DISTINCT_RUNTIME",
+      "kind": "flat_skill_or_plugin",
+      "surfaces": [
+        "terminal TUI"
+      ],
+      "preferred_install": "Antigravity CLI uses workspace .agents/skills/ and global ~/.gemini/antigravity-cli/skills/ for CLI skills, but its documented local Skill examples are flat .md files. Use the adapter guidance and a deliberately flattened prompt for SKick unless the installed CLI version documents full directory-form Agent Skills; plugin packaging must follow the current Antigravity CLI plugin specification rather than guessed manifests.",
+      "project_paths": [
+        ".agents/skills/"
+      ],
+      "user_paths": [
+        "~/.gemini/antigravity-cli/skills/"
+      ],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Run /skills and confirm the installed/flattened SKick command is visible before relying on it."
+      ],
+      "adapter": "adapters/antigravity-cli/README.md",
+      "source": "https://antigravity.google/docs/cli/plugins/"
+    },
+    "augment": {
+      "aliases": [
+        "augment",
+        "augment"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Augment"
+      ],
+      "preferred_install": "Use .augment/skills/skick for Augment-specific project scope or .agents/skills/skick for a portable project install; Augment also discovers compatible Claude Skill roots. Use the corresponding documented user roots for personal scope.",
+      "project_paths": [
+        ".augment/skills/skick/",
+        ".agents/skills/skick/",
+        ".claude/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.augment/skills/skick/",
+        "~/.agents/skills/skick/",
+        "~/.claude/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Use Augment Skill discovery (/skills or the current equivalent) and confirm SKick is present.",
+        "Invoke SKick or a matching low-risk task and verify supporting files resolve."
+      ],
+      "adapter": "adapters/augment/README.md",
+      "source": "https://docs.augmentcode.com/cli/skills",
+      "sources": [
+        "https://docs.augmentcode.com/cli/skills"
+      ],
+      "availability": "Skill support is a host capability; Augment plan/usage limits and model-provider billing are separate from Skill discovery.",
+      "availability_source": "https://docs.augmentcode.com/cli/skills"
+    },
+    "baidu-ernie": {
+      "aliases": [
+        "ernie",
+        "baidu ernie"
+      ],
+      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "kind": "model_provider_only",
+      "surfaces": [
+        "Baidu ERNIE"
+      ],
+      "preferred_install": "Do not install SKick on the model name. Install it in the actual host coding agent/harness; if no persistent host exists, use the generic prompt fallback for the session.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Confirm which agent/harness actually runs the model, then verify SKick in that host."
+      ],
+      "adapter": "adapters/model-provider/README.md",
+      "source": "https://agentskills.io/home"
+    },
+    "browsercode": {
+      "aliases": [
+        "browsercode",
+        "browser code"
+      ],
+      "status": "VERIFIED_INHERITED_OPENCODE",
+      "kind": "browser_native_agent_skill",
+      "surfaces": [
+        "BrowserCode CLI/TUI",
+        "headless BrowserCode runs",
+        "browser-native coding-agent sessions"
+      ],
+      "preferred_install": "BrowserCode is a fork of OpenCode and its repository contains .opencode/skills/*/SKILL.md. Install SKick using the OpenCode-compatible skill roots, then verify discovery in the installed BrowserCode build.",
+      "project_paths": [
+        ".opencode/skills/skick/",
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.config/opencode/skills/skick/",
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "shared-agent-skill.zip",
+      "verification": [
+        "Start BrowserCode (`bcode`) and verify SKick is visible/usable as a skill.",
+        "Run a low-risk browser-aware task and confirm SKick instructions are loaded before claiming successful installation."
+      ],
+      "adapter": "adapters/browsercode/README.md",
+      "source": "https://github.com/browser-use/browsercode",
+      "sources": [
+        "https://github.com/browser-use/browsercode",
+        "https://opencode.ai/docs/skills"
+      ]
+    },
+    "bytedance-models": {
+      "aliases": [
+        "bytedance",
+        "doubao",
+        "seed",
+        "seed-code",
+        "seed coder"
+      ],
+      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "kind": "model_provider_only",
+      "surfaces": [
+        "ByteDance / Doubao / Seed models"
+      ],
+      "preferred_install": "Do not install SKick on the model name. Install it in Trae or the actual host coding agent; if no persistent host exists, use the generic prompt fallback for the session.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Confirm which agent/harness actually runs the model, then verify SKick in that host."
+      ],
+      "adapter": "adapters/model-provider/README.md",
+      "source": "https://agentskills.io/home"
+    },
+    "chatgpt": {
+      "aliases": [
+        "chatgpt",
+        "chatgpt web",
+        "chatgpt desktop",
+        "chatgpt mobile",
+        "openai chatgpt"
+      ],
+      "status": "VERIFIED",
+      "kind": "managed_upload",
+      "surfaces": [
+        "web",
+        "desktop",
+        "mobile/web-mobile"
+      ],
+      "preferred_install": "Upload canonical skill.zip through Plugins > Skills > Create > Upload from your computer.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "skill.zip",
+      "verification": [
+        "Confirm SKick appears in Skills as installed/enabled.",
+        "Run a low-risk prompt that clearly matches the SKick description."
+      ],
+      "adapter": "adapters/chatgpt/README.md",
+      "source": "https://help.openai.com/en/articles/20001066",
+      "availability": "Native custom Skill creation/upload is currently documented for eligible ChatGPT Business, Enterprise, Healthcare, and Edu workspaces, subject to workspace settings and product availability. Do not assume Plus/Pro/Free expose the same managed Skill UI.",
+      "availability_source": "https://help.openai.com/en/articles/20001066",
+      "limitations": [
+        "Managed ChatGPT Skill availability is plan/workspace/surface dependent.",
+        "Codex has separate Skill support and plan availability; do not infer Codex eligibility from the ChatGPT managed-Skill gate."
+      ]
+    },
+    "claude-app": {
+      "aliases": [
+        "claude web",
+        "claude app",
+        "claude desktop",
+        "claude.ai"
+      ],
+      "status": "VERIFIED",
+      "kind": "managed_upload",
+      "surfaces": [
+        "web",
+        "desktop/mobile app where custom Skills are available"
+      ],
+      "preferred_install": "Upload claude-web-skill.zip through Customize > Skills > + Create skill > Upload a skill. The archive contains a top-level skick folder with lowercase skill.md.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "claude-web-skill.zip",
+      "verification": [
+        "Confirm SKick is present/enabled in Claude Skills.",
+        "Invoke it on a low-risk research task."
+      ],
+      "adapter": "adapters/claude-app/README.md",
+      "source": "https://support.claude.com/en/articles/12512180-use-skills-in-claude",
+      "availability": "Custom Skills are currently documented for Claude Free, Pro, Max, Team, and Enterprise users. Code execution must be enabled; some creation/recording surfaces have narrower plan/device availability.",
+      "availability_source": "https://support.claude.com/en/articles/12512198-how-to-create-custom-skills",
+      "sources": [
+        "https://support.claude.com/en/articles/12512198-how-to-create-custom-skills",
+        "https://support.claude.com/en/articles/12512180-use-skills-in-claude"
+      ]
+    },
+    "claude-code": {
+      "aliases": [
+        "claude code",
+        "claude code cli",
+        "claude code vscode",
+        "claude code vs code",
+        "claude code jetbrains",
+        "claude code desktop"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill_or_plugin",
+      "surfaces": [
+        "CLI",
+        "VS Code",
+        "JetBrains",
+        "Claude Code Desktop/local sessions"
+      ],
+      "preferred_install": "Use .claude/skills/skick for project scope, ~/.claude/skills/skick for personal scope, or the generated Claude Code plugin for shared/plugin distribution.",
+      "project_paths": [
+        ".claude/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.claude/skills/skick/"
+      ],
+      "distribution": "claude-code-plugin.zip",
+      "verification": [
+        "Confirm the skill is visible/invocable in the active Claude Code session.",
+        "For plugin testing, use the runtime-supported local plugin load flow and reload plugins after changes."
+      ],
+      "adapter": "adapters/claude-code/README.md",
+      "source": "https://code.claude.com/docs/en/slash-commands"
+    },
+    "cline": {
+      "aliases": [
+        "cline",
+        "cline vscode",
+        "cline cli",
+        "cline agent"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "VS Code extension",
+        "Cline agent surfaces"
+      ],
+      "preferred_install": "Enable Skills in Cline when required, then install project-local at .cline/skills/skick or global at ~/.cline/skills/skick. Cline also supports explicit slash-command invocation for enabled skills.",
+      "project_paths": [
+        ".cline/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.cline/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Confirm SKick appears in the Cline Skills menu and is enabled.",
+        "Invoke `/skick` or a matching low-risk prompt and confirm use_skill loads it."
+      ],
+      "adapter": "adapters/cline/README.md",
+      "source": "https://docs.cline.bot/customization/skills",
+      "sources": [
+        "https://docs.cline.bot/customization/skills",
+        "https://github.com/cline/skills"
+      ]
+    },
+    "codex": {
+      "aliases": [
+        "codex",
+        "codex cli",
+        "codex app",
+        "codex ide",
+        "openai codex"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill_or_plugin",
+      "surfaces": [
+        "CLI",
+        "app",
+        "IDE extension"
+      ],
+      "preferred_install": "Prefer repository/user Agent Skill scope for a standalone SKick install; use codex-plugin.zip only for Codex plugin distribution.",
+      "project_paths": [
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "codex-plugin.zip",
+      "verification": [
+        "Confirm SKick appears in the Codex skill selector/list.",
+        "If a change is not detected, restart/reload Codex and re-check."
+      ],
+      "adapter": "adapters/codex/README.md",
+      "source": "https://developers.openai.com/codex/skills/",
+      "sources": [
+        "https://developers.openai.com/codex/skills/",
+        "https://help.openai.com/en/articles/11369540-codex-and-chatgpt-plan-usage-limits"
+      ],
+      "availability": "Codex is currently included across ChatGPT Free, Go, Plus, Pro, Business, Edu, and Enterprise plans; limits vary by plan. This is separate from native Skill upload availability in ChatGPT chat.",
+      "availability_source": "https://help.openai.com/en/articles/11369540-codex-and-chatgpt-plan-usage-limits"
+    },
+    "cohere": {
+      "aliases": [
+        "cohere",
+        "command r",
+        "command a"
+      ],
+      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "kind": "model_provider_only",
+      "surfaces": [
+        "Cohere"
+      ],
+      "preferred_install": "Do not install SKick on the model name. Install it in the actual host coding agent/harness; if no persistent host exists, use the generic prompt fallback for the session.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Confirm which agent/harness actually runs the model, then verify SKick in that host."
+      ],
+      "adapter": "adapters/model-provider/README.md",
+      "source": "https://agentskills.io/home"
+    },
+    "continue": {
+      "aliases": [
+        "continue",
+        "continue"
+      ],
+      "status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Continue"
+      ],
+      "preferred_install": "Use the Continue Agent Skills path shown below only after confirming the installed release still supports it; otherwise use the shared .agents/skills path if documented or the generic fallback.",
+      "project_paths": [
+        ".continue/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.continue/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Verify the active runtime discovers SKick after installation.",
+        "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
+      ],
+      "adapter": "adapters/continue/README.md",
+      "source": "https://auth0.github.io/auth0-cli/auth0_agent_skills_install.html"
+    },
+    "crush": {
+      "aliases": [
+        "crush",
+        "charmbracelet crush",
+        "crush cli"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "CLI/TUI coding agent"
+      ],
+      "preferred_install": "Prefer .crush/skills/skick or .agents/skills/skick for project scope; use current documented global Skill roots only for personal scope.",
+      "project_paths": [
+        ".crush/skills/skick/",
+        ".agents/skills/skick/",
+        ".claude/skills/skick/",
+        ".cursor/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.config/crush/skills/skick/",
+        "~/.agents/skills/skick/",
+        "~/.claude/skills/skick/"
+      ],
+      "distribution": "shared-agent-skill.zip",
+      "verification": [
+        "Confirm SKick appears in Crush native Skill discovery/invocation.",
+        "Run a low-risk explicit SKick trigger."
+      ],
+      "adapter": "adapters/crush/README.md",
+      "source": "https://github.com/charmbracelet/crush",
+      "sources": [
+        "https://github.com/charmbracelet/crush"
+      ],
+      "github_commands": [
+        "Fetch/inspect the repository, then copy the complete Skill to the selected verified Crush/shared project root."
+      ]
+    },
+    "cursor": {
+      "aliases": [
+        "cursor",
+        "cursor ide",
+        "cursor agent"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "desktop IDE",
+        "agent chat"
+      ],
+      "preferred_install": "Prefer .cursor/skills/skick for project scope and ~/.cursor/skills/skick for user scope; Cursor also documents the shared .agents/skills paths.",
+      "project_paths": [
+        ".cursor/skills/skick/",
+        ".agents/skills/skick/",
+        ".claude/skills/skick/",
+        ".codex/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.cursor/skills/skick/",
+        "~/.agents/skills/skick/",
+        "~/.claude/skills/skick/",
+        "~/.codex/skills/skick/"
+      ],
+      "distribution": "shared-agent-skill.zip",
+      "verification": [
+        "Open Cursor Customize > Skills or use Agent slash search and confirm SKick is discovered."
+      ],
+      "adapter": "adapters/cursor/README.md",
+      "source": "https://prod.cursor.com/docs/skills",
+      "github_commands": [
+        "Use Cursor Customize/Skills current GitHub import flow when available, otherwise copy the complete Skill to a verified project Skill root."
+      ]
+    },
+    "custom-cli": {
+      "aliases": [
+        "custom cli",
+        "custom agent",
+        "custom harness"
+      ],
+      "status": "GENERIC_CAPABILITY_BASED",
+      "kind": "generic",
+      "surfaces": [
+        "custom CLI/harness"
+      ],
+      "preferred_install": "If the host supports Agent Skills, map SKick to its verified skill root. Otherwise inject the generic prompt adapter and preserve canonical files as reference resources.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Document the host contract and test discovery before calling it supported."
+      ],
+      "adapter": "adapters/custom-cli/README.md",
+      "source": "https://agentskills.io/"
+    },
+    "deepcode": {
+      "aliases": [
+        "deep code",
+        "deepcode",
+        "deepseek deep code"
+      ],
+      "status": "VERIFIED_WITH_PROVIDER_WARNING",
+      "kind": "third_party_coding_agent_skill",
+      "surfaces": [
+        "Deep Code CLI",
+        "Deep Code VS Code extension"
+      ],
+      "preferred_install": "Use project .deepcode/skills/skick or the documented shared personal Agent Skill path. DeepSeek documentation identifies Deep Code as a third-party integration, so verify the installed Deep Code version before automation.",
+      "project_paths": [
+        ".deepcode/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "shared-agent-skill.zip",
+      "verification": [
+        "Confirm SKick is discovered by the actual Deep Code host; do not treat selecting a DeepSeek model as proof of Skill support."
+      ],
+      "adapter": "adapters/deepcode/README.md",
+      "source": "https://api-docs.deepseek.com/quick_start/agent_integrations/deepcode"
+    },
+    "deepseek": {
+      "aliases": [
+        "deepseek",
+        "deepseek web",
+        "deepseek api",
+        "deep code"
+      ],
+      "status": "HOST_RUNTIME_OR_FALLBACK",
+      "kind": "host_runtime",
+      "surfaces": [
+        "DeepSeek model/web/API",
+        "Deep Code or external coding hosts"
+      ],
+      "preferred_install": "For a DeepSeek model inside another coding agent, install SKick into that host. For Deep Code specifically, use the separate deepcode entry; do not invent a model-only DeepSeek Skill path.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Verify the actual host runtime, not merely the DeepSeek model selection."
+      ],
+      "adapter": "adapters/deepseek/README.md",
+      "source": "https://api-docs.deepseek.com/quick_start/agent_integrations/deepcode"
+    },
+    "devin": {
+      "aliases": [
+        "devin",
+        "devin"
+      ],
+      "status": "VERIFIED_REPO",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Devin"
+      ],
+      "preferred_install": "Commit the complete Skill at .agents/skills/skick in the repository. Devin also scans several compatible repository Skill roots, but .agents/skills is the recommended portable path.",
+      "project_paths": [
+        ".agents/skills/skick/",
+        ".github/skills/skick/",
+        ".claude/skills/skick/",
+        ".cursor/skills/skick/",
+        ".codex/skills/skick/",
+        ".cognition/skills/skick/",
+        ".windsurf/skills/skick/"
+      ],
+      "user_paths": [],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Confirm Devin discovers the repository Skill after indexing/cloning or a branch rescan.",
+        "Invoke with a matching request or @skills:skick and verify only the intended Skill is active."
+      ],
+      "adapter": "adapters/devin/README.md",
+      "source": "https://docs.devin.ai/product-guides/skills",
+      "sources": [
+        "https://docs.devin.ai/product-guides/skills"
+      ],
+      "limitations": [
+        "Current Devin Skills are repository-scoped; do not invent a global ~/.devin/skills route.",
+        "Devin currently activates one Skill at a time; a new Skill replaces the active Skill."
+      ]
+    },
+    "factory-droid": {
+      "aliases": [
+        "factory droid",
+        "droid",
+        "factory ai droid",
+        "factory agent"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "CLI/IDE engineering agent"
+      ],
+      "preferred_install": "Prefer .factory/skills/skick for project scope; Factory also documents compatible .agents/skills and .agent/skills roots.",
+      "project_paths": [
+        ".factory/skills/skick/",
+        ".agents/skills/skick/",
+        ".agent/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.factory/skills/skick/",
+        "~/.agents/skills/skick/",
+        "~/.agent/skills/skick/"
+      ],
+      "distribution": "shared-agent-skill.zip",
+      "verification": [
+        "Use the native Factory Skills manager/discovery and confirm SKick is visible.",
+        "Run a low-risk explicit SKick trigger in the active project."
+      ],
+      "adapter": "adapters/factory-droid/README.md",
+      "source": "https://docs.factory.ai/harness/skills",
+      "sources": [
+        "https://docs.factory.ai/harness/skills"
+      ],
+      "github_commands": [
+        "Fetch/inspect the repository, then copy the complete Skill to the selected verified Factory/shared project root."
+      ]
+    },
+    "future-agent": {
+      "aliases": [
+        "future agent",
+        "unknown agent",
+        "unknown runtime"
+      ],
+      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "kind": "generic",
+      "surfaces": [
+        "future/unknown runtimes"
+      ],
+      "preferred_install": "Detect capability: Agent Skill if explicitly supported, then Agent Plugin v1 if explicitly supported, otherwise a thin verified wrapper or generic prompt.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Never invent install semantics for a new runtime; verify first-party docs before adding an adapter."
+      ],
+      "adapter": "adapters/future-agent/README.md",
+      "source": "https://agentskills.io/"
+    },
+    "gemini-apps": {
+      "aliases": [
+        "gemini apps",
+        "gemini app",
+        "gemini web",
+        "gemini.google.com"
+      ],
+      "status": "VERIFIED",
+      "kind": "managed_upload",
+      "surfaces": [
+        "Gemini Apps web/app surfaces that expose Skills"
+      ],
+      "preferred_install": "Upload gemini-apps-skill.zip. This generated archive keeps SKILL.md at ZIP root and intentionally excludes PNG/binary assets because Gemini Apps Skills support plain-text skill files only.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "gemini-apps-skill.zip",
+      "verification": [
+        "Confirm the Skill is visible/enabled in the Gemini Skills UI and run a low-risk trigger test."
+      ],
+      "adapter": "adapters/gemini-apps/README.md",
+      "source": "https://support.google.com/gemini/answer/17094296",
+      "availability": "Gemini Apps Skills are currently limited to Gemini Spark. Requirements include age 18+, a personal Google Account, Keep Activity on, and a qualifying Google AI subscription; work/school accounts are not supported. Geographic and subscription rules vary and can change.",
+      "availability_source": "https://support.google.com/gemini/answer/17094296?hl=en",
+      "limitations": [
+        "Skills are a Gemini Spark feature, not a general Gemini chat feature.",
+        "Plain-text files are supported; binary/rich-media assets are excluded from the generated Gemini package.",
+        "Internet-dependent scripts are not supported in uploaded Skills."
+      ]
+    },
+    "gemini-cli": {
+      "aliases": [
+        "gemini cli",
+        "google gemini cli"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "CLI/TUI",
+        "terminal integrations"
+      ],
+      "preferred_install": "Prefer `gemini skills install <source> --scope workspace|user` or the documented .gemini/skills / .agents/skills discovery roots; use /skills reload after local changes when needed.",
+      "project_paths": [
+        ".agents/skills/skick/",
+        ".gemini/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.agents/skills/skick/",
+        "~/.gemini/skills/skick/"
+      ],
+      "distribution": "shared-agent-skill.zip",
+      "verification": [
+        "Use /skills list or gemini skills list --all.",
+        "Reload/refresh skills after changes and confirm SKick is enabled."
+      ],
+      "adapter": "adapters/gemini-cli/README.md",
+      "source": "https://geminicli.com/docs/cli/skills/",
+      "github_commands": [
+        "gemini skills install <GITHUB_REPO_URL> --scope workspace",
+        "/skills reload",
+        "/skills list"
+      ]
+    },
+    "github-copilot": {
+      "aliases": [
+        "github copilot",
+        "copilot cli",
+        "copilot vscode",
+        "copilot vs code",
+        "copilot jetbrains",
+        "copilot cloud agent",
+        "copilot app"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "GitHub cloud agent",
+        "code review",
+        "Copilot CLI",
+        "Copilot app",
+        "VS Code agent mode",
+        "JetBrains agent mode"
+      ],
+      "preferred_install": "Prefer project .github/skills/skick or .agents/skills/skick; use ~/.copilot/skills/skick or ~/.agents/skills/skick for personal scope. GitHub CLI 2.90+ can preview/install/update Skills with gh skill.",
+      "project_paths": [
+        ".github/skills/skick/",
+        ".agents/skills/skick/",
+        ".claude/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.copilot/skills/skick/",
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "shared-agent-skill.zip",
+      "verification": [
+        "Confirm SKick is discovered by the active Copilot surface.",
+        "For Copilot CLI, reload skills when needed and verify the discovered list."
+      ],
+      "adapter": "adapters/github-copilot/README.md",
+      "source": "https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills",
+      "sources": [
+        "https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills",
+        "https://github.blog/changelog/2026-04-16-manage-agent-skills-with-github-cli/"
+      ],
+      "github_commands": [
+        "gh skill preview SWEHULYADAV/SKick skick",
+        "gh skill install SWEHULYADAV/SKick skick",
+        "gh skill update skick"
+      ],
+      "availability": "Agent Skill availability varies by Copilot surface and plan. For example, Copilot code-review Skills are currently generally available to Copilot Pro, Pro+, Business, and Enterprise users; other Copilot agent surfaces have their own eligibility/limits.",
+      "availability_source": "https://github.blog/changelog/2026-07-29-copilot-code-review-agent-skills-and-mcp-now-generally-available/"
+    },
+    "glm": {
+      "aliases": [
+        "glm",
+        "z.ai glm",
+        "glm coding plan"
+      ],
+      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "kind": "host_runtime",
+      "surfaces": [
+        "GLM models/providers inside coding hosts"
+      ],
+      "preferred_install": "Install SKick for the actual host (Claude Code, OpenCode, Cursor, Cline, etc.) and configure GLM separately as the model/provider.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Verify the host Skill installation independently from model/provider configuration."
+      ],
+      "adapter": "adapters/glm/README.md",
+      "source": "https://docs.z.ai/devpack/quick-start"
+    },
+    "goose": {
+      "aliases": [
+        "goose",
+        "goose"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Goose"
+      ],
+      "preferred_install": "Use the open Agent Skills standard path: project .agents/skills/skick or user ~/.agents/skills/skick. Goose documents these as the recommended locations; legacy .goose/skills and compatible Claude roots are fallback compatibility only.",
+      "project_paths": [
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Run `goose skills list` or `/skills` and confirm SKick is listed.",
+        "Invoke a low-risk matching task and confirm SKick supporting files can be read."
+      ],
+      "adapter": "adapters/goose/README.md",
+      "source": "https://goose-docs.ai/docs/guides/context-engineering/using-skills/",
+      "sources": [
+        "https://goose-docs.ai/docs/guides/context-engineering/using-skills/"
+      ],
+      "limitations": [
+        "Legacy `.goose/skills/` and Claude-compatible locations are backward-compatibility paths; prefer `.agents/skills/` for new installs."
+      ],
+      "availability": "Goose Agent Skills are provided by the built-in Skills platform support; model/provider access and billing are separate."
+    },
+    "grok": {
+      "aliases": [
+        "grok",
+        "grok web",
+        "grok ios",
+        "grok android",
+        "grok build"
+      ],
+      "status": "VERIFIED_SPLIT_RUNTIME",
+      "kind": "managed_or_filesystem",
+      "surfaces": [
+        "Grok web/iOS/Android",
+        "Grok Build"
+      ],
+      "preferred_install": "Use Grok native Skills UI for consumer surfaces; for Grok Build use its documented skill/plugin paths. Do not assume ChatGPT-style ZIP compatibility for consumer Grok.",
+      "project_paths": [
+        ".grok/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.grok/skills/skick/"
+      ],
+      "distribution": null,
+      "verification": [
+        "Confirm the native Grok Skill or Grok Build filesystem/plugin entry is visible and invocable."
+      ],
+      "adapter": "adapters/grok/README.md",
+      "source": "https://docs.x.ai/build/features/skills-plugins-marketplaces"
+    },
+    "ibm-granite": {
+      "aliases": [
+        "granite",
+        "ibm granite"
+      ],
+      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "kind": "model_provider_only",
+      "surfaces": [
+        "IBM Granite"
+      ],
+      "preferred_install": "Do not install SKick on the model name. Install it in the actual host coding agent/harness; if no persistent host exists, use the generic prompt fallback for the session.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Confirm which agent/harness actually runs the model, then verify SKick in that host."
+      ],
+      "adapter": "adapters/model-provider/README.md",
+      "source": "https://agentskills.io/home"
+    },
+    "iflow-cli": {
+      "aliases": [
+        "iflow-cli",
+        "iflow cli"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "iFlow CLI"
+      ],
+      "preferred_install": "Use .iflow/skills/skick for project scope or ~/.iflow/skills/skick for personal scope, then refresh/list Skills in iFlow CLI.",
+      "project_paths": [
+        ".iflow/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.iflow/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Run `/skills refresh` (or the current equivalent) and confirm SKick is registered.",
+        "Invoke a low-risk matching task and verify supporting files resolve."
+      ],
+      "adapter": "adapters/iflow-cli/README.md",
+      "source": "https://platform.iflow.cn/en/cli/examples/skill",
+      "sources": [
+        "https://platform.iflow.cn/en/cli/examples/skill"
+      ],
+      "availability": "Skill support is an iFlow CLI host capability; account/model/provider availability is separate."
+    },
+    "junie": {
+      "aliases": [
+        "junie",
+        "jetbrains junie"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "JetBrains Junie"
+      ],
+      "preferred_install": "Use .junie/skills/skick for project scope or .agents/skills/skick for a portable project install. Use ~/.junie/skills/skick or ~/.agents/skills/skick for documented user scope.",
+      "project_paths": [
+        ".junie/skills/skick/",
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.junie/skills/skick/",
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Confirm SKick appears in Junie Skill discovery for the selected project/user scope.",
+        "Run a low-risk matching task or the current explicit Skill invocation flow."
+      ],
+      "adapter": "adapters/junie/README.md",
+      "source": "https://junie.jetbrains.com/docs/agent-skills.html",
+      "sources": [
+        "https://junie.jetbrains.com/docs/agent-skills.html"
+      ],
+      "availability": "Junie Skill support is documented in Junie surfaces; JetBrains AI entitlement/usage rules remain separate and may change.",
+      "availability_source": "https://junie.jetbrains.com/docs/agent-skills.html"
+    },
+    "kilo-code": {
+      "aliases": [
+        "kilo-code",
+        "kilo code"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Kilo Code"
+      ],
+      "preferred_install": "Use .kilo/skills/skick for project scope or ~/.kilo/skills/skick for user scope; shared .agents/skills is also supported where documented. Treat older .kilocode/skills references as legacy unless the installed release explicitly documents them.",
+      "project_paths": [
+        ".kilo/skills/skick/",
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.kilo/skills/skick/",
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Confirm SKick appears in Kilo Code Skill discovery for the selected scope.",
+        "Run a low-risk explicit/matching trigger and verify supporting files resolve."
+      ],
+      "adapter": "adapters/kilo-code/README.md",
+      "source": "https://kilo.ai/docs/customize/skills",
+      "sources": [
+        "https://kilo.ai/docs/customize/skills"
+      ],
+      "availability": "Skill discovery is a Kilo Code host capability; model/provider billing or Kilo plan limits remain separate from the Skill directory format.",
+      "availability_source": "https://kilo.ai/docs/customize/skills"
+    },
+    "kimi": {
+      "aliases": [
+        "kimi code",
+        "kimi code cli",
+        "kimi",
+        "moonshot kimi"
+      ],
+      "status": "VERIFIED_HOST_SPLIT",
+      "kind": "agent_skill_or_plugin",
+      "surfaces": [
+        "Kimi Code CLI",
+        "Kimi model/web fallback"
+      ],
+      "preferred_install": "For Kimi Code use .kimi-code/skills/skick or .agents/skills/skick for project scope; use ~/.kimi-code/skills/skick or ~/.agents/skills/skick for user scope (or the equivalent $KIMI_CODE_HOME/skills/skick when KIMI_CODE_HOME is explicitly configured).",
+      "project_paths": [
+        ".kimi-code/skills/skick/",
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.kimi-code/skills/skick/",
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "kimi-plugin.zip",
+      "verification": [
+        "Confirm Kimi Code discovers the skill from the selected tier and that project scope overrides lower scopes when intended."
+      ],
+      "adapter": "adapters/kimi/README.md",
+      "source": "https://moonshotai.github.io/kimi-code/en/customization/skills/",
+      "sources": [
+        "https://moonshotai.github.io/kimi-code/en/customization/skills/",
+        "https://github.com/MoonshotAI/kimi-code"
+      ],
+      "limitations": [
+        "Canonical explicit Kimi Code invocation is /skill:skick; plain /skick may depend on command-name collision/fallback behavior."
+      ]
+    },
+    "kiro-cli": {
+      "aliases": [
+        "kiro-cli",
+        "kiro cli"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Kiro CLI"
+      ],
+      "preferred_install": "Use .kiro/skills/skick for workspace scope or ~/.kiro/skills/skick for global scope. Skills work across current Kiro IDE/CLI/Web/Mobile surfaces with scope differences; GitHub import requires a Skill subdirectory or SKILL.md URL rather than an arbitrary repository root.",
+      "project_paths": [
+        ".kiro/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.kiro/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Verify the active runtime discovers SKick after installation.",
+        "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
+      ],
+      "adapter": "adapters/kiro-cli/README.md",
+      "source": "https://kiro.dev/docs/skills/",
+      "sources": [
+        "https://kiro.dev/docs/skills/"
+      ]
+    },
+    "longcat": {
+      "aliases": [
+        "longcat",
+        "longcat 2.0"
+      ],
+      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "kind": "host_runtime",
+      "surfaces": [
+        "LongCat models in agent harnesses",
+        "web fallback"
+      ],
+      "preferred_install": "Install SKick into the actual host harness; use generic fallback where no persistent Skill mechanism is verified.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Verify the actual host rather than inferring capabilities from the model name."
+      ],
+      "adapter": "adapters/longcat/README.md",
+      "source": "https://github.com/meituan-longcat/LongCat-2.0",
+      "sources": [
+        "https://github.com/meituan-longcat/LongCat-2.0",
+        "https://longcat.chat/platform/docs/OpenCode.html"
+      ]
+    },
+    "manus": {
+      "aliases": [
+        "manus",
+        "manus ai",
+        "manus skills"
+      ],
+      "status": "VERIFIED_MANAGED_IMPORT",
+      "kind": "managed_import",
+      "surfaces": [
+        "managed Manus Skill surfaces"
+      ],
+      "preferred_install": "Use Skills > + Add > Import from GitHub for a public SKick repository URL, or Upload a skill for the validated archive/folder. Do not assert a filesystem path.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "skill.zip",
+      "verification": [
+        "Confirm SKick is imported/enabled in the Manus Skills surface.",
+        "Run a low-risk trigger test and distinguish UI import success from external tool availability."
+      ],
+      "adapter": "adapters/manus/README.md",
+      "source": "https://help.manus.im/en/articles/14753565-how-to-share-and-use-skills-in-manus",
+      "sources": [
+        "https://help.manus.im/en/articles/14753565-how-to-share-and-use-skills-in-manus"
+      ],
+      "github_commands": [
+        "Open Skills > + Add > Import from GitHub.",
+        "Paste <GITHUB_REPO_URL>.",
+        "Confirm SKick is imported/enabled and run a low-risk trigger test."
+      ]
+    },
+    "mcpjam": {
+      "aliases": [
+        "mcpjam",
+        "mcpjam"
+      ],
+      "status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "kind": "agent_skill",
+      "surfaces": [
+        "MCPJam"
+      ],
+      "preferred_install": "Use the MCPJam Agent Skills path shown below only after confirming the installed release still supports it; otherwise use the shared .agents/skills path if documented or the generic fallback.",
+      "project_paths": [
+        ".mcpjam/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.mcpjam/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Verify the active runtime discovers SKick after installation.",
+        "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
+      ],
+      "adapter": "adapters/mcpjam/README.md",
+      "source": "https://auth0.github.io/auth0-cli/auth0_agent_skills_install.html"
+    },
+    "meta-llama": {
+      "aliases": [
+        "meta llama",
+        "llama",
+        "llama code"
+      ],
+      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "kind": "model_provider_only",
+      "surfaces": [
+        "Meta Llama"
+      ],
+      "preferred_install": "Do not install SKick on the model name. Install it in the actual host coding agent or custom harness; if no persistent host exists, use the generic prompt fallback for the session.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Confirm which agent/harness actually runs the model, then verify SKick in that host."
+      ],
+      "adapter": "adapters/model-provider/README.md",
+      "source": "https://agentskills.io/home"
+    },
+    "meta-muse": {
+      "aliases": [
+        "meta ai",
+        "muse",
+        "muse spark",
+        "meta muse"
+      ],
+      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "kind": "host_runtime",
+      "surfaces": [
+        "Meta AI web",
+        "Meta Model API",
+        "external hosts"
+      ],
+      "preferred_install": "Use generic prompt fallback on model-only surfaces; when Muse runs through a coding host, install SKick for that host.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Do not fabricate a Muse-specific manifest or path."
+      ],
+      "adapter": "adapters/meta-muse/README.md",
+      "source": "https://www.meta.ai/"
+    },
+    "mimo": {
+      "aliases": [
+        "mimocode",
+        "mimo code",
+        "xiaomi mimo",
+        "mimo"
+      ],
+      "status": "VERIFIED_HOST_SPLIT",
+      "kind": "agent_skill_or_host",
+      "surfaces": [
+        "MiMoCode",
+        "MiMo models in other hosts"
+      ],
+      "preferred_install": "For MiMoCode use its documented .mimocode skill path; for MiMo models in another agent install SKick in that host instead.",
+      "project_paths": [
+        ".mimocode/skills/skick/"
+      ],
+      "user_paths": [],
+      "distribution": null,
+      "verification": [
+        "Confirm the installed MiMoCode release discovers SKick; otherwise verify through the actual host runtime."
+      ],
+      "adapter": "adapters/mimo/README.md",
+      "source": "https://github.com/XiaomiMiMo/MiMo-Code",
+      "sources": [
+        "https://github.com/XiaomiMiMo/MiMo-Code"
+      ]
+    },
+    "minimax": {
+      "aliases": [
+        "minimax",
+        "minimax model"
+      ],
+      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "kind": "host_runtime",
+      "surfaces": [
+        "MiniMax models in host agents",
+        "web/model fallback"
+      ],
+      "preferred_install": "For MiniMax models inside another coding agent, install SKick into that actual host. MiniMax also has an evolving Code/Skills ecosystem; use a dedicated host route only after current first-party documentation establishes its exact discovery/install contract.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Verify the host runtime Skill installation; do not claim a MiniMax-specific path unless first-party docs establish one."
+      ],
+      "adapter": "adapters/minimax/README.md",
+      "source": "https://github.com/MiniMax-AI/skills",
+      "sources": [
+        "https://github.com/MiniMax-AI/skills"
+      ],
+      "limitations": [
+        "Do not invent .minimax/skills or another filesystem path solely from the provider/model name."
+      ]
+    },
+    "mistral": {
+      "aliases": [
+        "mistral vibe",
+        "vibe code",
+        "mistral vibe code",
+        "mistral vibe vscode",
+        "vibe work"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Vibe Code CLI",
+        "Vibe Code VS Code extension",
+        "Vibe Work web"
+      ],
+      "preferred_install": "For Vibe Code use .vibe/skills/skick or .agents/skills/skick project scope, ~/.vibe/skills/skick user scope, or configured skill_paths. Use the current Vibe Work UI for web/workspace Skills.",
+      "project_paths": [
+        ".vibe/skills/skick/",
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.vibe/skills/skick/"
+      ],
+      "distribution": "shared-agent-skill.zip",
+      "verification": [
+        "Confirm the skill is discovered in the CLI/VS Code slash picker or Work Skills UI."
+      ],
+      "adapter": "adapters/mistral/README.md",
+      "source": "https://docs.mistral.ai/vibe/code/cli/skills"
+    },
+    "mux": {
+      "aliases": [
+        "mux",
+        "mux"
+      ],
+      "status": "VERIFIED_PRODUCT_SOURCE",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Mux"
+      ],
+      "preferred_install": "Use .mux/skills/skick for project scope or ~/.mux/skills/skick for user scope. Mux source exposes Agent Skill list/read/write tools and uses .mux/skills in its own repository; verify the active release before unattended automation.",
+      "project_paths": [
+        ".mux/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.mux/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Use Mux Skill listing/read tooling and confirm SKick is visible.",
+        "Run a low-risk matching task and confirm supporting files resolve."
+      ],
+      "adapter": "adapters/mux/README.md",
+      "source": "https://github.com/coder/mux",
+      "sources": [
+        "https://github.com/coder/mux/blob/main/.mux/skills/tbench/SKILL.md",
+        "https://github.com/coder/mux/blob/main/docs/hooks/tools.mdx"
+      ],
+      "availability": "Mux Skill support is evidenced by the product source tree/tool surface; re-check the active Mux release before scripted global rollout.",
+      "limitations": [
+        "Treat source-level evidence as version-sensitive; verify the installed Mux build before unattended install/update automation."
+      ]
+    },
+    "neovate": {
+      "aliases": [
+        "neovate",
+        "neovate"
+      ],
+      "status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Neovate"
+      ],
+      "preferred_install": "Use the Neovate Agent Skills path shown below only after confirming the installed release still supports it; otherwise use the shared .agents/skills path if documented or the generic fallback.",
+      "project_paths": [
+        ".neovate/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.neovate/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Verify the active runtime discovers SKick after installation.",
+        "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
+      ],
+      "adapter": "adapters/neovate/README.md",
+      "source": "https://auth0.github.io/auth0-cli/auth0_agent_skills_install.html"
+    },
+    "openai-plugin": {
+      "aliases": [
+        "openai plugin",
+        "chatgpt plugin",
+        "codex plugin directory",
+        "openai plugins"
+      ],
+      "status": "VERIFIED",
+      "kind": "plugin",
+      "surfaces": [
+        "Codex plugin/workspace"
+      ],
+      "preferred_install": "Use the Codex plugin wrapper when you intentionally distribute SKick as a Codex plugin; otherwise prefer a plain Agent Skill.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "codex-plugin.zip",
+      "verification": [
+        "Confirm the plugin lists the SKick skill.",
+        "Verify any required apps separately; SKick itself does not grant app access."
+      ],
+      "adapter": "adapters/openai-plugin/README.md",
+      "source": "https://github.com/openai/plugins"
+    },
+    "opencode": {
+      "aliases": [
+        "opencode",
+        "open code"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "CLI/TUI",
+        "web",
+        "IDE integrations that use OpenCode runtime"
+      ],
+      "preferred_install": "Use .opencode/skills/skick or .agents/skills/skick for project scope; use a documented global path for personal scope.",
+      "project_paths": [
+        ".opencode/skills/skick/",
+        ".agents/skills/skick/",
+        ".claude/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.config/opencode/skills/skick/",
+        "~/.agents/skills/skick/",
+        "~/.claude/skills/skick/"
+      ],
+      "distribution": "shared-agent-skill.zip",
+      "verification": [
+        "Confirm SKick appears in the native skill tool/discovery list.",
+        "Check OpenCode skill permissions if it is hidden."
+      ],
+      "adapter": "adapters/opencode/README.md",
+      "source": "https://opencode.ai/docs/skills",
+      "sources": [
+        "https://opencode.ai/docs/skills"
+      ]
+    },
+    "openhands": {
+      "aliases": [
+        "openhands",
+        "openhands"
+      ],
+      "status": "VERIFIED_REPO",
+      "kind": "agent_skill",
+      "surfaces": [
+        "OpenHands"
+      ],
+      "preferred_install": "For repository-scoped OpenHands use .openhands/skills/skick or the shared .agents/skills/skick route supported by the active release; verify scope behavior before assuming organization/user-level persistence.",
+      "project_paths": [
+        ".openhands/skills/skick/",
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Verify the active runtime discovers SKick after installation.",
+        "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
+      ],
+      "adapter": "adapters/openhands/README.md",
+      "source": "https://www.openhands.dev/blog/20260227-creating-effective-agent-skills",
+      "sources": [
+        "https://www.openhands.dev/blog/20260227-creating-effective-agent-skills"
+      ],
+      "limitations": [
+        "Treat repository-level support as verified; re-check managed organization/user scope separately."
+      ]
+    },
+    "pi": {
+      "aliases": [
+        "pi",
+        "pi"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Pi"
+      ],
+      "preferred_install": "Use .pi/skills/skick or .agents/skills/skick for a trusted project. For user scope use ~/.pi/agent/skills/skick or ~/.agents/skills/skick. Project Skills must respect Pi trust boundaries.",
+      "project_paths": [
+        ".pi/skills/skick/",
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.pi/agent/skills/skick/",
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Confirm Pi discovers SKick in the selected scope.",
+        "Run a low-risk matching task and verify project trust allows Skill loading."
+      ],
+      "adapter": "adapters/pi/README.md",
+      "source": "https://pi.dev/docs/latest/skills",
+      "sources": [
+        "https://pi.dev/docs/latest/skills"
+      ],
+      "availability": "Skill support is a Pi host capability; provider/model billing and configured backend availability are separate.",
+      "availability_source": "https://pi.dev/docs/latest/skills",
+      "limitations": [
+        "Project Skills should load only from trusted projects/worktrees; do not bypass the host trust boundary."
+      ]
+    },
+    "qoder": {
+      "aliases": [
+        "qoder",
+        "qoder"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Qoder"
+      ],
+      "preferred_install": "Use .qoder/skills/skick for project scope or ~/.qoder/skills/skick for user scope. Qoder IDE/CLI can also install compatible Skills through its Skills UI/CLI; QoderWork uses a separate ~/.qoderwork/skills root.",
+      "project_paths": [
+        ".qoder/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.qoder/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Confirm SKick appears in Qoder Installed Skills or the CLI /skills list after reload/restart.",
+        "Invoke with /skick or a matching low-risk prompt and verify activation."
+      ],
+      "adapter": "adapters/qoder/README.md",
+      "source": "https://docs.qoder.com/extensions/skills",
+      "sources": [
+        "https://docs.qoder.com/extensions/skills",
+        "https://docs.qoder.com/qoderwork/skills"
+      ],
+      "limitations": [
+        "QoderWork is a distinct surface with ~/.qoderwork/skills; do not reuse Qoder IDE paths blindly."
+      ]
+    },
+    "qwen": {
+      "aliases": [
+        "qwen code",
+        "qwen code cli",
+        "qwen code vscode",
+        "qwen code jetbrains",
+        "qwen code zed",
+        "qwen"
+      ],
+      "status": "VERIFIED_HOST_SPLIT",
+      "kind": "agent_skill_or_plugin",
+      "surfaces": [
+        "Qwen Code CLI",
+        "Qwen Code editor integrations",
+        "Qwen model/web fallback"
+      ],
+      "preferred_install": "Use .qwen/skills/skick for project scope or ~/.qwen/skills/skick for personal scope; invoke explicitly with /skick when desired.",
+      "project_paths": [
+        ".qwen/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.qwen/skills/skick/"
+      ],
+      "distribution": "shared-agent-skill.zip",
+      "verification": [
+        "Use the Qwen Code skills UI/command and test automatic activation; debug with the current runtime if discovery fails."
+      ],
+      "adapter": "adapters/qwen/README.md",
+      "source": "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills",
+      "sources": [
+        "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/"
+      ]
+    },
+    "replit": {
+      "aliases": [
+        "replit",
+        "replit"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Replit"
+      ],
+      "preferred_install": "Install project Skills under .agents/skills/skick (Replit documentation displays /.agents/skills relative to the project root), through the Skills pane, or via a compatible skills CLI flow.",
+      "project_paths": [
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Verify the active runtime discovers SKick after installation.",
+        "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
+      ],
+      "adapter": "adapters/replit/README.md",
+      "source": "https://docs.replit.com/build/use-agent-skills",
+      "sources": [
+        "https://docs.replit.com/build/use-agent-skills",
+        "https://docs.replit.com/learn/agent-skills"
+      ]
+    },
+    "roo-code": {
+      "aliases": [
+        "roo",
+        "roo code",
+        "roo-code",
+        "roo vscode"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "VS Code extension",
+        "Roo modes"
+      ],
+      "preferred_install": "Use .roo/skills/skick for project scope or ~/.roo/skills/skick for global scope; .agents/skills is also supported for cross-agent sharing.",
+      "project_paths": [
+        ".roo/skills/skick/",
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.roo/skills/skick/",
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Ask Roo for a task matching SKick and confirm the skill loads.",
+        "If using mode-specific skills, keep SKick in the generic skills root unless a deliberate mode override is desired."
+      ],
+      "adapter": "adapters/roo-code/README.md",
+      "source": "https://roocodeinc.github.io/Roo-Code/features/skills/",
+      "sources": [
+        "https://roocodeinc.github.io/Roo-Code/features/skills/"
+      ]
+    },
+    "sarvam": {
+      "aliases": [
+        "sarvam",
+        "sarvam model"
+      ],
+      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "kind": "generic",
+      "surfaces": [
+        "model/provider surfaces"
+      ],
+      "preferred_install": "Use the actual host runtime adapter when known; otherwise use the generic prompt fallback.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Do not infer a native Skill contract from the model family name."
+      ],
+      "adapter": "adapters/sarvam/README.md",
+      "source": "https://www.sarvam.ai/"
+    },
+    "tencent-hunyuan": {
+      "aliases": [
+        "hunyuan",
+        "tencent hunyuan"
+      ],
+      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "kind": "model_provider_only",
+      "surfaces": [
+        "Tencent Hunyuan"
+      ],
+      "preferred_install": "Do not install SKick on the model name. Install it in the actual host coding agent/harness; if no persistent host exists, use the generic prompt fallback for the session.",
+      "project_paths": [],
+      "user_paths": [],
+      "distribution": "generic-prompt.md",
+      "verification": [
+        "Confirm which agent/harness actually runs the model, then verify SKick in that host."
+      ],
+      "adapter": "adapters/model-provider/README.md",
+      "source": "https://agentskills.io/home"
+    },
+    "trae": {
+      "aliases": [
+        "trae",
+        "trae ide",
+        "trae solo",
+        "trae code",
+        "bytedance trae",
+        "trae cn"
+      ],
+      "status": "VERIFIED_PRODUCT_ECOSYSTEM",
+      "kind": "agent_skill",
+      "surfaces": [
+        "TRAE IDE",
+        "TRAE SOLO",
+        "TRAE VS Code/plugin-style surfaces where Skills are exposed"
+      ],
+      "preferred_install": "Use .trae/skills/skick for project scope. For global scope use the product-specific global skill root documented by the installed TRAE edition (commonly ~/.trae/skills; TRAE CN may use ~/.trae-cn/skills). The Skills UI can also import external skills where available.",
+      "project_paths": [
+        ".trae/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.trae/skills/skick/",
+        "~/.trae-cn/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Refresh/reload TRAE skill discovery or use the Skills/Commands UI.",
+        "Invoke SKick by name or run a matching task and confirm the runtime loads the skill rather than only copying files."
+      ],
+      "adapter": "adapters/trae/README.md",
+      "source": "https://www.trae.ai/",
+      "sources": [
+        "https://www.trae.ai/",
+        "https://forum.trae.cn/t/topic/67755"
+      ]
+    },
+    "warp": {
+      "aliases": [
+        "warp",
+        "warp"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Warp"
+      ],
+      "preferred_install": "Use .agents/skills/skick or .warp/skills/skick for project scope and ~/.agents/skills/skick (or another currently documented Warp Skill root) for global scope.",
+      "project_paths": [
+        ".agents/skills/skick/",
+        ".warp/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Confirm the Skill appears in Warp Agent/Skills discovery and invoke it with /skick or a matching task.",
+        "For cloud/Oz runs, verify the selected environment actually contains the repository Skill."
+      ],
+      "adapter": "adapters/warp/README.md",
+      "source": "https://docs.warp.dev/knowledge-and-collaboration/warp-drive/ai-objects",
+      "sources": [
+        "https://docs.warp.dev/knowledge-and-collaboration/warp-drive/ai-objects",
+        "https://docs.warp.dev/changelog"
+      ]
+    },
+    "windsurf": {
+      "aliases": [
+        "windsurf",
+        "cascade",
+        "windsurf cascade"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Windsurf IDE",
+        "Cascade"
+      ],
+      "preferred_install": "Use .windsurf/skills/skick for workspace scope or ~/.codeium/windsurf/skills/skick for global scope. SKick can be auto-invoked by description or explicitly mentioned in Cascade.",
+      "project_paths": [
+        ".windsurf/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.codeium/windsurf/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Open Cascade Customizations > Skills and confirm SKick is listed.",
+        "Use @SKick or a matching prompt and confirm its instructions/resources load."
+      ],
+      "adapter": "adapters/windsurf/README.md",
+      "source": "https://docs.windsurf.com/windsurf/cascade/skills",
+      "sources": [
+        "https://docs.windsurf.com/windsurf/cascade/skills"
+      ]
+    },
+    "zcode": {
+      "aliases": [
+        "zcode",
+        "z.ai zcode",
+        "z code"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill_or_plugin",
+      "surfaces": [
+        "ZCode Agent",
+        "remote/SSH/WSL workspaces"
+      ],
+      "preferred_install": "Use ~/.zcode/skills/skick for user scope or ZCode Settings > Skills import/copy/symlink flows for supported external/project installs; use the generated plugin for distributable bundles when appropriate.",
+      "project_paths": [],
+      "user_paths": [
+        "~/.zcode/skills/skick/"
+      ],
+      "distribution": "zcode-plugin.zip",
+      "verification": [
+        "Open Settings > Skills, Refresh, and confirm SKick is enabled under the expected source.",
+        "For remote workspaces, verify the skill exists on the remote host or use the supported sync flow."
+      ],
+      "adapter": "adapters/zcode/README.md",
+      "source": "https://zcode-ai.github.io/zcode-docs/"
+    },
+    "zed": {
+      "aliases": [
+        "zed",
+        "zed"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Zed"
+      ],
+      "preferred_install": "Use .agents/skills/skick in a trusted worktree for project scope or ~/.agents/skills/skick for user scope. Keep the Skill directory as a direct child of the Skills root and verify Zed discovery after changes.",
+      "project_paths": [
+        ".agents/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Verify the active runtime discovers SKick after installation.",
+        "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
+      ],
+      "adapter": "adapters/zed/README.md",
+      "source": "https://zed.dev/docs/ai/skills",
+      "sources": [
+        "https://zed.dev/docs/ai/skills"
+      ],
+      "limitations": [
+        "Project Skills require a trusted worktree.",
+        "Keep Skill metadata lean; large catalogs can consume discovery budget."
+      ]
+    },
+    "zencoder": {
+      "aliases": [
+        "zencoder",
+        "zencoder / zenflow"
+      ],
+      "status": "VERIFIED",
+      "kind": "agent_skill",
+      "surfaces": [
+        "Zencoder / Zenflow"
+      ],
+      "preferred_install": "Prefer the current open-standard .agents/skills/skick project/user roots. Zencoder also reads .claude/skills; legacy .zencoder/skills remains deprecated compatibility only.",
+      "project_paths": [
+        ".agents/skills/skick/",
+        ".claude/skills/skick/"
+      ],
+      "user_paths": [
+        "~/.agents/skills/skick/"
+      ],
+      "distribution": "runtime-skill.zip",
+      "verification": [
+        "Confirm SKick is discovered in Zencoder/Zenflow for the selected workspace/user scope.",
+        "Use a matching task; current Zencoder documentation says manual Skill selection is not supported."
+      ],
+      "adapter": "adapters/zencoder/README.md",
+      "source": "https://docs.zencoder.ai/features/skills",
+      "sources": [
+        "https://docs.zencoder.ai/features/skills"
+      ],
+      "limitations": [
+        "Legacy .zencoder/skills is deprecated; prefer .agents/skills.",
+        "Do not promise manual Skill selection where the current surface only auto-selects."
+      ]
+    }
+  },
+  "runtime_families": {
+    "managed_skill_upload": {
+      "description": "Web/desktop/mobile products that expose a native Skill upload/import UI.",
+      "install_rule": "Use the product UI. Do not invent filesystem paths or automate account actions that are not exposed."
+    },
+    "native_agent_skill": {
+      "description": "Filesystem-capable agents that discover a skill directory containing SKILL.md.",
+      "install_rule": "Prefer the runtime-specific path from the platform adapter. Preserve the full SKick directory and verify discovery."
+    },
+    "shared_agent_skill": {
+      "description": "Agents that support the cross-client .agents/skills convention.",
+      "install_rule": "Use <project>/.agents/skills/skick or ~/.agents/skills/skick only when the host documents/scans the shared convention."
+    },
+    "instruction_only": {
+      "description": "Agents with persistent rules/instructions but no verified Agent Skills loader.",
+      "install_rule": "Use a runtime-specific instruction adapter or adapters/generic/PROMPT.md. Do not claim native progressive-loading skill behavior."
+    },
+    "model_provider_only": {
+      "description": "LLM/provider/API/web surfaces where the model is hosted inside another agent or has no verified skill importer.",
+      "install_rule": "Route installation to the actual host runtime. If no host exists, use the generic prompt fallback."
+    },
+    "custom_harness": {
+      "description": "User-built or future agents/harnesses.",
+      "install_rule": "Implement Agent Skills discovery/activation per agentskills.io or load SKILL.md through a safe file/tool/prompt bridge."
+    },
+    "browser_native_agent": {
+      "description": "Browser-first coding/research agents such as BrowserCode.",
+      "install_rule": "Use the host coding-agent skill discovery path plus SKick web/browser validation guidance; browser capability does not replace skill installation."
+    }
+  },
+  "fallback_chain": [
+    "Use an exact first-party-verified runtime adapter when available.",
+    "If the runtime supports Agent Skills but no dedicated adapter exists, prefer its documented skill directory; if it documents .agents/skills, use that shared path.",
+    "If only persistent rules/instructions are supported, use adapters/generic/PROMPT.md or a runtime-specific instruction adapter.",
+    "If the target is only an LLM/model/API provider, install SKick in the actual host agent/harness rather than on the model name.",
+    "For a new/custom harness, implement Agent Skills discovery and progressive activation from SKILL.md according to agentskills.io/client-implementation/adding-skills-support.",
+    "If none of the above can be verified, do not fabricate a path. Ask for the runtime or use a one-session prompt import."
+  ],
+  "last_reviewed": "2026-09-03",
+  "github_bootstrap": {
+    "prompt_file": "BOOTSTRAP_PROMPTS.md",
+    "protocol": "docs/GITHUB_BOOTSTRAP.md",
+    "source_rule": "Treat the GitHub repository as source transport; detect the actual host/runtime before installation.",
+    "prefer_project_scope": true,
+    "serena": {
+      "policy": "The universal bootstrap prompt explicitly authorizes Serena setup only from canonical oraios/serena when repository engineering needs it and the active host supports it.",
+      "fallback": "Use the strongest host-native semantic/LSP/indexed repository capability and report the fallback when material."
+    },
+    "verification": [
+      "Validate package structure before install when local execution is appropriate.",
+      "Confirm the active runtime discovers SKick.",
+      "Run a low-risk trigger smoke test.",
+      "Report Serena availability/setup separately from SKick discovery."
+    ]
+  }
+}

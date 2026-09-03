@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "release": "v1.0",
+  "note": "Balanced static trigger set; run repeatedly in each target runtime to measure actual trigger behavior.",
+  "cases": [
+    {
+      "id": "p01",
+      "should_trigger": true,
+      "prompt": "Deeply investigate why this dependency broke after the upgrade; inspect our repo, source, tests, issues and release history."
+    },
+    {
+      "id": "p02",
+      "should_trigger": true,
+      "prompt": "Research this technical claim exhaustively and build an evidence graph with versions and contradictions."
+    },
+    {
+      "id": "p03",
+      "should_trigger": true,
+      "prompt": "Compare these two frameworks using current primary sources and our actual project constraints."
+    },
+    {
+      "id": "p04",
+      "should_trigger": true,
+      "prompt": "Analyze this external Agent Skill repo, license/security-check it, and decide what to merge into our skill."
+    },
+    {
+      "id": "p05",
+      "should_trigger": true,
+      "prompt": "Is this CVE reachable in our codebase? Trace source to sink and verify the patched version."
+    },
+    {
+      "id": "p06",
+      "should_trigger": true,
+      "prompt": "Check PubMed, ClinicalTrials.gov, DailyMed and regulators before summarizing whether this treatment claim is supported."
+    },
+    {
+      "id": "p07",
+      "should_trigger": true,
+      "prompt": "Research the latest SEC filing, insider transactions and current market move for this company with timestamps."
+    },
+    {
+      "id": "p08",
+      "should_trigger": true,
+      "prompt": "Find the UK law in force on this historical date and verify case-law authority."
+    },
+    {
+      "id": "p09",
+      "should_trigger": true,
+      "prompt": "Turn this vague bug request into a deep reusable research prompt with version and test requirements."
+    },
+    {
+      "id": "p10",
+      "should_trigger": true,
+      "prompt": "Continue this long research task from its checkpoint, revalidate stale facts, and finish at evidence saturation."
+    },
+    {
+      "id": "n01",
+      "should_trigger": false,
+      "prompt": "Translate this sentence from English to Hindi."
+    },
+    {
+      "id": "n02",
+      "should_trigger": false,
+      "prompt": "Write a birthday poem for my friend."
+    },
+    {
+      "id": "n03",
+      "should_trigger": false,
+      "prompt": "What is 17 times 24?"
+    },
+    {
+      "id": "n04",
+      "should_trigger": false,
+      "prompt": "Make this email sound a little warmer."
+    },
+    {
+      "id": "n05",
+      "should_trigger": false,
+      "prompt": "Give me three dinner ideas using potatoes and peas."
+    },
+    {
+      "id": "n06",
+      "should_trigger": false,
+      "prompt": "Summarize the paragraph I pasted below; don't look anything up."
+    },
+    {
+      "id": "n07",
+      "should_trigger": false,
+      "prompt": "Create a simple ASCII cat."
+    },
+    {
+      "id": "n08",
+      "should_trigger": false,
+      "prompt": "Explain recursion to a 10-year-old; no research needed."
+    },
+    {
+      "id": "n09",
+      "should_trigger": false,
+      "prompt": "Rename this variable from foo to userCount in the one-line snippet."
+    },
+    {
+      "id": "n10",
+      "should_trigger": false,
+      "prompt": "Fix the grammar in this sentence only."
+    },
+    {
+      "id": "positive-universal-engineering",
+      "prompt": "Build this production tool end to end: research it, plan architecture/UI, code, test, review and package it.",
+      "should_trigger": true,
+      "class": "positive"
+    },
+    {
+      "id": "positive-mcp-engineering",
+      "prompt": "Figure out which MCPs and coding skills should handle this repo/debug/browser task, then execute it with evidence.",
+      "should_trigger": true,
+      "class": "positive"
+    },
+    {
+      "id": "negative-tiny-code-format",
+      "prompt": "Format this one-line JSON object with two-space indentation.",
+      "should_trigger": false,
+      "class": "negative"
+    },
+    {
+      "id": "negative-simple-definition",
+      "prompt": "What does HTTP stand for?",
+      "should_trigger": false,
+      "class": "negative"
+    },
+    {
+      "id": "p13",
+      "should_trigger": true,
+      "prompt": "Audit this coding-agent harness, its sandbox, context model, MCPs, retries and eval setup, then improve it."
+    },
+    {
+      "id": "p14",
+      "should_trigger": true,
+      "prompt": "Find and safely integrate the best Hugging Face skills and MCPs for this ML engineering workflow."
+    },
+    {
+      "id": "p15",
+      "should_trigger": true,
+      "prompt": "Map this huge repository under a token budget and trace a subtle cross-package regression."
+    },
+    {
+      "id": "n13",
+      "should_trigger": false,
+      "prompt": "What does MCP stand for?"
+    },
+    {
+      "id": "n14",
+      "should_trigger": false,
+      "prompt": "Write a two-line Python hello world."
+    },
+    {
+      "id": "n15",
+      "should_trigger": false,
+      "prompt": "Fix the spelling in this sentence."
+    },
+    {
+      "id": "p16",
+      "should_trigger": true,
+      "prompt": "Research and design a production React experience with Motion/GSAP/3D only where justified, then implement and visually validate it without AI-slop."
+    },
+    {
+      "id": "n16",
+      "should_trigger": false,
+      "prompt": "What CSS property changes text color?"
+    },
+    {
+      "id": "p17",
+      "should_trigger": true,
+      "prompt": "Research, plan and build this Python backend plus vanilla HTML CSS JS web tool with app.py as the root launcher, backend code under backend and frontend code under frontend; keep deeper structure need-based."
+    },
+    {
+      "id": "p18",
+      "should_trigger": true,
+      "prompt": "Research this system from both offensive and defensive angles, trace bypasses and failure mechanisms, then propose hardening and validation."
+    },
+    {
+      "id": "p19",
+      "should_trigger": true,
+      "prompt": "Build this Python vanilla web tool with only app.py in root as the launcher, backend code under backend and frontend code under frontend; choose any deeper structure only if needed."
+    },
+    {
+      "id": "explicit-skick-research",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Use SKick in deep research mode to verify this framework migration against current primary sources and our repository."
+    },
+    {
+      "id": "explicit-skick-build",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Use SKick in standard build mode to implement the approved feature and test it."
+    },
+    {
+      "id": "explicit-skick-install",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Install SKick from this ZIP for the current runtime and verify that it is discovered."
+    },
+    {
+      "id": "explicit-skick-maintain",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Use SKick to continue maintaining this SKick fork, update the adapters, run the release checks, and rebuild the package."
+    },
+    {
+      "id": "implicit-complex-debug",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Trace this cross-service regression through the repository, dependency versions, logs and tests, identify the mechanism, fix it, and prove the regression is covered."
+    },
+    {
+      "id": "implicit-security-audit",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Audit this exposed service for realistic abuse paths, defensive controls, bypasses, logging gaps and safe validation steps."
+    },
+    {
+      "id": "negative-small-refactor",
+      "should_trigger": false,
+      "class": "negative",
+      "prompt": "Change `x=1` to `x = 1` in this single line only."
+    },
+    {
+      "id": "negative-no-research-summary",
+      "should_trigger": false,
+      "class": "negative",
+      "prompt": "Summarize these three sentences only; do not research or inspect anything else."
+    },
+    {
+      "id": "explicit-name-overrides-small",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Use SKick for this tiny formatting task and tell me what you changed."
+    },
+    {
+      "id": "p-best-capability-broker",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Use the best installed skills, MCPs and native tools for each phase of this repository task; map the code, research current constraints, design the change, implement it and prove it works."
+    },
+    {
+      "id": "p-serena-architecture",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Inspect this large codebase semantically, trace callers and dependencies, understand the architecture and blast radius, then implement the feature with regression tests."
+    },
+    {
+      "id": "p-lateral-research",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Deeply research this obscure framework behavior. Follow docs, issues, changelogs, examples, tests, forums, old names and adjacent implementations; surface small clues and alternative explanations before deciding."
+    },
+    {
+      "id": "p-github-bootstrap",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Install/update SKick from this GitHub URL into the AI runtime I am actually using, verify discovery, and use Serena for repository engineering when supported."
+    },
+    {
+      "id": "p-language-framework-intelligence",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Use SKick to migrate this Kotlin/Android project across AGP and Navigation versions, inspect the real toolchain, use the right specialists, and verify the migration with current tooling."
+    },
+    {
+      "id": "p-ui-render-validation",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Use SKick to redesign and implement this responsive dashboard, preserve our design system, test loading/error/mobile/keyboard/reduced-motion states, and verify it in a real browser."
+    },
+    {
+      "id": "p-purple-team",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Use SKick for an authorized purple-team assessment: research the ATT&CK behavior, emulate it safely in our lab, verify telemetry/detection/response, close gaps, and retest."
+    },
+    {
+      "id": "p-skill-supply-chain",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Use SKick to audit these third-party Skills/plugins before we install them: inspect hooks/MCP/scripts, pin reviewed versions, check composition risk, and build a reproducible lock/update process."
+    },
+    {
+      "id": "p-engineering-wayfinding",
+      "should_trigger": true,
+      "class": "positive",
+      "prompt": "Use SKick to turn this ambiguous major feature into resolved product/architecture decisions and end-to-end tracer-bullet slices before implementation."
+    }
+  ]
+}

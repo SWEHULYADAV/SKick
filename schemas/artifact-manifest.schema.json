@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/artifact-manifest.schema.json",
+  "title": "SKick Artifact Manifest",
+  "type": "object",
+  "required": ["schema_version", "release", "generated_at", "artifacts"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "release": {"type": "string"},
+    "generated_at": {"type": "string"},
+    "builder": {"type": "object"},
+    "inputs": {"type": "array", "items": {"type": "object"}},
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "size"],
+        "properties": {
+          "path": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+          "size": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/task-state.schema.json",
+  "title": "SKick Task State",
+  "type": "object",
+  "required": ["schema_version", "task_id", "goal", "status", "attempt"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "task_id": {"type": "string", "minLength": 1},
+    "parent_id": {"type": ["string", "null"]},
+    "goal": {"type": "string", "minLength": 1},
+    "status": {"enum": ["pending", "ready", "running", "blocked", "completed", "failed", "cancelled"]},
+    "dependencies": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "attempt": {"type": "integer", "minimum": 0},
+    "input_anchors": {"type": "array", "items": {"type": "string"}},
+    "output_artifacts": {"type": "array", "items": {"type": "string"}},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "budget_allocated": {"type": "object"},
+    "budget_used": {"type": "object"},
+    "created_at": {"type": ["string", "null"]},
+    "updated_at": {"type": ["string", "null"]},
+    "resume_cursor": {},
+    "blocker": {"type": ["string", "null"]},
+    "error": {"type": ["string", "null"]},
+    "idempotency_key": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,46 @@
+name: Bug report
+about: Report a SKick installation, activation, documentation, or behavior issue
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Runtime / host
+      options:
+        - ChatGPT
+        - Codex
+        - Claude Code / Claude
+        - Gemini CLI / Gemini Apps
+        - Cursor
+        - GitHub Copilot
+        - OpenCode
+        - BrowserCode
+        - Qwen Code
+        - Kimi Code
+        - MiMoCode
+        - Cline
+        - Roo Code
+        - Windsurf
+        - TRAE
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Runtime version
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification / logs (remove secrets)

@@ -1,0 +1,12 @@
+interface:
+  display_name: SKick
+  short_description: Research, build, secure, verify, and ship engineering work
+  icon_small: assets/icon.png
+  icon_large: assets/icon.png
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

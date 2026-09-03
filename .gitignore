@@ -1,0 +1,44 @@
+# Build and release outputs
+/dist/
+/release-artifacts/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node / JS
+node_modules/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/*.log
+.idea/
+
+# Runtime/log output
+*.log
+# Local release/transfer artifacts (publish via GitHub Releases, not source)
+*.zip
+*.tar.gz
+*.patch
+*.diff
+
+# Test/tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editor swap/backup files
+*.swp
+*.swo
+*~
+
