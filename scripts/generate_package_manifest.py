@@ -41,14 +41,15 @@ def main() -> int:
     root = args.root.resolve()
     target = root / MANIFEST
     expected = render(root)
+    expected_bytes = expected.encode('utf-8')
     if args.check:
-        if not target.is_file() or target.read_text(encoding='utf-8') != expected:
+        if not target.is_file() or target.read_bytes() != expected_bytes:
             print('package manifest is stale')
             return 1
         print(f'package manifest in sync ({len(canonical_paths(root))} files)')
         return 0
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(expected, encoding='utf-8')
+    target.write_bytes(expected_bytes)
     print(f'generated {MANIFEST} ({len(canonical_paths(root))} files)')
     return 0
 

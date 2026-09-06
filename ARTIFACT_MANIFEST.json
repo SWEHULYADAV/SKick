@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "release": "1.1",
-  "generated_at": "2026-09-06T06:01:18.137856Z",
+  "generated_at": "2026-09-06T06:20:43.576279Z",
   "builder": {
     "tool": "scripts/build_provenance.py",
     "python": "3.14.6",
@@ -1416,8 +1416,8 @@
     },
     {
       "path": "scripts/generate_package_manifest.py",
-      "sha256": "9984b252233c8ac4831824227fdcaa83ede13ace0a3255736434e92b4e8efa7f",
-      "size": 1729
+      "sha256": "1da9a74a600b8e8ce476080d0fa201af9a010ede3e41db9754a3a2648351708b",
+      "size": 1755
     },
     {
       "path": "scripts/generate_platform_catalog.py",
@@ -1541,8 +1541,8 @@
     },
     {
       "path": "tests/package-manifest.txt",
-      "sha256": "b67ef4012b3e23a026dd21c0857496028c045c8fc83e4dc5bf28680fa7717519",
-      "size": 10272
+      "sha256": "d2e01613d7c09a7ea455d51715fa20037d96bce1591a0ae97b6bedc04bc99900",
+      "size": 9934
     },
     {
       "path": "tests/research-prompts.md",
@@ -1626,8 +1626,8 @@
     },
     {
       "path": "tests/test_release_gates.py",
-      "sha256": "a3776abee7f599cb30056f7f20a3d0ef1476d751d27df51efb4343409aa2740b",
-      "size": 6876
+      "sha256": "f9f8593be02f50d6eb6e86d39bc7c61265bb73eaec8debc1a1fc335c36b67da1",
+      "size": 7594
     },
     {
       "path": "tests/test_research_intelligence.py",

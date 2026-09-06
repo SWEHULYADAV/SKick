@@ -74,6 +74,21 @@ class ReleaseTruthOutputTests(unittest.TestCase):
         result = subprocess.run([sys.executable, str(script), '--check'], cwd=ROOT, text=True, capture_output=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
+    def test_package_manifest_check_rejects_crlf_bytes(self):
+        script = ROOT / 'scripts' / 'generate_package_manifest.py'
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / 'tests').mkdir()
+            (root / 'a.txt').write_bytes(b'x')
+            (root / 'tests' / 'package-manifest.txt').write_bytes(b'a.txt\r\n')
+            result = subprocess.run(
+                [sys.executable, str(script), '--root', str(root), '--check'],
+                text=True,
+                capture_output=True,
+            )
+            self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+            self.assertIn('package manifest is stale', result.stdout)
+
     def test_package_manifest_order_is_platform_independent(self):
         import runpy
 
