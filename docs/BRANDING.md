@@ -1,6 +1,6 @@
 # SKick Branding and PNG Icons
 
-SKick v1.0 uses PNG assets so the same branding can be reused in Skill metadata, repositories and browser tabs.
+SKick v1.1 uses PNG assets so the same branding can be reused in Skill metadata, repositories and browser tabs.
 
 ## Included assets
 

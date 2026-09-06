@@ -356,7 +356,7 @@ Never copy a catalog wholesale into the canonical core.
 
 ### oraios/serena recheck
 - URL: https://github.com/oraios/serena
-- Decision: preserve Serena as the preferred semantic code-intelligence provider and strengthen it into a Serena-first repository gate. Use canonical/current setup only; handle `--project-from-cwd` marker failure with explicit project activation/fallback rather than assuming CWD is activated.
+- Historical v1 decision: Serena was preferred as the semantic code-intelligence provider. **vNext supersedes that global preference**: Serena remains a reviewed optional provider, selected only when observed capability fit and policy beat available native index/LSP/symbol alternatives. Canonical/current setup and explicit activation/fallback guidance still apply when Serena is actually selected.
 
 
 

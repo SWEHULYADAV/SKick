@@ -1,0 +1,2000 @@
+{
+  "schema_version": 1,
+  "generated_by": "scripts/generate_module_catalog.py",
+  "modules": [
+    {
+      "id": "action-firewall",
+      "path": "core/action-firewall.md",
+      "title": "Action Firewall",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 968,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "action-safety-transactions",
+      "path": "core/action-safety-transactions.md",
+      "title": "Action Safety, Approval, and Transactions",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 445,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "agent-protocol-intelligence",
+      "path": "core/agent-protocol-intelligence.md",
+      "title": "Agent Protocol Intelligence",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 504,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "biomedical-and-health-research",
+      "path": "core/biomedical-and-health-research.md",
+      "title": "Biomedical and Health Research",
+      "priority": 60,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bbiomedical\\b",
+        "\\bclinical\\b",
+        "\\bhealth\\b",
+        "\\bmedical\\b"
+      ],
+      "domains": [
+        "health"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 459,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "capability-and-skill-routing",
+      "path": "core/capability-and-skill-routing.md",
+      "title": "Capability and Skill Routing",
+      "priority": 90,
+      "mandatory": false,
+      "always_for_activated": true,
+      "modes": [],
+      "depths": [
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [
+        "capabilities",
+        "routing"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1542,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "code-integration",
+      "path": "core/code-integration.md",
+      "title": "Code Integration and Implementation",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 955,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "context-management",
+      "path": "core/context-management.md",
+      "title": "Context Management",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 729,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "coverage-and-lateral-search",
+      "path": "core/coverage-and-lateral-search.md",
+      "title": "Coverage, Lateral Search and Lateral Thinking",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1809,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "decision-analysis",
+      "path": "core/decision-analysis.md",
+      "title": "Decision Analysis Under Uncertainty",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 492,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "deferred-capability-loading",
+      "path": "core/deferred-capability-loading.md",
+      "title": "Deferred Capability Loading",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 661,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "design-and-motion-orchestration",
+      "path": "core/design-and-motion-orchestration.md",
+      "title": "Design, Motion and 3D Orchestration",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 2043,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "domain-and-codebase-design",
+      "path": "core/domain-and-codebase-design.md",
+      "title": "Domain and Codebase Design",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 868,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "empirical-research-methodology",
+      "path": "core/empirical-research-methodology.md",
+      "title": "Empirical Research Methodology",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 624,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "engineering-feedback-loops",
+      "path": "core/engineering-feedback-loops.md",
+      "title": "Engineering Feedback Loops",
+      "priority": 95,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [
+        "debug",
+        "build"
+      ],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bdebug\\b",
+        "\\bfail(?:ing|ure)?\\b",
+        "\\bregression\\b",
+        "\\bintermittent\\b",
+        "\\bfix\\b",
+        "\\bpatch\\b"
+      ],
+      "domains": [
+        "debugging",
+        "testing"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 922,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "engineering-learning-loop",
+      "path": "core/engineering-learning-loop.md",
+      "title": "Engineering Learning Loop",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 684,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "engineering-lifecycle",
+      "path": "core/engineering-lifecycle.md",
+      "title": "Universal Engineering Lifecycle",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1510,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "engineering-wayfinding-and-slicing",
+      "path": "core/engineering-wayfinding-and-slicing.md",
+      "title": "Engineering Wayfinding and Slicing",
+      "priority": 68,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bambiguous\\b",
+        "\\btracer[- ]bullet\\b",
+        "\\bmigration\\b",
+        "\\bmajor feature\\b"
+      ],
+      "domains": [
+        "planning"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1066,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "evaluation-harness-integration",
+      "path": "core/evaluation-harness-integration.md",
+      "title": "Evaluation Harness Integration",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 692,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "evidence-graph",
+      "path": "core/evidence-graph.md",
+      "title": "Evidence Graph",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 740,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "evidence-lineage",
+      "path": "core/evidence-lineage.md",
+      "title": "Evidence Lineage and Independence",
+      "priority": 68,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bsource lineage\\b",
+        "\\bprovenance\\b",
+        "\\bcorroborat",
+        "\\bdeep(?:ly)? research\\b"
+      ],
+      "domains": [
+        "evidence",
+        "research"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 322,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "evidence-verification",
+      "path": "core/evidence-verification.md",
+      "title": "Evidence Verification",
+      "priority": 100,
+      "mandatory": true,
+      "always_for_activated": true,
+      "modes": [],
+      "depths": [
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [
+        "evidence",
+        "verification"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1216,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "execution-ledger",
+      "path": "core/execution-ledger.md",
+      "title": "Durable Execution Ledger",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 463,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "experiment-optimization-loop",
+      "path": "core/experiment-optimization-loop.md",
+      "title": "Experiment Optimization Loop",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 684,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "external-skill-intelligence",
+      "path": "core/external-skill-intelligence.md",
+      "title": "External Skill and Plugin Intelligence",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1904,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "financial-and-economic-research",
+      "path": "core/financial-and-economic-research.md",
+      "title": "Financial and Economic Research",
+      "priority": 60,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bfinance\\b",
+        "\\beconomic",
+        "\\bmarket\\b",
+        "\\bvaluation\\b"
+      ],
+      "domains": [
+        "finance"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 524,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "formal-verification-and-fuzzing",
+      "path": "core/formal-verification-and-fuzzing.md",
+      "title": "Formal, Property, Fuzz, and Differential Verification",
+      "priority": 55,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bfuzz\\b",
+        "\\bproperty[- ]based\\b",
+        "\\bformal verification\\b",
+        "\\bdifferential test"
+      ],
+      "domains": [
+        "verification",
+        "testing"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 517,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "harness-and-runtime-intelligence",
+      "path": "core/harness-and-runtime-intelligence.md",
+      "title": "Harness and Runtime Intelligence",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 636,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "implementation-discipline",
+      "path": "core/implementation-discipline.md",
+      "title": "Implementation Discipline",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 622,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "language-and-framework-intelligence",
+      "path": "core/language-and-framework-intelligence.md",
+      "title": "Language and Framework Intelligence",
+      "priority": 70,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bnext\\.?js\\b",
+        "\\breact\\b",
+        "\\bpython\\b",
+        "\\bdjango\\b",
+        "\\brails\\b",
+        "\\brust\\b",
+        "\\bjava\\b",
+        "\\btypescript\\b",
+        "\\bframework\\b",
+        "\\btoolchain\\b",
+        "\\bmigrat"
+      ],
+      "domains": [
+        "repository",
+        "toolchain"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1842,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "legal-policy-and-patent-research",
+      "path": "core/legal-policy-and-patent-research.md",
+      "title": "Legal, Policy, and Patent Research",
+      "priority": 60,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\blegal\\b",
+        "\\bpatent\\b",
+        "\\bstatute\\b",
+        "\\bregulation\\b"
+      ],
+      "domains": [
+        "legal"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 466,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "long-horizon-research",
+      "path": "core/long-horizon-research.md",
+      "title": "Long-Horizon Research",
+      "priority": 55,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\blong[- ]horizon\\b",
+        "\\bmulti[- ]day\\b",
+        "\\bcheckpoint\\b"
+      ],
+      "domains": [
+        "long_horizon"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1400,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "mcp-stack",
+      "path": "core/mcp-stack.md",
+      "title": "MCP Capability Stack",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 811,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "mcp-validation-and-security",
+      "path": "core/mcp-validation-and-security.md",
+      "title": "MCP Validation and Security",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1032,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "mechanism-first-reasoning",
+      "path": "core/mechanism-first-reasoning.md",
+      "title": "Mechanism-First Dual-Lens Reasoning",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 676,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "memory-governance",
+      "path": "core/memory-governance.md",
+      "title": "Memory Governance",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1030,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "ml-ai-system-evaluation",
+      "path": "core/ml-ai-system-evaluation.md",
+      "title": "ML and AI System Evaluation",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 408,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "multi-agent-orchestration",
+      "path": "core/multi-agent-orchestration.md",
+      "title": "Multi-Agent Orchestration",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 850,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "multimodal-evidence",
+      "path": "core/multimodal-evidence.md",
+      "title": "Multimodal Evidence",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 380,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "network-resilience",
+      "path": "core/network-resilience.md",
+      "title": "Network and Source Resilience",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 335,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "observability-and-tracing",
+      "path": "core/observability-and-tracing.md",
+      "title": "Observability and Tracing",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 568,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "offensive-defensive",
+      "path": "core/offensive-defensive.md",
+      "title": "Offensive + Defensive Dual-Lens for Engineering Research",
+      "priority": 82,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bvulnerabil",
+        "\\bsecurity\\b",
+        "\\babuse\\b",
+        "\\bbypass\\b",
+        "\\bexploit\\b"
+      ],
+      "domains": [
+        "security"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1567,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "output-protocol",
+      "path": "core/output-protocol.md",
+      "title": "Output Protocol",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 714,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "output-quality-gate",
+      "path": "core/output-quality-gate.md",
+      "title": "Output Quality Gate",
+      "priority": 75,
+      "mandatory": false,
+      "always_for_activated": true,
+      "modes": [],
+      "depths": [
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [
+        "reporting",
+        "verification"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 487,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "performance-and-reliability",
+      "path": "core/performance-and-reliability.md",
+      "title": "Performance and Reliability Research",
+      "priority": 70,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bperformance\\b",
+        "\\blatency\\b",
+        "\\breliability\\b",
+        "\\brace\\b",
+        "\\boutage\\b"
+      ],
+      "domains": [
+        "performance",
+        "reliability"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 396,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "project-planning-and-structure",
+      "path": "core/project-planning-and-structure.md",
+      "title": "Research-First Project Planning and Structure",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1260,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "prompt-enhancement",
+      "path": "core/prompt-enhancement.md",
+      "title": "Prompt Enhancement",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1506,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "purple-team-research-and-validation",
+      "path": "core/purple-team-research-and-validation.md",
+      "title": "Purple-Team Research and Validation",
+      "priority": 75,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bpurple[- ]team\\b",
+        "\\bemulat",
+        "\\bdetection\\b.*\\bresponse\\b"
+      ],
+      "domains": [
+        "security",
+        "validation"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1653,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "python-vanilla-web-stack",
+      "path": "core/python-vanilla-web-stack.md",
+      "title": "Optional Python + Vanilla Web Starter Profile",
+      "priority": 35,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bgreenfield\\b.*\\bweb\\b",
+        "\\bnew web (?:app|tool|site)\\b"
+      ],
+      "domains": [
+        "starter_profile",
+        "web"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": "starter_profiles.greenfield_web.enabled",
+      "estimated_context_tokens": 1948,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "query-mutation",
+      "path": "core/query-mutation.md",
+      "title": "Query Mutation Engine",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1040,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "repository-context-map",
+      "path": "core/repository-context-map.md",
+      "title": "Repository Context Map",
+      "priority": 80,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bmap (?:this|the) (?:repo|repository|codebase)\\b",
+        "\\blarge (?:repo|repository|codebase)\\b",
+        "\\bmonorepo\\b"
+      ],
+      "domains": [
+        "repository",
+        "architecture"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 369,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "repository-research",
+      "path": "core/repository-research.md",
+      "title": "Repository and Code Intelligence Research",
+      "priority": 95,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\brepo(?:sitory)?\\b",
+        "\\bcodebase\\b",
+        "\\bcallers?\\b",
+        "\\breferences?\\b",
+        "\\bsymbols?\\b"
+      ],
+      "domains": [
+        "repository"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 943,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "research-checkpoint",
+      "path": "core/research-checkpoint.md",
+      "title": "Research Checkpoint and Resume",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 868,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "research-core",
+      "path": "core/research-core.md",
+      "title": "Research Core",
+      "priority": 80,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [
+        "research"
+      ],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bresearch\\b",
+        "\\bcurrent\\b",
+        "\\blatest\\b"
+      ],
+      "domains": [
+        "research"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1896,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "research-evidence-lifecycle",
+      "path": "core/research-evidence-lifecycle.md",
+      "title": "Research Evidence Lifecycle",
+      "priority": 70,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bdeep(?:ly)? research\\b",
+        "\\bcontradiction\\b",
+        "\\bcounterevidence\\b",
+        "\\bfrontier\\b"
+      ],
+      "domains": [
+        "research",
+        "evidence"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1291,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "research-frontier",
+      "path": "core/research-frontier.md",
+      "title": "Research Frontier and Unknown-Unknown Scan",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 660,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "research-source-router",
+      "path": "core/research-source-router.md",
+      "title": "Research Source Router",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 3196,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "resource-budgeting",
+      "path": "core/resource-budgeting.md",
+      "title": "Resource Budgeting",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 427,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "reverse-engineering-and-undocumented-behavior",
+      "path": "core/reverse-engineering-and-undocumented-behavior.md",
+      "title": "Reverse Engineering and Undocumented Behavior",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 375,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "runtime-and-capabilities",
+      "path": "core/runtime-and-capabilities.md",
+      "title": "Runtime and Capability Abstraction",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1199,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "security-research",
+      "path": "core/security-research.md",
+      "title": "Security Research",
+      "priority": 95,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [
+        "security"
+      ],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bsecurity\\b",
+        "\\bvulnerabil",
+        "\\bauth(?:entication|orization)?\\b",
+        "\\bexploit\\b"
+      ],
+      "domains": [
+        "security"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1691,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "semantic-intent-resolution",
+      "path": "core/semantic-intent-resolution.md",
+      "title": "Multilingual Semantic Intent Resolution",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1263,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "serena-integration",
+      "path": "core/serena-integration.md",
+      "title": "Serena Integration \u2014 Semantic Repository Provider Profile",
+      "priority": 65,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\brepo(?:sitory)?\\b",
+        "\\bsymbols?\\b",
+        "\\breferences?\\b"
+      ],
+      "domains": [
+        "repository",
+        "semantic_search"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": {
+        "capability": "semantic_code_search",
+        "provider_pattern": "(?i)^serena$"
+      },
+      "project_policy": null,
+      "estimated_context_tokens": 1433,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "skill-authoring-and-evals",
+      "path": "core/skill-authoring-and-evals.md",
+      "title": "Skill Authoring and Evaluation",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1396,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "skill-supply-chain-and-lifecycle",
+      "path": "core/skill-supply-chain-and-lifecycle.md",
+      "title": "Skill Supply Chain and Lifecycle",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1284,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "source-strategy",
+      "path": "core/source-strategy.md",
+      "title": "Source Strategy",
+      "priority": 72,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bresearch\\b",
+        "\\bprimary source\\b",
+        "\\bcurrent\\b",
+        "\\blatest\\b"
+      ],
+      "domains": [
+        "research",
+        "evidence"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1518,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "specialist-skill-orchestration",
+      "path": "core/specialist-skill-orchestration.md",
+      "title": "Specialist Skill and Plugin Orchestration",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1116,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "structured-data-quality",
+      "path": "core/structured-data-quality.md",
+      "title": "Structured Data Quality and Normalization",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 454,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "system-design-and-architecture",
+      "path": "core/system-design-and-architecture.md",
+      "title": "System Design and Architecture Gate",
+      "priority": 80,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [
+        "design"
+      ],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\barchitecture\\b",
+        "\\bmajor redesign\\b",
+        "\\bsystem design\\b"
+      ],
+      "domains": [
+        "architecture"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1040,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "token-efficiency",
+      "path": "core/token-efficiency.md",
+      "title": "Token and Context Efficiency",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 834,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "ui-system-and-render-intelligence",
+      "path": "core/ui-system-and-render-intelligence.md",
+      "title": "UI System and Render Intelligence",
+      "priority": 72,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bui\\b",
+        "\\bux\\b",
+        "\\bdesign system\\b",
+        "\\bresponsive\\b"
+      ],
+      "domains": [
+        "ui",
+        "design"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1779,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "untrusted-content-boundary",
+      "path": "core/untrusted-content-boundary.md",
+      "title": "Untrusted Content Boundary",
+      "priority": 100,
+      "mandatory": true,
+      "always_for_activated": true,
+      "modes": [],
+      "depths": [
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [
+        "trust",
+        "security"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 425,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "verified-review-and-simplification",
+      "path": "core/verified-review-and-simplification.md",
+      "title": "Verified Review and Simplification",
+      "priority": 85,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\breview\\b",
+        "\\bverify\\b",
+        "\\bregression\\b",
+        "\\bpatch\\b",
+        "\\bfix\\b"
+      ],
+      "domains": [
+        "review",
+        "verification"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 654,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "webapp-validation",
+      "path": "core/webapp-validation.md",
+      "title": "Web Application Validation",
+      "priority": 72,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\bbrowser\\b",
+        "\\bweb app\\b",
+        "\\bresponsive\\b",
+        "\\be2e\\b"
+      ],
+      "domains": [
+        "web",
+        "testing"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 862,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "cinematic-scroll",
+      "path": "extensions/cinematic-scroll.md",
+      "title": "Cinematic Scroll Extension",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 849,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "frontend-design",
+      "path": "extensions/frontend-design.md",
+      "title": "Frontend Design Extension",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1185,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "motion-interaction-design",
+      "path": "extensions/motion-interaction-design.md",
+      "title": "Motion and Interaction Design Extension",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 1000,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "visual-design-qa",
+      "path": "extensions/visual-design-qa.md",
+      "title": "Visual Design QA and Anti-Slop Gate",
+      "priority": 20,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [],
+      "domains": [],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 937,
+      "estimate_method": "utf8_bytes_div_4"
+    },
+    {
+      "id": "web3d-experience-design",
+      "path": "extensions/web3d-experience-design.md",
+      "title": "Web 3D and Spatial Experience Extension",
+      "priority": 35,
+      "mandatory": false,
+      "always_for_activated": false,
+      "modes": [],
+      "depths": [
+        "quick",
+        "standard",
+        "deep",
+        "exhaustive"
+      ],
+      "task_patterns": [
+        "\\b3d\\b",
+        "\\bwebgl\\b",
+        "\\bthree\\.?js\\b"
+      ],
+      "domains": [
+        "3d",
+        "ui"
+      ],
+      "required_capabilities": [],
+      "optional_capabilities": [],
+      "required_provider": null,
+      "project_policy": null,
+      "estimated_context_tokens": 666,
+      "estimate_method": "utf8_bytes_div_4"
+    }
+  ]
+}

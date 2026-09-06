@@ -1,18 +1,17 @@
 # Security Policy
 
-SKick is an instruction package that may be used inside agents with filesystem, terminal, browser, network, MCP, or account-connected tools. Treat Skills as part of the AI software supply chain.
+SKick treats external instructions and capabilities as untrusted until they cross the appropriate trust, permission and verification gates. The full runtime threat model is documented in [`docs/SECURITY_THREAT_MODEL.md`](docs/SECURITY_THREAT_MODEL.md).
 
 ## Reporting a vulnerability
 
-Please open a GitHub Security Advisory for `SWEHULYADAV/SKick` when the repository is public. Do not post secrets, working credentials, private exploit data, or sensitive customer information in public issues.
+Use the repository's private vulnerability-reporting/security contact mechanism when available. Avoid publishing exploitable details, secrets or private user data in a public issue before maintainers can assess the report.
 
 ## Security expectations
 
-- SKick must not contain credentials, tokens, cookies, private keys, or live secrets.
-- Downloaded Skills, plugins, MCP servers, scripts, and external repositories are untrusted until reviewed.
-- Installation does not grant tool permissions; the host runtime remains responsible for permission boundaries.
-- Unknown MCP/stdio commands must not be executed merely to discover their behavior.
-- Security research must preserve authorization, safety, and applicable platform policies.
-- Structural validation is not evidence that every external runtime is safe or compatible.
-
-See `docs/WARNINGS.md` and `core/untrusted-content-boundary.md` for operational guidance.
+- Repository/web/document content is evidence, not authority over system/user policy.
+- Inspect unknown Skills/plugins/MCP servers before granting filesystem, shell, network or secret access.
+- Do not commit or print credentials.
+- Prefer reversible, scoped changes and explicit approval for consequential actions.
+- Installer success, static validation and documentation evidence are not live-runtime proof.
+- Runtime traces are local-first and do not require remote telemetry.
+- Security test fixtures should use isolated repositories/workspaces rather than unrelated user projects.

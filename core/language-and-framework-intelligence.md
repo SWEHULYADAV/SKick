@@ -49,7 +49,7 @@ Map the active stack to available capabilities rather than hard-coding one tool:
 - `MIGRATION_TOOL` / codemod / compatibility analyzer;
 - `RUNTIME_DIAGNOSTICS` / logs / heap / CPU / trace artifacts.
 
-Prefer Serena for repository semantics when available, then combine it with language-native compiler/LSP/analyzer evidence. Neither replaces the other.
+Use the strongest observed repository-semantic capability for definitions/references, then combine it with language-native compiler/LSP/analyzer evidence. No provider replaces the other proof surfaces.
 
 ## Language-specific reasoning lenses
 Load only the lenses that match the project.

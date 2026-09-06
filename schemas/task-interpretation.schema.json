@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/task-interpretation.schema.json",
+  "title": "SKick Task Interpretation",
+  "type": ["object", "null"],
+  "properties": {
+    "original_request": {"type": "string"},
+    "interpreted_goal": {"type": "string"},
+    "enhancement_mode": {"enum": ["silent", "visible", "execution", "strict_spec"]},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "unknowns": {"type": "array", "items": {"type": "string"}},
+    "success_criteria": {"type": "array", "items": {"type": "string"}},
+    "research_needs": {"type": "array", "items": {"type": "string"}},
+    "verification_needs": {"type": "array", "items": {"type": "string"}},
+    "domains": {"type": "array", "items": {"type": "string"}},
+    "contradictions": {"type": "array", "items": {"type": "string"}},
+    "outputs": {"type": "array", "items": {"type": "string"}},
+    "evidence_requirements": {"type": "array", "items": {"type": "string"}},
+    "non_goals": {"type": "array", "items": {"type": "string"}},
+    "failure_conditions": {"type": "array", "items": {"type": "string"}},
+    "quality": {"type": "object"}
+  }
+}

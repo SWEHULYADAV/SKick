@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "depths": [
+    "quick",
+    "standard",
+    "deep",
+    "exhaustive"
+  ],
+  "thresholds": {
+    "standard": 2,
+    "deep": 5,
+    "exhaustive": 9
+  },
+  "features": [
+    {
+      "id": "repository_scope",
+      "weight": 2,
+      "patterns": [
+        "\\brepo(?:sitory)?\\b",
+        "\\bcodebase\\b",
+        "\\bproject\\b"
+      ]
+    },
+    {
+      "id": "debug_failure",
+      "weight": 1,
+      "patterns": [
+        "\\bdebug\\b",
+        "\\bfailing\\b",
+        "\\bfailure\\b",
+        "\\bregression\\b",
+        "\\bintermittent\\b"
+      ]
+    },
+    {
+      "id": "security_impact",
+      "weight": 2,
+      "patterns": [
+        "\\bvulnerabil",
+        "\\bsecurity\\b",
+        "\\bauth(?:entication|orization)?\\b",
+        "\\bexploit"
+      ]
+    },
+    {
+      "id": "production_impact",
+      "weight": 2,
+      "patterns": [
+        "\\bproduction\\b",
+        "\\bprod\\b",
+        "\\bincident\\b",
+        "\\boutage\\b"
+      ]
+    },
+    {
+      "id": "exploitability_assessment",
+      "weight": 2,
+      "patterns": [
+        "\\bexploitable\\b",
+        "\\battack surface\\b",
+        "\\bbypass(?:es)?\\b"
+      ]
+    },
+    {
+      "id": "current_information",
+      "weight": 1,
+      "patterns": [
+        "\\bcurrent\\b",
+        "\\blatest\\b",
+        "\\btoday\\b",
+        "\\brecent\\b"
+      ]
+    },
+    {
+      "id": "multi_system",
+      "weight": 2,
+      "patterns": [
+        "\\bcross[- ]service\\b",
+        "\\bapi and worker\\b",
+        "\\bmultiple systems\\b",
+        "\\bdistributed\\b",
+        "\\bmonorepo\\b"
+      ]
+    },
+    {
+      "id": "verification_required",
+      "weight": 1,
+      "patterns": [
+        "\\bverify\\b",
+        "\\bvalidate\\b",
+        "\\bprove\\b",
+        "\\bregression test",
+        "\\btest(?:s|ing)?\\b"
+      ]
+    },
+    {
+      "id": "implementation_scope",
+      "weight": 1,
+      "patterns": [
+        "\\bimplement\\b",
+        "\\bpatch\\b",
+        "\\bfix\\b",
+        "\\bmigrat"
+      ]
+    },
+    {
+      "id": "architecture_scope",
+      "weight": 2,
+      "patterns": [
+        "\\barchitecture\\b",
+        "\\bdesign system\\b",
+        "\\bmajor redesign\\b"
+      ]
+    }
+  ],
+  "trivial_patterns": [
+    "^\\s*[0-9+\\-*/(). ]+\\s*$",
+    "\\btypo\\b.*\\bone (?:line|word)\\b",
+    "\\bone (?:line|word)\\b.*\\btypo\\b",
+    "\\brewrite this sentence\\b",
+    "\\bformatting task\\b"
+  ]
+}

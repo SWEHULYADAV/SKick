@@ -1,6 +1,6 @@
-# Sarvam Model Family — GENERIC FALLBACK
+# Sarvam — Cowork Skills + model-provider routing
 
-A model family name is not a runtime capability contract. Do not fabricate a native Skill path or tool configuration. Use `../generic/PROMPT.md` unless the actual hosting runtime is identified and verified. If that runtime exposes Serena/MCP, prefer Serena automatically for semantic code intelligence.
+Sarvam Cowork is the Skill-capable host surface for this adapter. Sarvam model APIs used through another host inherit that host's capability contract; repository tools are selected by observed capability fit rather than vendor preference.
 
 <!-- SKICK-AI-INSTALL-BEGIN -->
 ## Direct ZIP / AI installer contract
@@ -8,10 +8,15 @@ A model family name is not a runtime capability contract. Do not fabricate a nat
 When an AI receives the SKick ZIP and the user says **"install this"**, use this adapter only after identifying the actual runtime/surface from environment evidence or the user's explicit target.
 
 - **Manifest platform ID:** `sarvam`
-- **Support status:** `HOST_RUNTIME_OR_GENERIC_FALLBACK`
-- **Surfaces covered:** model/provider surfaces
+- **Support status:** `DOC_VERIFIED`
+- **Verification status:** `DOC_VERIFIED`
+- **Runtime tier:** `declarative`
+- **Native Skill support:** `yes`
+- **Literal `@SKick`:** `unknown`
+- **Native activation equivalent:** Select or attach the Skill in Sarvam Cowork.
+- **Surfaces covered:** Sarvam Cowork Skills, Sarvam model/provider surfaces
 - **Availability / gating:** Availability, plan, region, and admin policy can vary; re-check current first-party documentation for this surface.
-- **Preferred install:** Use the actual host runtime adapter when known; otherwise use the generic prompt fallback.
+- **Preferred install:** For Sarvam Cowork, use its managed Skills library/custom-Skill flow. Do not invent a filesystem path or claim SKick ZIP import unless the active UI documents it. For Sarvam models in another host, use that host adapter.
 - **Project/local destinations:** No filesystem project path is asserted for this surface.
 - **User/personal destinations:** No filesystem personal path is asserted for this surface.
 - **Prebuilt distribution when applicable:** `generic-prompt.md`
@@ -28,7 +33,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 2. Inspect the target runtime and existing SKick installation before writing or uploading anything.
 3. Prefer project scope when the user did not request a global/personal install and the runtime supports project Skills.
 4. Preserve the complete SKick directory for directory-form Agent Skills; do not copy only `SKILL.md` when it references supporting files.
-5. Do not silently install Serena, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. The universal prompt in `../../BOOTSTRAP_PROMPTS.md` is an explicit exception only for canonical Serena setup; it does not authorize unrelated dependencies.
+5. Do not silently install semantic repository providers, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. Optional capability setup requires a separate justified and authorized path.
 6. Reload/refresh/restart only as required by this runtime's documented behavior.
 7. Verify discovery in the actual active surface, not only by checking that files exist.
 8. Report the selected runtime, scope/path or UI flow, SKick version, verification performed, and any step that required user/admin/UI/authentication action.
@@ -57,6 +62,6 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 
 ### Primary support reference
 
-https://www.sarvam.ai/
+https://docs.sarvam.ai/cowork/build/skills
 
 <!-- SKICK-AI-INSTALL-END -->

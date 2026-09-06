@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/teaming-plan.schema.json",
+  "title": "SKick Teaming Plan",
+  "type": ["object", "null"],
+  "properties": {
+    "roles": {"type": "array", "items": {"enum": ["red", "blue", "purple", "black_blind"]}},
+    "security_scope": {"type": "object"},
+    "challenge_questions": {"type": "array", "items": {"type": "string"}},
+    "validation_loop": {"type": "array", "items": {"type": "string"}},
+    "disagreement_policy": {"type": "string"},
+    "attack_surface": {"type": "array", "items": {"type": "string"}},
+    "offensive_to_defensive": {"type": "object"},
+    "independence_contract": {"type": "string"}
+  }
+}

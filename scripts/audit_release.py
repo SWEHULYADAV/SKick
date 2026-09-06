@@ -13,6 +13,7 @@ import py_compile
 import re
 import sys
 import struct
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
@@ -159,17 +160,16 @@ def main() -> int:
     if manifest.get("package", {}).get("name") != "skick":
         fail(errors, "manifest package name must be skick")
     platforms = manifest.get("platforms", {})
-    if len(platforms) < 40:
-        fail(errors, f"platform manifest unexpectedly narrow: {len(platforms)} entries")
-    required_platforms = {
-        "chatgpt", "codex", "claude-code", "gemini-cli", "cursor", "github-copilot",
-        "opencode", "browsercode", "qwen", "kimi", "mimo", "minimax", "longcat",
-        "cline", "roo-code", "windsurf", "trae", "bytedance-models", "continue", "goose", "kiro-cli",
-        "junie", "openhands", "replit", "warp", "devin", "amp", "augment", "kilo-code",
-    }
-    missing = sorted(required_platforms - set(platforms))
-    if missing:
-        fail(errors, f"required platform routes missing: {missing}")
+    valid_verification = {"LIVE_TESTED", "DOC_VERIFIED", "COMMUNITY_VERIFIED", "HOST_DEPENDENT", "GENERIC_PROMPT_FALLBACK", "BROKEN_UNSUPPORTED", "UNKNOWN"}
+    for pid, item in platforms.items():
+        if item.get("verification_status") not in valid_verification:
+            fail(errors, f"platform {pid} has invalid verification_status: {item.get('verification_status')}")
+        if not item.get("last_verified"):
+            fail(errors, f"platform {pid} missing last_verified")
+        if item.get("verification_status") == "DOC_VERIFIED" and not item.get("official_evidence"):
+            fail(errors, f"platform {pid} DOC_VERIFIED without official_evidence")
+        if item.get("verification_status") == "LIVE_TESTED" and not item.get("live_test"):
+            fail(errors, f"platform {pid} LIVE_TESTED without live_test metadata")
     for pid, item in platforms.items():
         adapter = item.get("adapter")
         if not adapter or not (ROOT / adapter).is_file():
@@ -236,7 +236,10 @@ def main() -> int:
     if "antigravity-plugin.zip" in portability_paths:
         fail(errors, "portability suite must not expect the intentionally unverified antigravity-plugin.zip")
 
-    print(f"SKICK RELEASE AUDIT: errors={len(errors)} warnings={len(warnings)} platforms={len(platforms)}")
+    proof_counts = Counter(item.get("verification_status", "UNKNOWN") for item in platforms.values())
+    proof_order = ["LIVE_TESTED", "DOC_VERIFIED", "COMMUNITY_VERIFIED", "HOST_DEPENDENT", "GENERIC_PROMPT_FALLBACK", "BROKEN_UNSUPPORTED", "UNKNOWN"]
+    proof_summary = ",".join(f"{name}={proof_counts.get(name, 0)}" for name in proof_order)
+    print(f"SKICK RELEASE AUDIT: errors={len(errors)} warnings={len(warnings)} compatibility_routes={len(platforms)} compatibility_proof={proof_summary}")
     for w in warnings:
         print(f"- WARNING {w}")
     for e in errors:

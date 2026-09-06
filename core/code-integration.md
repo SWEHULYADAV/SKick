@@ -31,8 +31,8 @@ For substantial greenfield work or a major redesign, load `project-planning-and-
 - prefer a deep/simple interface over leaking complexity across callers;
 - document important version-specific behavior when useful.
 
-## Serena-first editing
-When Serena is available, prefer symbol-level operations and reference-aware edits for targeted changes/refactors. Inspect definitions/references before modification. Use text edits when semantic tooling is unavailable or inappropriate.
+## Reference-aware editing
+When an appropriate semantic repository capability is available, prefer reference-aware symbol operations for targeted changes/refactors when they reduce risk. Inspect definitions/references before modification. Use text edits when semantic tooling is unavailable, weaker, or inappropriate; provider choice follows capability fit.
 
 ## Bug and TDD discipline
 When feasible, establish a failing observable before constructing a large theory. Minimize the reproduction, rank hypotheses by distinguishing power, instrument the boundary that separates them, fix the mechanism, and preserve a regression test.

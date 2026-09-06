@@ -1,153 +1,120 @@
-# SKick v1.0 Release Audit
+# SKick v1.1 Release Audit
 
-This file records the release gates applied to the canonical SKick v1.0 source before packaging. It is evidence of checks performed on this repository state, not a guarantee that every external product version will behave identically forever.
+This document records the v1.1 release proof model. v1.1 releases the optional executable runtime while preserving declarative fallback. A gate is reported only at the proof layer it actually establishes; local deterministic evidence does not imply candidate-model quality or external live-host success.
 
-## Audit scope
+## Source and baseline boundary
 
-The release was checked across these categories:
+The available execution sandbox could not resolve `github.com` for a normal remote `git clone`. Development therefore started from the mounted SKick v1 source package, reconciled with the current GitHub-visible `main` tree, then committed as a **synthetic local baseline**. That local commit is useful for reproducible diffs but is not represented as upstream Git history.
 
-- canonical Skill structure and frontmatter
-- silent prompt-enhancement and invocation behavior
-- best-skill/capability routing and specialist ownership
-- Serena-first repository-intelligence fallback behavior
-- system-design/change-impact gating before broad implementation
-- deep research, lateral search, lateral thinking and side-clue capture
-- research evidence frontier, opened-source discipline, claim/source lineage, counterevidence and decision-flip conditions
-- language/framework/toolchain version fingerprinting and language-native proof surfaces
-- UI design-system preservation, rendered-state validation and measured-vs-inferred evidence boundaries
-- engineering wayfinding, decision frontiers, tracer-bullet slicing and prototype/merge-intent discipline
-- red/blue/purple security lifecycle, detection engineering, DFIR integrity and vulnerability-priority reasoning
-- external Skill/plugin full-bundle supply-chain inventory, pin/hash/lock lifecycle and composition privilege review
-- SKick-only naming and stale-brand detection
-- README image paths and local Markdown links
-- PNG asset presence and dimensions
-- Python syntax and JSON parsing
-- runtime/platform manifest consistency
-- ZIP and GitHub-URL AI bootstrap behavior
-- installation safety and overwrite handling
-- platform distribution structure
-- Gemini Apps text-only distribution constraint
-- MCP catalog validation
-- static package safety scan
-- eval-suite schema/load checks
-- provenance and checksum generation/verification
-- Skill validation/packaging contract
-- GitHub CI/repository hygiene
+The frozen v1 baseline is recorded in `artifacts/baseline-v1.json` and `docs/V1_RUNTIME_GAP_MATRIX.md`.
 
-## Runtime coverage model
+A key baseline defect was reproduced rather than silently repaired: `assets/icon.svg` existed in source but was absent from `tests/package-manifest.txt`. Consequently v1 package validation failed. The old provenance verifier nevertheless passed because it checked only files already named by its manifest. v1.1 closes both sides of that drift class: the package manifest is generated/checkable and provenance verification rejects unlisted canonical files.
 
-`INSTALLATION_MANIFEST.json` contains **62 explicit routes**. The catalog deliberately distinguishes:
+## Proof vocabulary
 
-1. **Verified host routes** — current first-party or strong product documentation establishes a native Skill path, command, or UI contract.
-2. **Verified managed imports** — the product exposes a managed upload/import flow rather than a writable local Skill directory.
-3. **Inherited/product-ecosystem routes** — the host derives from or documents compatibility with a verified Skill-capable runtime; the installed version must still be checked before automation.
-4. **Provider/model routes** — a model name is not treated as an installation target. SKick is installed in the actual host agent/harness instead.
-5. **Unknown/future runtimes** — use the runtime-family fallback ladder in `docs/RUNTIME_COMPATIBILITY.md` and `docs/NEW_RUNTIME_INTEGRATION.md`; never invent a native path.
+SKick v1.1 keeps these proof classes distinct:
 
-High-priority coverage includes ChatGPT/Codex, Claude/Claude Code, Gemini, GitHub Copilot, Cursor, OpenCode, BrowserCode, Qwen Code, Kimi Code, Xiaomi MiMoCode, Factory Droid, Crush, Manus, MiniMax-hosted workflows, LongCat-hosted workflows, TRAE/ByteDance-hosted workflows, Cline, Roo Code, Windsurf, Mistral, DeepSeek/DeepCode, GLM, Grok, ZCode, Sarvam and additional agent/harness families listed in the platform catalog.
+| Proof class | What it can establish | What it cannot establish |
+| --- | --- | --- |
+| STATIC | Source/package/schema/generated-file consistency | Runtime behavior |
+| UNIT | Deterministic component behavior | External host behavior |
+| INTEGRATION | Multiple local components execute together | AI task quality or external host support |
+| BEHAVIORAL | A candidate agent/model completed scored tasks | Platform installation unless that was part of the test |
+| DOC VERIFIED | Current first-party documentation supports a compatibility claim | Successful live install/discovery/invocation |
+| LIVE_TESTED | A recorded real host/environment completed the specified live test | Other versions, plans, OSes, or hosts |
 
-## Current-source checks used for version-sensitive routes
+`INSTALLED`, `DISCOVERED`, `INVOKABLE`, and `LIVE_TESTED` are also separate installation states. Copying files is not enough to promote any later state.
 
-The release source ledger records current documentation/repositories including:
+## v1 baseline results
 
-- ChatGPT Skills/plan gate: `https://help.openai.com/en/articles/20001066`
-- Claude custom Skills: `https://support.claude.com/en/articles/12512198-how-to-create-custom-skills`
-- Kilo Code Skills: `https://kilo.ai/docs/customize/skills`
-- Devin repository Skills: `https://docs.devin.ai/product-guides/skills`
-- Qoder Skills: `https://docs.qoder.com/extensions/skills`
-- Zed Agent Skills: `https://zed.dev/docs/ai/skills`
-- Agent Skills open specification: `https://agentskills.io/`
-- Cursor Agent Skills: `https://docs.cursor.com/context/skills`
-- GitHub Copilot Agent Skills/CLI: `https://docs.github.com/en/copilot/concepts/agents/about-agent-skills`
-- Gemini CLI Agent Skills: `https://geminicli.com/docs/cli/skills/`
-- Factory Droid Skills: `https://docs.factory.ai/harness/skills`
-- Crush: `https://github.com/charmbracelet/crush`
-- Manus Skills import: `https://help.manus.im/en/articles/14753565-how-to-share-and-use-skills-in-manus`
-- OpenCode Skills: `https://opencode.ai/docs/skills`
-- Qwen Code Agent Skills: `https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/`
-- Kimi Code Agent Skills: `https://moonshotai.github.io/kimi-code/en/customization/skills/`
-- Xiaomi MiMoCode source: `https://github.com/XiaomiMiMo/MiMo-Code`
-- MiniMax Skills: `https://github.com/MiniMax-AI/skills`
-- BrowserCode source: `https://github.com/browser-use/browsercode`
-- LongCat source: `https://github.com/meituan-longcat/LongCat-2.0`
-- Serena: `https://github.com/oraios/serena`
-- Android Skills: `https://github.com/android/skills`
-- Kotlin Agent Skills: `https://github.com/Kotlin/kotlin-agent-skills`
-- Angular Agent Skills: `https://github.com/angular/skills`
-- Microsoft Skills / Deep Wiki: `https://github.com/microsoft/skills`
-- .NET Skills: `https://github.com/dotnet/skills`
-- Playwright agent CLI/MCP: `https://playwright.dev/`
-- Trail of Bits Skills: `https://github.com/trailofbits/skills`
-- MITRE ATT&CK/D3FEND/CAPEC/CALDERA, SigmaHQ, CISA KEV and FIRST EPSS for security framework/data references
-- OWASP GenAI agentic red-team taxonomy
-- skills-lock: `https://github.com/luisalima/skills-lock`
+The baseline was frozen before executable-runtime changes:
 
-See `SOURCES.md` and each adapter for the full evidence trail and support classification.
+- package version: `1.0`
+- core methodology modules: 73
+- route records: 62
+- general behavioral definitions: 97
+- trigger definitions: 53
+- portability definitions: 38
+- package validation: **FAIL**, because `assets/icon.svg` was outside the manually maintained package manifest
+- provenance verification: **PASS with an incomplete-coverage blind spot**, because unlisted canonical files were not rejected
+- behavioral model execution: **NOT_MEASURED**; the v1 runner loaded/listed definitions but the available environment did not provide a controlled no-SKick / v1 / v1.1 model executor
+- no-SKick behavioral baseline: **BASELINE_BLOCKED** in this host because SKick could not be cleanly disabled while preserving an otherwise identical model/runtime context
 
-## Local automated results
+A static pass from the old release workflow is therefore not treated as evidence that v1 agent behavior or all platform routes worked live.
 
-The following checks were executed against the v1.0 source during the final 2026-09-03 v1.0 hardening cycle:
+## v1.1 executable scope
 
-| Gate | Result |
-| --- | --- |
-| Python compile check | PASS |
-| Strict static Skill scan | PASS — 0 high, 0 warning; 8 informational context matches only |
-| MCP catalog validation | PASS — 15 servers, 13 profiles, 3 validators |
-| Release audit script | PASS — 62 platform routes, 0 errors, 0 warnings |
-| Canonical package validation | PASS — 73 core modules, 58 adapter docs |
-| General eval suite load/list | PASS — 97 cases |
-| Trigger eval suite load/list | PASS — 53 cases |
-| Portability check suite load/list | PASS — 38 checks |
-| Distribution build | PASS — 9 ZIP distributions plus generic prompt/installer docs |
-| Distribution structural validation | PASS |
-| Distribution ZIP integrity | PASS — every generated ZIP passed archive testing |
-| GitHub bootstrap payload presence | PASS — root bootstrap prompt, protocol, capability broker and architecture gate present in runtime package |
-| GitHub checkout source parity | PASS — `.git/` metadata is excluded from canonical package-file comparison and static package scanning |
-| Repository slimming | PASS — redundant bridge/generated files removed; README visual assets compressed to WebP; runtime/provenance/eval files retained |
-| Platform install guide | PASS — managed, verified filesystem, recheck-first-party, provider-only and generic/future routes documented with verification boundaries |
-| Filesystem installer smoke tests | PASS — Factory Droid and Crush project installs |
-| Existing-install refusal | PASS |
-| Provenance verification | PASS — 235 tracked source files after repository slimming |
-| Skill quick-validation contract | PASS — frontmatter/name/description checks |
-| Skill packaging contract | PASS — exactly one `SKILL.md`; canonical archive below the 25 MiB upload limit |
-| Canonical ZIP integrity | PASS — no corrupt archive entry detected |
-| GitHub-ready bundle integrity | PASS |
-| Universal handoff bundle integrity | PASS |
+The v1.1 release moves selected high-value contracts from prose into deterministic code while keeping declarative fallback useful:
 
-Because this report and final release scripts are part of the source tree, provenance, distributions and canonical packaging are regenerated once more after this report is finalized. Published artifacts must therefore be checked against the final checksums rather than intermediate byte counts.
+- capability states distinguish `available`, `unavailable`, `unknown`, `restricted`, `permission_required`, and `host_dependent`
+- depth selection preserves `quick`, `standard`, `deep`, and `exhaustive`
+- task-specific module compilation records selected/skipped modules, reasons, capability needs, and a transparent instruction-cost estimate
+- project policy can opt into vendor/starter preferences without making them constitutional rules
+- runtime state, evidence, claim states, and reporting are schema-backed
+- claim promotion requires evidence appropriate to the requested state
+- evaluation separates executor output from deterministic checks and optional judge output
+- prompt intelligence preserves original intent/constraints and produces observable contradiction/success/research/verification structure
+- research planning produces question/source/query/freshness/lateral/disconfirmation/budget/frontier plans while the research ledger preserves fact/inference/hypothesis and source-lineage independence
+- Red/Blue/Purple/Black-Blind planners select minimum-sufficient adversarial review and constrain unknown authorization to safe lab/simulation boundaries
+- eight local deterministic routing, claim-honesty, injection-boundary, prompt, research, teaming, and ablation suites run without paid APIs
+- compatibility metadata distinguishes entity type, activation transport, runtime tier, current evidence, and live-test state
+- package-manifest and platform/module generated outputs are checkable for drift
+- package version is read from `VERSION` by executable distribution/validation code rather than duplicated as a release constant
 
-## Behavior-specific regression coverage
+## Compatibility evidence state
 
-The eval suites now explicitly cover:
+`INSTALLATION_MANIFEST.json` remains the canonical registry. Route count is informational, not a release-quality target. The v1.1 registry classifies records with one of:
 
-- selecting the best available capability/specialist rather than blindly using SKick internals
-- preserving one workflow owner per phase while SKick keeps objective/evidence/safety/verification control
-- mandatory silent prompt enhancement for non-trivial work
-- Serena-first repository mapping when Serena is actually available and a documented semantic fallback when it is not
-- architecture/change-impact understanding before broad implementation
-- lateral query mutation, adjacent-source exploration, competing hypotheses and side-clue/serendipity capture
-- GitHub URL bootstrap, real host-runtime detection, project-scope preference and non-invention of unsupported install paths
-- language/framework version routing, language-native compiler/analyzer/test/trace proof surfaces and differential port parity
-- UI design-system/state-matrix behavior plus rendered/measured-vs-inferred evidence boundaries
-- research opened-source/frontier/source-lineage/counterevidence/flip-condition behavior
-- decision-frontier wayfinding, tracer-bullet delivery, prototypes-as-questions and intent-aware merge resolution
-- purple-team coverage-state separation, detection lifecycle, KEV/EPSS-aware prioritization, variant analysis and DFIR evidence integrity
-- external Skill full-bundle inventory, pin/hash/lock lifecycle, cross-Skill privilege composition and no-Skill-vs-Skill marginal-value evaluation
+- `LIVE_TESTED`
+- `DOC_VERIFIED`
+- `COMMUNITY_VERIFIED`
+- `HOST_DEPENDENT`
+- `GENERIC_PROMPT_FALLBACK`
+- `BROKEN_UNSUPPORTED`
+- `UNKNOWN`
 
-## What was not claimed
+The generated `docs/PLATFORM_AUDIT.md` and `docs/ACTIVATION_MATRIX.md` contain one row for every current route. No external route is promoted to `LIVE_TESTED` without reproducible live-test metadata. In this release environment the external live-test count remains **zero**.
 
-- The audit does **not** claim live execution inside all 62 external products.
-- A successful filesystem copy is not the same as runtime discovery.
-- Managed web/app installs may require user, admin, authentication or UI actions that a filesystem agent cannot perform.
-- Ecosystem-derived paths must be rechecked against the installed product version before large-scale automation.
-- Model/provider names do not prove a Skill installation mechanism.
-- Serena is never reported as active unless the current host actually exposes and activates it; otherwise SKick must use and report the documented semantic-code fallback.
-- Ideas discovered through lateral thinking are hypotheses until corroborated by evidence or validated by testing.
+Model/provider records are not treated as native Skill hosts merely because their models can run inside a compatible agent. Literal `@SKick` is recorded only where current evidence supports that transport; other hosts use their documented native equivalent or remain unknown.
+
+## Capability-over-brand policy
+
+The core rule is capability fit and observed availability, not vendor identity. Semantic repository tooling may be provided by a native index, LSP/symbol APIs, Serena, or another provider. Vendor-specific preferences belong in project/runtime policy and may only win after capability discovery and task-fit scoring.
+
+Likewise, the historical Python + semantic HTML/CSS/vanilla-JavaScript starter profile is no longer a universal engineering invariant. Existing project architecture and explicit user/project constraints outrank optional starter defaults.
+
+## Evaluation boundary
+
+Deterministic local suites provide runtime/planner-logic evidence, not model-quality proof. The router suite exposes activation TP/TN/FP/FN and depth accuracy; claim-honesty suites reject unsupported `tested`/`verified`; injection fixtures keep untrusted content as data; prompt/research/teaming suites exercise framing, freshness/source routing, minimum-process team selection and safe scope; ablations measure instruction/planner changes. Research ablations explicitly mark factual/answer-quality benefit `NOT_MEASURED`.
+
+The owned `tests/fixtures/security_auth_lab/` cross-tenant authorization fixture has deterministic unit coverage for vulnerable vs fixed behavior. `evals/security-behavioral-fixture.json` is only a candidate-runner benchmark definition; no Red/Blue/Purple model pass is claimed or counted by CI.
+
+The repository also retains richer behavioral evaluation definitions and a pluggable executor/judge interface. Actual cross-model baseline-v1-v1.1 behavioral comparison remains **NOT_MEASURED** until an environment can run controlled repeated trials. The held-out strategy is documented in `docs/EVALUATION_STRATEGY.md`; no set created during this implementation is mislabeled as independently held out.
+
+## Security boundary
+
+`docs/SECURITY_THREAT_MODEL.md` defines the local trust model for repository prompt injection, web content, external Skills, MCP servers, generated shell, package scripts, path/symlink attacks, secrets, and false verification. Observability is local-first. This v1.1 release does not add hidden remote telemetry.
+
+## Release gates
+
+A production release must satisfy all applicable layers in `docs/RELEASE_CHECKLIST.md`:
+
+1. **STATIC** — syntax, schema, package/provenance completeness, generated-file sync, compatibility metadata, safe package scan.
+2. **UNIT** — routing, budget, claims, evidence, capability detection, versioning, fallback and security policy logic.
+3. **INTEGRATION** — distributions, installer/migration behavior, runtime CLI/state round trips, representative fixture execution.
+4. **BEHAVIORAL** — controlled model-based comparison when credentials/runners exist; raw outputs and scorer provenance retained.
+5. **PLATFORM** — per-host live install/discovery/invocation evidence only where real infrastructure exists.
+
+Passing STATIC/UNIT/INTEGRATION does not upgrade BEHAVIORAL or PLATFORM status.
+
+## Known unverified areas
+
+- Controlled no-SKick vs v1 vs v1.1 agent task success remains `BASELINE_BLOCKED` / `NOT_MEASURED` in this host.
+- External cross-model robustness is not live tested here.
+- External platform live install/discovery/invocation is not inferred from documentation.
+- GitHub Actions checkout/setup-python dependencies are pinned to reviewed immutable v7 release SHAs; future action updates must requalify and update those pins deliberately.
+- Documentation evidence can age; scheduled freshness checks help detect staleness but do not replace live platform tests.
 
 ## Release rule
 
-Do not publish a release if any required local gate fails. If a platform changes after release, update its adapter and source evidence, add regression coverage where practical, regenerate the platform catalog, rebuild distributions and rerun the full checklist in `docs/RELEASE_CHECKLIST.md`.
-
-## 2026-09-03 final hardening boundary
-
-The new language, UI, research, purple-team and supply-chain modules are portable methodology and reference routing. This release does **not** claim live execution inside every language/framework specialist, Playwright/DevTools/Figma/Stitch surface, CALDERA deployment, SIEM, DFIR lab, or external Skill scanner. External runtime/tool behavior must still be detected, authorized, version-checked and verified at use time. Security framework mappings organize hypotheses and evidence; they do not prove exploit reachability, detection efficacy or operational authorization.
+Do not call v1.1 behaviorally or universally platform-verified merely because its local runtime/release gates pass. A release must report the strongest evidence actually available, preserve failures at task level, keep generated artifacts synchronized with the final committed tree, and explicitly label behavioral/platform gaps. Until controlled behavioral and external-host evidence exists, the correct overall improvement verdict may be **PARTIALLY** rather than `YES`.

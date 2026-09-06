@@ -1,0 +1,308 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-09-05T18:42:49.576347Z",
+  "suite": "evals/teaming-evals.json",
+  "runner": [
+    "scripts/run_local_evals.py"
+  ],
+  "summary": {
+    "runs": 5,
+    "scored_runs": 5,
+    "unscored_runs": 0,
+    "protocol_failures": 0,
+    "pass_rate": 1.0,
+    "proof_type": "deterministic_local_runtime"
+  },
+  "results": [
+    {
+      "case_id": "auth-debug-no-team-overhead",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "roles": [],
+        "security_scope": {
+          "target": "not_security_scoped",
+          "authorization_context": "not_applicable",
+          "environment": "not_applicable",
+          "goal": "none",
+          "safe_test_boundary": "not_applicable"
+        },
+        "challenge_questions": [],
+        "validation_loop": [],
+        "disagreement_policy": "Preserve disagreement and identify the next discriminating evidence/experiment rather than forcing consensus.",
+        "attack_surface": [],
+        "offensive_to_defensive": {},
+        "independence_contract": "Black/blind review receives the problem and necessary evidence but does not inherit the primary conclusion as a premise."
+      },
+      "deterministic_checks": [
+        {
+          "name": "roles",
+          "actual": [],
+          "expected": [],
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "security-review-red-blue",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "roles": [
+          "red",
+          "blue"
+        ],
+        "security_scope": {
+          "target": "unspecified",
+          "authorization_context": "unknown",
+          "environment": "unknown",
+          "goal": "defensive_validation",
+          "safe_test_boundary": "lab_or_simulation_only"
+        },
+        "challenge_questions": [
+          "What assumption would make the leading conclusion wrong?",
+          "What evidence is independent of the primary investigation path?",
+          "What safe discriminating experiment would resolve the most important disagreement?"
+        ],
+        "validation_loop": [],
+        "disagreement_policy": "Preserve disagreement and identify the next discriminating evidence/experiment rather than forcing consensus.",
+        "attack_surface": [
+          "trust_boundary_unspecified"
+        ],
+        "offensive_to_defensive": {
+          "attack_prerequisite": "Record the prerequisite/reachability condition demonstrated or hypothesized by Red evidence.",
+          "preventive_control": "Identify the smallest control that removes or constrains that prerequisite/root cause.",
+          "detective_control": "Identify observable telemetry or a detection opportunity for attempted boundary violation.",
+          "response": "Define containment/recovery action proportionate to the demonstrated impact.",
+          "validation": "Retest the same safe stimulus plus legitimate functionality; do not claim mitigation from inspection alone."
+        },
+        "independence_contract": "Black/blind review receives the problem and necessary evidence but does not inherit the primary conclusion as a premise."
+      },
+      "deterministic_checks": [
+        {
+          "name": "roles",
+          "actual": [
+            "red",
+            "blue"
+          ],
+          "expected": [
+            "red",
+            "blue"
+          ],
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "owned-lab-remediation-purple",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "roles": [
+          "red",
+          "blue",
+          "purple"
+        ],
+        "security_scope": {
+          "target": "user_supplied_target",
+          "authorization_context": "user_owned_lab",
+          "environment": "local_lab",
+          "goal": "defensive_validation",
+          "safe_test_boundary": "authorized_local_scope"
+        },
+        "challenge_questions": [
+          "What assumption would make the leading conclusion wrong?",
+          "What evidence is independent of the primary investigation path?",
+          "What safe discriminating experiment would resolve the most important disagreement?"
+        ],
+        "validation_loop": [
+          "red_hypothesis",
+          "authorized_or_safe_test",
+          "observation",
+          "blue_control",
+          "detection_or_mitigation",
+          "red_retest",
+          "residual_risk"
+        ],
+        "disagreement_policy": "Preserve disagreement and identify the next discriminating evidence/experiment rather than forcing consensus.",
+        "attack_surface": [
+          "identity_authorization"
+        ],
+        "offensive_to_defensive": {
+          "attack_prerequisite": "Record the prerequisite/reachability condition demonstrated or hypothesized by Red evidence.",
+          "preventive_control": "Identify the smallest control that removes or constrains that prerequisite/root cause.",
+          "detective_control": "Identify observable telemetry or a detection opportunity for attempted boundary violation.",
+          "response": "Define containment/recovery action proportionate to the demonstrated impact.",
+          "validation": "Retest the same safe stimulus plus legitimate functionality; do not claim mitigation from inspection alone."
+        },
+        "independence_contract": "Black/blind review receives the problem and necessary evidence but does not inherit the primary conclusion as a premise."
+      },
+      "deterministic_checks": [
+        {
+          "name": "roles",
+          "actual": [
+            "red",
+            "blue",
+            "purple"
+          ],
+          "expected": [
+            "red",
+            "blue",
+            "purple"
+          ],
+          "passed": true
+        },
+        {
+          "name": "authorization",
+          "actual": "user_owned_lab",
+          "expected": "user_owned_lab",
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "unknown-authorization-safe-boundary",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "roles": [
+          "red",
+          "blue"
+        ],
+        "security_scope": {
+          "target": "user_supplied_target",
+          "authorization_context": "unknown",
+          "environment": "unknown",
+          "goal": "analysis",
+          "safe_test_boundary": "lab_or_simulation_only"
+        },
+        "challenge_questions": [
+          "What assumption would make the leading conclusion wrong?",
+          "What evidence is independent of the primary investigation path?",
+          "What safe discriminating experiment would resolve the most important disagreement?"
+        ],
+        "validation_loop": [],
+        "disagreement_policy": "Preserve disagreement and identify the next discriminating evidence/experiment rather than forcing consensus.",
+        "attack_surface": [
+          "identity_authorization"
+        ],
+        "offensive_to_defensive": {
+          "attack_prerequisite": "Record the prerequisite/reachability condition demonstrated or hypothesized by Red evidence.",
+          "preventive_control": "Identify the smallest control that removes or constrains that prerequisite/root cause.",
+          "detective_control": "Identify observable telemetry or a detection opportunity for attempted boundary violation.",
+          "response": "Define containment/recovery action proportionate to the demonstrated impact.",
+          "validation": "Retest the same safe stimulus plus legitimate functionality; do not claim mitigation from inspection alone."
+        },
+        "independence_contract": "Black/blind review receives the problem and necessary evidence but does not inherit the primary conclusion as a premise."
+      },
+      "deterministic_checks": [
+        {
+          "name": "role:red",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "role:blue",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "authorization",
+          "actual": "unknown",
+          "expected": "unknown",
+          "passed": true
+        },
+        {
+          "name": "safe_boundary",
+          "actual": "lab_or_simulation_only",
+          "expected": "lab_or_simulation_only",
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "high-impact-security-adds-black",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "roles": [
+          "red",
+          "blue",
+          "purple",
+          "black_blind"
+        ],
+        "security_scope": {
+          "target": "user_supplied_target",
+          "authorization_context": "unknown",
+          "environment": "unknown",
+          "goal": "analysis",
+          "safe_test_boundary": "lab_or_simulation_only"
+        },
+        "challenge_questions": [
+          "What assumption would make the leading conclusion wrong?",
+          "What evidence is independent of the primary investigation path?",
+          "What safe discriminating experiment would resolve the most important disagreement?"
+        ],
+        "validation_loop": [
+          "red_hypothesis",
+          "authorized_or_safe_test",
+          "observation",
+          "blue_control",
+          "detection_or_mitigation",
+          "red_retest",
+          "residual_risk"
+        ],
+        "disagreement_policy": "Preserve disagreement and identify the next discriminating evidence/experiment rather than forcing consensus.",
+        "attack_surface": [
+          "identity_authorization"
+        ],
+        "offensive_to_defensive": {
+          "attack_prerequisite": "Record the prerequisite/reachability condition demonstrated or hypothesized by Red evidence.",
+          "preventive_control": "Identify the smallest control that removes or constrains that prerequisite/root cause.",
+          "detective_control": "Identify observable telemetry or a detection opportunity for attempted boundary violation.",
+          "response": "Define containment/recovery action proportionate to the demonstrated impact.",
+          "validation": "Retest the same safe stimulus plus legitimate functionality; do not claim mitigation from inspection alone."
+        },
+        "independence_contract": "Black/blind review receives the problem and necessary evidence but does not inherit the primary conclusion as a premise."
+      },
+      "deterministic_checks": [
+        {
+          "name": "role:red",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "role:blue",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "role:purple",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "role:black_blind",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    }
+  ]
+}

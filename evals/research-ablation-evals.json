@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "description": "Planner-level ablations for direct vs lateral vs disconfirmation research. These do not measure model answer quality.",
+  "cases": [
+    {
+      "id": "platform-lateral-disconfirmation-ablation",
+      "operation": "research_ablation",
+      "task": "Deep research whether platform X currently supports Agent Skills.",
+      "expect_full_strategies": ["lateral", "disconfirmation"],
+      "expect_direct_only_fewer_queries": true,
+      "expect_without_disconfirmation_removed": true
+    },
+    {
+      "id": "security-lateral-disconfirmation-ablation",
+      "operation": "research_ablation",
+      "task": "Deep research current vulnerability exploitability and patch behavior.",
+      "expect_full_strategies": ["lateral", "disconfirmation"],
+      "expect_direct_only_fewer_queries": true,
+      "expect_without_disconfirmation_removed": true
+    }
+  ]
+}

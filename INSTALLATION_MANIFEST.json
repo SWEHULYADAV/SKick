@@ -1,9 +1,9 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "package": {
     "name": "skick",
-    "release": "v1.0",
-    "version": "1.0",
+    "release": "v1.1",
+    "version": "1.1",
     "entrypoint": "SKILL.md",
     "bootstrap": "START_HERE.md",
     "warnings": "docs/WARNINGS.md",
@@ -26,7 +26,7 @@
         "aider-desk",
         "aiderdesk"
       ],
-      "status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "status": "COMMUNITY_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "AiderDesk"
@@ -44,14 +44,36 @@
         "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
       ],
       "adapter": "adapters/aider-desk/README.md",
-      "source": "https://auth0.github.io/auth0-cli/auth0_agent_skills_install.html"
+      "source": "https://github.com/vercel-labs/skills/blob/main/src/agents.ts",
+      "legacy_status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "entity_type": "ide_or_cli_agent",
+      "native_skill_support": "unknown",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Re-check the installed host; current evidence is not first-party-complete.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "unknown",
+      "capabilities": [],
+      "verification_status": "COMMUNITY_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "Current first-party Skill documentation was not established in this audit; treat install paths as version-sensitive community evidence."
+      ],
+      "sources": [
+        "https://github.com/vercel-labs/skills/blob/main/src/agents.ts"
+      ],
+      "notes": "Community path evidence: vercel-labs/skills agent registry; no current first-party Skill documentation established in this audit."
     },
     "amazon-nova": {
       "aliases": [
         "amazon nova",
         "nova model"
       ],
-      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "status": "HOST_DEPENDENT",
       "kind": "model_provider_only",
       "surfaces": [
         "Amazon Nova"
@@ -64,14 +86,34 @@
         "Confirm which agent/harness actually runs the model, then verify SKick in that host."
       ],
       "adapter": "adapters/model-provider/README.md",
-      "source": "https://agentskills.io/home"
+      "source": "https://agentskills.io/home",
+      "legacy_status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "entity_type": "model_provider",
+      "native_skill_support": "host_dependent",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "no",
+        "native_equivalent": "Activate SKick in the actual host runtime.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "host_routed_skill_support"
+      ],
+      "verification_status": "HOST_DEPENDENT",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "This entry describes a model/provider relationship; install and activation guarantees come from the actual host, not the model name."
+      ]
     },
     "amp": {
       "aliases": [
         "amp",
         "amp"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Amp"
@@ -95,14 +137,45 @@
         "https://ampcode.com/docs/customize/skills"
       ],
       "availability": "Skill discovery is an Amp host capability; model/provider billing and account limits are separate from the Skill format.",
-      "availability_source": "https://ampcode.com/docs/customize/skills"
+      "availability_source": "https://ampcode.com/docs/customize/skills",
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://ampcode.com/docs/customize/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "antigravity": {
       "aliases": [
         "antigravity",
         "google antigravity"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Antigravity visual agent/IDE"
@@ -119,7 +192,39 @@
         "Confirm SKick appears in the Antigravity skill inventory or is selected automatically for a matching low-risk prompt."
       ],
       "adapter": "adapters/antigravity/README.md",
-      "source": "https://antigravity.google/docs/skills/"
+      "source": "https://antigravity.google/docs/skills/",
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://antigravity.google/docs/skills/",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "antigravity-cli": {
       "aliases": [
@@ -127,7 +232,7 @@
         "agy",
         "google antigravity cli"
       ],
-      "status": "VERIFIED_DISTINCT_RUNTIME",
+      "status": "DOC_VERIFIED",
       "kind": "flat_skill_or_plugin",
       "surfaces": [
         "terminal TUI"
@@ -144,14 +249,45 @@
         "Run /skills and confirm the installed/flattened SKick command is visible before relying on it."
       ],
       "adapter": "adapters/antigravity-cli/README.md",
-      "source": "https://antigravity.google/docs/cli/plugins/"
+      "source": "https://antigravity.google/docs/cli/plugins/",
+      "legacy_status": "VERIFIED_DISTINCT_RUNTIME",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick after flattening to the CLI skill format",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://antigravity.google/docs/cli/plugins/",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "augment": {
       "aliases": [
         "augment",
         "augment"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Augment"
@@ -178,14 +314,46 @@
         "https://docs.augmentcode.com/cli/skills"
       ],
       "availability": "Skill support is a host capability; Augment plan/usage limits and model-provider billing are separate from Skill discovery.",
-      "availability_source": "https://docs.augmentcode.com/cli/skills"
+      "availability_source": "https://docs.augmentcode.com/cli/skills",
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.augmentcode.com/cli/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "baidu-ernie": {
       "aliases": [
         "ernie",
         "baidu ernie"
       ],
-      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "status": "HOST_DEPENDENT",
       "kind": "model_provider_only",
       "surfaces": [
         "Baidu ERNIE"
@@ -198,14 +366,34 @@
         "Confirm which agent/harness actually runs the model, then verify SKick in that host."
       ],
       "adapter": "adapters/model-provider/README.md",
-      "source": "https://agentskills.io/home"
+      "source": "https://agentskills.io/home",
+      "legacy_status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "entity_type": "model_provider",
+      "native_skill_support": "host_dependent",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "no",
+        "native_equivalent": "Activate SKick in the actual host runtime.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "host_routed_skill_support"
+      ],
+      "verification_status": "HOST_DEPENDENT",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "This entry describes a model/provider relationship; install and activation guarantees come from the actual host, not the model name."
+      ]
     },
     "browsercode": {
       "aliases": [
         "browsercode",
         "browser code"
       ],
-      "status": "VERIFIED_INHERITED_OPENCODE",
+      "status": "DOC_VERIFIED",
       "kind": "browser_native_agent_skill",
       "surfaces": [
         "BrowserCode CLI/TUI",
@@ -231,7 +419,37 @@
       "sources": [
         "https://github.com/browser-use/browsercode",
         "https://opencode.ai/docs/skills"
-      ]
+      ],
+      "legacy_status": "VERIFIED_INHERITED_OPENCODE",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "partial_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://github.com/browser-use/browsercode",
+          "source_type": "official_repository",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "bytedance-models": {
       "aliases": [
@@ -241,7 +459,7 @@
         "seed-code",
         "seed coder"
       ],
-      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "status": "HOST_DEPENDENT",
       "kind": "model_provider_only",
       "surfaces": [
         "ByteDance / Doubao / Seed models"
@@ -254,7 +472,27 @@
         "Confirm which agent/harness actually runs the model, then verify SKick in that host."
       ],
       "adapter": "adapters/model-provider/README.md",
-      "source": "https://agentskills.io/home"
+      "source": "https://agentskills.io/home",
+      "legacy_status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "entity_type": "model_provider",
+      "native_skill_support": "host_dependent",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "no",
+        "native_equivalent": "Activate SKick in the actual host runtime.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "host_routed_skill_support"
+      ],
+      "verification_status": "HOST_DEPENDENT",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "This entry describes a model/provider relationship; install and activation guarantees come from the actual host, not the model name."
+      ]
     },
     "chatgpt": {
       "aliases": [
@@ -264,7 +502,7 @@
         "chatgpt mobile",
         "openai chatgpt"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "managed_upload",
       "surfaces": [
         "web",
@@ -286,7 +524,47 @@
       "limitations": [
         "Managed ChatGPT Skill availability is plan/workspace/surface dependent.",
         "Codex has separate Skill support and plan availability; do not infer Codex eligibility from the ChatGPT managed-Skill gate."
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "workspace_platform",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "yes",
+        "native_equivalent": "@skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "declarative",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://help.openai.com/en/articles/20001066",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route",
+            "managed_upload"
+          ],
+          "notes": "Current ChatGPT Help documents managed Skill creation/upload and automatic use for eligible workspaces."
+        },
+        {
+          "url": "https://learn.chatgpt.com/docs/build-skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "explicit_skill_activation",
+            "automatic_skill_activation"
+          ],
+          "notes": "Current OpenAI Skills guidance explicitly documents `@` selection in ChatGPT and implicit activation by description."
+        }
+      ],
+      "live_test": null
     },
     "claude-app": {
       "aliases": [
@@ -295,7 +573,7 @@
         "claude desktop",
         "claude.ai"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "managed_upload",
       "surfaces": [
         "web",
@@ -316,7 +594,35 @@
       "sources": [
         "https://support.claude.com/en/articles/12512198-how-to-create-custom-skills",
         "https://support.claude.com/en/articles/12512180-use-skills-in-claude"
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "workspace_platform",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the Claude Skills UI / skill selection supported by the active surface.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "declarative",
+      "capabilities": [
+        "skill_discovery"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://support.claude.com/en/articles/12512180-use-skills-in-claude",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "claude-code": {
       "aliases": [
@@ -327,7 +633,7 @@
         "claude code jetbrains",
         "claude code desktop"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill_or_plugin",
       "surfaces": [
         "CLI",
@@ -348,7 +654,39 @@
         "For plugin testing, use the runtime-supported local plugin load flow and reload plugins after changes."
       ],
       "adapter": "adapters/claude-code/README.md",
-      "source": "https://code.claude.com/docs/en/slash-commands"
+      "source": "https://code.claude.com/docs/en/slash-commands",
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://code.claude.com/docs/en/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "cline": {
       "aliases": [
@@ -357,7 +695,7 @@
         "cline cli",
         "cline agent"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "VS Code extension",
@@ -380,7 +718,39 @@
       "sources": [
         "https://docs.cline.bot/customization/skills",
         "https://github.com/cline/skills"
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.cline.bot/customization/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "codex": {
       "aliases": [
@@ -390,7 +760,7 @@
         "codex ide",
         "openai codex"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill_or_plugin",
       "surfaces": [
         "CLI",
@@ -410,13 +780,49 @@
         "If a change is not detected, restart/reload Codex and re-check."
       ],
       "adapter": "adapters/codex/README.md",
-      "source": "https://developers.openai.com/codex/skills/",
+      "source": "https://learn.chatgpt.com/docs/build-skills",
       "sources": [
         "https://developers.openai.com/codex/skills/",
         "https://help.openai.com/en/articles/11369540-codex-and-chatgpt-plan-usage-limits"
       ],
       "availability": "Codex is currently included across ChatGPT Free, Go, Plus, Pro, Business, Edu, and Enterprise plans; limits vary by plan. This is separate from native Skill upload availability in ChatGPT chat.",
-      "availability_source": "https://help.openai.com/en/articles/11369540-codex-and-chatgpt-plan-usage-limits"
+      "availability_source": "https://help.openai.com/en/articles/11369540-codex-and-chatgpt-plan-usage-limits",
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "$skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://learn.chatgpt.com/docs/build-skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route",
+            "explicit_skill_activation",
+            "automatic_skill_activation",
+            "project_skill_scope",
+            "user_skill_scope"
+          ],
+          "notes": "Current OpenAI Skills guidance documents Codex `.agents/skills` discovery, `$skill` explicit invocation, and implicit invocation."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "cohere": {
       "aliases": [
@@ -424,7 +830,7 @@
         "command r",
         "command a"
       ],
-      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "status": "HOST_DEPENDENT",
       "kind": "model_provider_only",
       "surfaces": [
         "Cohere"
@@ -437,14 +843,34 @@
         "Confirm which agent/harness actually runs the model, then verify SKick in that host."
       ],
       "adapter": "adapters/model-provider/README.md",
-      "source": "https://agentskills.io/home"
+      "source": "https://agentskills.io/home",
+      "legacy_status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "entity_type": "model_provider",
+      "native_skill_support": "host_dependent",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "no",
+        "native_equivalent": "Activate SKick in the actual host runtime.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "host_routed_skill_support"
+      ],
+      "verification_status": "HOST_DEPENDENT",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "This entry describes a model/provider relationship; install and activation guarantees come from the actual host, not the model name."
+      ]
     },
     "continue": {
       "aliases": [
         "continue",
         "continue"
       ],
-      "status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "status": "COMMUNITY_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Continue"
@@ -462,7 +888,29 @@
         "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
       ],
       "adapter": "adapters/continue/README.md",
-      "source": "https://auth0.github.io/auth0-cli/auth0_agent_skills_install.html"
+      "source": "https://github.com/vercel-labs/skills/blob/main/src/agents.ts",
+      "legacy_status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "entity_type": "ide_or_cli_agent",
+      "native_skill_support": "unknown",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Re-check the installed host; current evidence is not first-party-complete.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "unknown",
+      "capabilities": [],
+      "verification_status": "COMMUNITY_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "Current first-party Skill documentation was not established in this audit; treat install paths as version-sensitive community evidence."
+      ],
+      "sources": [
+        "https://github.com/vercel-labs/skills/blob/main/src/agents.ts"
+      ],
+      "notes": "Community path evidence: vercel-labs/skills agent registry; no current first-party Skill documentation established in this audit."
     },
     "crush": {
       "aliases": [
@@ -470,7 +918,7 @@
         "charmbracelet crush",
         "crush cli"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "CLI/TUI coding agent"
@@ -499,7 +947,37 @@
       ],
       "github_commands": [
         "Fetch/inspect the repository, then copy the complete Skill to the selected verified Crush/shared project root."
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://github.com/charmbracelet/crush",
+          "source_type": "official_repository",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "cursor": {
       "aliases": [
@@ -507,7 +985,7 @@
         "cursor ide",
         "cursor agent"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "desktop IDE",
@@ -534,7 +1012,41 @@
       "source": "https://prod.cursor.com/docs/skills",
       "github_commands": [
         "Use Cursor Customize/Skills current GitHub import flow when available, otherwise copy the complete Skill to a verified project Skill root."
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://prod.cursor.com/docs/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route",
+            "explicit_skill_activation",
+            "automatic_skill_activation"
+          ],
+          "notes": "Current Cursor Agent Skills docs document project/user skill roots, automatic discovery, and manual slash invocation."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "custom-cli": {
       "aliases": [
@@ -542,7 +1054,7 @@
         "custom agent",
         "custom harness"
       ],
-      "status": "GENERIC_CAPABILITY_BASED",
+      "status": "GENERIC_PROMPT_FALLBACK",
       "kind": "generic",
       "surfaces": [
         "custom CLI/harness"
@@ -555,7 +1067,27 @@
         "Document the host contract and test discovery before calling it supported."
       ],
       "adapter": "adapters/custom-cli/README.md",
-      "source": "https://agentskills.io/"
+      "source": "https://agentskills.io/",
+      "legacy_status": "GENERIC_CAPABILITY_BASED",
+      "entity_type": "generic_host",
+      "native_skill_support": "unknown",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Attach or paste the SKick prompt/context in the active host.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "prompt_context_injection"
+      ],
+      "verification_status": "GENERIC_PROMPT_FALLBACK",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "No native persistent Skill mechanism is claimed for this generic route."
+      ]
     },
     "deepcode": {
       "aliases": [
@@ -563,7 +1095,7 @@
         "deepcode",
         "deepseek deep code"
       ],
-      "status": "VERIFIED_WITH_PROVIDER_WARNING",
+      "status": "DOC_VERIFIED",
       "kind": "third_party_coding_agent_skill",
       "surfaces": [
         "Deep Code CLI",
@@ -581,7 +1113,38 @@
         "Confirm SKick is discovered by the actual Deep Code host; do not treat selecting a DeepSeek model as proof of Skill support."
       ],
       "adapter": "adapters/deepcode/README.md",
-      "source": "https://api-docs.deepseek.com/quick_start/agent_integrations/deepcode"
+      "source": "https://api-docs.deepseek.com/quick_start/agent_integrations/deepcode",
+      "legacy_status": "VERIFIED_WITH_PROVIDER_WARNING",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://api-docs.deepseek.com/quick_start/agent_integrations/deepcode/",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "deepseek": {
       "aliases": [
@@ -590,8 +1153,8 @@
         "deepseek api",
         "deep code"
       ],
-      "status": "HOST_RUNTIME_OR_FALLBACK",
-      "kind": "host_runtime",
+      "status": "HOST_DEPENDENT",
+      "kind": "model_provider_only",
       "surfaces": [
         "DeepSeek model/web/API",
         "Deep Code or external coding hosts"
@@ -604,14 +1167,34 @@
         "Verify the actual host runtime, not merely the DeepSeek model selection."
       ],
       "adapter": "adapters/deepseek/README.md",
-      "source": "https://api-docs.deepseek.com/quick_start/agent_integrations/deepcode"
+      "source": "https://api-docs.deepseek.com/quick_start/agent_integrations/deepcode",
+      "legacy_status": "HOST_RUNTIME_OR_FALLBACK",
+      "entity_type": "model_provider",
+      "native_skill_support": "host_dependent",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "no",
+        "native_equivalent": "Activate SKick in the actual host runtime.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "host_routed_skill_support"
+      ],
+      "verification_status": "HOST_DEPENDENT",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "This entry describes a model/provider relationship; install and activation guarantees come from the actual host, not the model name."
+      ]
     },
     "devin": {
       "aliases": [
         "devin",
         "devin"
       ],
-      "status": "VERIFIED_REPO",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Devin"
@@ -640,7 +1223,35 @@
       "limitations": [
         "Current Devin Skills are repository-scoped; do not invent a global ~/.devin/skills route.",
         "Devin currently activates one Skill at a time; a new Skill replaces the active Skill."
-      ]
+      ],
+      "legacy_status": "VERIFIED_REPO",
+      "entity_type": "cloud_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "project_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.devin.ai/product-guides/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null
     },
     "factory-droid": {
       "aliases": [
@@ -649,7 +1260,7 @@
         "factory ai droid",
         "factory agent"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "CLI/IDE engineering agent"
@@ -677,7 +1288,39 @@
       ],
       "github_commands": [
         "Fetch/inspect the repository, then copy the complete Skill to the selected verified Factory/shared project root."
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.factory.ai/harness/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "future-agent": {
       "aliases": [
@@ -685,7 +1328,7 @@
         "unknown agent",
         "unknown runtime"
       ],
-      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "status": "GENERIC_PROMPT_FALLBACK",
       "kind": "generic",
       "surfaces": [
         "future/unknown runtimes"
@@ -698,7 +1341,27 @@
         "Never invent install semantics for a new runtime; verify first-party docs before adding an adapter."
       ],
       "adapter": "adapters/future-agent/README.md",
-      "source": "https://agentskills.io/"
+      "source": "https://agentskills.io/",
+      "legacy_status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "entity_type": "generic_host",
+      "native_skill_support": "unknown",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Attach or paste the SKick prompt/context in the active host.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "prompt_context_injection"
+      ],
+      "verification_status": "GENERIC_PROMPT_FALLBACK",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "No native persistent Skill mechanism is claimed for this generic route."
+      ]
     },
     "gemini-apps": {
       "aliases": [
@@ -707,7 +1370,7 @@
         "gemini web",
         "gemini.google.com"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "managed_upload",
       "surfaces": [
         "Gemini Apps web/app surfaces that expose Skills"
@@ -727,14 +1390,41 @@
         "Skills are a Gemini Spark feature, not a general Gemini chat feature.",
         "Plain-text files are supported; binary/rich-media assets are excluded from the generated Gemini package.",
         "Internet-dependent scripts are not supported in uploaded Skills."
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "workspace_platform",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the Gemini Skills UI on an eligible surface.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "declarative",
+      "capabilities": [
+        "skill_discovery"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://support.google.com/gemini/answer/17094296",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null
     },
     "gemini-cli": {
       "aliases": [
         "gemini cli",
         "google gemini cli"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "CLI/TUI",
@@ -760,6 +1450,42 @@
         "gemini skills install <GITHUB_REPO_URL> --scope workspace",
         "/skills reload",
         "/skills list"
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skills manages skills; ask for SKick or rely on model activation",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://geminicli.com/docs/cli/skills/",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route",
+            "automatic_skill_activation",
+            "project_skill_scope",
+            "user_skill_scope"
+          ],
+          "notes": "Current Gemini CLI docs document discovery tiers, model-driven `activate_skill`, user consent, and `.gemini/skills`/`.agents/skills` roots."
+        }
+      ],
+      "live_test": null,
+      "limitations": [
+        "Skill activation is model-driven and presents a consent prompt; `/skills` is the management surface rather than a documented direct `/skick` invocation."
       ]
     },
     "github-copilot": {
@@ -772,7 +1498,7 @@
         "copilot cloud agent",
         "copilot app"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "GitHub cloud agent",
@@ -809,7 +1535,39 @@
         "gh skill update skick"
       ],
       "availability": "Agent Skill availability varies by Copilot surface and plan. For example, Copilot code-review Skills are currently generally available to Copilot Pro, Pro+, Business, and Enterprise users; other Copilot agent surfaces have their own eligibility/limits.",
-      "availability_source": "https://github.blog/changelog/2026-07-29-copilot-code-review-agent-skills-and-mcp-now-generally-available/"
+      "availability_source": "https://github.blog/changelog/2026-07-29-copilot-code-review-agent-skills-and-mcp-now-generally-available/",
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills",
+          "source_type": "official_repository",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "glm": {
       "aliases": [
@@ -817,8 +1575,8 @@
         "z.ai glm",
         "glm coding plan"
       ],
-      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
-      "kind": "host_runtime",
+      "status": "HOST_DEPENDENT",
+      "kind": "model_provider_only",
       "surfaces": [
         "GLM models/providers inside coding hosts"
       ],
@@ -830,14 +1588,34 @@
         "Verify the host Skill installation independently from model/provider configuration."
       ],
       "adapter": "adapters/glm/README.md",
-      "source": "https://docs.z.ai/devpack/quick-start"
+      "source": "https://docs.z.ai/devpack/quick-start",
+      "legacy_status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "entity_type": "model_provider",
+      "native_skill_support": "host_dependent",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "no",
+        "native_equivalent": "Activate SKick in the actual host runtime.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "host_routed_skill_support"
+      ],
+      "verification_status": "HOST_DEPENDENT",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "This entry describes a model/provider relationship; install and activation guarantees come from the actual host, not the model name."
+      ]
     },
     "goose": {
       "aliases": [
         "goose",
         "goose"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Goose"
@@ -862,7 +1640,36 @@
       "limitations": [
         "Legacy `.goose/skills/` and Claude-compatible locations are backward-compatibility paths; prefer `.agents/skills/` for new installs."
       ],
-      "availability": "Goose Agent Skills are provided by the built-in Skills platform support; model/provider access and billing are separate."
+      "availability": "Goose Agent Skills are provided by the built-in Skills platform support; model/provider access and billing are separate.",
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://goose-docs.ai/docs/guides/context-engineering/using-skills/",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null
     },
     "grok": {
       "aliases": [
@@ -872,7 +1679,7 @@
         "grok android",
         "grok build"
       ],
-      "status": "VERIFIED_SPLIT_RUNTIME",
+      "status": "DOC_VERIFIED",
       "kind": "managed_or_filesystem",
       "surfaces": [
         "Grok web/iOS/Android",
@@ -890,14 +1697,46 @@
         "Confirm the native Grok Skill or Grok Build filesystem/plugin entry is visible and invocable."
       ],
       "adapter": "adapters/grok/README.md",
-      "source": "https://docs.x.ai/build/features/skills-plugins-marketplaces"
+      "source": "https://docs.x.ai/build/features/skills-plugins-marketplaces",
+      "legacy_status": "VERIFIED_SPLIT_RUNTIME",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "partial_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.x.ai/build/features/skills-plugins-marketplaces",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "ibm-granite": {
       "aliases": [
         "granite",
         "ibm granite"
       ],
-      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "status": "HOST_DEPENDENT",
       "kind": "model_provider_only",
       "surfaces": [
         "IBM Granite"
@@ -910,14 +1749,34 @@
         "Confirm which agent/harness actually runs the model, then verify SKick in that host."
       ],
       "adapter": "adapters/model-provider/README.md",
-      "source": "https://agentskills.io/home"
+      "source": "https://agentskills.io/home",
+      "legacy_status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "entity_type": "model_provider",
+      "native_skill_support": "host_dependent",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "no",
+        "native_equivalent": "Activate SKick in the actual host runtime.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "host_routed_skill_support"
+      ],
+      "verification_status": "HOST_DEPENDENT",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "This entry describes a model/provider relationship; install and activation guarantees come from the actual host, not the model name."
+      ]
     },
     "iflow-cli": {
       "aliases": [
         "iflow-cli",
         "iflow cli"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "iFlow CLI"
@@ -939,14 +1798,44 @@
       "sources": [
         "https://platform.iflow.cn/en/cli/examples/skill"
       ],
-      "availability": "Skill support is an iFlow CLI host capability; account/model/provider availability is separate."
+      "availability": "Skill support is an iFlow CLI host capability; account/model/provider availability is separate.",
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://platform.iflow.cn/en/cli/examples/skill",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "junie": {
       "aliases": [
         "junie",
         "jetbrains junie"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "JetBrains Junie"
@@ -971,14 +1860,44 @@
         "https://junie.jetbrains.com/docs/agent-skills.html"
       ],
       "availability": "Junie Skill support is documented in Junie surfaces; JetBrains AI entitlement/usage rules remain separate and may change.",
-      "availability_source": "https://junie.jetbrains.com/docs/agent-skills.html"
+      "availability_source": "https://junie.jetbrains.com/docs/agent-skills.html",
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://junie.jetbrains.com/docs/agent-skills.html",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "kilo-code": {
       "aliases": [
         "kilo-code",
         "kilo code"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Kilo Code"
@@ -1003,7 +1922,38 @@
         "https://kilo.ai/docs/customize/skills"
       ],
       "availability": "Skill discovery is a Kilo Code host capability; model/provider billing or Kilo plan limits remain separate from the Skill directory format.",
-      "availability_source": "https://kilo.ai/docs/customize/skills"
+      "availability_source": "https://kilo.ai/docs/customize/skills",
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://kilo.ai/docs/customize/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "kimi": {
       "aliases": [
@@ -1012,7 +1962,7 @@
         "kimi",
         "moonshot kimi"
       ],
-      "status": "VERIFIED_HOST_SPLIT",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill_or_plugin",
       "surfaces": [
         "Kimi Code CLI",
@@ -1039,14 +1989,44 @@
       ],
       "limitations": [
         "Canonical explicit Kimi Code invocation is /skill:skick; plain /skick may depend on command-name collision/fallback behavior."
-      ]
+      ],
+      "legacy_status": "VERIFIED_HOST_SPLIT",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://moonshotai.github.io/kimi-code/en/customization/skills/",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null
     },
     "kiro-cli": {
       "aliases": [
         "kiro-cli",
         "kiro cli"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Kiro CLI"
@@ -1067,15 +2047,47 @@
       "source": "https://kiro.dev/docs/skills/",
       "sources": [
         "https://kiro.dev/docs/skills/"
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://kiro.dev/docs/skills/",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route",
+            "explicit_skill_activation",
+            "automatic_skill_activation"
+          ],
+          "notes": "Current Kiro Agent Skills docs document workspace/global roots, automatic matching, and slash-command activation."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "longcat": {
       "aliases": [
         "longcat",
         "longcat 2.0"
       ],
-      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
-      "kind": "host_runtime",
+      "status": "HOST_DEPENDENT",
+      "kind": "model_provider_only",
       "surfaces": [
         "LongCat models in agent harnesses",
         "web fallback"
@@ -1092,6 +2104,26 @@
       "sources": [
         "https://github.com/meituan-longcat/LongCat-2.0",
         "https://longcat.chat/platform/docs/OpenCode.html"
+      ],
+      "legacy_status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "entity_type": "model_provider",
+      "native_skill_support": "host_dependent",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "no",
+        "native_equivalent": "Activate SKick in the actual host runtime.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "host_routed_skill_support"
+      ],
+      "verification_status": "HOST_DEPENDENT",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "This entry describes a model/provider relationship; install and activation guarantees come from the actual host, not the model name."
       ]
     },
     "manus": {
@@ -1100,7 +2132,7 @@
         "manus ai",
         "manus skills"
       ],
-      "status": "VERIFIED_MANAGED_IMPORT",
+      "status": "DOC_VERIFIED",
       "kind": "managed_import",
       "surfaces": [
         "managed Manus Skill surfaces"
@@ -1122,14 +2154,42 @@
         "Open Skills > + Add > Import from GitHub.",
         "Paste <GITHUB_REPO_URL>.",
         "Confirm SKick is imported/enabled and run a low-risk trigger test."
-      ]
+      ],
+      "legacy_status": "VERIFIED_MANAGED_IMPORT",
+      "entity_type": "workspace_platform",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the managed Skills UI/import flow.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "declarative",
+      "capabilities": [
+        "skill_discovery"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://help.manus.im/en/articles/14753565-how-to-share-and-use-skills-in-manus",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "mcpjam": {
       "aliases": [
         "mcpjam",
         "mcpjam"
       ],
-      "status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "MCPJam"
@@ -1147,7 +2207,39 @@
         "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
       ],
       "adapter": "adapters/mcpjam/README.md",
-      "source": "https://auth0.github.io/auth0-cli/auth0_agent_skills_install.html"
+      "source": "https://docs.mcpjam.com/inspector/skills",
+      "legacy_status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "entity_type": "developer_tool",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "partial_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.mcpjam.com/inspector/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "meta-llama": {
       "aliases": [
@@ -1155,7 +2247,7 @@
         "llama",
         "llama code"
       ],
-      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "status": "HOST_DEPENDENT",
       "kind": "model_provider_only",
       "surfaces": [
         "Meta Llama"
@@ -1168,7 +2260,27 @@
         "Confirm which agent/harness actually runs the model, then verify SKick in that host."
       ],
       "adapter": "adapters/model-provider/README.md",
-      "source": "https://agentskills.io/home"
+      "source": "https://agentskills.io/home",
+      "legacy_status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "entity_type": "model_provider",
+      "native_skill_support": "host_dependent",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "no",
+        "native_equivalent": "Activate SKick in the actual host runtime.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "host_routed_skill_support"
+      ],
+      "verification_status": "HOST_DEPENDENT",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "This entry describes a model/provider relationship; install and activation guarantees come from the actual host, not the model name."
+      ]
     },
     "meta-muse": {
       "aliases": [
@@ -1177,7 +2289,7 @@
         "muse spark",
         "meta muse"
       ],
-      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "status": "UNKNOWN",
       "kind": "host_runtime",
       "surfaces": [
         "Meta AI web",
@@ -1192,7 +2304,25 @@
         "Do not fabricate a Muse-specific manifest or path."
       ],
       "adapter": "adapters/meta-muse/README.md",
-      "source": "https://www.meta.ai/"
+      "source": "https://www.meta.ai/",
+      "legacy_status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "entity_type": "cli_agent",
+      "native_skill_support": "unknown",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "No native SKick activation mechanism verified.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "unknown",
+      "capabilities": [],
+      "verification_status": "UNKNOWN",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "Current evidence is insufficient to claim native Skill installation or invocation support."
+      ]
     },
     "mimo": {
       "aliases": [
@@ -1201,7 +2331,7 @@
         "xiaomi mimo",
         "mimo"
       ],
-      "status": "VERIFIED_HOST_SPLIT",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill_or_host",
       "surfaces": [
         "MiMoCode",
@@ -1220,15 +2350,44 @@
       "source": "https://github.com/XiaomiMiMo/MiMo-Code",
       "sources": [
         "https://github.com/XiaomiMiMo/MiMo-Code"
-      ]
+      ],
+      "legacy_status": "VERIFIED_HOST_SPLIT",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "project_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://github.com/XiaomiMiMo/MiMo-Code",
+          "source_type": "official_repository",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "minimax": {
       "aliases": [
         "minimax",
         "minimax model"
       ],
-      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
-      "kind": "host_runtime",
+      "status": "HOST_DEPENDENT",
+      "kind": "model_provider_only",
       "surfaces": [
         "MiniMax models in host agents",
         "web/model fallback"
@@ -1246,8 +2405,26 @@
         "https://github.com/MiniMax-AI/skills"
       ],
       "limitations": [
-        "Do not invent .minimax/skills or another filesystem path solely from the provider/model name."
-      ]
+        "Do not invent .minimax/skills or another filesystem path solely from the provider/model name.",
+        "This entry describes a model/provider relationship; install and activation guarantees come from the actual host, not the model name."
+      ],
+      "legacy_status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "entity_type": "model_provider",
+      "native_skill_support": "host_dependent",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "no",
+        "native_equivalent": "Activate SKick in the actual host runtime.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "host_routed_skill_support"
+      ],
+      "verification_status": "HOST_DEPENDENT",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null
     },
     "mistral": {
       "aliases": [
@@ -1257,7 +2434,7 @@
         "mistral vibe vscode",
         "vibe work"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Vibe Code CLI",
@@ -1277,19 +2454,52 @@
         "Confirm the skill is discovered in the CLI/VS Code slash picker or Work Skills UI."
       ],
       "adapter": "adapters/mistral/README.md",
-      "source": "https://docs.mistral.ai/vibe/code/cli/skills"
+      "source": "https://docs.mistral.ai/vibe/code/cli/skills",
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.mistral.ai/vibe/code/cli/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "mux": {
       "aliases": [
+        "coder xum",
         "mux",
-        "mux"
+        "xum"
       ],
-      "status": "VERIFIED_PRODUCT_SOURCE",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
-        "Mux"
+        "Xum (formerly Mux)"
       ],
-      "preferred_install": "Use .mux/skills/skick for project scope or ~/.mux/skills/skick for user scope. Mux source exposes Agent Skill list/read/write tools and uses .mux/skills in its own repository; verify the active release before unattended automation.",
+      "preferred_install": "Treat `mux` as the backward-compatible route id for Xum. Use the active Xum Skill locations documented by the installed release; do not assume legacy .mux paths without checking.",
       "project_paths": [
         ".mux/skills/skick/"
       ],
@@ -1302,22 +2512,51 @@
         "Run a low-risk matching task and confirm supporting files resolve."
       ],
       "adapter": "adapters/mux/README.md",
-      "source": "https://github.com/coder/mux",
+      "source": "https://github.com/coder/xum",
       "sources": [
-        "https://github.com/coder/mux/blob/main/.mux/skills/tbench/SKILL.md",
-        "https://github.com/coder/mux/blob/main/docs/hooks/tools.mdx"
+        "https://github.com/coder/xum"
       ],
       "availability": "Mux Skill support is evidenced by the product source tree/tool surface; re-check the active Mux release before scripted global rollout.",
       "limitations": [
-        "Treat source-level evidence as version-sensitive; verify the installed Mux build before unattended install/update automation."
-      ]
+        "Treat source-level evidence as version-sensitive; verify the installed Mux build before unattended install/update automation.",
+        "The product was renamed from Mux to Xum; legacy route id and adapter are retained for migration compatibility."
+      ],
+      "legacy_status": "VERIFIED_PRODUCT_SOURCE",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://github.com/coder/xum",
+          "source_type": "official_repository",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null
     },
     "neovate": {
       "aliases": [
         "neovate",
         "neovate"
       ],
-      "status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "status": "COMMUNITY_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Neovate"
@@ -1335,7 +2574,29 @@
         "Re-check current first-party documentation before scripting installation for a release-sensitive environment."
       ],
       "adapter": "adapters/neovate/README.md",
-      "source": "https://auth0.github.io/auth0-cli/auth0_agent_skills_install.html"
+      "source": "https://github.com/vercel-labs/skills/blob/main/src/agents.ts",
+      "legacy_status": "ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY",
+      "entity_type": "ide_or_cli_agent",
+      "native_skill_support": "unknown",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Re-check the installed host; current evidence is not first-party-complete.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "unknown",
+      "capabilities": [],
+      "verification_status": "COMMUNITY_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "Current first-party Skill documentation was not established in this audit; treat install paths as version-sensitive community evidence."
+      ],
+      "sources": [
+        "https://github.com/vercel-labs/skills/blob/main/src/agents.ts"
+      ],
+      "notes": "Community path evidence: vercel-labs/skills agent registry; no current first-party Skill documentation established in this audit."
     },
     "openai-plugin": {
       "aliases": [
@@ -1344,7 +2605,7 @@
         "codex plugin directory",
         "openai plugins"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "plugin",
       "surfaces": [
         "Codex plugin/workspace"
@@ -1358,14 +2619,42 @@
         "Verify any required apps separately; SKick itself does not grant app access."
       ],
       "adapter": "adapters/openai-plugin/README.md",
-      "source": "https://github.com/openai/plugins"
+      "source": "https://developers.openai.com/plugins/build/plugins",
+      "legacy_status": "VERIFIED",
+      "entity_type": "plugin_ecosystem",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Install the plugin in a host that supports Agent Plugins v1, then use that host activation mechanism.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "partial_runtime",
+      "capabilities": [
+        "skill_discovery"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://developers.openai.com/plugins/build/plugins",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current OpenAI plugin documentation documents skills as plugin components and plugin packaging."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "opencode": {
       "aliases": [
         "opencode",
         "open code"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "CLI/TUI",
@@ -1392,14 +2681,45 @@
       "source": "https://opencode.ai/docs/skills",
       "sources": [
         "https://opencode.ai/docs/skills"
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://opencode.ai/docs/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "openhands": {
       "aliases": [
         "openhands",
         "openhands"
       ],
-      "status": "VERIFIED_REPO",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "OpenHands"
@@ -1422,14 +2742,44 @@
       ],
       "limitations": [
         "Treat repository-level support as verified; re-check managed organization/user scope separately."
-      ]
+      ],
+      "legacy_status": "VERIFIED_REPO",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.openhands.dev/overview/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null
     },
     "pi": {
       "aliases": [
         "pi",
         "pi"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Pi"
@@ -1457,14 +2807,45 @@
       "availability_source": "https://pi.dev/docs/latest/skills",
       "limitations": [
         "Project Skills should load only from trusted projects/worktrees; do not bypass the host trust boundary."
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skill:skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://pi.dev/docs/latest/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null
     },
     "qoder": {
       "aliases": [
         "qoder",
         "qoder"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Qoder"
@@ -1489,7 +2870,38 @@
       ],
       "limitations": [
         "QoderWork is a distinct surface with ~/.qoderwork/skills; do not reuse Qoder IDE paths blindly."
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.qoder.com/extensions/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null
     },
     "qwen": {
       "aliases": [
@@ -1500,7 +2912,7 @@
         "qwen code zed",
         "qwen"
       ],
-      "status": "VERIFIED_HOST_SPLIT",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill_or_plugin",
       "surfaces": [
         "Qwen Code CLI",
@@ -1522,14 +2934,46 @@
       "source": "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills",
       "sources": [
         "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/"
-      ]
+      ],
+      "legacy_status": "VERIFIED_HOST_SPLIT",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "/skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "replit": {
       "aliases": [
         "replit",
         "replit"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Replit"
@@ -1549,7 +2993,37 @@
       "sources": [
         "https://docs.replit.com/build/use-agent-skills",
         "https://docs.replit.com/learn/agent-skills"
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "project_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.replit.com/build/use-agent-skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "roo-code": {
       "aliases": [
@@ -1558,7 +3032,7 @@
         "roo-code",
         "roo vscode"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "VS Code extension",
@@ -1582,19 +3056,51 @@
       "source": "https://roocodeinc.github.io/Roo-Code/features/skills/",
       "sources": [
         "https://roocodeinc.github.io/Roo-Code/features/skills/"
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://roocodeinc.github.io/Roo-Code/features/skills/",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "sarvam": {
       "aliases": [
         "sarvam",
         "sarvam model"
       ],
-      "status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "status": "DOC_VERIFIED",
       "kind": "generic",
       "surfaces": [
-        "model/provider surfaces"
+        "Sarvam Cowork Skills",
+        "Sarvam model/provider surfaces"
       ],
-      "preferred_install": "Use the actual host runtime adapter when known; otherwise use the generic prompt fallback.",
+      "preferred_install": "For Sarvam Cowork, use its managed Skills library/custom-Skill flow. Do not invent a filesystem path or claim SKick ZIP import unless the active UI documents it. For Sarvam models in another host, use that host adapter.",
       "project_paths": [],
       "user_paths": [],
       "distribution": "generic-prompt.md",
@@ -1602,14 +3108,43 @@
         "Do not infer a native Skill contract from the model family name."
       ],
       "adapter": "adapters/sarvam/README.md",
-      "source": "https://www.sarvam.ai/"
+      "source": "https://docs.sarvam.ai/cowork/build/skills",
+      "legacy_status": "HOST_RUNTIME_OR_GENERIC_FALLBACK",
+      "entity_type": "workspace_platform",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Select or attach the Skill in Sarvam Cowork.",
+        "automatic": "supported"
+      },
+      "runtime_tier": "declarative",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.sarvam.ai/cowork/build/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "tencent-hunyuan": {
       "aliases": [
         "hunyuan",
         "tencent hunyuan"
       ],
-      "status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "status": "HOST_DEPENDENT",
       "kind": "model_provider_only",
       "surfaces": [
         "Tencent Hunyuan"
@@ -1622,7 +3157,27 @@
         "Confirm which agent/harness actually runs the model, then verify SKick in that host."
       ],
       "adapter": "adapters/model-provider/README.md",
-      "source": "https://agentskills.io/home"
+      "source": "https://agentskills.io/home",
+      "legacy_status": "MODEL_PROVIDER_ROUTE_TO_HOST",
+      "entity_type": "model_provider",
+      "native_skill_support": "host_dependent",
+      "activation": {
+        "explicit": "host_dependent",
+        "literal_at_skick": "no",
+        "native_equivalent": "Activate SKick in the actual host runtime.",
+        "automatic": "host_dependent"
+      },
+      "runtime_tier": "prompt_fallback",
+      "capabilities": [
+        "host_routed_skill_support"
+      ],
+      "verification_status": "HOST_DEPENDENT",
+      "last_verified": "2026-09-05",
+      "official_evidence": [],
+      "live_test": null,
+      "limitations": [
+        "This entry describes a model/provider relationship; install and activation guarantees come from the actual host, not the model name."
+      ]
     },
     "trae": {
       "aliases": [
@@ -1633,31 +3188,62 @@
         "bytedance trae",
         "trae cn"
       ],
-      "status": "VERIFIED_PRODUCT_ECOSYSTEM",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "TRAE IDE",
         "TRAE SOLO",
         "TRAE VS Code/plugin-style surfaces where Skills are exposed"
       ],
-      "preferred_install": "Use .trae/skills/skick for project scope. For global scope use the product-specific global skill root documented by the installed TRAE edition (commonly ~/.trae/skills; TRAE CN may use ~/.trae-cn/skills). The Skills UI can also import external skills where available.",
+      "preferred_install": "Prefer the current TRAE Skills UI or the cross-agent project root `.agents/skills/skick/`, which current first-party release notes explicitly support. Treat product-specific global filesystem roots as version-sensitive unless the installed TRAE release documents them.",
       "project_paths": [
-        ".trae/skills/skick/"
+        ".agents/skills/skick/"
       ],
-      "user_paths": [
-        "~/.trae/skills/skick/",
-        "~/.trae-cn/skills/skick/"
-      ],
+      "user_paths": [],
       "distribution": "runtime-skill.zip",
       "verification": [
         "Refresh/reload TRAE skill discovery or use the Skills/Commands UI.",
         "Invoke SKick by name or run a matching task and confirm the runtime loads the skill rather than only copying files."
       ],
       "adapter": "adapters/trae/README.md",
-      "source": "https://www.trae.ai/",
+      "source": "https://www.trae.ai/changelog",
       "sources": [
         "https://www.trae.ai/",
         "https://forum.trae.cn/t/topic/67755"
+      ],
+      "legacy_status": "VERIFIED_PRODUCT_ECOSYSTEM",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://www.trae.ai/changelog",
+          "source_type": "first_party_release_notes",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route",
+            "project_skill_scope"
+          ],
+          "notes": "Current TRAE release notes document Agent Skills, global/project Skill concepts, and loading Skill plugins from `.agents/skills`; an exact global filesystem root is not promoted without stronger current evidence."
+        }
+      ],
+      "live_test": null,
+      "limitations": [
+        "Current first-party evidence supports Agent Skills and `.agents/skills` project loading, but this audit did not establish a stable product-specific global filesystem path."
       ]
     },
     "warp": {
@@ -1665,7 +3251,7 @@
         "warp",
         "warp"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Warp"
@@ -1688,7 +3274,37 @@
       "sources": [
         "https://docs.warp.dev/knowledge-and-collaboration/warp-drive/ai-objects",
         "https://docs.warp.dev/changelog"
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "cli_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.warp.dev/knowledge-and-collaboration/warp-drive/ai-objects",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "windsurf": {
       "aliases": [
@@ -1696,7 +3312,7 @@
         "cascade",
         "windsurf cascade"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Windsurf IDE",
@@ -1718,7 +3334,39 @@
       "source": "https://docs.windsurf.com/windsurf/cascade/skills",
       "sources": [
         "https://docs.windsurf.com/windsurf/cascade/skills"
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "yes",
+        "native_equivalent": "@skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.windsurf.com/windsurf/cascade/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "zcode": {
       "aliases": [
@@ -1726,7 +3374,7 @@
         "z.ai zcode",
         "z code"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill_or_plugin",
       "surfaces": [
         "ZCode Agent",
@@ -1743,14 +3391,44 @@
         "For remote workspaces, verify the skill exists on the remote host or use the supported sync flow."
       ],
       "adapter": "adapters/zcode/README.md",
-      "source": "https://zcode-ai.github.io/zcode-docs/"
+      "source": "https://zcode.z.ai/en/docs/skill",
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "no",
+        "native_equivalent": "$skick",
+        "automatic": "unknown"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "explicit_skill_activation",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://zcode.z.ai/en/docs/skill",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null,
+      "limitations": []
     },
     "zed": {
       "aliases": [
         "zed",
         "zed"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Zed"
@@ -1775,14 +3453,44 @@
       "limitations": [
         "Project Skills require a trusted worktree.",
         "Keep Skill metadata lean; large catalogs can consume discovery budget."
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "unknown",
+        "literal_at_skick": "unknown",
+        "native_equivalent": "Use the host skill picker or documented native Skill mechanism.",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://zed.dev/docs/ai/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null
     },
     "zencoder": {
       "aliases": [
         "zencoder",
         "zencoder / zenflow"
       ],
-      "status": "VERIFIED",
+      "status": "DOC_VERIFIED",
       "kind": "agent_skill",
       "surfaces": [
         "Zencoder / Zenflow"
@@ -1808,7 +3516,38 @@
       "limitations": [
         "Legacy .zencoder/skills is deprecated; prefer .agents/skills.",
         "Do not promise manual Skill selection where the current surface only auto-selects."
-      ]
+      ],
+      "legacy_status": "VERIFIED",
+      "entity_type": "ide_agent",
+      "native_skill_support": "yes",
+      "activation": {
+        "explicit": "supported",
+        "literal_at_skick": "yes",
+        "native_equivalent": "@skick",
+        "automatic": "supported"
+      },
+      "runtime_tier": "full_runtime",
+      "capabilities": [
+        "skill_discovery",
+        "automatic_skill_activation",
+        "explicit_skill_activation",
+        "project_skill_scope",
+        "user_skill_scope"
+      ],
+      "verification_status": "DOC_VERIFIED",
+      "last_verified": "2026-09-05",
+      "official_evidence": [
+        {
+          "url": "https://docs.zencoder.ai/features/skills",
+          "source_type": "first_party_docs",
+          "checked_on": "2026-09-05",
+          "supports": [
+            "native_skill_or_package_route"
+          ],
+          "notes": "Current first-party evidence was reviewed for the route. Unproven activation details remain unknown rather than inferred."
+        }
+      ],
+      "live_test": null
     }
   },
   "runtime_families": {
@@ -1849,7 +3588,7 @@
     "For a new/custom harness, implement Agent Skills discovery and progressive activation from SKILL.md according to agentskills.io/client-implementation/adding-skills-support.",
     "If none of the above can be verified, do not fabricate a path. Ask for the runtime or use a one-session prompt import."
   ],
-  "last_reviewed": "2026-09-03",
+  "last_reviewed": "2026-09-05",
   "github_bootstrap": {
     "prompt_file": "BOOTSTRAP_PROMPTS.md",
     "protocol": "docs/GITHUB_BOOTSTRAP.md",
@@ -1864,6 +3603,32 @@
       "Confirm the active runtime discovers SKick.",
       "Run a low-risk trigger smoke test.",
       "Report Serena availability/setup separately from SKick discovery."
+    ]
+  },
+  "compatibility_policy": {
+    "quality_gate": "evidence_completeness_not_route_count",
+    "verification_statuses": [
+      "LIVE_TESTED",
+      "DOC_VERIFIED",
+      "COMMUNITY_VERIFIED",
+      "HOST_DEPENDENT",
+      "GENERIC_PROMPT_FALLBACK",
+      "BROKEN_UNSUPPORTED",
+      "UNKNOWN"
+    ],
+    "proof_separation": [
+      "static_validation",
+      "runtime_test",
+      "behavioral_evaluation",
+      "doc_verification",
+      "live_platform_test"
+    ],
+    "rules": [
+      "Documentation support is not live verification.",
+      "Files copied is not runtime discovery.",
+      "Discovery is not invocation.",
+      "Invocation is not task success.",
+      "Model providers are routed through an actual host unless they expose a verified native Skill mechanism."
     ]
   }
 }

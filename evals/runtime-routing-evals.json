@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "description": "Deterministic local activation, depth and module-routing evaluations.",
+  "cases": [
+    {
+      "id": "trivial-arithmetic-minimal",
+      "operation": "classify",
+      "task": "2 + 2",
+      "expect": {"activate": false, "depth": ["quick"], "mode": ["research"]}
+    },
+    {
+      "id": "tiny-typo-minimal",
+      "operation": "classify",
+      "task": "Fix this typo in one README line only.",
+      "expect": {"activate": false, "depth": ["quick"], "mode": ["build"]}
+    },
+    {
+      "id": "simple-error-explanation-minimal",
+      "operation": "classify",
+      "task": "What does this error message mean?",
+      "expect": {"activate": false, "depth": ["quick"]}
+    },
+    {
+      "id": "payment-webhook-repo-debug",
+      "operation": "classify",
+      "task": "Fix the failing payment webhook in this repo and add a regression test.",
+      "expect": {"activate": true, "depth": ["standard", "deep"], "mode": ["debug"]}
+    },
+    {
+      "id": "auth-exploitability-deep-security",
+      "operation": "classify",
+      "task": "Audit this authentication system and prove whether this vulnerability is exploitable.",
+      "expect": {"activate": true, "depth": ["deep", "exhaustive"], "mode": ["security"]}
+    },
+    {
+      "id": "explicit-skick-overrides-tiny-negative",
+      "operation": "classify",
+      "task": "Use SKick for this tiny formatting task and tell me what you changed.",
+      "expect": {"activate": true, "depth": ["quick"]}
+    },
+    {
+      "id": "current-vulnerability-patch-deep",
+      "operation": "classify",
+      "task": "Research the current vulnerability, identify affected code in this repository, patch it, and validate the patch with security regression tests.",
+      "expect": {"activate": true, "depth": ["deep", "exhaustive"], "mode": ["security"]}
+    },
+    {
+      "id": "repo-fallback-without-semantic-search",
+      "operation": "compile",
+      "task": "Map this repository, trace callers and references, then fix the regression and test it.",
+      "declared_capabilities": {"semantic_code_search": {"state": "unavailable", "provider": "host"}},
+      "budget_tokens": 8000,
+      "expect_selected": ["core/repository-research.md"],
+      "expect_excluded": ["core/serena-integration.md"],
+      "expect_routing_note_contains": "fallback"
+    },
+    {
+      "id": "serena-only-when-observed-provider",
+      "operation": "compile",
+      "task": "Deeply map this large repository and trace symbol references before changing code.",
+      "declared_capabilities": {"semantic_code_search": {"state": "available", "provider": "Serena"}},
+      "budget_tokens": 12000,
+      "expect_selected": ["core/repository-research.md", "core/serena-integration.md"]
+    },
+    {
+      "id": "oauth-debug-skips-finance-3d",
+      "operation": "compile",
+      "task": "Fix an intermittent Next.js OAuth callback failure in this repo and review the patch for auth security regressions with tests.",
+      "budget_tokens": 12000,
+      "expect_selected": ["core/repository-research.md", "core/engineering-feedback-loops.md", "core/security-research.md", "core/evidence-verification.md"],
+      "expect_excluded": ["core/financial-and-economic-research.md", "extensions/web3d-experience-design.md"]
+    }
+  ]
+}

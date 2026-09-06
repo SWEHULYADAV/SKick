@@ -7,6 +7,11 @@ import sys
 import zipfile
 from pathlib import Path
 
+SOURCE_ROOT = Path(__file__).resolve().parents[1]
+if str(SOURCE_ROOT) not in sys.path:
+    sys.path.insert(0, str(SOURCE_ROOT))
+from runtime.versioning import normalize_semver
+
 NAME = "skick"
 EXPECTED = {
     "runtime-skill.zip": [f"{NAME}/SKILL.md", f"{NAME}/core/research-core.md", f"{NAME}/START_HERE.md"],
@@ -33,6 +38,15 @@ def main() -> int:
     args = ap.parse_args()
     root = args.output_dir.resolve()
     errors: list[str] = []
+    package_version = None
+    runtime_zip = root / "runtime-skill.zip"
+    if runtime_zip.is_file():
+        try:
+            with zipfile.ZipFile(runtime_zip) as zf:
+                package_version = zf.read(f"{NAME}/VERSION").decode("utf-8").strip()
+        except Exception as exc:
+            errors.append(f"could not derive package version from runtime-skill.zip: {exc}")
+    expected_plugin_version = normalize_semver(package_version) if package_version else None
 
     for filename, required in EXPECTED.items():
         p = root / filename
@@ -60,7 +74,7 @@ def main() -> int:
         allowed = {"$schema", "name", "version", "description", "author", "homepage", "repository", "license", "keywords", "extensions"}
         if m.get("$schema") != "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json":
             errors.append("Agent Plugin v1 schema identifier mismatch")
-        if m.get("name") != NAME or m.get("version") != "1.0.0":
+        if m.get("name") != NAME or m.get("version") != expected_plugin_version:
             errors.append("Agent Plugin identity/version mismatch")
         unknown = set(m) - allowed
         if unknown:
@@ -69,13 +83,13 @@ def main() -> int:
     p = root / "codex-plugin.zip"
     if p.is_file():
         m = read_json_from_zip(p, ".codex-plugin/plugin.json")
-        if m.get("skills") != "./skills/" or m.get("version") != "1.0.0":
+        if m.get("skills") != "./skills/" or m.get("version") != expected_plugin_version:
             errors.append("Codex plugin skills/version mismatch")
 
     p = root / "kimi-plugin.zip"
     if p.is_file():
         m = read_json_from_zip(p, "kimi.plugin.json")
-        if m.get("skills") != "./skills/" or m.get("version") != "1.0.0":
+        if m.get("skills") != "./skills/" or m.get("version") != expected_plugin_version:
             errors.append("Kimi plugin skills/version mismatch")
 
     p = root / "claude-web-skill.zip"

@@ -23,7 +23,7 @@ Publish the canonical SKick repository root and give the target AI the URL plus 
 
 GitHub-capable coding agents may use a documented native remote-Skill command or may fetch/clone the repository and run the conservative local installer. Managed AI apps may require the generated archive through their native upload/import UI. Do not pretend a GitHub URL can bypass product permissions.
 
-The universal bootstrap prompt authorizes canonical Serena setup for repository engineering when the active host supports it. Re-check the current `oraios/serena` setup for that client and report a fallback if unavailable. Other optional dependencies remain separate.
+Installing SKick does not authorize installing a semantic repository provider or any other executable dependency. Discover existing capabilities first; configure an optional provider only when the task needs it and the user/host authorization permits it.
 
 ## 3. Direct ZIP installation protocol
 
@@ -197,7 +197,7 @@ Never sync secrets with the Skill.
 
 ## 14. Optional integrations
 
-SKick can route to optional MCPs, browser tools, semantic repository tools, cloud CLIs, databases, or specialist Skills when available. They are **not** silently installed as dependencies. The universal GitHub bootstrap prompt is a narrow exception that explicitly authorizes canonical Serena setup for repo engineering when supported.
+SKick can route to optional MCPs, browser tools, semantic repository tools, cloud CLIs, databases, or specialist Skills when available. They are **not** silently installed as dependencies. Provider setup requires a separate capability-fit and authorization decision.
 
 Before enabling one:
 

@@ -5,7 +5,13 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from runtime.versioning import read_package_version
 
 ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
@@ -17,11 +23,12 @@ def main() -> int:
     path = Path(args.catalog)
     data = json.loads(path.read_text(encoding="utf-8"))
     errors: list[str] = []
+    release_label = f"v{read_package_version(ROOT)}"
 
     if data.get("schema_version") != 2:
         errors.append("schema_version must be 2")
-    if data.get("release") != "v1.0":
-        errors.append("release must be v1.0")
+    if data.get("release") != release_label:
+        errors.append(f"release must match VERSION ({release_label})")
 
     servers = data.get("servers") if isinstance(data.get("servers"), list) else []
     profiles = data.get("profiles") if isinstance(data.get("profiles"), list) else []

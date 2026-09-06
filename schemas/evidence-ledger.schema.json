@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/evidence-ledger.schema.json",
+  "title": "SKick Evidence Ledger",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "type", "subject", "status", "recorded_at"],
+    "properties": {
+      "id": {"type": "string", "pattern": "^ev-"},
+      "type": {"enum": ["source_code", "source_file", "command_output", "test_result", "runtime_observation", "live_platform_test", "first_party_documentation", "external_documentation", "benchmark", "static_analysis", "browser_result", "user_provided_evidence", "inference"]},
+      "subject": {"type": "string", "minLength": 1},
+      "status": {"enum": ["passed", "failed", "observed", "verified", "blocked", "unknown"]},
+      "source": {"type": ["string", "null"]},
+      "command": {"type": ["string", "null"]},
+      "version": {"type": ["string", "null"]},
+      "sha256": {"type": ["string", "null"]},
+      "notes": {"type": ["string", "null"]},
+      "metadata": {"type": "object"},
+      "recorded_at": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

@@ -2,7 +2,7 @@
 
 Cursor supports the open Agent Skills format and the **Agent Plugins** open standard in addition to Cursor-specific plugins.
 
-## Recommended v1.0 distribution
+## Recommended v1.1 distribution
 - Portable Skill: use the canonical Agent Skill in a Cursor-supported skill location.
 - Portable plugin: use the generated Agent Plugin v1 package with root `plugin.json` and `skills/skick/SKILL.md`.
 - Cursor-specific plugin: use `.cursor-plugin/plugin.json` only when Cursor-only rules, agents, commands, hooks, variables, or canvases are actually required.
@@ -15,8 +15,6 @@ If Superpowers is installed through Cursor's supported plugin path, delegate mat
 ## MCP stack
 Use `core/mcp-stack.md`; prefer native capability first and enable only task-matched, trusted servers.
 
-## v1.0 preferred web profile
-For ordinary new websites/web tools without a stronger existing-project constraint, preserve the canonical Python + vanilla profile: Python backend in `backend/`, semantic HTML/CSS/vanilla JS in `frontend/`, and a minimal root launcher such as `app.py`. Do not let host defaults auto-scaffold React/Next/Vite or a Node backend without a task-specific reason.
 
 <!-- SKICK-AI-INSTALL-BEGIN -->
 ## Direct ZIP / AI installer contract
@@ -24,7 +22,12 @@ For ordinary new websites/web tools without a stronger existing-project constrai
 When an AI receives the SKick ZIP and the user says **"install this"**, use this adapter only after identifying the actual runtime/surface from environment evidence or the user's explicit target.
 
 - **Manifest platform ID:** `cursor`
-- **Support status:** `VERIFIED`
+- **Support status:** `DOC_VERIFIED`
+- **Verification status:** `DOC_VERIFIED`
+- **Runtime tier:** `full_runtime`
+- **Native Skill support:** `yes`
+- **Literal `@SKick`:** `no`
+- **Native activation equivalent:** /skick
 - **Surfaces covered:** desktop IDE, agent chat
 - **Availability / gating:** Availability, plan, region, and admin policy can vary; re-check current first-party documentation for this surface.
 - **Preferred install:** Prefer .cursor/skills/skick for project scope and ~/.cursor/skills/skick for user scope; Cursor also documents the shared .agents/skills paths.
@@ -44,7 +47,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 2. Inspect the target runtime and existing SKick installation before writing or uploading anything.
 3. Prefer project scope when the user did not request a global/personal install and the runtime supports project Skills.
 4. Preserve the complete SKick directory for directory-form Agent Skills; do not copy only `SKILL.md` when it references supporting files.
-5. Do not silently install Serena, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. The universal prompt in `../../BOOTSTRAP_PROMPTS.md` is an explicit exception only for canonical Serena setup; it does not authorize unrelated dependencies.
+5. Do not silently install semantic repository providers, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. Optional capability setup requires a separate justified and authorized path.
 6. Reload/refresh/restart only as required by this runtime's documented behavior.
 7. Verify discovery in the actual active surface, not only by checking that files exist.
 8. Report the selected runtime, scope/path or UI flow, SKick version, verification performed, and any step that required user/admin/UI/authentication action.

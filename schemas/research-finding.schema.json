@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/research-finding.schema.json",
+  "title": "SKick Research Finding",
+  "type": "object",
+  "required": ["id", "question", "claim", "kind", "evidence_ids", "confidence", "contradictions", "recorded_at"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^rf-"},
+    "question": {"type": "string", "minLength": 1},
+    "claim": {"type": "string", "minLength": 1},
+    "kind": {"enum": ["fact", "inference", "hypothesis", "opinion", "unknown"]},
+    "evidence_ids": {"type": "array", "items": {"type": "string", "pattern": "^ev-"}},
+    "source_class": {"type": ["string", "null"]},
+    "freshness": {"type": ["string", "null"]},
+    "confidence": {"enum": ["high", "medium", "low", "unresolved"]},
+    "contradictions": {"type": "array", "items": {"type": "string"}},
+    "recorded_at": {"type": "string"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/claim.schema.json",
+  "title": "SKick Claim",
+  "type": "object",
+  "required": [
+    "id",
+    "text",
+    "claim_type",
+    "status",
+    "evidence_ids",
+    "updated_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^cl-"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "inspected",
+        "changed",
+        "implemented",
+        "executed",
+        "tested",
+        "verified",
+        "docs_verified",
+        "live_verified",
+        "inferred",
+        "likely",
+        "blocked",
+        "unknown",
+        "not_tested"
+      ]
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^ev-"
+      }
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "claim_type": {
+      "enum": [
+        "general",
+        "code_change",
+        "current_fact",
+        "platform_compatibility",
+        "security"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

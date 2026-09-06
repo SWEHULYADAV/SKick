@@ -44,7 +44,7 @@ A core change should normally update:
 
 ## Versioning
 
-User-facing release: `v1.0` style.
+User-facing release: `v1.1` style (derive the current value from `VERSION`; this is an example of the format, not a hard-coded release gate).
 
 Machine-facing manifests should use valid semantic versions where required (for example `1.0.0`). Keep the two representations intentionally mapped rather than accidentally mixing them.
 

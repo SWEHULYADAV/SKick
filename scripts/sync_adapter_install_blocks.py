@@ -36,6 +36,11 @@ When an AI receives the SKick ZIP and the user says **\"install this\"**, use th
 
 - **Manifest platform ID:** `{platform_id}`
 - **Support status:** `{entry.get('status', 'UNSPECIFIED')}`
+- **Verification status:** `{entry.get('verification_status', entry.get('status', 'UNKNOWN'))}`
+- **Runtime tier:** `{entry.get('runtime_tier', 'unknown')}`
+- **Native Skill support:** `{entry.get('native_skill_support', 'unknown')}`
+- **Literal `@SKick`:** `{entry.get('activation', {}).get('literal_at_skick', 'unknown')}`
+- **Native activation equivalent:** {entry.get('activation', {}).get('native_equivalent', 'Unknown; use the current host documentation.')}
 - **Surfaces covered:** {surfaces}
 - **Availability / gating:** {availability}
 - **Preferred install:** {entry.get('preferred_install', 'Follow current first-party runtime documentation.')}
@@ -55,7 +60,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 2. Inspect the target runtime and existing SKick installation before writing or uploading anything.
 3. Prefer project scope when the user did not request a global/personal install and the runtime supports project Skills.
 4. Preserve the complete SKick directory for directory-form Agent Skills; do not copy only `SKILL.md` when it references supporting files.
-5. Do not silently install Serena, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. The universal prompt in `../../BOOTSTRAP_PROMPTS.md` is an explicit exception only for canonical Serena setup; it does not authorize unrelated dependencies.
+5. Do not silently install semantic repository providers, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. Optional capability setup requires a separate justified and authorized path.
 6. Reload/refresh/restart only as required by this runtime's documented behavior.
 7. Verify discovery in the actual active surface, not only by checking that files exist.
 8. Report the selected runtime, scope/path or UI flow, SKick version, verification performed, and any step that required user/admin/UI/authentication action.

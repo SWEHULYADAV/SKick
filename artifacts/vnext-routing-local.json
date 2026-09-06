@@ -1,0 +1,1784 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-09-05T18:42:42.314347Z",
+  "suite": "evals/runtime-routing-evals.json",
+  "runner": [
+    "scripts/run_local_evals.py"
+  ],
+  "summary": {
+    "runs": 10,
+    "scored_runs": 10,
+    "unscored_runs": 0,
+    "protocol_failures": 0,
+    "pass_rate": 1.0,
+    "proof_type": "deterministic_local_runtime",
+    "activation_confusion": {
+      "tp": 4,
+      "tn": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "activation_accuracy": 1.0,
+    "depth_accuracy": 1.0
+  },
+  "results": [
+    {
+      "case_id": "trivial-arithmetic-minimal",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "activate": false,
+        "mode": "research",
+        "depth": "quick",
+        "score": 0,
+        "reasons": [
+          "trivial/single-step pattern keeps minimum sufficient process"
+        ],
+        "explicit_depth": null
+      },
+      "deterministic_checks": [
+        {
+          "name": "activate",
+          "actual": false,
+          "expected": false,
+          "passed": true
+        },
+        {
+          "name": "depth",
+          "actual": "quick",
+          "expected": [
+            "quick"
+          ],
+          "passed": true
+        },
+        {
+          "name": "mode",
+          "actual": "research",
+          "expected": [
+            "research"
+          ],
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "tiny-typo-minimal",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "activate": false,
+        "mode": "build",
+        "depth": "quick",
+        "score": 1,
+        "reasons": [
+          "implementation_scope (+1)"
+        ],
+        "explicit_depth": null
+      },
+      "deterministic_checks": [
+        {
+          "name": "activate",
+          "actual": false,
+          "expected": false,
+          "passed": true
+        },
+        {
+          "name": "depth",
+          "actual": "quick",
+          "expected": [
+            "quick"
+          ],
+          "passed": true
+        },
+        {
+          "name": "mode",
+          "actual": "build",
+          "expected": [
+            "build"
+          ],
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "simple-error-explanation-minimal",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "activate": false,
+        "mode": "research",
+        "depth": "quick",
+        "score": 0,
+        "reasons": [
+          "no complexity/risk feature matched"
+        ],
+        "explicit_depth": null
+      },
+      "deterministic_checks": [
+        {
+          "name": "activate",
+          "actual": false,
+          "expected": false,
+          "passed": true
+        },
+        {
+          "name": "depth",
+          "actual": "quick",
+          "expected": [
+            "quick"
+          ],
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "payment-webhook-repo-debug",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "activate": true,
+        "mode": "debug",
+        "depth": "deep",
+        "score": 5,
+        "reasons": [
+          "repository_scope (+2)",
+          "debug_failure (+1)",
+          "verification_required (+1)",
+          "implementation_scope (+1)"
+        ],
+        "explicit_depth": null
+      },
+      "deterministic_checks": [
+        {
+          "name": "activate",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "depth",
+          "actual": "deep",
+          "expected": [
+            "standard",
+            "deep"
+          ],
+          "passed": true
+        },
+        {
+          "name": "mode",
+          "actual": "debug",
+          "expected": [
+            "debug"
+          ],
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "auth-exploitability-deep-security",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "activate": true,
+        "mode": "security",
+        "depth": "deep",
+        "score": 5,
+        "reasons": [
+          "security_impact (+2)",
+          "exploitability_assessment (+2)",
+          "verification_required (+1)"
+        ],
+        "explicit_depth": null
+      },
+      "deterministic_checks": [
+        {
+          "name": "activate",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "depth",
+          "actual": "deep",
+          "expected": [
+            "deep",
+            "exhaustive"
+          ],
+          "passed": true
+        },
+        {
+          "name": "mode",
+          "actual": "security",
+          "expected": [
+            "security"
+          ],
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "explicit-skick-overrides-tiny-negative",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "activate": true,
+        "mode": "research",
+        "depth": "quick",
+        "score": 0,
+        "reasons": [
+          "explicit SKick invocation",
+          "trivial/single-step pattern keeps minimum sufficient process"
+        ],
+        "explicit_depth": null
+      },
+      "deterministic_checks": [
+        {
+          "name": "activate",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "depth",
+          "actual": "quick",
+          "expected": [
+            "quick"
+          ],
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "current-vulnerability-patch-deep",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "activate": true,
+        "mode": "security",
+        "depth": "deep",
+        "score": 8,
+        "reasons": [
+          "repository_scope (+2)",
+          "debug_failure (+1)",
+          "security_impact (+2)",
+          "current_information (+1)",
+          "verification_required (+1)",
+          "implementation_scope (+1)"
+        ],
+        "explicit_depth": null
+      },
+      "deterministic_checks": [
+        {
+          "name": "activate",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "depth",
+          "actual": "deep",
+          "expected": [
+            "deep",
+            "exhaustive"
+          ],
+          "passed": true
+        },
+        {
+          "name": "mode",
+          "actual": "security",
+          "expected": [
+            "security"
+          ],
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "repo-fallback-without-semantic-search",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "decision": {
+          "activate": true,
+          "mode": "debug",
+          "depth": "deep",
+          "score": 5,
+          "reasons": [
+            "repository_scope (+2)",
+            "debug_failure (+1)",
+            "verification_required (+1)",
+            "implementation_scope (+1)"
+          ],
+          "explicit_depth": null
+        },
+        "module_plan": {
+          "schema_version": 1,
+          "plan_kind": "compiled",
+          "selected": [
+            {
+              "id": "evidence-verification",
+              "path": "core/evidence-verification.md",
+              "priority": 100,
+              "mandatory": true,
+              "estimated_tokens": 1216,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "untrusted-content-boundary",
+              "path": "core/untrusted-content-boundary.md",
+              "priority": 100,
+              "mandatory": true,
+              "estimated_tokens": 425,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "engineering-feedback-loops",
+              "path": "core/engineering-feedback-loops.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 922,
+              "reasons": [
+                "mode=debug",
+                "task matched \\bregression\\b"
+              ]
+            },
+            {
+              "id": "repository-research",
+              "path": "core/repository-research.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 943,
+              "reasons": [
+                "task matched \\brepo(?:sitory)?\\b"
+              ]
+            },
+            {
+              "id": "capability-and-skill-routing",
+              "path": "core/capability-and-skill-routing.md",
+              "priority": 90,
+              "mandatory": false,
+              "estimated_tokens": 1542,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "verified-review-and-simplification",
+              "path": "core/verified-review-and-simplification.md",
+              "priority": 85,
+              "mandatory": false,
+              "estimated_tokens": 654,
+              "reasons": [
+                "task matched \\bregression\\b"
+              ]
+            },
+            {
+              "id": "repository-context-map",
+              "path": "core/repository-context-map.md",
+              "priority": 80,
+              "mandatory": false,
+              "estimated_tokens": 369,
+              "reasons": [
+                "task matched \\bmap (?:this|the) (?:repo|repository|codebase)\\b"
+              ]
+            },
+            {
+              "id": "output-quality-gate",
+              "path": "core/output-quality-gate.md",
+              "priority": 75,
+              "mandatory": false,
+              "estimated_tokens": 487,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            }
+          ],
+          "optional": [
+            {
+              "id": "engineering-feedback-loops",
+              "path": "core/engineering-feedback-loops.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 922,
+              "reasons": [
+                "mode=debug",
+                "task matched \\bregression\\b"
+              ]
+            },
+            {
+              "id": "repository-research",
+              "path": "core/repository-research.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 943,
+              "reasons": [
+                "task matched \\brepo(?:sitory)?\\b"
+              ]
+            },
+            {
+              "id": "capability-and-skill-routing",
+              "path": "core/capability-and-skill-routing.md",
+              "priority": 90,
+              "mandatory": false,
+              "estimated_tokens": 1542,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "verified-review-and-simplification",
+              "path": "core/verified-review-and-simplification.md",
+              "priority": 85,
+              "mandatory": false,
+              "estimated_tokens": 654,
+              "reasons": [
+                "task matched \\bregression\\b"
+              ]
+            },
+            {
+              "id": "repository-context-map",
+              "path": "core/repository-context-map.md",
+              "priority": 80,
+              "mandatory": false,
+              "estimated_tokens": 369,
+              "reasons": [
+                "task matched \\bmap (?:this|the) (?:repo|repository|codebase)\\b"
+              ]
+            },
+            {
+              "id": "output-quality-gate",
+              "path": "core/output-quality-gate.md",
+              "priority": 75,
+              "mandatory": false,
+              "estimated_tokens": 487,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            }
+          ],
+          "skipped": [
+            {
+              "path": "core/action-firewall.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/action-safety-transactions.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/agent-protocol-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/biomedical-and-health-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/code-integration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/context-management.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/coverage-and-lateral-search.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/decision-analysis.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/deferred-capability-loading.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/design-and-motion-orchestration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/domain-and-codebase-design.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/empirical-research-methodology.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/engineering-learning-loop.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/engineering-lifecycle.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/engineering-wayfinding-and-slicing.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/evaluation-harness-integration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/evidence-graph.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/evidence-lineage.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/execution-ledger.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/experiment-optimization-loop.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/external-skill-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/financial-and-economic-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/formal-verification-and-fuzzing.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/harness-and-runtime-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/implementation-discipline.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/language-and-framework-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/legal-policy-and-patent-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/long-horizon-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/mcp-stack.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/mcp-validation-and-security.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/mechanism-first-reasoning.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/memory-governance.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/ml-ai-system-evaluation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/multi-agent-orchestration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/multimodal-evidence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/network-resilience.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/observability-and-tracing.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/offensive-defensive.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/output-protocol.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/performance-and-reliability.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/project-planning-and-structure.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/prompt-enhancement.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/purple-team-research-and-validation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/python-vanilla-web-stack.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/query-mutation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-checkpoint.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-core.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-evidence-lifecycle.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-frontier.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-source-router.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/resource-budgeting.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/reverse-engineering-and-undocumented-behavior.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/runtime-and-capabilities.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/security-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/semantic-intent-resolution.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/serena-integration.md",
+              "reason": "required capability provider not available"
+            },
+            {
+              "path": "core/skill-authoring-and-evals.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/skill-supply-chain-and-lifecycle.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/source-strategy.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/specialist-skill-orchestration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/structured-data-quality.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/system-design-and-architecture.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/token-efficiency.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/ui-system-and-render-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/webapp-validation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/cinematic-scroll.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/frontend-design.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/motion-interaction-design.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/visual-design-qa.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/web3d-experience-design.md",
+              "reason": "activation conditions not met"
+            }
+          ],
+          "dropped_for_budget": [],
+          "routing_notes": [
+            "semantic_code_search unavailable/unknown: use repository-search and targeted file-read fallback"
+          ],
+          "budget_tokens": 8000,
+          "total_estimated_tokens": 6558,
+          "root_control_plane_estimated_tokens": 5310,
+          "estimate_method": "utf8_bytes_div_4",
+          "required_capabilities": []
+        }
+      },
+      "deterministic_checks": [
+        {
+          "name": "selected:core/repository-research.md",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "excluded:core/serena-integration.md",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "routing_note_contains",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "serena-only-when-observed-provider",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "decision": {
+          "activate": true,
+          "mode": "research",
+          "depth": "standard",
+          "score": 2,
+          "reasons": [
+            "repository_scope (+2)"
+          ],
+          "explicit_depth": null
+        },
+        "module_plan": {
+          "schema_version": 1,
+          "plan_kind": "compiled",
+          "selected": [
+            {
+              "id": "evidence-verification",
+              "path": "core/evidence-verification.md",
+              "priority": 100,
+              "mandatory": true,
+              "estimated_tokens": 1216,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "untrusted-content-boundary",
+              "path": "core/untrusted-content-boundary.md",
+              "priority": 100,
+              "mandatory": true,
+              "estimated_tokens": 425,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "repository-research",
+              "path": "core/repository-research.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 943,
+              "reasons": [
+                "task matched \\brepo(?:sitory)?\\b"
+              ]
+            },
+            {
+              "id": "capability-and-skill-routing",
+              "path": "core/capability-and-skill-routing.md",
+              "priority": 90,
+              "mandatory": false,
+              "estimated_tokens": 1542,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "repository-context-map",
+              "path": "core/repository-context-map.md",
+              "priority": 80,
+              "mandatory": false,
+              "estimated_tokens": 369,
+              "reasons": [
+                "task matched \\blarge (?:repo|repository|codebase)\\b"
+              ]
+            },
+            {
+              "id": "research-core",
+              "path": "core/research-core.md",
+              "priority": 80,
+              "mandatory": false,
+              "estimated_tokens": 1896,
+              "reasons": [
+                "mode=research"
+              ]
+            },
+            {
+              "id": "serena-integration",
+              "path": "core/serena-integration.md",
+              "priority": 65,
+              "mandatory": false,
+              "estimated_tokens": 1433,
+              "reasons": [
+                "task matched \\brepo(?:sitory)?\\b"
+              ]
+            }
+          ],
+          "optional": [
+            {
+              "id": "repository-research",
+              "path": "core/repository-research.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 943,
+              "reasons": [
+                "task matched \\brepo(?:sitory)?\\b"
+              ]
+            },
+            {
+              "id": "capability-and-skill-routing",
+              "path": "core/capability-and-skill-routing.md",
+              "priority": 90,
+              "mandatory": false,
+              "estimated_tokens": 1542,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "repository-context-map",
+              "path": "core/repository-context-map.md",
+              "priority": 80,
+              "mandatory": false,
+              "estimated_tokens": 369,
+              "reasons": [
+                "task matched \\blarge (?:repo|repository|codebase)\\b"
+              ]
+            },
+            {
+              "id": "research-core",
+              "path": "core/research-core.md",
+              "priority": 80,
+              "mandatory": false,
+              "estimated_tokens": 1896,
+              "reasons": [
+                "mode=research"
+              ]
+            },
+            {
+              "id": "serena-integration",
+              "path": "core/serena-integration.md",
+              "priority": 65,
+              "mandatory": false,
+              "estimated_tokens": 1433,
+              "reasons": [
+                "task matched \\brepo(?:sitory)?\\b"
+              ]
+            }
+          ],
+          "skipped": [
+            {
+              "path": "core/action-firewall.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/action-safety-transactions.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/agent-protocol-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/biomedical-and-health-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/code-integration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/context-management.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/coverage-and-lateral-search.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/decision-analysis.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/deferred-capability-loading.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/design-and-motion-orchestration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/domain-and-codebase-design.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/empirical-research-methodology.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/engineering-feedback-loops.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/engineering-learning-loop.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/engineering-lifecycle.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/engineering-wayfinding-and-slicing.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/evaluation-harness-integration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/evidence-graph.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/evidence-lineage.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/execution-ledger.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/experiment-optimization-loop.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/external-skill-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/financial-and-economic-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/formal-verification-and-fuzzing.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/harness-and-runtime-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/implementation-discipline.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/language-and-framework-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/legal-policy-and-patent-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/long-horizon-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/mcp-stack.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/mcp-validation-and-security.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/mechanism-first-reasoning.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/memory-governance.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/ml-ai-system-evaluation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/multi-agent-orchestration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/multimodal-evidence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/network-resilience.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/observability-and-tracing.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/offensive-defensive.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/output-protocol.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/output-quality-gate.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/performance-and-reliability.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/project-planning-and-structure.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/prompt-enhancement.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/purple-team-research-and-validation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/python-vanilla-web-stack.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/query-mutation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-checkpoint.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-evidence-lifecycle.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-frontier.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-source-router.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/resource-budgeting.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/reverse-engineering-and-undocumented-behavior.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/runtime-and-capabilities.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/security-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/semantic-intent-resolution.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/skill-authoring-and-evals.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/skill-supply-chain-and-lifecycle.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/source-strategy.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/specialist-skill-orchestration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/structured-data-quality.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/system-design-and-architecture.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/token-efficiency.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/ui-system-and-render-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/verified-review-and-simplification.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/webapp-validation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/cinematic-scroll.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/frontend-design.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/motion-interaction-design.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/visual-design-qa.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/web3d-experience-design.md",
+              "reason": "activation conditions not met"
+            }
+          ],
+          "dropped_for_budget": [],
+          "routing_notes": [
+            "semantic_code_search available via Serena; provider selected only when module policy matches"
+          ],
+          "budget_tokens": 12000,
+          "total_estimated_tokens": 7824,
+          "root_control_plane_estimated_tokens": 5310,
+          "estimate_method": "utf8_bytes_div_4",
+          "required_capabilities": []
+        }
+      },
+      "deterministic_checks": [
+        {
+          "name": "selected:core/repository-research.md",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "selected:core/serena-integration.md",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "oauth-debug-skips-finance-3d",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "decision": {
+          "activate": true,
+          "mode": "security",
+          "depth": "deep",
+          "score": 7,
+          "reasons": [
+            "repository_scope (+2)",
+            "debug_failure (+1)",
+            "security_impact (+2)",
+            "verification_required (+1)",
+            "implementation_scope (+1)"
+          ],
+          "explicit_depth": null
+        },
+        "module_plan": {
+          "schema_version": 1,
+          "plan_kind": "compiled",
+          "selected": [
+            {
+              "id": "evidence-verification",
+              "path": "core/evidence-verification.md",
+              "priority": 100,
+              "mandatory": true,
+              "estimated_tokens": 1216,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "untrusted-content-boundary",
+              "path": "core/untrusted-content-boundary.md",
+              "priority": 100,
+              "mandatory": true,
+              "estimated_tokens": 425,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "engineering-feedback-loops",
+              "path": "core/engineering-feedback-loops.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 922,
+              "reasons": [
+                "task matched \\bfail(?:ing|ure)?\\b"
+              ]
+            },
+            {
+              "id": "repository-research",
+              "path": "core/repository-research.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 943,
+              "reasons": [
+                "task matched \\brepo(?:sitory)?\\b"
+              ]
+            },
+            {
+              "id": "security-research",
+              "path": "core/security-research.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 1691,
+              "reasons": [
+                "mode=security",
+                "task matched \\bsecurity\\b"
+              ]
+            },
+            {
+              "id": "capability-and-skill-routing",
+              "path": "core/capability-and-skill-routing.md",
+              "priority": 90,
+              "mandatory": false,
+              "estimated_tokens": 1542,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "verified-review-and-simplification",
+              "path": "core/verified-review-and-simplification.md",
+              "priority": 85,
+              "mandatory": false,
+              "estimated_tokens": 654,
+              "reasons": [
+                "task matched \\breview\\b"
+              ]
+            },
+            {
+              "id": "offensive-defensive",
+              "path": "core/offensive-defensive.md",
+              "priority": 82,
+              "mandatory": false,
+              "estimated_tokens": 1567,
+              "reasons": [
+                "task matched \\bsecurity\\b"
+              ]
+            },
+            {
+              "id": "output-quality-gate",
+              "path": "core/output-quality-gate.md",
+              "priority": 75,
+              "mandatory": false,
+              "estimated_tokens": 487,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "language-and-framework-intelligence",
+              "path": "core/language-and-framework-intelligence.md",
+              "priority": 70,
+              "mandatory": false,
+              "estimated_tokens": 1842,
+              "reasons": [
+                "task matched \\bnext\\.?js\\b"
+              ]
+            }
+          ],
+          "optional": [
+            {
+              "id": "engineering-feedback-loops",
+              "path": "core/engineering-feedback-loops.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 922,
+              "reasons": [
+                "task matched \\bfail(?:ing|ure)?\\b"
+              ]
+            },
+            {
+              "id": "repository-research",
+              "path": "core/repository-research.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 943,
+              "reasons": [
+                "task matched \\brepo(?:sitory)?\\b"
+              ]
+            },
+            {
+              "id": "security-research",
+              "path": "core/security-research.md",
+              "priority": 95,
+              "mandatory": false,
+              "estimated_tokens": 1691,
+              "reasons": [
+                "mode=security",
+                "task matched \\bsecurity\\b"
+              ]
+            },
+            {
+              "id": "capability-and-skill-routing",
+              "path": "core/capability-and-skill-routing.md",
+              "priority": 90,
+              "mandatory": false,
+              "estimated_tokens": 1542,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "verified-review-and-simplification",
+              "path": "core/verified-review-and-simplification.md",
+              "priority": 85,
+              "mandatory": false,
+              "estimated_tokens": 654,
+              "reasons": [
+                "task matched \\breview\\b"
+              ]
+            },
+            {
+              "id": "offensive-defensive",
+              "path": "core/offensive-defensive.md",
+              "priority": 82,
+              "mandatory": false,
+              "estimated_tokens": 1567,
+              "reasons": [
+                "task matched \\bsecurity\\b"
+              ]
+            },
+            {
+              "id": "output-quality-gate",
+              "path": "core/output-quality-gate.md",
+              "priority": 75,
+              "mandatory": false,
+              "estimated_tokens": 487,
+              "reasons": [
+                "required by active SKick branch"
+              ]
+            },
+            {
+              "id": "language-and-framework-intelligence",
+              "path": "core/language-and-framework-intelligence.md",
+              "priority": 70,
+              "mandatory": false,
+              "estimated_tokens": 1842,
+              "reasons": [
+                "task matched \\bnext\\.?js\\b"
+              ]
+            }
+          ],
+          "skipped": [
+            {
+              "path": "core/action-firewall.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/action-safety-transactions.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/agent-protocol-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/biomedical-and-health-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/code-integration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/context-management.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/coverage-and-lateral-search.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/decision-analysis.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/deferred-capability-loading.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/design-and-motion-orchestration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/domain-and-codebase-design.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/empirical-research-methodology.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/engineering-learning-loop.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/engineering-lifecycle.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/engineering-wayfinding-and-slicing.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/evaluation-harness-integration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/evidence-graph.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/evidence-lineage.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/execution-ledger.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/experiment-optimization-loop.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/external-skill-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/financial-and-economic-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/formal-verification-and-fuzzing.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/harness-and-runtime-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/implementation-discipline.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/legal-policy-and-patent-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/long-horizon-research.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/mcp-stack.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/mcp-validation-and-security.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/mechanism-first-reasoning.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/memory-governance.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/ml-ai-system-evaluation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/multi-agent-orchestration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/multimodal-evidence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/network-resilience.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/observability-and-tracing.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/output-protocol.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/performance-and-reliability.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/project-planning-and-structure.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/prompt-enhancement.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/purple-team-research-and-validation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/python-vanilla-web-stack.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/query-mutation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/repository-context-map.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-checkpoint.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-core.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-evidence-lifecycle.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-frontier.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/research-source-router.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/resource-budgeting.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/reverse-engineering-and-undocumented-behavior.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/runtime-and-capabilities.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/semantic-intent-resolution.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/serena-integration.md",
+              "reason": "required capability provider not available"
+            },
+            {
+              "path": "core/skill-authoring-and-evals.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/skill-supply-chain-and-lifecycle.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/source-strategy.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/specialist-skill-orchestration.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/structured-data-quality.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/system-design-and-architecture.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/token-efficiency.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/ui-system-and-render-intelligence.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "core/webapp-validation.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/cinematic-scroll.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/frontend-design.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/motion-interaction-design.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/visual-design-qa.md",
+              "reason": "activation conditions not met"
+            },
+            {
+              "path": "extensions/web3d-experience-design.md",
+              "reason": "activation conditions not met"
+            }
+          ],
+          "dropped_for_budget": [],
+          "routing_notes": [
+            "semantic_code_search unavailable/unknown: use repository-search and targeted file-read fallback"
+          ],
+          "budget_tokens": 12000,
+          "total_estimated_tokens": 11289,
+          "root_control_plane_estimated_tokens": 5310,
+          "estimate_method": "utf8_bytes_div_4",
+          "required_capabilities": []
+        }
+      },
+      "deterministic_checks": [
+        {
+          "name": "selected:core/repository-research.md",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "selected:core/engineering-feedback-loops.md",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "selected:core/security-research.md",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "selected:core/evidence-verification.md",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "excluded:core/financial-and-economic-research.md",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "excluded:extensions/web3d-experience-design.md",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    }
+  ]
+}

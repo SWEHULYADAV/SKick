@@ -12,12 +12,15 @@ import argparse
 import json
 import shutil
 import zipfile
+import sys
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from runtime.versioning import normalize_semver, read_package_version
+
 NAME = "skick"
-LABEL = "v1.0"
-PLUGIN_VERSION = "1.0.0"
-DESC = "SKick v1.0: universal engineering, evidence-driven research, verification, and delivery workflows."
 
 REPO_ONLY_DIRS = {".git", ".github", "dist", "release-artifacts", "__pycache__"}
 REPO_ONLY_FILES = {".DS_Store"}
@@ -82,6 +85,10 @@ def zip_dir(src: Path, out: Path, include_root: bool = False) -> None:
 
 
 def build(root: Path, out: Path) -> None:
+    package_version = read_package_version(root)
+    label = f"v{package_version}"
+    plugin_version = normalize_semver(package_version)
+    desc = f"SKick v{package_version}: universal engineering, evidence-driven research, verification, and delivery workflows."
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
@@ -104,8 +111,8 @@ def build(root: Path, out: Path) -> None:
     write_json(agent_plugin / "plugin.json", {
         "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
         "name": NAME,
-        "version": PLUGIN_VERSION,
-        "description": DESC,
+        "version": plugin_version,
+        "description": desc,
         "repository": "https://github.com/SWEHULYADAV/SKick",
         "keywords": ["engineering", "research", "security", "agent-skills"],
     })
@@ -116,8 +123,8 @@ def build(root: Path, out: Path) -> None:
     copy_filtered(root, codex / "skills" / NAME)
     write_json(codex / ".codex-plugin" / "plugin.json", {
         "name": NAME,
-        "version": PLUGIN_VERSION,
-        "description": DESC,
+        "version": plugin_version,
+        "description": desc,
         "repository": "https://github.com/SWEHULYADAV/SKick",
         "keywords": ["engineering", "research", "security"],
         "skills": "./skills/",
@@ -129,8 +136,8 @@ def build(root: Path, out: Path) -> None:
     copy_filtered(root, claude / "skills" / NAME)
     write_json(claude / ".claude-plugin" / "plugin.json", {
         "name": NAME,
-        "version": PLUGIN_VERSION,
-        "description": DESC,
+        "version": plugin_version,
+        "description": desc,
     })
     zip_dir(claude, out / "claude-code-plugin.zip")
 
@@ -139,8 +146,8 @@ def build(root: Path, out: Path) -> None:
     copy_filtered(root, kimi / "skills" / NAME)
     write_json(kimi / "kimi.plugin.json", {
         "name": NAME,
-        "version": PLUGIN_VERSION,
-        "description": DESC,
+        "version": plugin_version,
+        "description": desc,
         "skills": "./skills/",
     })
     zip_dir(kimi, out / "kimi-plugin.zip")
@@ -150,8 +157,8 @@ def build(root: Path, out: Path) -> None:
     copy_filtered(root, zcode / "skills" / NAME)
     write_json(zcode / ".zcode-plugin" / "plugin.json", {
         "name": NAME,
-        "version": PLUGIN_VERSION,
-        "description": DESC,
+        "version": plugin_version,
+        "description": desc,
     })
     zip_dir(zcode, out / "zcode-plugin.zip")
 
@@ -181,7 +188,7 @@ def build(root: Path, out: Path) -> None:
     # Generic fallback for model-only or unsupported host surfaces.
     shutil.copy2(root / "adapters" / "generic" / "PROMPT.md", out / "generic-prompt.md")
 
-    install = f"""# SKick {LABEL} portable distributions
+    install = f"""# SKick {label} portable distributions
 
 These files are generated from canonical source. Do not hand-edit generated ZIPs.
 

@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "overrides": {
+    "core/untrusted-content-boundary.md": {
+      "priority": 100,
+      "mandatory": true,
+      "always_for_activated": true,
+      "depths": ["standard", "deep", "exhaustive"],
+      "domains": ["trust", "security"]
+    },
+    "core/evidence-verification.md": {
+      "priority": 100,
+      "mandatory": true,
+      "always_for_activated": true,
+      "depths": ["standard", "deep", "exhaustive"],
+      "domains": ["evidence", "verification"]
+    },
+    "core/capability-and-skill-routing.md": {
+      "priority": 90,
+      "always_for_activated": true,
+      "depths": ["standard", "deep", "exhaustive"],
+      "domains": ["capabilities", "routing"]
+    },
+    "core/output-quality-gate.md": {
+      "priority": 75,
+      "always_for_activated": true,
+      "depths": ["deep", "exhaustive"],
+      "domains": ["reporting", "verification"]
+    },
+    "core/repository-research.md": {
+      "priority": 95,
+      "task_patterns": ["\\brepo(?:sitory)?\\b", "\\bcodebase\\b", "\\bcallers?\\b", "\\breferences?\\b", "\\bsymbols?\\b"],
+      "domains": ["repository"]
+    },
+    "core/repository-context-map.md": {
+      "priority": 80,
+      "task_patterns": ["\\bmap (?:this|the) (?:repo|repository|codebase)\\b", "\\blarge (?:repo|repository|codebase)\\b", "\\bmonorepo\\b"],
+      "depths": ["standard", "deep", "exhaustive"],
+      "domains": ["repository", "architecture"]
+    },
+    "core/language-and-framework-intelligence.md": {
+      "priority": 70,
+      "task_patterns": ["\\bnext\\.?js\\b", "\\breact\\b", "\\bpython\\b", "\\bdjango\\b", "\\brails\\b", "\\brust\\b", "\\bjava\\b", "\\btypescript\\b", "\\bframework\\b", "\\btoolchain\\b", "\\bmigrat"],
+      "domains": ["repository", "toolchain"]
+    },
+    "core/engineering-feedback-loops.md": {
+      "priority": 95,
+      "modes": ["debug", "build"],
+      "task_patterns": ["\\bdebug\\b", "\\bfail(?:ing|ure)?\\b", "\\bregression\\b", "\\bintermittent\\b", "\\bfix\\b", "\\bpatch\\b"],
+      "domains": ["debugging", "testing"]
+    },
+    "core/verified-review-and-simplification.md": {
+      "priority": 85,
+      "task_patterns": ["\\breview\\b", "\\bverify\\b", "\\bregression\\b", "\\bpatch\\b", "\\bfix\\b"],
+      "domains": ["review", "verification"]
+    },
+    "core/system-design-and-architecture.md": {
+      "priority": 80,
+      "modes": ["design"],
+      "task_patterns": ["\\barchitecture\\b", "\\bmajor redesign\\b", "\\bsystem design\\b"],
+      "domains": ["architecture"]
+    },
+    "core/engineering-wayfinding-and-slicing.md": {
+      "priority": 68,
+      "task_patterns": ["\\bambiguous\\b", "\\btracer[- ]bullet\\b", "\\bmigration\\b", "\\bmajor feature\\b"],
+      "depths": ["deep", "exhaustive"],
+      "domains": ["planning"]
+    },
+    "core/research-core.md": {
+      "priority": 80,
+      "modes": ["research"],
+      "task_patterns": ["\\bresearch\\b", "\\bcurrent\\b", "\\blatest\\b"],
+      "domains": ["research"]
+    },
+    "core/source-strategy.md": {
+      "priority": 72,
+      "task_patterns": ["\\bresearch\\b", "\\bprimary source\\b", "\\bcurrent\\b", "\\blatest\\b"],
+      "depths": ["standard", "deep", "exhaustive"],
+      "domains": ["research", "evidence"]
+    },
+    "core/research-evidence-lifecycle.md": {
+      "priority": 70,
+      "task_patterns": ["\\bdeep(?:ly)? research\\b", "\\bcontradiction\\b", "\\bcounterevidence\\b", "\\bfrontier\\b"],
+      "depths": ["deep", "exhaustive"],
+      "domains": ["research", "evidence"]
+    },
+    "core/evidence-lineage.md": {
+      "priority": 68,
+      "task_patterns": ["\\bsource lineage\\b", "\\bprovenance\\b", "\\bcorroborat", "\\bdeep(?:ly)? research\\b"],
+      "depths": ["deep", "exhaustive"],
+      "domains": ["evidence", "research"]
+    },
+    "core/security-research.md": {
+      "priority": 95,
+      "modes": ["security"],
+      "task_patterns": ["\\bsecurity\\b", "\\bvulnerabil", "\\bauth(?:entication|orization)?\\b", "\\bexploit\\b"],
+      "domains": ["security"]
+    },
+    "core/offensive-defensive.md": {
+      "priority": 82,
+      "task_patterns": ["\\bvulnerabil", "\\bsecurity\\b", "\\babuse\\b", "\\bbypass\\b", "\\bexploit\\b"],
+      "depths": ["deep", "exhaustive"],
+      "domains": ["security"]
+    },
+    "core/purple-team-research-and-validation.md": {
+      "priority": 75,
+      "task_patterns": ["\\bpurple[- ]team\\b", "\\bemulat", "\\bdetection\\b.*\\bresponse\\b"],
+      "domains": ["security", "validation"]
+    },
+    "core/webapp-validation.md": {
+      "priority": 72,
+      "task_patterns": ["\\bbrowser\\b", "\\bweb app\\b", "\\bresponsive\\b", "\\be2e\\b"],
+      "domains": ["web", "testing"]
+    },
+    "core/ui-system-and-render-intelligence.md": {
+      "priority": 72,
+      "task_patterns": ["\\bui\\b", "\\bux\\b", "\\bdesign system\\b", "\\bresponsive\\b"],
+      "domains": ["ui", "design"]
+    },
+    "core/performance-and-reliability.md": {
+      "priority": 70,
+      "task_patterns": ["\\bperformance\\b", "\\blatency\\b", "\\breliability\\b", "\\brace\\b", "\\boutage\\b"],
+      "domains": ["performance", "reliability"]
+    },
+    "core/formal-verification-and-fuzzing.md": {
+      "priority": 55,
+      "task_patterns": ["\\bfuzz\\b", "\\bproperty[- ]based\\b", "\\bformal verification\\b", "\\bdifferential test"],
+      "domains": ["verification", "testing"]
+    },
+    "core/financial-and-economic-research.md": {
+      "priority": 60,
+      "task_patterns": ["\\bfinance\\b", "\\beconomic", "\\bmarket\\b", "\\bvaluation\\b"],
+      "domains": ["finance"]
+    },
+    "core/legal-policy-and-patent-research.md": {
+      "priority": 60,
+      "task_patterns": ["\\blegal\\b", "\\bpatent\\b", "\\bstatute\\b", "\\bregulation\\b"],
+      "domains": ["legal"]
+    },
+    "core/biomedical-and-health-research.md": {
+      "priority": 60,
+      "task_patterns": ["\\bbiomedical\\b", "\\bclinical\\b", "\\bhealth\\b", "\\bmedical\\b"],
+      "domains": ["health"]
+    },
+    "core/long-horizon-research.md": {
+      "priority": 55,
+      "task_patterns": ["\\blong[- ]horizon\\b", "\\bmulti[- ]day\\b", "\\bcheckpoint\\b"],
+      "depths": ["exhaustive"],
+      "domains": ["long_horizon"]
+    },
+    "core/serena-integration.md": {
+      "priority": 65,
+      "task_patterns": ["\\brepo(?:sitory)?\\b", "\\bsymbols?\\b", "\\breferences?\\b"],
+      "required_provider": {"capability": "semantic_code_search", "provider_pattern": "(?i)^serena$"},
+      "domains": ["repository", "semantic_search"]
+    },
+    "core/python-vanilla-web-stack.md": {
+      "priority": 35,
+      "task_patterns": ["\\bgreenfield\\b.*\\bweb\\b", "\\bnew web (?:app|tool|site)\\b"],
+      "project_policy": "starter_profiles.greenfield_web.enabled",
+      "domains": ["starter_profile", "web"]
+    },
+    "extensions/web3d-experience-design.md": {
+      "priority": 35,
+      "task_patterns": ["\\b3d\\b", "\\bwebgl\\b", "\\bthree\\.?js\\b"],
+      "domains": ["3d", "ui"]
+    }
+  }
+}

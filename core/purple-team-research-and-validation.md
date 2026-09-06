@@ -1,5 +1,8 @@
 # Purple-Team Research and Validation
 
+
+## Executable-runtime ownership
+`runtime/teaming.py` can select Red, Blue, Purple and independent Black/Blind review, preserve disagreement, and require a safe test boundary. The executable planner does not conduct attacks or prove mitigation by itself. This module governs authorized emulation, observation, remediation and retest once the host has real capabilities and evidence.
 ## Purpose
 Join adversary research, defensive telemetry, detection engineering, response, recovery and safe validation into one evidence-driven loop for authorized security work.
 

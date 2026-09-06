@@ -10,28 +10,63 @@ permissions:
   contents: read
 
 jobs:
-  validate:
+  static:
+    name: STATIC — structure, policy, provenance
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.12'
       - name: Python syntax
-        run: python -m compileall -q scripts
+        run: python -m compileall -q scripts runtime tests
       - name: Static security scan
         run: python scripts/scan_skill_package.py . --strict
       - name: MCP catalog
         run: python scripts/validate_mcp_catalog.py mcp/catalog.json
+      - name: Compatibility registry
+        run: |
+          python scripts/normalize_platform_registry.py --check
+          python scripts/generate_platform_catalog.py --check
+          python scripts/generate_module_catalog.py --check
+          python scripts/generate_package_manifest.py --check
+          python scripts/audit_freshness.py . --max-age-days 120 --fail-stale
       - name: Package structure
         run: python scripts/validate_package.py .
       - name: Release audit
         run: python scripts/audit_release.py
-      - name: Eval suite load checks
+      - name: Provenance completeness
+        run: python scripts/verify_provenance.py .
+
+  unit:
+    name: UNIT — deterministic runtime contracts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Deterministic local evaluations
         run: |
-          python scripts/run_evals.py evals/evals.json --output /tmp/evals.json --list
-          python scripts/run_evals.py evals/trigger-evals.json --output /tmp/trigger-evals.json --list
-          python scripts/run_evals.py evals/portability-evals.json --output /tmp/portability-evals.json --list
+          python scripts/run_local_evals.py evals/runtime-routing-evals.json --output /tmp/runtime-routing.json
+          python scripts/run_local_evals.py evals/claim-honesty-evals.json --output /tmp/claim-honesty.json
+          python scripts/run_local_evals.py evals/security-injection-evals.json --output /tmp/security-injection.json
+          python scripts/run_local_evals.py evals/ablation-evals.json --output /tmp/ablations.json
+          python scripts/run_local_evals.py evals/prompt-intelligence-evals.json --output /tmp/prompt-intelligence.json
+          python scripts/run_local_evals.py evals/research-intelligence-evals.json --output /tmp/research-intelligence.json
+          python scripts/run_local_evals.py evals/teaming-evals.json --output /tmp/teaming.json
+          python scripts/run_local_evals.py evals/research-ablation-evals.json --output /tmp/research-ablations.json
+
+  integration:
+    name: INTEGRATION — packaging and installer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
       - name: Distribution structure
         run: |
           python scripts/build_distributions.py . /tmp/skick-dist
@@ -44,5 +79,12 @@ jobs:
           python scripts/install_skick.py --target qwen --scope project --project /tmp/skick-qwen --dry-run
           python scripts/install_skick.py --target mimo --scope project --project /tmp/skick-mimo --dry-run
           python scripts/install_skick.py --target agents --scope project --project /tmp/skick-project --dry-run
-      - name: Provenance
-        run: python scripts/verify_provenance.py .
+      - name: Legacy eval definition load checks
+        run: |
+          python scripts/run_evals.py evals/evals.json --output /tmp/evals.json --list
+          python scripts/run_evals.py evals/trigger-evals.json --output /tmp/trigger-evals.json --list
+          python scripts/run_evals.py evals/portability-evals.json --output /tmp/portability-evals.json --list
+          python scripts/run_evals.py evals/security-behavioral-fixture.json --output /tmp/security-behavioral-fixture.json --list
+
+# BEHAVIORAL and PLATFORM proof require model/provider credentials or real hosts.
+# They are intentionally not represented as passing CI jobs in this local-only workflow.

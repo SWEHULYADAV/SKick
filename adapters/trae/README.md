@@ -42,12 +42,17 @@ Do not treat a ByteDance/Doubao/Seed model name as an install surface. If that m
 When an AI receives the SKick ZIP and the user says **"install this"**, use this adapter only after identifying the actual runtime/surface from environment evidence or the user's explicit target.
 
 - **Manifest platform ID:** `trae`
-- **Support status:** `VERIFIED_PRODUCT_ECOSYSTEM`
+- **Support status:** `DOC_VERIFIED`
+- **Verification status:** `DOC_VERIFIED`
+- **Runtime tier:** `full_runtime`
+- **Native Skill support:** `yes`
+- **Literal `@SKick`:** `unknown`
+- **Native activation equivalent:** Use the host skill picker or documented native Skill mechanism.
 - **Surfaces covered:** TRAE IDE, TRAE SOLO, TRAE VS Code/plugin-style surfaces where Skills are exposed
 - **Availability / gating:** Availability, plan, region, and admin policy can vary; re-check current first-party documentation for this surface.
-- **Preferred install:** Use .trae/skills/skick for project scope. For global scope use the product-specific global skill root documented by the installed TRAE edition (commonly ~/.trae/skills; TRAE CN may use ~/.trae-cn/skills). The Skills UI can also import external skills where available.
-- **Project/local destinations:** `.trae/skills/skick/`
-- **User/personal destinations:** `~/.trae/skills/skick/`, `~/.trae-cn/skills/skick/`
+- **Preferred install:** Prefer the current TRAE Skills UI or the cross-agent project root `.agents/skills/skick/`, which current first-party release notes explicitly support. Treat product-specific global filesystem roots as version-sensitive unless the installed TRAE release documents them.
+- **Project/local destinations:** `.agents/skills/skick/`
+- **User/personal destinations:** No filesystem personal path is asserted for this surface.
 - **Prebuilt distribution when applicable:** `runtime-skill.zip`
 
 ### GitHub source fast path
@@ -62,7 +67,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 2. Inspect the target runtime and existing SKick installation before writing or uploading anything.
 3. Prefer project scope when the user did not request a global/personal install and the runtime supports project Skills.
 4. Preserve the complete SKick directory for directory-form Agent Skills; do not copy only `SKILL.md` when it references supporting files.
-5. Do not silently install Serena, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. The universal prompt in `../../BOOTSTRAP_PROMPTS.md` is an explicit exception only for canonical Serena setup; it does not authorize unrelated dependencies.
+5. Do not silently install semantic repository providers, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. Optional capability setup requires a separate justified and authorized path.
 6. Reload/refresh/restart only as required by this runtime's documented behavior.
 7. Verify discovery in the actual active surface, not only by checking that files exist.
 8. Report the selected runtime, scope/path or UI flow, SKick version, verification performed, and any step that required user/admin/UI/authentication action.
@@ -74,7 +79,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 
 ### Availability and limitations
 
-- No additional platform-specific limitation is asserted beyond the normal runtime and security warnings.
+- Current first-party evidence supports Agent Skills and `.agents/skills` project loading, but this audit did not establish a stable product-specific global filesystem path.
 
 ### Update and removal
 
@@ -92,6 +97,6 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 
 ### Primary support reference
 
-https://www.trae.ai/
+https://www.trae.ai/changelog
 
 <!-- SKICK-AI-INSTALL-END -->

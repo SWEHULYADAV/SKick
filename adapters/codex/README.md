@@ -8,25 +8,19 @@
 ## Engineering orchestration
 If the official Superpowers plugin is installed, let relevant Superpowers skills own brainstorming/planning/TDD/debugging/subagent/review phases while SKick supplies research, evidence, versions, safety, MCP routing and final verification. Do not duplicate both methodologies at full detail.
 
-## Serena
-Serena supports Codex as an MCP client. Follow Serena's official Quick Start, not marketplace copies. Prefer the `codex` Serena context and project-aware startup such as `--project-from-cwd` when appropriate. Verify project activation/tools before broad grep/file reading.
 
 ## MCP stack
-Prefer local stdio MCP examples for the portable baseline: Serena for semantic code, Context7 for current docs, Playwright or Chrome DevTools for browser work. Add GitHub/Sentry only when project/auth context requires them. Verify the installed Codex build before adding remote HTTP MCPs because transport/config support has changed across releases. Use `/mcp`/`codex mcp list` or the current equivalent to verify connectivity.
+For optional MCPs, select by capability and task fit: a semantic repository provider for code intelligence, a current-doc provider when needed, and the smallest capable browser tool for browser work. Add GitHub/Sentry only when project/auth context requires them. Verify the installed Codex build before adding remote HTTP MCPs because transport/config support has changed across releases. Use `/mcp`/`codex mcp list` or the current equivalent to verify connectivity.
 
 ## Test
 Restart/reload after installation, verify skill/plugin + relevant MCPs are discovered, then run a repository bug investigation and a targeted test-backed edit.
 
-## v1.0 specialist/harness routing
+## v1.1 specialist/harness routing
 When installed and task-matched, Codex may use official/provider specialists such as Hugging Face Skills, AWS Agent Toolkit plugins, Codex Security, CodeRabbit or other narrow skills while SKick remains the control plane. External mini-SWE/Open SWE/Pydantic/Symphony harnesses are optional references/runtimes, not nested automatically inside a normal Codex run. For benchmark work, Inspect/Harbor adapters must preserve model/runtime/tool-policy and task/scorer/container versions.
 
 Qualify downloaded skills and unfamiliar MCPs before activation; prefer the bundled local static preflight and isolated MCP Inspector flow. Do not execute an unknown stdio config simply to discover its tools.
 
-## v1.0 design/motion/3D
-Use the canonical SKick design orchestration directly in Codex. Do not translate Claude-specific slash commands or marketplace install syntax into Codex. Prefer current project-native libraries and official docs; route browser/rendered validation through the strongest available Codex/browser capability.
 
-## v1.0 preferred web profile
-For ordinary new websites/web tools without a stronger existing-project constraint, preserve the canonical Python + vanilla profile: Python backend in `backend/`, semantic HTML/CSS/vanilla JS in `frontend/`, and a minimal root launcher such as `app.py`. Do not let host defaults auto-scaffold React/Next/Vite or a Node backend without a task-specific reason.
 
 <!-- SKICK-AI-INSTALL-BEGIN -->
 ## Direct ZIP / AI installer contract
@@ -34,7 +28,12 @@ For ordinary new websites/web tools without a stronger existing-project constrai
 When an AI receives the SKick ZIP and the user says **"install this"**, use this adapter only after identifying the actual runtime/surface from environment evidence or the user's explicit target.
 
 - **Manifest platform ID:** `codex`
-- **Support status:** `VERIFIED`
+- **Support status:** `DOC_VERIFIED`
+- **Verification status:** `DOC_VERIFIED`
+- **Runtime tier:** `full_runtime`
+- **Native Skill support:** `yes`
+- **Literal `@SKick`:** `no`
+- **Native activation equivalent:** $skick
 - **Surfaces covered:** CLI, app, IDE extension
 - **Availability / gating:** Codex is currently included across ChatGPT Free, Go, Plus, Pro, Business, Edu, and Enterprise plans; limits vary by plan. This is separate from native Skill upload availability in ChatGPT chat.
 - **Preferred install:** Prefer repository/user Agent Skill scope for a standalone SKick install; use codex-plugin.zip only for Codex plugin distribution.
@@ -54,7 +53,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 2. Inspect the target runtime and existing SKick installation before writing or uploading anything.
 3. Prefer project scope when the user did not request a global/personal install and the runtime supports project Skills.
 4. Preserve the complete SKick directory for directory-form Agent Skills; do not copy only `SKILL.md` when it references supporting files.
-5. Do not silently install Serena, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. The universal prompt in `../../BOOTSTRAP_PROMPTS.md` is an explicit exception only for canonical Serena setup; it does not authorize unrelated dependencies.
+5. Do not silently install semantic repository providers, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. Optional capability setup requires a separate justified and authorized path.
 6. Reload/refresh/restart only as required by this runtime's documented behavior.
 7. Verify discovery in the actual active surface, not only by checking that files exist.
 8. Report the selected runtime, scope/path or UI flow, SKick version, verification performed, and any step that required user/admin/UI/authentication action.
@@ -84,6 +83,6 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 
 ### Primary support reference
 
-https://developers.openai.com/codex/skills/
+https://learn.chatgpt.com/docs/build-skills
 
 <!-- SKICK-AI-INSTALL-END -->

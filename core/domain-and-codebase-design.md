@@ -53,7 +53,7 @@ Reject refactors that only rename or reshuffle code without reducing caller know
 ## Architecture vs implementation
 Use this module to choose vocabulary and seams. Use `engineering-feedback-loops.md` for test/debug loops and `implementation-discipline.md` for edit scope.
 ## System architecture handoff
-For substantial changes, pair this domain vocabulary with `system-design-and-architecture.md`. Domain terms/invariants define **what must remain true**; the architecture map defines **where that truth is owned, how state/control/data move, which interfaces expose it, and how a change propagates**. Use Serena-first semantic mapping when available to connect prose vocabulary to real symbols and callers.
+For substantial changes, pair this domain vocabulary with `system-design-and-architecture.md`. Domain terms/invariants define **what must remain true**; the architecture map defines **where that truth is owned, how state/control/data move, which interfaces expose it, and how a change propagates**. Use the best available semantic mapping capability, when useful, to connect prose vocabulary to real symbols and callers.
 
 Do not approve broad implementation while the owning seam, affected contracts or regression boundary remain materially unknown.
 

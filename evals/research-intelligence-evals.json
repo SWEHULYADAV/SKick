@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "description": "Deterministic research decision/question/source/freshness evaluations.",
+  "cases": [
+    {
+      "id": "stable-trivial-no-research",
+      "operation": "research",
+      "task": "What is 2 + 2?",
+      "expect_level": ["none"]
+    },
+    {
+      "id": "current-platform-deep-disconfirmation",
+      "operation": "research",
+      "task": "Deep research whether platform X currently supports Agent Skills.",
+      "expect_level": ["deep", "lateral"],
+      "expect_strategies": ["direct", "disconfirmation", "historical"],
+      "expect_freshness": true,
+      "expect_source_types": ["first_party_documentation"]
+    },
+    {
+      "id": "security-exploitability-adversarial",
+      "operation": "research",
+      "task": "Research exploitability of the current vulnerability and the patch path.",
+      "expect_level": ["adversarial", "deep"],
+      "expect_source_types": ["vendor_security_advisory", "patch_commit_or_source"]
+    },
+    {
+      "id": "library-release-implementation-evidence",
+      "operation": "research",
+      "task": "Research whether the latest library release fixes the regression.",
+      "expect_level": ["standard", "deep"],
+      "expect_strategies": ["implementation", "historical"]
+    }
+  ]
+}

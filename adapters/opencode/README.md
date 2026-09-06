@@ -4,8 +4,6 @@ OpenCode natively discovers Agent Skills from project `.opencode/skills/`, `.age
 
 Use `.opencode/skills/skick/` for an OpenCode-specific project install or `.agents/skills/skick/` for a portable project install.
 
-## Serena
-Serena officially lists OpenCode among supported MCP clients. Prefer Serena automatically when connected.
 
 ## Superpowers
 Superpowers upstream documents OpenCode support. If installed, use it as an optional engineering-method layer and avoid duplicate workflow loading.
@@ -19,7 +17,12 @@ Use `core/mcp-stack.md`; prefer native capability first and enable only task-mat
 When an AI receives the SKick ZIP and the user says **"install this"**, use this adapter only after identifying the actual runtime/surface from environment evidence or the user's explicit target.
 
 - **Manifest platform ID:** `opencode`
-- **Support status:** `VERIFIED`
+- **Support status:** `DOC_VERIFIED`
+- **Verification status:** `DOC_VERIFIED`
+- **Runtime tier:** `full_runtime`
+- **Native Skill support:** `yes`
+- **Literal `@SKick`:** `unknown`
+- **Native activation equivalent:** Use the host skill picker or documented native Skill mechanism.
 - **Surfaces covered:** CLI/TUI, web, IDE integrations that use OpenCode runtime
 - **Availability / gating:** Availability, plan, region, and admin policy can vary; re-check current first-party documentation for this surface.
 - **Preferred install:** Use .opencode/skills/skick or .agents/skills/skick for project scope; use a documented global path for personal scope.
@@ -39,7 +42,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 2. Inspect the target runtime and existing SKick installation before writing or uploading anything.
 3. Prefer project scope when the user did not request a global/personal install and the runtime supports project Skills.
 4. Preserve the complete SKick directory for directory-form Agent Skills; do not copy only `SKILL.md` when it references supporting files.
-5. Do not silently install Serena, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. The universal prompt in `../../BOOTSTRAP_PROMPTS.md` is an explicit exception only for canonical Serena setup; it does not authorize unrelated dependencies.
+5. Do not silently install semantic repository providers, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. Optional capability setup requires a separate justified and authorized path.
 6. Reload/refresh/restart only as required by this runtime's documented behavior.
 7. Verify discovery in the actual active surface, not only by checking that files exist.
 8. Report the selected runtime, scope/path or UI flow, SKick version, verification performed, and any step that required user/admin/UI/authentication action.
