@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "proof_type": "deterministic_local_runtime",
+  "suite_files": [
+    "artifacts/vnext-routing-local.json",
+    "artifacts/vnext-claim-local.json",
+    "artifacts/vnext-security-local.json",
+    "artifacts/vnext-ablation-local.json",
+    "artifacts/vnext-prompt-local.json",
+    "artifacts/vnext-research-local.json",
+    "artifacts/vnext-teaming-local.json",
+    "artifacts/vnext-research-ablation-local.json"
+  ],
+  "runs": 37,
+  "all_passed": true,
+  "routing_activation_confusion": {
+    "tp": 4,
+    "tn": 3,
+    "fp": 0,
+    "fn": 0
+  },
+  "routing_activation_accuracy": 1.0,
+  "routing_depth_accuracy": 1.0,
+  "behavioral_model_proof": "NOT_MEASURED",
+  "research_ablation_behavioral_quality": "NOT_MEASURED",
+  "security_behavioral_fixture": {
+    "fixture": "tests/fixtures/security_auth_lab",
+    "suite": "evals/security-behavioral-fixture.json",
+    "proof": "DEFINITION_AND_FIXTURE_ONLY",
+    "candidate_model_result": "NOT_MEASURED"
+  }
+}

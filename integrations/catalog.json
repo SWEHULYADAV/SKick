@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release": "v1.0",
+  "release": "v1.1",
   "policy": "one workflow owner per phase; invoke/reference optional specialists only after availability, provenance, license, security and overlap checks",
   "integrations": [
     {

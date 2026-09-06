@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release": "v1.0",
+  "release": "v1.1",
   "checks": [
     {
       "id": "canonical",
@@ -90,7 +90,7 @@
     {
       "id": "github-bootstrap-protocol",
       "path": "docs/GITHUB_BOOTSTRAP.md",
-      "expect": "requires inspect-first source handling, real-host detection, manifest adapter routing, conservative scope, runtime discovery verification and Serena status reporting"
+      "expect": "requires inspect-first source handling, real-host detection, manifest adapter routing, conservative scope, runtime discovery verification and capability-provider status reporting"
     },
     {
       "id": "factory-droid-adapter",

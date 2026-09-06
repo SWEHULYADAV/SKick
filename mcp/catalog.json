@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "release": "v1.0",
+  "release": "v1.1",
   "policy": "host-native first; activate the smallest trusted task-matched capability set; no silent installs, credentials, production writes, or unknown stdio execution",
   "servers": [
     {

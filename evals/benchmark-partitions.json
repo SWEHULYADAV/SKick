@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "development": {
+    "status": "USED_FOR_TUNING",
+    "suites": [
+      "evals/runtime-routing-evals.json",
+      "evals/claim-honesty-evals.json",
+      "evals/security-injection-evals.json",
+      "evals/ablation-evals.json"
+    ]
+  },
+  "validation": {
+    "status": "SEEN_EXISTING_DEFINITIONS",
+    "suites": [
+      "evals/trigger-evals.json",
+      "evals/portability-evals.json"
+    ]
+  },
+  "held_out": {
+    "status": "NOT_POPULATED",
+    "reason": "No independent post-tuning behavioral task set was available in this environment; populating one now and claiming it held-out would overstate independence.",
+    "required_categories": [
+      "trivial_negative_activation",
+      "tiny_code_change",
+      "repository_debugging",
+      "feature_refactor_architecture",
+      "security_and_prompt_injection",
+      "current_information_research",
+      "capability_routing_missing_tools",
+      "claim_honesty",
+      "package_install_migration",
+      "partial_permissions",
+      "declarative_only_host"
+    ]
+  }
+}

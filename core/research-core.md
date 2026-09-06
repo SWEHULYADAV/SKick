@@ -1,5 +1,8 @@
 # Research Core
 
+
+## Executable-runtime ownership
+When available, `runtime/research.py` owns the initial research decision, question map, source-class route, query classes, freshness flag, pivots, budget, stopping criteria, coverage/frontier seed, and next-best-evidence field. `runtime/research_ledger.py` owns typed finding/coverage/frontier state linked to the existing evidence ledger. This module governs deeper investigation procedure and the declarative fallback; the planner does not itself browse or prove a claim.
 ## Purpose
 Provide the platform-neutral control loop for evidence-driven technical and cross-domain investigation.
 

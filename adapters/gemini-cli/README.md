@@ -7,8 +7,6 @@
 
 Install/link with current `gemini skills` or `gemini extensions` commands, then verify with `/skills list` or `/extensions list`.
 
-## Serena
-Gemini CLI is a documented Serena MCP client. Prefer Serena automatically when connected.
 
 ## Superpowers
 Superpowers upstream documents a Gemini CLI extension path. If installed, use it for matching engineering workflows while SKick owns research/evidence/tool routing.
@@ -17,11 +15,7 @@ Superpowers upstream documents a Gemini CLI extension path. If installed, use it
 Use `core/mcp-stack.md`; prefer native capability first and enable only task-matched, trusted servers.
 
 
-## v1.0 design/motion/3D
-Use the canonical cross-platform design orchestration. Claude-oriented upstream design skills are optional reference material only; do not fabricate Claude marketplace commands for this host. Resolve current project libraries and official APIs, preserve reduced-motion/performance budgets, and use the host's strongest rendered/browser validation path.
 
-## v1.0 preferred web profile
-For ordinary new websites/web tools without a stronger existing-project constraint, preserve the canonical Python + vanilla profile: Python backend in `backend/`, semantic HTML/CSS/vanilla JS in `frontend/`, and a minimal root launcher such as `app.py`. Do not let host defaults auto-scaffold React/Next/Vite or a Node backend without a task-specific reason.
 
 <!-- SKICK-AI-INSTALL-BEGIN -->
 ## Direct ZIP / AI installer contract
@@ -29,7 +23,12 @@ For ordinary new websites/web tools without a stronger existing-project constrai
 When an AI receives the SKick ZIP and the user says **"install this"**, use this adapter only after identifying the actual runtime/surface from environment evidence or the user's explicit target.
 
 - **Manifest platform ID:** `gemini-cli`
-- **Support status:** `VERIFIED`
+- **Support status:** `DOC_VERIFIED`
+- **Verification status:** `DOC_VERIFIED`
+- **Runtime tier:** `full_runtime`
+- **Native Skill support:** `yes`
+- **Literal `@SKick`:** `no`
+- **Native activation equivalent:** /skills manages skills; ask for SKick or rely on model activation
 - **Surfaces covered:** CLI/TUI, terminal integrations
 - **Availability / gating:** Availability, plan, region, and admin policy can vary; re-check current first-party documentation for this surface.
 - **Preferred install:** Prefer `gemini skills install <source> --scope workspace|user` or the documented .gemini/skills / .agents/skills discovery roots; use /skills reload after local changes when needed.
@@ -51,7 +50,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 2. Inspect the target runtime and existing SKick installation before writing or uploading anything.
 3. Prefer project scope when the user did not request a global/personal install and the runtime supports project Skills.
 4. Preserve the complete SKick directory for directory-form Agent Skills; do not copy only `SKILL.md` when it references supporting files.
-5. Do not silently install Serena, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. The universal prompt in `../../BOOTSTRAP_PROMPTS.md` is an explicit exception only for canonical Serena setup; it does not authorize unrelated dependencies.
+5. Do not silently install semantic repository providers, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. Optional capability setup requires a separate justified and authorized path.
 6. Reload/refresh/restart only as required by this runtime's documented behavior.
 7. Verify discovery in the actual active surface, not only by checking that files exist.
 8. Report the selected runtime, scope/path or UI flow, SKick version, verification performed, and any step that required user/admin/UI/authentication action.
@@ -63,7 +62,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 
 ### Availability and limitations
 
-- No additional platform-specific limitation is asserted beyond the normal runtime and security warnings.
+- Skill activation is model-driven and presents a consent prompt; `/skills` is the management surface rather than a documented direct `/skick` invocation.
 
 ### Update and removal
 

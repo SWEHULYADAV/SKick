@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "identity": {
     "name": "SKick",
-    "release": "v1.0",
+    "release": "v1.1",
     "tagline": "Research - Build - Secure",
     "type": "portable engineering and research control-plane Agent Skill"
   },
@@ -25,7 +25,7 @@
   "non_negotiable_invariants": [
     "Run silent prompt enhancement before every non-trivial SKick task.",
     "SKick is a capability broker: choose the best safe/current task-matched Skill, plugin, MCP or native tool for each phase while retaining objective, evidence, safety, provenance and final verification.",
-    "For non-trivial repository/code work, check Serena first and prefer semantic symbols/references when available; never pretend Serena ran when it did not.",
+    "For non-trivial repository/code work, prefer the best observed semantic repository capability for the task (native indexes/LSP/symbol APIs, Serena, semantic search, or narrower fallbacks); never pretend an unavailable provider ran.",
     "For substantial implementation, pass a proportional system-design and change-impact gate before broad coding.",
     "Before language/framework-specific coding, fingerprint the real compiler/runtime/framework/toolchain/version and use specialist Skills only when they add current or demonstrated value; verify with native proof surfaces.",
     "For substantial UI work, preserve design-system tokens/components and distinguish source inference from rendered observation and measured browser/device/accessibility/performance evidence.",
@@ -43,12 +43,12 @@
     "Never claim browsing, execution, testing, runtime support or verification that did not occur.",
     "For adversarial/security/failure analysis, pair offensive understanding with defensive controls and safe validation when material.",
     "Do not silently install third-party executables, plugins, MCP servers, extensions or credentials.",
-    "For ordinary new web tools without stronger constraints, prefer tiny root app.py plus backend/ and frontend/ with Python plus semantic HTML/CSS/vanilla JavaScript.",
+    "For ordinary new web tools without stronger constraints, preserve the project architecture first; for greenfield work choose the smallest evidence-backed stack and treat any Python/vanilla profile as an optional starter policy rather than a constitutional default.",
     "Existing repository conventions and explicit user requirements override defaults.",
     "Keep maintained documentation in English.",
     "Keep SKick branding assets as PNG files."
   ],
-  "direct_zip_goal": "An AI receiving the complete ZIP or GitHub repository URL and a minimal install request should inspect the package/source, identify the actual host runtime/surface, follow the verified platform adapter, install conservatively, verify discovery, configure canonical Serena only when explicitly authorized/supported, and report anything it could not perform.",
+  "direct_zip_goal": "An AI receiving the complete ZIP or GitHub repository URL and a minimal install request should inspect the package/source, identify the actual host runtime/surface, follow the verified platform adapter, install conservatively, verify discovery, select optional tools only by observed capability and explicit authorization, and report anything it could not perform.",
   "maintenance_read_order": [
     "START_HERE.md",
     "AI_HANDOFF.md",

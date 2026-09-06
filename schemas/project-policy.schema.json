@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/project-policy.schema.json",
+  "title": "SKick Project Policy",
+  "type": "object",
+  "required": ["schema_version", "verification_policy", "repository_tool_preference", "starter_profiles"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "verification_policy": {"enum": ["strict", "balanced"]},
+    "repository_tool_preference": {"enum": ["capability_fit"]},
+    "starter_profiles": {"type": "object"}
+  },
+  "additionalProperties": true
+}

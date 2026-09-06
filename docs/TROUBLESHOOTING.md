@@ -58,11 +58,11 @@ Do not execute a random stdio command just to inspect it.
 
 ## SKick creates too much structure
 
-The preferred Python/vanilla profile is intentionally minimal. Remind the agent that only placement is invariant: tiny `app.py` root launcher, backend implementation in `backend/`, frontend implementation/assets in `frontend/`, deeper folders only when justified.
+The Python/vanilla layout is an optional starter profile, not an invariant. Confirm that the project explicitly selected it; otherwise preserve the repository's existing architecture and ecosystem-native layout.
 
 ## SKick chooses a framework without need
 
-Existing project requirements override defaults, but a greenfield project should not jump to React/Next/Vite or a Node backend just because the host often generates them. Ask the agent to show the requirement that justifies framework escalation.
+Existing project requirements and ecosystem conventions control the choice. A greenfield project should neither adopt nor reject React/Next/Vite, Node, Python, or another stack merely from agent habit; require a project-specific reason for the selected stack.
 
 ## Runtime says installation succeeded but behavior differs
 

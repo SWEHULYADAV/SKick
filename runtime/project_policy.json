@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "verification_policy": "strict",
+  "repository_tool_preference": "capability_fit",
+  "starter_profiles": {
+    "greenfield_web": {
+      "enabled": false,
+      "profile": "python-vanilla-web",
+      "note": "Opt-in starter preference only. Existing project architecture and explicit user constraints always win."
+    }
+  }
+}

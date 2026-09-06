@@ -19,7 +19,7 @@ Inspect relevant:
 Examples include `package.json`, lockfiles, `pyproject.toml`, requirements/poetry files, Cargo manifests, `go.mod`, Maven/Gradle files, project files, Dockerfiles, and deployment manifests.
 
 ## Serena preference
-When Serena is available, load `serena-integration.md` and prefer its semantic symbol/ref/reference/edit capabilities before broad text-only scanning. Do not depend on Serena exclusively.
+When semantic repository capabilities are available, compare native index/LSP, symbol/reference APIs, Serena, and other providers by capability fit and proof quality before broad text-only scanning. Load `serena-integration.md` only when Serena is actually selected. Do not depend on any single provider.
 
 ## Targeted source-code reading
 Do not read entire repositories by default.

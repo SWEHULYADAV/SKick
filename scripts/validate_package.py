@@ -6,15 +6,18 @@ import re
 import sys
 from pathlib import Path
 
-RELEASE = "1.0"
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from runtime.versioning import read_package_version
 REQUIRED = [
     ".gitignore", ".gitattributes", ".github/workflows/validate.yml", "LICENSE", "SECURITY.md",
     "VERSION", "SKILL.md", "SPEC.md", "START_HERE.md", "AI_HANDOFF.md", "AI_CONTEXT.json", "INSTALLATION_MANIFEST.json", "CONTRIBUTING.md", "agents/openai.yaml", "README.md", "CHANGELOG.md",
     "assets/logo.png", "assets/icon.png", "assets/favicon.png", "assets/favicon-32.png",
     "assets/readme/hero-banner.webp", "assets/readme/capabilities-banner.webp", "assets/readme/usage-guide.webp", "assets/readme/platforms-banner.webp",
-    "docs/PLATFORM_CATALOG.md", "docs/AI_INSTALL_PROTOCOL.md", "docs/RELEASE_CHECKLIST.md", "docs/USAGE_PLAYBOOK.md", "docs/INSTALLATION.md", "docs/WEB_AND_APPS.md",
+    "docs/PLATFORM_CATALOG.md", "docs/PLATFORM_AUDIT.md", "docs/ACTIVATION_MATRIX.md", "docs/AI_INSTALL_PROTOCOL.md", "docs/RELEASE_CHECKLIST.md", "docs/USAGE_PLAYBOOK.md", "docs/INSTALLATION.md", "docs/WEB_AND_APPS.md",
     "docs/VS_CODE_AND_IDES.md", "docs/WARNINGS.md", "docs/TROUBLESHOOTING.md", "docs/UPDATE_AND_PORTING.md", "docs/BRANDING.md",
-    "docs/INVOCATION_AND_MODES.md", "docs/RUNTIME_COMPATIBILITY.md", "docs/NEW_RUNTIME_INTEGRATION.md", "docs/RELEASE_AUDIT.md",
+    "docs/INVOCATION_AND_MODES.md", "docs/RUNTIME_COMPATIBILITY.md", "docs/NEW_RUNTIME_INTEGRATION.md", "docs/RELEASE_AUDIT.md", "docs/V1_1_FINAL_AUDIT.md", "docs/RUNTIME_AND_GUARANTEE_LEVELS.md", "docs/VNEXT_MIGRATION.md", "docs/SECURITY_THREAT_MODEL.md", "docs/EVALUATION_STRATEGY.md", "docs/VNEXT_ARCHITECTURE_AUDIT.md", "docs/VNEXT_RUNTIME_MATRIX.md", "docs/VNEXT_IMPLEMENTATION_REPORT.md",
     "ARTIFACT_MANIFEST.json", "SHA256SUMS.txt",
     "PORTABILITY.md", "SOURCES.md", "UPSTREAMS.md", "THIRD_PARTY_NOTICES.md",
     "core/semantic-intent-resolution.md", "core/prompt-enhancement.md", "core/capability-and-skill-routing.md", "core/deferred-capability-loading.md",
@@ -26,7 +29,7 @@ REQUIRED = [
     "core/research-core.md", "core/research-source-router.md", "core/query-mutation.md",
     "core/source-strategy.md", "core/repository-research.md", "core/repository-context-map.md", "core/evidence-verification.md",
     "core/evidence-graph.md", "core/external-skill-intelligence.md",
-    "core/domain-and-codebase-design.md", "core/system-design-and-architecture.md", "core/project-planning-and-structure.md", "core/python-vanilla-web-stack.md",
+    "core/domain-and-codebase-design.md", "core/system-design-and-architecture.md", "core/project-planning-and-structure.md",
     "core/implementation-discipline.md",
     "core/engineering-feedback-loops.md", "core/verified-review-and-simplification.md", "core/code-integration.md",
     "core/webapp-validation.md", "core/performance-and-reliability.md", "core/formal-verification-and-fuzzing.md",
@@ -51,11 +54,19 @@ REQUIRED = [
     "integrations/harnesses-and-evals.md", "integrations/frontend-browser-specialists.md",
     "integrations/cloud-and-data-platforms.md", "integrations/research-providers.md", "integrations/research-specialists.md", "integrations/language-specialists.md", "integrations/ui-and-browser-specialists.md", "integrations/agent-control-patterns.md", "integrations/official-skill-ecosystems.md", "docs/PLANS_AND_SURFACES.md", "docs/DESIGN_REFERENCE_PLAYBOOK.md", "docs/SKILL_ECOSYSTEM_GUIDE.md", "mcp/README.md", "mcp/catalog.json",
     "adapters/generic/PROMPT.md", "adapters/zcode/README.md",
-    "evals/evals.json", "evals/trigger-evals.json", "evals/portability-evals.json",
+    "evals/evals.json", "evals/trigger-evals.json", "evals/portability-evals.json", "evals/benchmark-partitions.json", "evals/runtime-routing-evals.json", "evals/claim-honesty-evals.json", "evals/security-injection-evals.json", "evals/ablation-evals.json",
+    "evals/prompt-intelligence-evals.json", "evals/research-intelligence-evals.json", "evals/teaming-evals.json", "evals/research-ablation-evals.json",
+    "evals/security-behavioral-fixture.json", "tests/fixtures/security_auth_lab/lab.py", "tests/fixtures/security_auth_lab/README.md",
     "scripts/build_distributions.py", "scripts/validate_distributions.py",
     "scripts/run_evals.py", "scripts/compare_evals.py", "scripts/build_provenance.py",
     "scripts/verify_provenance.py", "scripts/audit_freshness.py", "scripts/visual_qa.py",
-    "scripts/generate_mcp_config.py", "scripts/validate_mcp_catalog.py", "scripts/scan_skill_package.py", "scripts/install_skick.py", "scripts/detect_runtime.py", "scripts/audit_release.py", "scripts/sync_adapter_install_blocks.py", "scripts/generate_platform_catalog.py", "scripts/build_handoff_bundle.py", "scripts/build_github_bundle.py",
+    "scripts/generate_mcp_config.py", "scripts/validate_mcp_catalog.py", "scripts/scan_skill_package.py", "scripts/install_skick.py", "scripts/detect_runtime.py", "scripts/audit_release.py", "scripts/sync_adapter_install_blocks.py", "scripts/generate_platform_catalog.py", "scripts/generate_module_catalog.py", "scripts/generate_package_manifest.py", "scripts/build_handoff_bundle.py", "scripts/build_github_bundle.py",
+    "scripts/skick_runtime.py", "scripts/skick_doctor.py", "scripts/run_local_evals.py", "scripts/normalize_platform_registry.py", "scripts/generate_module_catalog.py",
+    "runtime/__init__.py", "runtime/versioning.py", "runtime/model.py", "runtime/capabilities.py", "runtime/depth.py", "runtime/modules.py", "runtime/budget.py", "runtime/claims.py", "runtime/state.py", "runtime/report.py",
+    "runtime/prompt_intelligence.py", "runtime/research.py", "runtime/research_ledger.py", "runtime/teaming.py", "runtime/orchestrator.py",
+    "runtime/depth_model.json", "runtime/module_catalog.json", "runtime/module_policies.json", "runtime/project_policy.json",
+    "schemas/runtime-state.schema.json", "schemas/evidence-ledger.schema.json", "schemas/claim.schema.json", "schemas/module-plan.schema.json", "schemas/project-policy.schema.json", "schemas/eval-result.schema.json", "schemas/installation-manifest.schema.json",
+    "schemas/task-interpretation.schema.json", "schemas/research-plan.schema.json", "schemas/teaming-plan.schema.json", "schemas/research-finding.schema.json",
     "tests/research-prompts.md", "tests/package-manifest.txt",
 ]
 
@@ -100,6 +111,8 @@ SOURCE_MARKERS = [
 LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 CODE_RE = re.compile(r"`([^`\n]+)`")
 FRONT_RE = re.compile(r"^---\n(.*?)\n---\n", re.S)
+LOCAL_PATH_MARKERS = ("/mnt/data", "/home/oai")
+LOCAL_PATH_GUARD_FILES = {"scripts/validate_package.py", "tests/test_v11_hardening.py"}
 
 
 def fail(errors: list[str], msg: str) -> None:
@@ -116,6 +129,8 @@ def load_json(root: Path, rel: str, errors: list[str]):
 
 def main() -> int:
     root = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
+    release = read_package_version(root)
+    release_label = f"v{release}"
     errors: list[str] = []
 
     for rel in REQUIRED:
@@ -123,8 +138,8 @@ def main() -> int:
             fail(errors, f"missing required file: {rel}")
 
     version = root / "VERSION"
-    if version.is_file() and version.read_text(encoding="utf-8").strip() != RELEASE:
-        fail(errors, f"VERSION must be {RELEASE}")
+    if version.is_file() and version.read_text(encoding="utf-8").strip() != release:
+        fail(errors, f"VERSION must be {release}")
 
     # Canonical skill must contain exactly one uppercase entrypoint.
     skills = sorted(root.rglob("SKILL.md"))
@@ -156,10 +171,10 @@ def main() -> int:
                 fail(errors, f"description length should be 80..1024 chars, got {len(desc)}")
         if len(skill_text.splitlines()) >= 500:
             fail(errors, "SKILL.md must remain under 500 lines")
-        if "v1.0" not in skill_text:
-            fail(errors, "SKILL.md must identify release v1.0")
+        if release_label not in skill_text:
+            fail(errors, f"SKILL.md must identify release {release_label}")
         if any(stage not in skill_text for stage in ["HARNESS", "ORCHESTRATE", "ROUTE", "LATERAL", "COVER", "MECHANISM", "PLAN", "REVIEW", "LEARN", "QUALITY"]):
-            fail(errors, "SKILL.md control loop missing v1.0 required stages")
+            fail(errors, "SKILL.md control loop missing required stages")
 
     # Prevent stale release claims in maintained text/config files.
     for p in root.rglob("*"):
@@ -169,8 +184,11 @@ def main() -> int:
             text = p.read_text(encoding="utf-8")
         except UnicodeDecodeError:
             continue
+        rel = p.relative_to(root).as_posix()
         if ("2026-" + "08-15") in text:
-            fail(errors, f"stale verification date in {p.relative_to(root)}")
+            fail(errors, f"stale verification date in {rel}")
+        if rel not in LOCAL_PATH_GUARD_FILES and any(marker in text for marker in LOCAL_PATH_MARKERS):
+            fail(errors, f"local machine path leaked into package text: {rel}")
 
     # Validate every relative Markdown link.
     for md in root.rglob("*.md"):
@@ -223,17 +241,9 @@ def main() -> int:
             if len(lines) > 140:
                 fail(errors, f"adapter is too large ({len(lines)} lines): {md.relative_to(root)}")
 
-    # Serena remains first-class but optional.
-    if skill_text and "prefer Serena automatically" not in skill_text:
-        fail(errors, "SKILL.md must explicitly preserve automatic Serena preference")
-    serena = root / "core/serena-integration.md"
-    if serena.is_file():
-        st = serena.read_text(encoding="utf-8")
-        for phrase in ["semantic repository exploration", "symbol discovery/search", "references/call relationships", "targeted symbol-level edits"]:
-            if phrase not in st:
-                fail(errors, f"Serena module missing required preference: {phrase}")
+    # Vendor/tool preferences are runtime/project policy, not package constitution.
 
-    # Source-family coverage required for v1.0.
+    # Source-family coverage required for the current release.
     router = root / "core/research-source-router.md"
     if router.is_file():
         rt = router.read_text(encoding="utf-8")
@@ -290,36 +300,28 @@ def main() -> int:
 
     integration_catalog = load_json(root, "integrations/catalog.json", errors)
     if isinstance(integration_catalog, dict):
-        if integration_catalog.get("schema_version") != 1 or integration_catalog.get("release") != "v1.0":
-            fail(errors, "integration catalog must use schema_version 1 and release v1.0")
+        if integration_catalog.get("schema_version") != 1 or integration_catalog.get("release") != release_label:
+            fail(errors, f"integration catalog must use schema_version 1 and release {release_label}")
         items = integration_catalog.get("integrations")
         required_integrations = {"superpowers", "huggingface-skills", "trailofbits-skills", "sentry-skills", "vercel-agent-skills", "agent-browser", "coderabbit", "codex-security", "mini-swe-agent", "open-swe", "deepagents", "pydantic-ai-harness", "inspect-ai", "harbor", "openai-symphony", "freshtechbro-claude-design-skillstack"}
         ids = {i.get("id") for i in items if isinstance(i, dict)} if isinstance(items, list) else set()
         if not required_integrations.issubset(ids):
-            fail(errors, f"integration catalog missing v1.0 specialists: {sorted(required_integrations - ids)}")
+            fail(errors, f"integration catalog missing required specialists: {sorted(required_integrations - ids)}")
         if isinstance(items, list) and len(ids) != len(items):
             fail(errors, "integration catalog contains duplicate/missing ids")
 
     # Universal engineering + specialist/MCP control-plane coverage.
     if skill_text:
-        for phrase in ["engineering control plane", "core/engineering-lifecycle.md", "core/engineering-learning-loop.md", "core/experiment-optimization-loop.md", "core/harness-and-runtime-intelligence.md", "core/specialist-skill-orchestration.md", "core/mcp-stack.md", "core/mcp-validation-and-security.md", "core/design-and-motion-orchestration.md", "core/python-vanilla-web-stack.md", "extensions/motion-interaction-design.md", "extensions/web3d-experience-design.md", "integrations/superpowers.md", "integrations/claude-design-skillstack.md"]:
+        for phrase in ["engineering control plane", "core/engineering-lifecycle.md", "core/engineering-learning-loop.md", "core/experiment-optimization-loop.md", "core/harness-and-runtime-intelligence.md", "core/specialist-skill-orchestration.md", "core/mcp-stack.md", "core/mcp-validation-and-security.md", "core/design-and-motion-orchestration.md", "extensions/motion-interaction-design.md", "extensions/web3d-experience-design.md", "integrations/superpowers.md", "integrations/claude-design-skillstack.md"]:
             if phrase.lower() not in skill_text.lower():
-                fail(errors, f"SKILL.md missing v1.0 engineering integration marker: {phrase}")
+                fail(errors, f"SKILL.md missing engineering integration marker: {phrase}")
 
-    # Preferred web-stack profile must be first-class and cross-platform.
-    web_profile = root / "core/python-vanilla-web-stack.md"
-    if web_profile.is_file():
-        wt = web_profile.read_text(encoding="utf-8").lower()
-        for phrase in ["python backend", "vanilla javascript", "backend/", "frontend/", "app.py", "cross-platform agent rule"]:
-            if phrase not in wt:
-                fail(errors, f"python/vanilla web profile missing required marker: {phrase}")
-    if skill_text and "core/python-vanilla-web-stack.md" not in skill_text:
-        fail(errors, "SKILL.md must directly reference the Python/vanilla web profile")
+    # Starter-stack profiles may exist as optional policy; the validator does not require one globally.
 
     mcp_catalog = load_json(root, "mcp/catalog.json", errors)
     if isinstance(mcp_catalog, dict):
-        if mcp_catalog.get("schema_version") != 2 or mcp_catalog.get("release") != "v1.0":
-            fail(errors, "MCP catalog must use schema_version 2 and release v1.0")
+        if mcp_catalog.get("schema_version") != 2 or mcp_catalog.get("release") != release_label:
+            fail(errors, f"MCP catalog must use schema_version 2 and release {release_label}")
         servers = mcp_catalog.get("servers")
         required_ids = {"serena", "context7", "github", "agent-browser", "playwright", "chrome-devtools", "huggingface", "mcp-toolbox-databases", "aws-agent-toolkit", "azure-mcp", "sentry", "docker-mcp-gateway", "exa", "tavily", "firecrawl"}
         ids = {s.get("id") for s in servers if isinstance(s, dict)} if isinstance(servers, list) else set()
@@ -340,7 +342,7 @@ def main() -> int:
         profiles = mcp_catalog.get("profiles")
         validators = mcp_catalog.get("validators")
         if not isinstance(profiles, list) or not {"core-code", "browser-fast", "browser-e2e", "browser-diagnostics", "ai-ml", "database", "cloud-aws", "cloud-azure", "research-web", "engineering"}.issubset({p.get("id") for p in profiles if isinstance(p, dict)}):
-            fail(errors, "MCP catalog missing v1.0 profiles")
+            fail(errors, "MCP catalog missing required profiles")
         if not isinstance(validators, list) or not {"mcp-inspector", "snyk-agent-scan", "skick-static-scan"}.issubset({v.get("id") for v in validators if isinstance(v, dict)}):
             fail(errors, "MCP catalog missing qualification validators")
         raw = json.dumps(mcp_catalog).lower()
@@ -350,10 +352,10 @@ def main() -> int:
 
     install_manifest = load_json(root, "INSTALLATION_MANIFEST.json", errors)
     if isinstance(install_manifest, dict):
-        if install_manifest.get("schema_version") != "1.0":
-            fail(errors, "INSTALLATION_MANIFEST.json must use schema_version 1.0")
+        if install_manifest.get("schema_version") not in {"1.0", "2.0"}:
+            fail(errors, "INSTALLATION_MANIFEST.json uses an unsupported schema version")
         pkg = install_manifest.get("package")
-        if not isinstance(pkg, dict) or pkg.get("name") != "skick" or pkg.get("version") != RELEASE:
+        if not isinstance(pkg, dict) or pkg.get("name") != "skick" or pkg.get("version") != release:
             fail(errors, "INSTALLATION_MANIFEST.json package identity/version mismatch")
         platforms = install_manifest.get("platforms")
         if not isinstance(platforms, dict) or not platforms:
@@ -383,11 +385,11 @@ def main() -> int:
         if ai_context.get("schema_version") != "1.0":
             fail(errors, "AI_CONTEXT.json must use schema_version 1.0")
         identity = ai_context.get("identity")
-        if not isinstance(identity, dict) or identity.get("name") != "SKick" or identity.get("release") != "v1.0":
+        if not isinstance(identity, dict) or identity.get("name") != "SKick" or identity.get("release") != release_label:
             fail(errors, "AI_CONTEXT.json identity mismatch")
 
     # Python scripts must parse/compile before packaging.
-    for rel in ["scripts/validate_package.py", "scripts/build_distributions.py", "scripts/validate_distributions.py", "scripts/run_evals.py", "scripts/compare_evals.py", "scripts/build_provenance.py", "scripts/verify_provenance.py", "scripts/audit_freshness.py", "scripts/visual_qa.py", "scripts/generate_mcp_config.py", "scripts/validate_mcp_catalog.py", "scripts/scan_skill_package.py", "scripts/install_skick.py", "scripts/detect_runtime.py", "scripts/audit_release.py", "scripts/sync_adapter_install_blocks.py", "scripts/generate_platform_catalog.py", "scripts/build_handoff_bundle.py", "scripts/build_github_bundle.py"]:
+    for rel in ["scripts/validate_package.py", "scripts/build_distributions.py", "scripts/validate_distributions.py", "scripts/run_evals.py", "scripts/compare_evals.py", "scripts/build_provenance.py", "scripts/verify_provenance.py", "scripts/audit_freshness.py", "scripts/visual_qa.py", "scripts/generate_mcp_config.py", "scripts/validate_mcp_catalog.py", "scripts/scan_skill_package.py", "scripts/install_skick.py", "scripts/detect_runtime.py", "scripts/audit_release.py", "scripts/sync_adapter_install_blocks.py", "scripts/generate_platform_catalog.py", "scripts/generate_module_catalog.py", "scripts/generate_package_manifest.py", "scripts/build_handoff_bundle.py", "scripts/build_github_bundle.py"]:
         p = root / rel
         if p.is_file():
             try:
@@ -421,7 +423,7 @@ def main() -> int:
 
     print("PACKAGE VALIDATION: PASS")
     print(f"Root: {root}")
-    print(f"Release: v{RELEASE}")
+    print(f"Release: v{release}")
     print(f"Markdown files: {sum(1 for _ in root.rglob('*.md'))}")
     print(f"Core modules: {sum(1 for _ in (root / 'core').glob('*.md'))}")
     print(f"Adapters: {sum(1 for _ in (root / 'adapters').rglob('README.md'))}")

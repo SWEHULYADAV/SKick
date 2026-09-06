@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SKick installation and compatibility registry",
+  "type": "object",
+  "required": ["schema_version", "package", "platforms"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "package": {"type": "object"},
+    "platforms": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "aliases", "kind", "entity_type", "native_skill_support", "activation",
+          "runtime_tier", "capabilities", "verification_status", "last_verified",
+          "official_evidence", "live_test", "limitations", "adapter", "verification"
+        ],
+        "properties": {
+          "entity_type": {"type": "string"},
+          "native_skill_support": {"enum": ["yes", "no", "unknown", "host_dependent"]},
+          "activation": {
+            "type": "object",
+            "required": ["explicit", "literal_at_skick", "native_equivalent", "automatic"],
+            "properties": {
+              "explicit": {"enum": ["supported", "unsupported", "unknown", "host_dependent"]},
+              "literal_at_skick": {"enum": ["yes", "no", "unknown"]},
+              "native_equivalent": {"type": "string"},
+              "automatic": {"enum": ["supported", "unsupported", "unknown", "host_dependent"]}
+            },
+            "additionalProperties": true
+          },
+          "runtime_tier": {"enum": ["full_runtime", "partial_runtime", "declarative", "prompt_fallback", "unknown"]},
+          "capabilities": {"type": "array", "items": {"type": "string"}},
+          "verification_status": {"enum": ["LIVE_TESTED", "DOC_VERIFIED", "COMMUNITY_VERIFIED", "HOST_DEPENDENT", "GENERIC_PROMPT_FALLBACK", "BROKEN_UNSUPPORTED", "UNKNOWN"]},
+          "last_verified": {"type": "string", "format": "date"},
+          "official_evidence": {"type": "array", "items": {"type": "object"}},
+          "live_test": {"type": ["object", "null"]},
+          "limitations": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

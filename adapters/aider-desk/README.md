@@ -34,7 +34,12 @@ If the installed release no longer recognizes these paths, do not invent a repla
 When an AI receives the SKick ZIP and the user says **"install this"**, use this adapter only after identifying the actual runtime/surface from environment evidence or the user's explicit target.
 
 - **Manifest platform ID:** `aider-desk`
-- **Support status:** `ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY`
+- **Support status:** `COMMUNITY_VERIFIED`
+- **Verification status:** `COMMUNITY_VERIFIED`
+- **Runtime tier:** `unknown`
+- **Native Skill support:** `unknown`
+- **Literal `@SKick`:** `unknown`
+- **Native activation equivalent:** Re-check the installed host; current evidence is not first-party-complete.
 - **Surfaces covered:** AiderDesk
 - **Availability / gating:** Availability, plan, region, and admin policy can vary; re-check current first-party documentation for this surface.
 - **Preferred install:** Use the AiderDesk Agent Skills path shown below only after confirming the installed release still supports it; otherwise use the shared .agents/skills path if documented or the generic fallback.
@@ -54,7 +59,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 2. Inspect the target runtime and existing SKick installation before writing or uploading anything.
 3. Prefer project scope when the user did not request a global/personal install and the runtime supports project Skills.
 4. Preserve the complete SKick directory for directory-form Agent Skills; do not copy only `SKILL.md` when it references supporting files.
-5. Do not silently install Serena, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. The universal prompt in `../../BOOTSTRAP_PROMPTS.md` is an explicit exception only for canonical Serena setup; it does not authorize unrelated dependencies.
+5. Do not silently install semantic repository providers, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. Optional capability setup requires a separate justified and authorized path.
 6. Reload/refresh/restart only as required by this runtime's documented behavior.
 7. Verify discovery in the actual active surface, not only by checking that files exist.
 8. Report the selected runtime, scope/path or UI flow, SKick version, verification performed, and any step that required user/admin/UI/authentication action.
@@ -66,7 +71,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 
 ### Availability and limitations
 
-- No additional platform-specific limitation is asserted beyond the normal runtime and security warnings.
+- Current first-party Skill documentation was not established in this audit; treat install paths as version-sensitive community evidence.
 
 ### Update and removal
 
@@ -84,6 +89,6 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 
 ### Primary support reference
 
-https://auth0.github.io/auth0-cli/auth0_agent_skills_install.html
+https://github.com/vercel-labs/skills/blob/main/src/agents.ts
 
 <!-- SKICK-AI-INSTALL-END -->

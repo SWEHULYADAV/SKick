@@ -1,5 +1,8 @@
 # Offensive + Defensive Dual-Lens for Engineering Research
 
+
+## Executable-runtime ownership
+`runtime/teaming.py` selects adversarial roles only when task signals justify them, records safe security scope, and structures offensive-to-defensive translation. Ordinary debugging does not automatically receive Red/Blue ceremony. If authorization for consequential offensive validation is unknown, the runtime constrains the test boundary to lab/simulation guidance; this module supplies the deeper authorized procedure rather than overriding that scope.
 ## Principle
 Understand adversarial and failure behavior deeply enough to explain the mechanism, reproduce or validate it safely when appropriate, and improve prevention, detection, containment, investigation, recovery, and resilience. Offensive research is not malicious by default; governing safety, authorization, target, requested action, and consequence determine what execution is allowed.
 

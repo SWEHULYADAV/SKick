@@ -1,5 +1,8 @@
 # Query Mutation Engine
 
+
+## Executable-runtime ownership
+`runtime/research.py` emits deterministic initial query classes and bounded transformations such as direct, negative, failure, historical, implementation, change, and discussion branches. This module remains responsible for evidence-driven mutation during an active investigation, where newly observed clues can justify pivots the initial planner could not know.
 ## Purpose
 Search semantically, iteratively, and version-consciously rather than repeating the user's wording.
 

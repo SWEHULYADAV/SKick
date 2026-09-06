@@ -119,3 +119,59 @@ Do not rely on chat history. Ensure these files remain current:
 - `CHANGELOG.md`
 
 A future AI should be able to reconstruct the project's purpose, invariants, installation behavior, support status, and maintenance process from the repository alone.
+
+## 12. vNext platform evidence requirements
+
+A new or materially changed platform/runtime/provider route must update the canonical `INSTALLATION_MANIFEST.json` record rather than creating a second compatibility database. Provide:
+
+- canonical platform ID and entity type;
+- native Skill support (`yes`, `no`, `unknown`, or host-dependent equivalent);
+- install method and scope/path only when evidenced;
+- discovery mechanism;
+- explicit activation state;
+- literal `@SKick` support as `yes`, `no`, or `unknown` — never infer it from another host;
+- native activation equivalent;
+- automatic activation state;
+- runtime/guarantee tier;
+- relevant capabilities and limitations;
+- verification status and last-verified date;
+- first-party evidence when claiming `DOC_VERIFIED`;
+- reproducible host/version/task metadata when claiming `LIVE_TESTED`.
+
+A lower route count is acceptable when evidence shows a route is broken, host-dependent, or unknown. Truthful downgrades are not regressions by themselves.
+
+After changing the registry, regenerate and check:
+
+```bash
+python3 scripts/generate_platform_catalog.py
+python3 scripts/generate_platform_catalog.py --check
+```
+
+## 13. vNext module contribution requirements
+
+A new `core/` or `extensions/` module must justify its context cost. The change should identify:
+
+- the problem not adequately covered by existing modules;
+- activation conditions and exclusion conditions where relevant;
+- dependencies/capability requirements;
+- estimated context cost using the repository's current estimate method;
+- overlap with existing modules;
+- at least one deterministic or behavioral eval case that would regress if the module/routing rule were removed.
+
+Update `runtime/module_policies.json` where selection metadata is needed, regenerate `runtime/module_catalog.json`, and run the module compiler tests. Module count is not a quality target.
+
+## 14. Module deprecation and merge process
+
+When a module becomes redundant or harmful, prefer measured simplification. Record the deprecated module, replacement/merge target, reason, eval or ablation evidence, compatibility impact, and intended removal version. Remove references from `SKILL.md` and generated metadata together; do not leave dead progressive-loading links.
+
+## 15. Evaluation and proof terminology
+
+Keep these proof layers distinct in code, tests and documentation:
+
+- static validation;
+- deterministic runtime/integration test;
+- behavioral evaluation;
+- documentation verification;
+- live platform test.
+
+An eval runner must not accept the candidate's self-reported success as the sole pass criterion. Preserve raw results and make task-level regressions inspectable.

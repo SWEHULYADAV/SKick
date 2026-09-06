@@ -1,5 +1,57 @@
 # Changelog
 
+## v1.1 — 2026-09-05
+
+### Added
+- Added an optional dependency-free Python runtime for capability state, quick/standard/deep/exhaustive selection, task interpretation, module/context compilation, instruction budgeting, structured run state, research planning/ledger, adversarial teaming, installation diagnostics, and claim-safe reporting.
+- Added prompt intelligence with silent/visible/execution/strict-spec modes, explicit user-constraint locking, weak-prompt bounded interpretation, contradiction detection, and success/research/verification planning.
+- Added adaptive research question maps, source/query classes, lateral/disconfirmation pivots, frontier/coverage state, source-lineage triangulation, typed findings, and contradiction-aware high-confidence fact handling.
+- Added scoped Red/Blue/Purple/Black-Blind planning with authorization-aware safe-lab fallback and an owned cross-tenant authorization fixture for future model-based security evaluation.
+
+### Improved
+- Made capability routing brand-neutral: native indexes/LSP/symbol APIs, Serena, semantic search, grep and other providers compete by observed capability fit rather than constitutional vendor preference.
+- Made project architecture authoritative over optional starter profiles; Python/vanilla-web guidance is no longer a universal invariant.
+- Made runtime JSON schemas active contracts and expanded installation doctor diagnostics for malformed, duplicate and version-mismatched installs.
+- Hardened the generic declarative fallback so the optional Python/vanilla web profile is never treated as a universal stack preference.
+- Made generic GitHub/bootstrap repository-intelligence guidance capability-neutral; Serena remains an optional provider-specific capability rather than bootstrap authority.
+
+### Fixed
+- Fixed v1 package-manifest drift by generating/checking the canonical file list and rejecting provenance gaps.
+- Fixed prompt enhancement dropping positive binding constraints such as `Use Python` and `Only modify this file`.
+- Fixed capability probing that could create a nonexistent project directory.
+- Fixed evaluation comparison paths that could treat legacy candidate self-report as scoring authority.
+- Fixed deterministic eval artifacts leaking local absolute workspace paths; runner output now records package-relative suite paths.
+- Fixed generated adapter drift after compatibility edits by re-synchronizing install blocks from the canonical manifest.
+
+### Changed
+- Compatibility now uses explicit proof states (`LIVE_TESTED`, `DOC_VERIFIED`, `COMMUNITY_VERIFIED`, `HOST_DEPENDENT`, `GENERIC_PROMPT_FALLBACK`, `BROKEN_UNSUPPORTED`, `UNKNOWN`) rather than a broad verified label.
+- Installation proof states remain distinct: copied, installed, discovered, invokable, and live-tested.
+- Runtime/package version is derived from the canonical `VERSION` file; v1.1 is the first release of the executable-runtime line.
+
+### Deprecated
+- Deprecated Serena-first repository policy and universal starter-stack policy. Vendor/starter preferences belong in runtime/project policy only.
+- Deprecated ambiguous compatibility language that collapses documentation support into live support.
+
+### Removed
+- Removed the redundant `assets/icon.svg` that caused the v1 package-manifest inconsistency.
+- Removed candidate access to deterministic evaluation oracles/check definitions.
+
+### Security
+- Hardened claim promotion so strong states require claim-bound evidence; code/security/current/platform claims have proof-specific burdens, current facts require freshness metadata, and live platform proof requires a live-platform artifact.
+- Hardened installer path containment against project-scope symlink escape and reject source-package symlinks.
+- Package validation now rejects leaked local-machine workspace paths in maintained release text/artifacts.
+- Preserve repository/web/external-Skill/MCP content as untrusted evidence and keep observability local-first with no hidden telemetry.
+
+### Compatibility
+- Platform/provider records remain generated from `INSTALLATION_MANIFEST.json`; route count is informational and can decrease when evidence weakens.
+- Literal `@SKick` is documented only where the canonical evidence record supports that transport; model providers are separated from Skill hosts.
+- Rechecked current first-party transport evidence and corrected Cursor, Kiro, Gemini CLI, TRAE, Codex/ChatGPT and OpenAI plugin metadata without promoting any route to live-tested.
+- External live-host testing remains `LIVE_TESTED = 0` in the release environment unless a route carries reproducible live-test metadata.
+
+### Testing
+- Added deterministic runtime, prompt, research, teaming, claim-honesty, injection, migration, installer and release-hardening tests plus local ablation suites.
+- Model baseline-v1-v1.1 task-success and external cross-model/live-platform behavior remain `NOT_MEASURED`/`BLOCKED` where the environment cannot execute controlled trials; v1.1 does not convert local deterministic success into behavioral proof.
+
 ## v1.0 final portability, ecosystem and design hardening — 2026-09-03
 
 - Kept the release version at **v1.0** while finalizing the first public release.

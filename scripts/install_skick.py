@@ -78,6 +78,24 @@ def detect_candidates(project: Path) -> list[str]:
     return sorted(found)
 
 
+def _assert_no_source_symlinks(source: Path) -> None:
+    symlinks = [path for path in source.rglob("*") if path.is_symlink()]
+    if symlinks:
+        preview = ", ".join(str(path.relative_to(source)) for path in symlinks[:5])
+        raise SystemExit(f"Refusing SKick source containing symlinks: {preview}")
+
+
+def _assert_manifest_destination_contained(destination: Path, project: Path, scope: str) -> None:
+    if scope != "project":
+        return
+    try:
+        destination.relative_to(project)
+    except ValueError as exc:
+        raise SystemExit(
+            f"Refusing project install path that escapes project after resolution: {destination}"
+        ) from exc
+
+
 def ignore(_directory: str, names: list[str]) -> set[str]:
     ignored = {n for n in names if n in REPO_EXCLUDES or n in FILE_EXCLUDES}
     # GitHub README artwork is repository-only and should not be duplicated into runtime installs.
@@ -98,16 +116,27 @@ def main() -> int:
     ap.add_argument("--no-backup", action="store_true", help="With --force, delete the existing destination instead of creating a sibling backup")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--list-targets", action="store_true")
+    ap.add_argument("--json", action="store_true", help="emit machine-readable install state only")
     args = ap.parse_args()
+
+    messages: list[str] = []
+    def log(message: str) -> None:
+        messages.append(message)
+        if not args.json:
+            print(message)
 
     source = args.source.resolve()
     project = args.project.resolve()
     manifest = load_manifest(source)
+    _assert_no_source_symlinks(source)
     targets = filesystem_targets(manifest)
 
     if args.list_targets:
-        for pid, item in sorted(targets.items()):
-            print(f"{pid:20} {item.get('status','')} project={item.get('project_paths',[])} user={item.get('user_paths',[])}")
+        if args.json:
+            print(json.dumps(targets, indent=2))
+        else:
+            for pid, item in sorted(targets.items()):
+                print(f"{pid:20} {item.get('status','')} project={item.get('project_paths',[])} user={item.get('user_paths',[])}")
         return 0
 
     target = args.target
@@ -132,6 +161,7 @@ def main() -> int:
         if args.path_index < 0 or args.path_index >= len(declared):
             raise SystemExit(f"--path-index out of range; available {args.scope} paths: {declared}")
         destination = expand_path(declared[args.path_index], project, args.scope)
+        _assert_manifest_destination_contained(destination, project, args.scope)
 
     # Refuse obviously dangerous or recursive destinations before any destructive operation.
     protected = {Path("/").resolve(), Path.home().resolve(), project.resolve(), source.resolve()}
@@ -144,18 +174,20 @@ def main() -> int:
     else:
         raise SystemExit("Refusing to install SKick inside its own source tree.")
 
-    print(f"SKick source: {source}")
-    print(f"Target runtime: {target}")
-    print(f"Support status: {status}")
-    print(f"Install scope: {args.scope}")
-    print(f"Destination: {destination}")
+    log(f"SKick source: {source}")
+    log(f"Target runtime: {target}")
+    log(f"Support status: {status}")
+    log(f"Install scope: {args.scope}")
+    log(f"Destination: {destination}")
     if status.startswith("ECOSYSTEM_"):
-        print("WARNING: this path is ecosystem-verified; re-check the installed runtime's first-party documentation before automating global deployment.")
+        log("WARNING: this path is ecosystem-verified; re-check the installed runtime's first-party documentation before automating global deployment.")
     if target == "agents":
-        print("WARNING: .agents/skills is a shared convention. The active host must actually scan it.")
+        log("WARNING: .agents/skills is a shared convention. The active host must actually scan it.")
 
     if args.dry_run:
-        print("Dry run only; no files changed.")
+        log("Dry run only; no files changed.")
+        if args.json:
+            print(json.dumps({"target": target, "scope": args.scope, "destination": str(destination), "copy_state": "not_performed", "install_state": "planned", "discovered": "unknown", "invokable": "unknown", "live_tested": "unknown", "messages": messages}, indent=2))
         return 0
 
     if destination.exists() or destination.is_symlink():
@@ -168,19 +200,21 @@ def main() -> int:
                 destination.unlink()
             else:
                 shutil.rmtree(destination)
-            print("Existing installation removed because --no-backup was explicitly supplied.")
+            log("Existing installation removed because --no-backup was explicitly supplied.")
         else:
             stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
             backup = destination.with_name(destination.name + f".backup-{stamp}")
             if backup.exists():
                 raise SystemExit(f"Backup destination unexpectedly exists: {backup}")
             shutil.move(str(destination), str(backup))
-            print(f"Existing installation backed up to: {backup}")
+            log(f"Existing installation backed up to: {backup}")
 
     destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copytree(source, destination, ignore=ignore)
-    print(f"Installed SKick files at: {destination}")
-    print("Runtime discovery is NOT proven by the copy. Reload/refresh the host as documented and verify that a Skill named 'skick' is actually discovered and activated.")
+    log(f"Installed SKick files at: {destination}")
+    log("Runtime discovery is NOT proven by the copy. Reload/refresh the host as documented and verify that a Skill named 'skick' is actually discovered and activated.")
+    if args.json:
+        print(json.dumps({"target": target, "scope": args.scope, "destination": str(destination), "copy_state": "copied", "install_state": "installed", "discovered": "unknown", "invokable": "unknown", "live_tested": "unknown", "messages": messages}, indent=2))
     return 0
 
 

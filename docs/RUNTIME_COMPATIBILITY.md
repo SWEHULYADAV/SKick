@@ -71,4 +71,4 @@ Known first-class routes now also include Factory Droid and Crush Agent Skills p
 
 ## Capability quality after installation
 
-Installation does not mean SKick should monopolize all work. On non-trivial tasks, the installed Skill must use `../core/capability-and-skill-routing.md` to select the strongest available task-matched specialist/native capability. For repository engineering, apply the Serena-first gate and architecture/change-impact gate before broad coding.
+Installation does not mean SKick should monopolize all work. On non-trivial tasks, the installed Skill must use `../core/capability-and-skill-routing.md` to select the strongest available task-matched specialist/native capability. For repository engineering, select semantic repository tooling by capability fit and apply the architecture/change-impact gate before broad coding.

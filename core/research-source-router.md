@@ -1,5 +1,8 @@
 # Research Source Router
 
+
+## Executable-runtime ownership
+`runtime/research.py` provides the machine-readable initial source hierarchy and source classes when the full runtime is available. Use this module for domain nuance, dynamic source selection, and host-specific research execution after planning. A selected source class is a plan, not evidence that the source was opened.
 ## Purpose
 Route each claim to the highest-value source family instead of searching every source mechanically. Source availability depends on the runtime; never imply access to a database, feed, subscription, or API that is not actually available.
 

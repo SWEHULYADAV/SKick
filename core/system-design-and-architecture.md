@@ -21,7 +21,7 @@ Before broad implementation in an existing project, establish enough of the foll
 - performance/SLO/resource constraints;
 - tests, build/release/deployment path and operational constraints.
 
-Use Serena first for semantic code structure/references when available, then use repository search, tests, config, runtime evidence and external research for the parts Serena cannot prove.
+Use the best observed semantic repository capability for code structure and references (for example native indexes/LSP/symbol APIs, Serena, or semantic search), then use narrower repository search, tests, config, runtime evidence and external research for what that capability cannot prove.
 
 ## Change-impact graph
 For a meaningful change, identify:

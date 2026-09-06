@@ -70,3 +70,9 @@ Choose `standard` by default. Escalate only when the request, uncertainty, impac
 6. Act only when implementation/change is requested.
 7. Test/verify before reporting success.
 8. Distinguish what was observed, inferred, attempted, and not verified.
+
+## Executable runtime and declarative fallback
+
+When local execution is available, `scripts/skick_runtime.py` can make depth selection, capability state, module compilation, budgets, evidence, and claim state observable. This runtime is optional. On declarative-only hosts, use the same quick/standard/deep/exhaustive semantics and progressive references directly from `SKILL.md`; mark runtime enforcement as unavailable rather than pretending it occurred.
+
+Capability routing uses observed fit first. Named tools such as Serena may be preferred by a project policy or benchmark, but no vendor receives an unconditional global priority. Existing project architecture similarly outranks optional starter-stack profiles.

@@ -1,6 +1,6 @@
 # Third-Party Notices and Licensing Boundaries
 
-SKick v1.0 contains original, vendor-neutral instructions informed by publicly available projects listed in `UPSTREAMS.md`.
+SKick v1.1 contains original, vendor-neutral instructions informed by publicly available projects listed in `UPSTREAMS.md`.
 
 ## No bundled upstream source trees
 This package does not intentionally vendor source code, generated assets, model binaries, or full skill trees from the reviewed external repositories. Therefore their licenses are recorded for provenance and boundary decisions rather than because their complete licensed works are redistributed here.
@@ -14,7 +14,7 @@ This package does not intentionally vendor source code, generated assets, model 
 
 Licenses and repository terms can change. Re-verify current upstream licensing before future vendoring, redistribution, or deep integration.
 
-- v1.0 does not bundle Superpowers, Serena, Context7, GitHub MCP Server, Playwright MCP, Chrome DevTools MCP, Sentry MCP, Docker MCP Gateway, or MCP Registry code. It bundles only original integration/routing instructions and metadata.
+- v1.1 does not bundle Superpowers, Serena, Context7, GitHub MCP Server, Playwright MCP, Chrome DevTools MCP, Sentry MCP, Docker MCP Gateway, or MCP Registry code. It bundles only original integration/routing instructions and metadata.
 - Sentry MCP was reviewed under FSL-1.1-Apache-2.0 future licensing; no Sentry source is copied into this package.
 
 ## Additional boundaries

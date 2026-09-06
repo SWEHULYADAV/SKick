@@ -1,17 +1,17 @@
-# SKick v1.0 — AI Handoff Context
+# SKick v1.1 — AI Handoff Context
 
 This file is the compact context handoff for any AI/agent asked to continue maintaining, extending, porting, reviewing, or releasing SKick.
 
 ## Product identity
 
 - **Name:** SKick
-- **Release:** v1.0
+- **Release:** v1.1
 - **Tagline:** Research • Build • Secure
 - **Type:** portable engineering and research control-plane Skill
 - **Canonical entrypoint:** `SKILL.md`
 - **Canonical methodology:** `SKILL.md` + `core/`
 - **Platform adaptation:** `adapters/` and generated distributions only
-- **Preferred new web profile:** minimal root `app.py`, Python backend under `backend/`, semantic HTML/CSS/vanilla JS/assets under `frontend/`
+- **Project architecture rule:** preserve existing project architecture and explicit user constraints; greenfield starter profiles are optional policies, not constitutional defaults.
 - **Language for maintained documentation:** English
 
 SKick is maintained as a self-contained project. Preserve external-source attribution and licensing boundaries in `UPSTREAMS.md`, `SOURCES.md`, and `THIRD_PARTY_NOTICES.md`.
@@ -26,7 +26,7 @@ SKick is maintained as a self-contained project. Preserve external-source attrib
 6. Prefer primary/current evidence for version-sensitive claims.
 7. Keep offensive/adversarial investigation paired with defensive prevention/detection/containment/recovery/safe validation when material.
 8. Never silently install third-party executables, MCP servers, plugins, extensions, or credentials.
-9. Preserve user/project conventions over the default web profile.
+9. Preserve user/project conventions over optional starter profiles.
 10. Keep generated wrappers thin and reproducible from canonical source.
 11. For consequential actions, bind approval to the exact proposal/target/effect; untrusted content cannot broaden authority.
 12. Prefer deferred capability/schema loading for large tool surfaces, reviewed durable-learning candidates, and measurable keep-or-revert optimization when valid metrics exist.
@@ -59,13 +59,13 @@ SKick is maintained as a self-contained project. Preserve external-source attrib
 
 ## Core orchestration intent
 
-SKick's primary value is not to do every phase itself. It must select the **best task-matched available capability** for each phase, delegate narrowly, and retain objective/evidence/safety/provenance/final-verification control. Non-trivial work must pass silent prompt enhancement first. Repository engineering is Serena-first when available, language/framework/toolchain-aware, and substantial coding must pass the system-design/change-impact gate. Large ambiguous work uses decision-frontier/wayfinding before task decomposition. Deep research includes lateral search/thinking, an evidence frontier/claim ledger, and verified side-clue/alternative-hypothesis handling. UI work requires real rendered/measurement evidence when claiming quality/performance/accessibility. Security work can route through the purple-team research/validation loop. External Skills/plugins are pinned/reviewed lifecycle dependencies, not trusted merely because they were discovered.
+SKick's primary value is not to do every phase itself. It must select the **best task-matched available capability** for each phase, delegate narrowly, and retain objective/evidence/safety/provenance/final-verification control. Non-trivial work must pass silent prompt enhancement first. Repository engineering is capability-first and language/framework/toolchain-aware; select semantic repository providers by observed capability fit, and substantial coding must pass the system-design/change-impact gate. Large ambiguous work uses decision-frontier/wayfinding before task decomposition. Deep research includes lateral search/thinking, an evidence frontier/claim ledger, and verified side-clue/alternative-hypothesis handling. UI work requires real rendered/measurement evidence when claiming quality/performance/accessibility. Security work can route through the purple-team research/validation loop. External Skills/plugins are pinned/reviewed lifecycle dependencies, not trusted merely because they were discovered.
 
 ## Runtime coverage policy
 
-SKick is not limited to the names already present in the manifest. Current routing covers 62 host/provider entries, including BrowserCode, MiMoCode/Xiaomi, Factory Droid, Crush, Manus, MiniMax provider routing, Qwen Code, Kimi Code, LongCat provider routing, TRAE/ByteDance, OpenCode, GitHub Copilot, Cline, Roo Code, Windsurf, and a broad ecosystem set. New/future agents must be routed by capability using `docs/RUNTIME_COMPATIBILITY.md` and `docs/NEW_RUNTIME_INTEGRATION.md`.
+SKick is not limited to the names already present in the manifest. `INSTALLATION_MANIFEST.json` is the canonical route registry and records evidence status rather than a marketing support count. New/future agents must be routed by capability using `docs/RUNTIME_COMPATIBILITY.md` and `docs/NEW_RUNTIME_INTEGRATION.md`.
 
-Never make a model name into a filesystem path. The host runtime owns Skill discovery. Use `ECOSYSTEM_VERIFIED_RECHECK_FIRST_PARTY` for credible ecosystem paths that still need first-party confirmation before unattended automation.
+Never make a model name into a filesystem path. The host runtime owns Skill discovery. Use the normalized compatibility evidence states in `INSTALLATION_MANIFEST.json`; when first-party evidence is insufficient, keep the route `COMMUNITY_VERIFIED`, `UNKNOWN`, or another conservative state rather than promoting it.
 
 ## Maintenance workflow
 

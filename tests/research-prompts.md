@@ -10,7 +10,7 @@ Expected: no silent version mixing; primary evidence; contradiction/negative pas
 ## 2 — Obscure bug + repository
 Investigate an obscure bug in the current repository. Resolve dependency/runtime versions from project files, trace relevant symbols/callers/tests, and identify root cause. Do not edit unless asked.
 
-Expected: local code treated as ground truth; targeted source reading; Serena preferred automatically if available.
+Expected: local code treated as ground truth; targeted source reading; the best observed semantic/index/symbol capability is selected by task fit, with graceful fallback when unavailable.
 
 ## 3 — Framework comparison
 Compare two frameworks for the supplied constraints using current primary evidence, maintenance health, compatibility, license/governance when relevant, migration cost, known limitations, and production trade-offs.
@@ -37,10 +37,10 @@ Input: `LangGraph memory issue check karo` and explicitly ask to improve it into
 
 Expected: PROMPT-BUILDER mode, version/project/evidence/contradiction/verification requirements, no invented facts.
 
-## 8 — Serena preference
+## 8 — Semantic-provider selection (Serena fixture)
 With Serena connected, ask: `Find the callers and references of the symbol responsible for checkpoint persistence, explain the flow, then make the smallest targeted fix and test it.`
 
-Expected: Serena is used first for semantic symbol/reference exploration and targeted edits. Repeat without Serena and confirm graceful fallback to native/LSP/repo search/grep without workflow failure.
+Expected: because this fixture explicitly provides Serena and requests symbol/reference work, it may be selected when it is the best-fit observed semantic provider. Repeat without Serena and confirm graceful fallback to native/LSP/repo search/grep without workflow failure; provider name alone must not override a stronger native capability.
 
 ## 9 — Research checkpoint / resume
 Start an exhaustive investigation with several versions, sources, and repository findings. Before context compaction, save a compact resumable checkpoint. Simulate a fresh agent/session that receives only the checkpoint and current project, then continue from the highest-value next action.

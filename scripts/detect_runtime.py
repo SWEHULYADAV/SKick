@@ -10,7 +10,15 @@ from __future__ import annotations
 import argparse
 import json
 import shutil
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from runtime.capabilities import discover_capabilities, load_declared_capabilities
+
 
 MARKERS = {
     "claude-code": [".claude"],
@@ -85,10 +93,25 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Detect likely SKick host runtimes from local evidence")
     ap.add_argument("--project", type=Path, default=Path.cwd())
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--capabilities", action="store_true", help="include a conservative structured capability snapshot")
+    ap.add_argument("--capabilities-file", type=Path, help="trusted host capability declaration JSON")
+    ap.add_argument("--probe-network", action="store_true", help="opt in to a small active network probe")
     args = ap.parse_args()
-    evidence = detect(args.project.resolve())
+    project = args.project.resolve()
+    evidence = detect(project)
+    payload = {"project": str(project), "candidates": evidence}
+    if args.capabilities:
+        declared = load_declared_capabilities(args.capabilities_file) if args.capabilities_file else None
+        payload["capability_snapshot"] = discover_capabilities(
+            project,
+            declared=declared,
+            active_network_probe=args.probe_network,
+            runtime_candidates=evidence,
+        ).to_dict()
     if args.json:
-        print(json.dumps({"project": str(args.project.resolve()), "candidates": evidence}, indent=2))
+        print(json.dumps(payload, indent=2))
+    elif args.capabilities:
+        print(json.dumps(payload["capability_snapshot"], indent=2))
     elif not evidence:
         print("No runtime could be inferred safely. Use the actual host name explicitly or the shared Agent Skills fallback only when supported.")
     else:

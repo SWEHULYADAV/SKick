@@ -1,16 +1,16 @@
-# Preferred Python + Vanilla Web Stack
+# Optional Python + Vanilla Web Starter Profile
 
 ## Purpose
-Use this profile as the default starting point for browser-facing engineering work when the user has not requested another stack and project evidence does not require one.
+Use this **optional starter profile** only for genuinely new browser-facing work when no existing architecture, explicit user constraint, ecosystem convention, team tooling, deployment requirement, or measured product need points elsewhere. Existing repositories should preserve their native stack by default.
 
-Preferred baseline:
+Optional baseline:
 
 `Python backend + semantic HTML + CSS + vanilla JavaScript`
 
 This is a **stack and ownership preference**, not a fixed folder template. Do not invent a large directory tree before the project needs it.
 
-## Minimal placement invariant
-For a normal Python-backed website/web tool, preserve only this structural invariant by default:
+## Minimal placement suggestion
+For a normal Python-backed website/web tool, use this small structure when it fits:
 
 ```text
 project/
@@ -34,14 +34,14 @@ If tests/scripts are code, keep them with the side they validate/operate unless 
 
 Existing repository or framework-native layout wins when changing it would create incompatibility or unnecessary migration risk.
 
-## Default decision order
-For a new web project:
-1. Can Python satisfy the backend cleanly without unnecessary infrastructure?
-2. Can semantic HTML/CSS/vanilla JavaScript satisfy the frontend without a build system?
-3. What is the smallest internal organization needed inside `backend/` and `frontend/` right now?
-4. Does a framework/runtime/bundler materially reduce real complexity or enable a required feature?
+## Decision order
+1. Preserve an existing project architecture when present.
+2. Honor explicit user/team/deployment constraints.
+3. Follow ecosystem-native conventions and existing dependencies.
+4. Compare candidate stacks on product fit, maintenance burden, security, testability, deployment, and team capability.
+5. Choose this Python/vanilla profile only when that comparison favors a low-dependency baseline.
 
-Prefer the simpler answer unless research, existing repository constraints, scale, team conventions, deployment needs, or a concrete product feature justify escalation.
+Do not migrate an existing stack merely to match this profile.
 
 ## Root launcher rule
 Prefer `app.py` as a tiny composition/startup seam. It may:
@@ -129,8 +129,3 @@ Use the smallest useful test structure inside the owning side of the project. Pr
 - regression tests for reproduced bugs.
 
 Do not invent framework-style test architecture for a vanilla project just because it is common elsewhere.
-
-## Cross-platform agent rule
-This profile is host-neutral. ChatGPT, Codex, Claude Code, Gemini, Cursor, Kimi, OpenCode, Copilot, Qwen, ZCode, Antigravity, BrowserCode, or another supported host should apply the same preference when context matches.
-
-Platform adapters may change tool invocation, not the project ownership rule without a project/runtime reason.

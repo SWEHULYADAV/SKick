@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-09-05T00:00:00Z",
+  "source": {
+    "repository": "https://github.com/SWEHULYADAV/SKick",
+    "remote_clone": "BLOCKED: sandbox DNS could not resolve github.com",
+    "workspace": "synthetic local Git repository reconstructed from the verified source snapshot",
+    "synthetic_baseline_commit": "e379f59ec0c2ab9f0947568382058f08f072e958",
+    "branch": "vnext-runtime-upgrade",
+    "public_history_observation": "GitHub repository page showed 1 commit when checked 2026-09-05"
+  },
+  "release_version": "1.0",
+  "repository": {
+    "tracked_files": 240,
+    "core_modules": 73,
+    "adapter_directories": 57,
+    "platform_routes": 62,
+    "schemas": 7,
+    "python_scripts": 19,
+    "skill_md": {
+      "lines": 115,
+      "bytes": 20435,
+      "estimated_tokens_bytes_div_4": 5109,
+      "estimate_method": "UTF-8 bytes / 4; not tokenizer-exact"
+    }
+  },
+  "eval_definitions": {
+    "behavioral_eval_definitions": 97,
+    "trigger_eval_definitions": 53,
+    "portability_eval_definitions": 38
+  },
+  "baseline_commands": {
+    "python_compile": 0,
+    "strict_security_scan": 0,
+    "mcp_catalog_validation": 0,
+    "package_validation": 1,
+    "release_audit": 0,
+    "eval_suite_load_behavioral": 0,
+    "eval_suite_load_trigger": 0,
+    "eval_suite_load_portability": 0,
+    "distribution_build": 0,
+    "distribution_validation": 0,
+    "provenance_verification": 0
+  },
+  "baseline_failure": {
+    "command": "python scripts/validate_package.py .",
+    "message": "package manifest missing files: ['assets/icon.svg']",
+    "interpretation": "release-integrity drift: package file exists outside package/provenance manifest coverage"
+  },
+  "behavioral_baseline": {
+    "without_skick": "BASELINE_BLOCKED",
+    "skick_v1": "NOT_MEASURED",
+    "reason": "The active host did not expose an identical model/tool environment in which installed SKick could be disabled and rerun. Existing eval suites were only loaded/listed."
+  },
+  "proof_levels": {
+    "static_validation": "MEASURED",
+    "runtime_test": "PARTIAL: package scripts executed locally",
+    "behavioral_evaluation": "NOT_MEASURED",
+    "doc_verification": "PARTIAL: existing repository sources plus targeted web verification",
+    "live_platform_test": "NOT_MEASURED"
+  }
+}

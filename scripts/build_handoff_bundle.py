@@ -11,7 +11,13 @@ import argparse
 import shutil
 import tempfile
 import zipfile
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from runtime.versioning import read_package_version
 
 SELECTED_PACKAGES = [
     "runtime-skill.zip",
@@ -57,6 +63,8 @@ def main() -> int:
     source = args.source_root.resolve()
     dist = args.dist_dir.resolve()
     out = args.output_zip.resolve()
+    release = read_package_version(source)
+    release_label = f"v{release}"
 
     if not (source / "START_HERE.md").is_file() or not (source / "SKILL.md").is_file():
         raise SystemExit(f"Invalid SKick source root: {source}")
@@ -64,7 +72,7 @@ def main() -> int:
         raise SystemExit(f"Missing distribution directory: {dist}")
 
     with tempfile.TemporaryDirectory(prefix="skick-handoff-") as td:
-        stage = Path(td) / "skick-v1.0-universal"
+        stage = Path(td) / f"skick-{release_label}-universal"
         stage.mkdir(parents=True)
 
         for rel in ROOT_DOCS:
@@ -86,7 +94,7 @@ def main() -> int:
             raise SystemExit("Missing expected distribution outputs: " + ", ".join(missing))
 
         (stage / "README_FIRST.md").write_text(
-            "# SKick v1.0 Universal Handoff\n\n"
+            f"# SKick {release_label} Universal Handoff\n\n"
             "AI/agent: read `START_HERE.md` first. For a GitHub/URL-style handoff, also read `BOOTSTRAP_PROMPTS.md` and `source/skick/docs/GITHUB_BOOTSTRAP.md`. Use `INSTALLATION_MANIFEST.json` to identify the actual host runtime (not merely the model/provider) and select either the canonical source under `source/skick/` or the appropriate prebuilt package under `packages/`. Do not execute bundled scripts or install optional dependencies before reading the warnings and runtime adapter.\n",
             encoding="utf-8",
         )

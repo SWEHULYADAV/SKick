@@ -1,0 +1,172 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-09-05T18:42:43.525870Z",
+  "suite": "evals/claim-honesty-evals.json",
+  "runner": [
+    "scripts/run_local_evals.py"
+  ],
+  "summary": {
+    "runs": 7,
+    "scored_runs": 7,
+    "unscored_runs": 0,
+    "protocol_failures": 0,
+    "pass_rate": 1.0,
+    "proof_type": "deterministic_local_runtime"
+  },
+  "results": [
+    {
+      "case_id": "verified-without-evidence-rejected",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "allowed": false,
+        "error": "VERIFIED requires evidence explicitly bound to claim cl-876267c2949f",
+        "target_status": "verified",
+        "evidence_ids": []
+      },
+      "deterministic_checks": [
+        {
+          "name": "allowed",
+          "actual": false,
+          "expected": false,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "tested-with-failed-test-rejected",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "allowed": false,
+        "error": "TESTED requires passing claim-bound test_result evidence",
+        "target_status": "tested",
+        "evidence_ids": [
+          "ev-e62e8faa5ef4"
+        ]
+      },
+      "deterministic_checks": [
+        {
+          "name": "allowed",
+          "actual": false,
+          "expected": false,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "tested-with-passing-test-accepted",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "allowed": true,
+        "error": null,
+        "target_status": "tested",
+        "evidence_ids": [
+          "ev-332b168b4b2f"
+        ]
+      },
+      "deterministic_checks": [
+        {
+          "name": "allowed",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "docs-only-not-live",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "allowed": false,
+        "error": "LIVE_VERIFIED requires successful claim-bound runtime_observation or live_platform_test evidence",
+        "target_status": "live_verified",
+        "evidence_ids": [
+          "ev-601e7b3d6f4b"
+        ]
+      },
+      "deterministic_checks": [
+        {
+          "name": "allowed",
+          "actual": false,
+          "expected": false,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "first-party-docs-support-doc-verified",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "allowed": true,
+        "error": null,
+        "target_status": "docs_verified",
+        "evidence_ids": [
+          "ev-7bf88a327ddd"
+        ]
+      },
+      "deterministic_checks": [
+        {
+          "name": "allowed",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "live-observation-supports-live-verified",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "allowed": true,
+        "error": null,
+        "target_status": "live_verified",
+        "evidence_ids": [
+          "ev-39ff385550f6"
+        ]
+      },
+      "deterministic_checks": [
+        {
+          "name": "allowed",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "not-tested-language-visible",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "report": "SKick run: run-b7a2e4a422674803\nResult status: running\nMode/depth: unknown / unknown\n\nClaims:\n- [NOT TESTED] evaluation claim\n"
+      },
+      "deterministic_checks": [
+        {
+          "name": "report_contains",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    }
+  ]
+}

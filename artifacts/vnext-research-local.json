@@ -1,0 +1,577 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-09-05T18:42:48.397648Z",
+  "suite": "evals/research-intelligence-evals.json",
+  "runner": [
+    "scripts/run_local_evals.py"
+  ],
+  "summary": {
+    "runs": 4,
+    "scored_runs": 4,
+    "unscored_runs": 0,
+    "protocol_failures": 0,
+    "pass_rate": 1.0,
+    "proof_type": "deterministic_local_runtime"
+  },
+  "results": [
+    {
+      "case_id": "stable-trivial-no-research",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "level": "none",
+        "question_map": {
+          "primary_question": "What is 2 + 2?",
+          "subquestions": [
+            "What directly answers the user's question?",
+            "Which claim(s) require external verification?"
+          ],
+          "decision_critical_questions": [
+            "Which unresolved fact could materially change the final answer or action?"
+          ],
+          "unknown_variables": [],
+          "claims_requiring_verification": [
+            "Any current, version-sensitive, compatibility, security, or implementation claim used in the conclusion."
+          ],
+          "disconfirming_evidence_to_seek": [
+            "What authoritative, implementation, historical, failure, or live-test evidence would make the leading conclusion wrong?"
+          ]
+        },
+        "expected_source_types": [],
+        "strategies": [],
+        "query_classes": {},
+        "freshness_required": false,
+        "coverage": {},
+        "frontier": {
+          "resolved": [],
+          "unresolved": []
+        },
+        "stopping_criteria": [
+          "No external research is required for the requested result."
+        ],
+        "budget": {
+          "max_queries": 0,
+          "max_sources": 0,
+          "max_source_classes": 0
+        },
+        "failure_taxonomy": [],
+        "next_best_evidence": null,
+        "pivot_rules": [],
+        "terminology_expansion": [],
+        "information_gain_rule": "",
+        "output_mode": "answer",
+        "hypothesis_dimensions": [],
+        "graph": {
+          "root": "What is 2 + 2?",
+          "branches": [
+            "entity",
+            "official_docs"
+          ]
+        }
+      },
+      "deterministic_checks": [
+        {
+          "name": "level",
+          "actual": "none",
+          "expected": [
+            "none"
+          ],
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "current-platform-deep-disconfirmation",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "level": "deep",
+        "question_map": {
+          "primary_question": "Deep research whether platform X currently supports Agent Skills.",
+          "subquestions": [
+            "What directly answers the user's question?",
+            "Which claim(s) require external verification?",
+            "Does the product/host document the claimed capability?",
+            "Is installation distinct from discovery, explicit invocation, automatic activation, and real task success?",
+            "What version/plan/host limitations apply?"
+          ],
+          "decision_critical_questions": [
+            "Is the capability native to this host or only host-dependent?",
+            "What proof level is justified: documentation, installation, invocation, or live task execution?"
+          ],
+          "unknown_variables": [
+            "Current product version",
+            "Current plan/tier limitations",
+            "Live-test availability"
+          ],
+          "claims_requiring_verification": [
+            "Any current, version-sensitive, compatibility, security, or implementation claim used in the conclusion."
+          ],
+          "disconfirming_evidence_to_seek": [
+            "What authoritative, implementation, historical, failure, or live-test evidence would make the leading conclusion wrong?"
+          ]
+        },
+        "expected_source_types": [
+          "first_party_documentation",
+          "official_support",
+          "official_repository",
+          "official_release_notes",
+          "official_issue_tracker",
+          "official_announcements",
+          "credible_independent_evidence",
+          "community_reports"
+        ],
+        "strategies": [
+          "direct",
+          "cross_check",
+          "implementation",
+          "lateral",
+          "disconfirmation",
+          "failure_oriented",
+          "historical"
+        ],
+        "query_classes": {
+          "direct": "Deep research whether platform X currently supports Agent Skills. official documentation",
+          "negative": "Deep research whether platform X currently supports Agent Skills. unsupported limitation",
+          "failure": "Deep research whether platform X currently supports Agent Skills. not working regression issue",
+          "historical": "Deep research whether platform X currently supports Agent Skills. deprecated renamed historical",
+          "implementation": "Deep research whether platform X currently supports Agent Skills. source code implementation",
+          "change": "Deep research whether platform X currently supports Agent Skills. release notes changelog",
+          "discussion": "Deep research whether platform X currently supports Agent Skills. issue maintainer discussion"
+        },
+        "freshness_required": true,
+        "coverage": {
+          "official_docs": "unexplored",
+          "implementation": "unexplored",
+          "release_history": "unexplored",
+          "failure_reports": "unexplored",
+          "independent_evidence": "unexplored",
+          "contradiction_search": "unexplored",
+          "live_test": "unexplored"
+        },
+        "frontier": {
+          "resolved": [],
+          "unresolved": [
+            "Is the capability native to this host or only host-dependent?",
+            "What proof level is justified: documentation, installation, invocation, or live task execution?",
+            "Current product version",
+            "Current plan/tier limitations",
+            "Live-test availability"
+          ]
+        },
+        "stopping_criteria": [
+          "Stop when decision-critical questions are answered with evidence appropriate to the claim impact.",
+          "Stop when material contradictions are resolved or explicitly remain unresolved.",
+          "Stop when additional search is repetitive/diminishing-return or the declared budget is reached."
+        ],
+        "budget": {
+          "max_queries": 10,
+          "max_sources": 18,
+          "max_source_classes": 7
+        },
+        "failure_taxonomy": [
+          "NO_AUTHORITATIVE_SOURCE",
+          "STALE_EVIDENCE",
+          "CONFLICTING_SOURCES",
+          "INSUFFICIENT_ACCESS",
+          "PAYWALL",
+          "RUNTIME_TEST_UNAVAILABLE",
+          "VERSION_UNKNOWN",
+          "SOURCE_CODE_UNAVAILABLE",
+          "NETWORK_UNAVAILABLE",
+          "AMBIGUOUS_ENTITY"
+        ],
+        "next_best_evidence": "Prefer the cheapest safe evidence source or experiment that most reduces decision-relevant uncertainty.",
+        "pivot_rules": [
+          "keyword -> entity when repeated keyword searches stop adding evidence",
+          "documentation -> source_code when actual implementation behavior is load-bearing",
+          "source_code -> issues when implementation intent/failure history is unclear",
+          "current -> historical when a rename, deprecation, or migration may explain conflicting claims",
+          "claim -> contradiction_search before high-confidence/high-impact promotion",
+          "entity -> dependency_or_underlying_protocol when the named surface does not explain the mechanism",
+          "direct -> analogous_system when direct evidence remains weak; analogy generates hypotheses, not proof"
+        ],
+        "terminology_expansion": [
+          "skill",
+          "agent skill",
+          "command",
+          "rule",
+          "instruction",
+          "plugin",
+          "extension",
+          "workflow",
+          "agent",
+          "prompt package",
+          "capability"
+        ],
+        "information_gain_rule": "Prioritize the safe next source or experiment with the highest decision-relevant information value per cost, not the easiest additional search.",
+        "output_mode": "deep_dive",
+        "hypothesis_dimensions": [],
+        "graph": {
+          "root": "Deep research whether platform X currently supports Agent Skills.",
+          "branches": [
+            "entity",
+            "official_docs",
+            "implementation",
+            "historical_version",
+            "failure_reports",
+            "contradicting_evidence",
+            "alternative_or_dependency"
+          ]
+        }
+      },
+      "deterministic_checks": [
+        {
+          "name": "level",
+          "actual": "deep",
+          "expected": [
+            "deep",
+            "lateral"
+          ],
+          "passed": true
+        },
+        {
+          "name": "strategy:direct",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "strategy:disconfirmation",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "strategy:historical",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "source:first_party_documentation",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "freshness",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "security-exploitability-adversarial",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "level": "adversarial",
+        "question_map": {
+          "primary_question": "Research exploitability of the current vulnerability and the patch path.",
+          "subquestions": [
+            "What directly answers the user's question?",
+            "Which claim(s) require external verification?",
+            "What versions/configurations are affected?",
+            "Is the vulnerable path reachable under the target's actual configuration?",
+            "What patch/control changes the mechanism?"
+          ],
+          "decision_critical_questions": [
+            "Is the issue reachable/exploitable in scope?",
+            "What evidence proves the mitigation blocks the path?"
+          ],
+          "unknown_variables": [
+            "Target version",
+            "Reachability",
+            "Authorization/test environment"
+          ],
+          "claims_requiring_verification": [
+            "Any current, version-sensitive, compatibility, security, or implementation claim used in the conclusion."
+          ],
+          "disconfirming_evidence_to_seek": [
+            "What authoritative, implementation, historical, failure, or live-test evidence would make the leading conclusion wrong?"
+          ]
+        },
+        "expected_source_types": [
+          "vendor_security_advisory",
+          "project_security_advisory",
+          "cve_record",
+          "known_exploitation_catalog",
+          "cert_advisory",
+          "patch_commit_or_source",
+          "security_mailing_list",
+          "reputable_security_research",
+          "detection_guidance",
+          "controlled_exploitability_evidence"
+        ],
+        "strategies": [
+          "direct",
+          "cross_check",
+          "implementation",
+          "lateral",
+          "disconfirmation",
+          "failure_oriented",
+          "historical",
+          "adversarial_challenge"
+        ],
+        "query_classes": {
+          "direct": "Research exploitability of the current vulnerability and the patch path. official documentation",
+          "negative": "Research exploitability of the current vulnerability and the patch path. unsupported limitation",
+          "failure": "Research exploitability of the current vulnerability and the patch path. not working regression issue",
+          "historical": "Research exploitability of the current vulnerability and the patch path. deprecated renamed historical",
+          "implementation": "Research exploitability of the current vulnerability and the patch path. source code implementation",
+          "change": "Research exploitability of the current vulnerability and the patch path. release notes changelog",
+          "discussion": "Research exploitability of the current vulnerability and the patch path. issue maintainer discussion"
+        },
+        "freshness_required": true,
+        "coverage": {
+          "official_docs": "unexplored",
+          "implementation": "unexplored",
+          "release_history": "unexplored",
+          "failure_reports": "unexplored",
+          "independent_evidence": "unexplored",
+          "contradiction_search": "unexplored",
+          "live_test": "unexplored"
+        },
+        "frontier": {
+          "resolved": [],
+          "unresolved": [
+            "Is the issue reachable/exploitable in scope?",
+            "What evidence proves the mitigation blocks the path?",
+            "Target version",
+            "Reachability",
+            "Authorization/test environment"
+          ]
+        },
+        "stopping_criteria": [
+          "Stop when decision-critical questions are answered with evidence appropriate to the claim impact.",
+          "Stop when material contradictions are resolved or explicitly remain unresolved.",
+          "Stop when additional search is repetitive/diminishing-return or the declared budget is reached."
+        ],
+        "budget": {
+          "max_queries": 14,
+          "max_sources": 24,
+          "max_source_classes": 8
+        },
+        "failure_taxonomy": [
+          "NO_AUTHORITATIVE_SOURCE",
+          "STALE_EVIDENCE",
+          "CONFLICTING_SOURCES",
+          "INSUFFICIENT_ACCESS",
+          "PAYWALL",
+          "RUNTIME_TEST_UNAVAILABLE",
+          "VERSION_UNKNOWN",
+          "SOURCE_CODE_UNAVAILABLE",
+          "NETWORK_UNAVAILABLE",
+          "AMBIGUOUS_ENTITY"
+        ],
+        "next_best_evidence": "Prefer the cheapest safe evidence source or experiment that most reduces decision-relevant uncertainty.",
+        "pivot_rules": [
+          "keyword -> entity when repeated keyword searches stop adding evidence",
+          "documentation -> source_code when actual implementation behavior is load-bearing",
+          "source_code -> issues when implementation intent/failure history is unclear",
+          "current -> historical when a rename, deprecation, or migration may explain conflicting claims",
+          "claim -> contradiction_search before high-confidence/high-impact promotion",
+          "entity -> dependency_or_underlying_protocol when the named surface does not explain the mechanism",
+          "direct -> analogous_system when direct evidence remains weak; analogy generates hypotheses, not proof"
+        ],
+        "terminology_expansion": [],
+        "information_gain_rule": "Prioritize the safe next source or experiment with the highest decision-relevant information value per cost, not the easiest additional search.",
+        "output_mode": "deep_dive",
+        "hypothesis_dimensions": [
+          "data",
+          "state",
+          "timing",
+          "concurrency",
+          "environment",
+          "dependency",
+          "configuration",
+          "network",
+          "cache",
+          "authentication",
+          "authorization",
+          "permissions",
+          "version_mismatch"
+        ],
+        "graph": {
+          "root": "Research exploitability of the current vulnerability and the patch path.",
+          "branches": [
+            "entity",
+            "official_docs",
+            "implementation",
+            "security_evidence",
+            "historical_version",
+            "failure_reports",
+            "contradicting_evidence",
+            "alternative_or_dependency"
+          ]
+        }
+      },
+      "deterministic_checks": [
+        {
+          "name": "level",
+          "actual": "adversarial",
+          "expected": [
+            "adversarial",
+            "deep"
+          ],
+          "passed": true
+        },
+        {
+          "name": "source:vendor_security_advisory",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "source:patch_commit_or_source",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "library-release-implementation-evidence",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "level": "standard",
+        "question_map": {
+          "primary_question": "Research whether the latest library release fixes the regression.",
+          "subquestions": [
+            "What directly answers the user's question?",
+            "Which claim(s) require external verification?"
+          ],
+          "decision_critical_questions": [
+            "Which unresolved fact could materially change the final answer or action?"
+          ],
+          "unknown_variables": [],
+          "claims_requiring_verification": [
+            "Any current, version-sensitive, compatibility, security, or implementation claim used in the conclusion."
+          ],
+          "disconfirming_evidence_to_seek": [
+            "What authoritative, implementation, historical, failure, or live-test evidence would make the leading conclusion wrong?"
+          ]
+        },
+        "expected_source_types": [
+          "official_documentation",
+          "source_repository",
+          "source_code",
+          "releases_tags",
+          "changelog",
+          "issues",
+          "pull_requests",
+          "maintainer_discussions",
+          "package_registry",
+          "technical_community"
+        ],
+        "strategies": [
+          "direct",
+          "cross_check",
+          "implementation",
+          "historical"
+        ],
+        "query_classes": {
+          "direct": "Research whether the latest library release fixes the regression. official documentation",
+          "negative": "Research whether the latest library release fixes the regression. unsupported limitation",
+          "failure": "Research whether the latest library release fixes the regression. not working regression issue",
+          "implementation": "Research whether the latest library release fixes the regression. source code implementation",
+          "change": "Research whether the latest library release fixes the regression. release notes changelog"
+        },
+        "freshness_required": true,
+        "coverage": {
+          "official_docs": "unexplored",
+          "implementation": "unexplored",
+          "release_history": "unexplored",
+          "failure_reports": "unexplored",
+          "independent_evidence": "unexplored",
+          "contradiction_search": "unexplored",
+          "live_test": "unexplored"
+        },
+        "frontier": {
+          "resolved": [],
+          "unresolved": [
+            "Which unresolved fact could materially change the final answer or action?"
+          ]
+        },
+        "stopping_criteria": [
+          "Stop when decision-critical questions are answered with evidence appropriate to the claim impact.",
+          "Stop when material contradictions are resolved or explicitly remain unresolved.",
+          "Stop when additional search is repetitive/diminishing-return or the declared budget is reached."
+        ],
+        "budget": {
+          "max_queries": 5,
+          "max_sources": 8,
+          "max_source_classes": 4
+        },
+        "failure_taxonomy": [
+          "NO_AUTHORITATIVE_SOURCE",
+          "STALE_EVIDENCE",
+          "CONFLICTING_SOURCES",
+          "INSUFFICIENT_ACCESS",
+          "PAYWALL",
+          "RUNTIME_TEST_UNAVAILABLE",
+          "VERSION_UNKNOWN",
+          "SOURCE_CODE_UNAVAILABLE",
+          "NETWORK_UNAVAILABLE",
+          "AMBIGUOUS_ENTITY"
+        ],
+        "next_best_evidence": "Prefer the cheapest safe evidence source or experiment that most reduces decision-relevant uncertainty.",
+        "pivot_rules": [
+          "keyword -> entity when repeated keyword searches stop adding evidence",
+          "documentation -> source_code when actual implementation behavior is load-bearing",
+          "source_code -> issues when implementation intent/failure history is unclear",
+          "current -> historical when a rename, deprecation, or migration may explain conflicting claims",
+          "claim -> contradiction_search before high-confidence/high-impact promotion",
+          "entity -> dependency_or_underlying_protocol when the named surface does not explain the mechanism",
+          "direct -> analogous_system when direct evidence remains weak; analogy generates hypotheses, not proof"
+        ],
+        "terminology_expansion": [],
+        "information_gain_rule": "Prioritize the safe next source or experiment with the highest decision-relevant information value per cost, not the easiest additional search.",
+        "output_mode": "research_brief",
+        "hypothesis_dimensions": [],
+        "graph": {
+          "root": "Research whether the latest library release fixes the regression.",
+          "branches": [
+            "entity",
+            "official_docs",
+            "implementation"
+          ]
+        }
+      },
+      "deterministic_checks": [
+        {
+          "name": "level",
+          "actual": "standard",
+          "expected": [
+            "standard",
+            "deep"
+          ],
+          "passed": true
+        },
+        {
+          "name": "strategy:implementation",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "strategy:historical",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    }
+  ]
+}
