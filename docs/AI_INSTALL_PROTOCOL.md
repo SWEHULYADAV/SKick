@@ -22,7 +22,7 @@ When the input is a GitHub repository URL, read `../BOOTSTRAP_PROMPTS.md` and `G
 
 Use a native remote-Skill command only when current first-party documentation for the active host confirms that repository-URL workflow. Otherwise fetch/clone to a reviewed location and use the verified filesystem or managed-import path.
 
-The universal GitHub prompt explicitly authorizes canonical Serena (`oraios/serena`) setup when repository engineering needs semantic code intelligence and the active host supports it. That authorization is narrow: it does not authorize unrelated plugins, MCPs, CLIs, credentials, or external Skills.
+The universal GitHub prompt authorizes SKick installation/update only. Optional semantic repository providers, plugins, MCPs, CLIs, credentials, and external Skills require a separate capability-fit and authorization decision.
 
 ## Phase 1 — Preflight
 

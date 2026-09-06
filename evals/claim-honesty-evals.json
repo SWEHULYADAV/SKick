@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "description": "Deterministic claim-firewall evaluations where uncertainty is often the correct result.",
+  "cases": [
+    {
+      "id": "verified-without-evidence-rejected",
+      "operation": "claim",
+      "target_status": "verified",
+      "evidence": [],
+      "expect_allowed": false
+    },
+    {
+      "id": "tested-with-failed-test-rejected",
+      "operation": "claim",
+      "target_status": "tested",
+      "evidence": [{"type": "test_result", "subject": "unit tests", "status": "failed", "source": "unittest"}],
+      "expect_allowed": false
+    },
+    {
+      "id": "tested-with-passing-test-accepted",
+      "operation": "claim",
+      "target_status": "tested",
+      "evidence": [{"type": "test_result", "subject": "unit tests", "status": "passed", "source": "unittest"}],
+      "expect_allowed": true
+    },
+    {
+      "id": "docs-only-not-live",
+      "operation": "claim",
+      "target_status": "live_verified",
+      "evidence": [{"type": "first_party_documentation", "subject": "platform skill docs", "status": "verified", "source": "official docs"}],
+      "expect_allowed": false
+    },
+    {
+      "id": "first-party-docs-support-doc-verified",
+      "operation": "claim",
+      "target_status": "docs_verified",
+      "evidence": [{"type": "first_party_documentation", "subject": "platform skill docs", "status": "verified", "source": "official docs"}],
+      "expect_allowed": true
+    },
+    {
+      "id": "live-observation-supports-live-verified",
+      "operation": "claim",
+      "target_status": "live_verified",
+      "evidence": [{"type": "runtime_observation", "subject": "host invocation", "status": "passed", "source": "real host"}],
+      "expect_allowed": true
+    },
+    {
+      "id": "not-tested-language-visible",
+      "operation": "report",
+      "claim_status": "not_tested",
+      "expect_contains": "[NOT TESTED]"
+    }
+  ]
+}

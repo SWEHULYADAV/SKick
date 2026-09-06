@@ -19,7 +19,7 @@
     },
     "release": {
       "type": "string",
-      "const": "v1.0"
+      "const": "v1.1"
     },
     "policy": {
       "type": "string",

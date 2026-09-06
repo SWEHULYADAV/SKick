@@ -11,12 +11,10 @@ Do not start broad production implementation while the architecture, platform co
 
 For a tiny one-file utility, the planning artifact may be lightweight, but still inspect the environment and define success before editing.
 
-## Preferred website profile
-For websites, dashboards, monitoring panels, local web tools, admin utilities, and similar browser-facing products without a stronger existing-project constraint, load `python-vanilla-web-stack.md` and prefer:
+## Optional website starter profile
+For a genuinely new browser-facing project with no existing architecture and no stronger user/team/ecosystem constraint, `python-vanilla-web-stack.md` is one low-dependency starter profile. It is not a universal default.
 
-`Python backend + semantic HTML + CSS + vanilla JavaScript`
-
-Use a real `backend/` and `frontend/` boundary. Keep root implementation to a tiny launcher such as `app.py`; place backend implementation under `backend/` and frontend implementation/assets under `frontend/`. Create deeper structure only when the task needs it. Do not select React/Next/Vue/Svelte or a large Python framework merely because it is common; escalate only when researched requirements, existing code, team conventions, or product complexity justify the added runtime/build/tooling surface.
+Decision precedence is: existing project architecture -> explicit user constraints -> ecosystem/framework conventions -> existing dependencies/toolchain -> evidence-backed product requirements -> optional starter profile. A Next.js, Rails, Go, Rust, Java, .NET, PHP, mobile, serverless, or other established project keeps its native architecture unless the task justifies migration.
 
 ## Project blueprint
 Before coding, establish the relevant fields:
@@ -37,7 +35,7 @@ Before coding, establish the relevant fields:
 ## Simple filesystem rule
 Prefer the smallest structure that communicates ownership clearly. Do not create empty or speculative folders and do not force a prewritten full tree.
 
-For the preferred Python-backed web profile, treat structure as a placement invariant only:
+When the optional Python/vanilla starter profile is explicitly selected, treat its structure as a placement suggestion only:
 
 ```text
 project/

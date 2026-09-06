@@ -1,0 +1,278 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-09-05T18:42:47.180303Z",
+  "suite": "evals/prompt-intelligence-evals.json",
+  "runner": [
+    "scripts/run_local_evals.py"
+  ],
+  "summary": {
+    "runs": 4,
+    "scored_runs": 4,
+    "unscored_runs": 0,
+    "protocol_failures": 0,
+    "pass_rate": 1.0,
+    "proof_type": "deterministic_local_runtime"
+  },
+  "results": [
+    {
+      "case_id": "weak-auth-prompt-structured",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "original_request": "check why auth broken",
+        "interpreted_goal": "Identify the root cause of the authentication failure and determine the smallest safe corrective action without changing the user's stated objective.",
+        "enhancement_mode": "silent",
+        "constraints": [],
+        "assumptions": [
+          "Preserve the existing project architecture unless evidence or the user requires otherwise."
+        ],
+        "unknowns": [
+          "Runtime/environment in which the failure occurs.",
+          "Exact failing flow, reproduction conditions, and most recent relevant change."
+        ],
+        "success_criteria": [
+          "Identify the failure mechanism/root cause with repository or runtime evidence.",
+          "Use the smallest change that satisfies the request and preserves explicit constraints.",
+          "Verify the changed behavior with the strongest available relevant test or reproduction."
+        ],
+        "research_needs": [
+          "Inspect project-local implementation, configuration, tests, and recent relevant changes before externalizing the hypothesis."
+        ],
+        "verification_needs": [
+          "Reproduce or otherwise establish the observed failure when feasible.",
+          "Run focused regression tests or an equivalent discriminating validation after any change."
+        ],
+        "domains": [
+          "security",
+          "software_engineering"
+        ],
+        "contradictions": [],
+        "outputs": [],
+        "evidence_requirements": [],
+        "non_goals": [],
+        "failure_conditions": [],
+        "quality": {
+          "intent_clarity": "medium",
+          "scope_clarity": "medium",
+          "constraints": "missing",
+          "missing_context": "likely",
+          "output_definition": "missing",
+          "success_criteria": "missing",
+          "verification_requirements": "present",
+          "freshness_requirements": "not_indicated",
+          "research_requirements": "not_indicated",
+          "tool_requirements": "repository_or_runtime",
+          "safety_security_implications": "present",
+          "hidden_assumption_risk": "medium",
+          "likely_failure_modes": "present",
+          "ambiguity": "medium"
+        }
+      },
+      "deterministic_checks": [
+        {
+          "name": "domain",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "verification",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "success_criteria_count",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "tiny-rename-no-research-expansion",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "original_request": "Rename variable foo to bar.",
+        "interpreted_goal": "Rename variable foo to bar",
+        "enhancement_mode": "silent",
+        "constraints": [],
+        "assumptions": [
+          "Preserve the existing project architecture unless evidence or the user requires otherwise."
+        ],
+        "unknowns": [],
+        "success_criteria": [
+          "Apply the requested rename without unrelated changes."
+        ],
+        "research_needs": [],
+        "verification_needs": [],
+        "domains": [
+          "software_engineering"
+        ],
+        "contradictions": [],
+        "outputs": [],
+        "evidence_requirements": [],
+        "non_goals": [],
+        "failure_conditions": [],
+        "quality": {
+          "intent_clarity": "medium",
+          "scope_clarity": "medium",
+          "constraints": "missing",
+          "missing_context": "limited",
+          "output_definition": "missing",
+          "success_criteria": "missing",
+          "verification_requirements": "missing",
+          "freshness_requirements": "not_indicated",
+          "research_requirements": "not_indicated",
+          "tool_requirements": "not_indicated",
+          "safety_security_implications": "not_indicated",
+          "hidden_assumption_risk": "low",
+          "likely_failure_modes": "not_indicated",
+          "ambiguity": "medium"
+        }
+      },
+      "deterministic_checks": [
+        {
+          "name": "success_criteria_count",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        },
+        {
+          "name": "research_needs_empty",
+          "actual": [],
+          "expected": [],
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "explicit-api-constraint-locked",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "original_request": "Fix OAuth callback but do not change the public API.",
+        "interpreted_goal": "Fix OAuth callback but do not change the public API",
+        "enhancement_mode": "silent",
+        "constraints": [
+          "do not change the public API"
+        ],
+        "assumptions": [],
+        "unknowns": [
+          "Runtime/environment in which the failure occurs.",
+          "Exact failing flow, reproduction conditions, and most recent relevant change."
+        ],
+        "success_criteria": [
+          "Identify the failure mechanism/root cause with repository or runtime evidence.",
+          "Use the smallest change that satisfies the request and preserves explicit constraints.",
+          "Verify the changed behavior with the strongest available relevant test or reproduction."
+        ],
+        "research_needs": [
+          "Inspect project-local implementation, configuration, tests, and recent relevant changes before externalizing the hypothesis."
+        ],
+        "verification_needs": [
+          "Reproduce or otherwise establish the observed failure when feasible.",
+          "Run focused regression tests or an equivalent discriminating validation after any change."
+        ],
+        "domains": [
+          "software_engineering"
+        ],
+        "contradictions": [],
+        "outputs": [],
+        "evidence_requirements": [],
+        "non_goals": [],
+        "failure_conditions": [],
+        "quality": {
+          "intent_clarity": "high",
+          "scope_clarity": "high",
+          "constraints": "present",
+          "missing_context": "likely",
+          "output_definition": "missing",
+          "success_criteria": "missing",
+          "verification_requirements": "missing",
+          "freshness_requirements": "not_indicated",
+          "research_requirements": "not_indicated",
+          "tool_requirements": "repository_or_runtime",
+          "safety_security_implications": "not_indicated",
+          "hidden_assumption_risk": "low",
+          "likely_failure_modes": "not_indicated",
+          "ambiguity": "low"
+        }
+      },
+      "deterministic_checks": [
+        {
+          "name": "constraint_contains",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    },
+    {
+      "case_id": "contradictory-budget-visible",
+      "run_index": 0,
+      "runner_protocol_ok": true,
+      "candidate_result": {
+        "original_request": "Research this exhaustively but use almost no tokens.",
+        "interpreted_goal": "Research the requested subject and produce an evidence-backed answer while preserving the requested scope: Research this exhaustively but use almost no tokens.",
+        "enhancement_mode": "silent",
+        "constraints": [
+          "use almost no tokens"
+        ],
+        "assumptions": [],
+        "unknowns": [],
+        "success_criteria": [
+          "Answer the decision-critical question with source-appropriate evidence.",
+          "Keep unresolved uncertainty and source freshness visible."
+        ],
+        "research_needs": [
+          "Determine whether current/external evidence is required and route to the appropriate source class."
+        ],
+        "verification_needs": [],
+        "domains": [
+          "research"
+        ],
+        "contradictions": [
+          "Exhaustive depth conflicts with the requested near-minimal token/resource budget; depth and budget must be prioritized explicitly."
+        ],
+        "outputs": [],
+        "evidence_requirements": [],
+        "non_goals": [],
+        "failure_conditions": [],
+        "quality": {
+          "intent_clarity": "high",
+          "scope_clarity": "medium",
+          "constraints": "present",
+          "missing_context": "limited",
+          "output_definition": "missing",
+          "success_criteria": "missing",
+          "verification_requirements": "missing",
+          "freshness_requirements": "not_indicated",
+          "research_requirements": "required",
+          "tool_requirements": "external_evidence",
+          "safety_security_implications": "not_indicated",
+          "hidden_assumption_risk": "medium",
+          "likely_failure_modes": "present",
+          "ambiguity": "low"
+        }
+      },
+      "deterministic_checks": [
+        {
+          "name": "contradiction",
+          "actual": true,
+          "expected": true,
+          "passed": true
+        }
+      ],
+      "scored_passed": true,
+      "score_source": "local_deterministic"
+    }
+  ]
+}

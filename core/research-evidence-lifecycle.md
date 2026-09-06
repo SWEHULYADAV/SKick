@@ -83,7 +83,7 @@ For unfamiliar codebases, separate context building from verdicts:
 6. target-specific investigation;
 7. synthesis and remaining blind spots.
 
-Prefer Serena semantic symbols/references when available, then file/line/test/history evidence. Naming resemblance is not proof of call flow.
+Prefer semantic symbol/reference evidence when an appropriate capability is available, regardless of provider, then file/line/test/history evidence. Naming resemblance is not proof of call flow.
 
 ## Academic/systematic research
 When the task warrants a literature-style review:

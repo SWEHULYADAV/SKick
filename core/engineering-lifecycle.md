@@ -12,7 +12,7 @@ Handle substantial engineering work from understanding through verified delivery
 For non-trivial work, do these before broad execution:
 1. resolve intent and run the SILENT `prompt-enhancement.md` pass;
 2. use `capability-and-skill-routing.md` to select the best task-matched phase owners;
-3. for repository/code work, apply the Serena-first gate from `serena-integration.md`;
+3. for repository/code work, select the strongest observed semantic repository capability by fit; load a provider profile such as `serena-integration.md` only when that provider is selected;
 4. for version-sensitive decisions, verify current primary/project evidence and search laterally;
 5. for substantial changes, pass `system-design-and-architecture.md` before broad implementation;
 6. define observable acceptance/verification criteria.
@@ -31,7 +31,7 @@ Do not substitute generic best practices for project-specific evidence.
 
 ## Adaptive lifecycle by task type
 - **Greenfield / major redesign**: research -> domain/invariants -> architecture alternatives -> interfaces/data/control/failure/operations -> filesystem/UI where relevant -> risk/test/package plan -> vertical implementation slices.
-  - For ordinary new web products without a stronger constraint, load `python-vanilla-web-stack.md`: Python backend, vanilla HTML/CSS/JS frontend, root `app.py`, backend implementation in `backend/`, frontend implementation/assets in `frontend/`; deeper folders are need-based, not prescribed.
+  - Preserve an existing project's architecture. For a genuinely greenfield web project, load `python-vanilla-web-stack.md` only when an explicit/selected project policy chooses that optional starter profile after user constraints, ecosystem conventions and product requirements.
 - **Feature**: semantic/public-seam map -> current API/version constraints -> change-impact graph -> acceptance criteria -> smallest vertical slice -> tests -> neighboring regression checks.
 - **Bug**: reproduce red -> minimize -> competing mechanisms -> semantic callers/references -> targeted source/history/lateral research -> fix cause -> regression test -> broader checks.
 - **Refactor**: establish preserved behavior/invariants -> map references -> choose the smallest coherent seam -> change -> differential/property/regression validation.
@@ -45,8 +45,8 @@ Do not substitute generic best practices for project-specific evidence.
 ## One workflow owner per phase
 Do not stack duplicate methodologies. If a narrower Skill/plugin clearly owns a phase, delegate it through `capability-and-skill-routing.md` and `specialist-skill-orchestration.md`. SKick remains responsible for the objective, evidence, version boundaries, safety/trust, provenance, cross-phase coherence and final verification.
 
-## Serena-first repository intelligence
-For non-trivial repository work, check Serena before broad file-by-file reads. When available, use it for semantic repository exploration, symbols, references/call relationships and targeted edits; complement it with git/search/config/tests/runtime/browser tools. When unavailable, use the strongest native semantic/LSP/indexed fallback and continue without pretending Serena ran.
+## Capability-fit repository intelligence
+For non-trivial repository work, prefer semantic definitions/references when they materially improve the map, but choose the provider by observed capability fit, trust, context cost and testability. Use native semantic/LSP/indexed tooling, Serena, or another provider as appropriate; fall back to exact search plus targeted file reads without pretending unavailable tooling ran.
 
 ## Architecture and change-impact gate
 For substantial implementation, be able to explain the entry point, owning component, affected interfaces/state/data, callers/dependencies, failure/trust boundaries, operational constraints and regression-detection plan. Keep architecture proportional to complexity; do not add speculative layers.

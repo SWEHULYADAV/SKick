@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/module-plan.schema.json",
+  "title": "SKick Module Compilation Plan",
+  "type": "object",
+  "required": ["schema_version", "plan_kind", "selected", "skipped", "budget_tokens", "total_estimated_tokens", "estimate_method"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "plan_kind": {"enum": ["minimal", "compiled"]},
+    "selected": {"type": "array", "items": {"type": "object", "required": ["id", "path", "estimated_tokens", "reasons"]}},
+    "optional": {"type": "array"},
+    "skipped": {"type": "array"},
+    "dropped_for_budget": {"type": "array"},
+    "routing_notes": {"type": "array", "items": {"type": "string"}},
+    "budget_tokens": {"type": "integer", "minimum": 0},
+    "total_estimated_tokens": {"type": "integer", "minimum": 0},
+    "root_control_plane_estimated_tokens": {"type": "integer", "minimum": 0},
+    "estimate_method": {"const": "utf8_bytes_div_4"},
+    "required_capabilities": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

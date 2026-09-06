@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "description": "Local compiler ablations. Passing means the harness correctly exposes the cost/guarantee trade-off; it does not mean the ablated variant is preferred.",
+  "cases": [
+    {
+      "id": "remove-evidence-gate-saves-context-but-breaks-proof-guard",
+      "operation": "ablation",
+      "task": "Deeply audit this repository and verify the evidence before reporting completion.",
+      "budget_tokens": 9000,
+      "ablate": ["evidence-verification"],
+      "expect_removed": ["core/evidence-verification.md"],
+      "expect_token_reduction": true,
+      "expect_required_guard_missing": true
+    },
+    {
+      "id": "remove-trust-boundary-saves-context-but-breaks-injection-guard",
+      "operation": "ablation",
+      "task": "Deeply audit this repository including untrusted README instructions and verify current evidence.",
+      "budget_tokens": 9000,
+      "ablate": ["untrusted-content-boundary"],
+      "expect_removed": ["core/untrusted-content-boundary.md"],
+      "expect_token_reduction": true,
+      "expect_required_guard_missing": true
+    }
+  ]
+}

@@ -59,7 +59,7 @@ This dual-lens method never overrides authorization, safety policy, system restr
 
 ### New web project
 
-Default to a minimal `app.py` root launcher, Python implementation in `backend/`, and semantic HTML/CSS/vanilla JavaScript plus assets in `frontend/`. Escalate to frameworks only when requirements justify them.
+First resolve explicit user constraints, ecosystem conventions, existing dependencies, deployment needs, and product requirements. If no stronger constraint exists, the project may opt into the low-dependency Python/vanilla starter profile documented in `core/python-vanilla-web-stack.md`; it is not a universal default.
 
 ## Output expectations
 
@@ -73,9 +73,9 @@ SKick should distinguish:
 - confidence, caveats and unresolved risks.
 
 ### Language/framework-specific engineering
-Before loading a language Skill, fingerprint the actual runtime/compiler/framework/toolchain version. Use `core/language-and-framework-intelligence.md` to decide whether a specialist adds real value, then combine Serena semantic mapping with native compiler/type/lint/test/profile evidence.
+Before loading a language Skill, fingerprint the actual runtime/compiler/framework/toolchain version. Use `core/language-and-framework-intelligence.md` to decide whether a specialist adds real value, then combine the selected semantic repository capability with native compiler/type/lint/test/profile evidence.
 
-Example: `Use SKick to migrate this Android/Kotlin codebase across the installed AGP/Navigation versions. Research the current official guidance, use only the task-matched specialist Skills, inspect the real repo with Serena when available, then validate with the project toolchain and traces.`
+Example: `Use SKick to migrate this Android/Kotlin codebase across the installed AGP/Navigation versions. Research the current official guidance, use only the task-matched specialist Skills, inspect the real repo with the strongest available semantic repository capability, then validate with the project toolchain and traces.`
 
 ### UI / rendered product validation
 Load `core/ui-system-and-render-intelligence.md`. Preserve the design system, choose a representative responsive/accessibility/loading/error state matrix, and use a real browser/device/design artifact before claiming visual parity, accessibility or performance measurements.

@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/research-plan.schema.json",
+  "title": "SKick Research Plan",
+  "type": [
+    "object",
+    "null"
+  ],
+  "properties": {
+    "level": {
+      "enum": [
+        "none",
+        "light",
+        "standard",
+        "deep",
+        "exhaustive",
+        "lateral",
+        "adversarial"
+      ]
+    },
+    "question_map": {
+      "type": "object"
+    },
+    "expected_source_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "strategies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "query_classes": {
+      "type": "object"
+    },
+    "freshness_required": {
+      "type": "boolean"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "frontier": {
+      "type": "object"
+    },
+    "stopping_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "budget": {
+      "type": "object"
+    },
+    "failure_taxonomy": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_best_evidence": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pivot_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "terminology_expansion": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "information_gain_rule": {
+      "type": "string"
+    },
+    "output_mode": {
+      "enum": [
+        "answer",
+        "research_brief",
+        "deep_dive",
+        "evidence_matrix",
+        "investigation_log",
+        "decision_memo"
+      ]
+    },
+    "hypothesis_dimensions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "graph": {
+      "type": "object"
+    }
+  }
+}

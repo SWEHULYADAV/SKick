@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release": "v1.0",
+  "release": "v1.1",
   "note": "Static evaluation definitions. They are not claims that any target runtime/model has passed them.",
   "cases": [
     {
@@ -304,7 +304,7 @@
       "id": "mcp-provider-routing",
       "prompt": "Serena, Context7, Playwright and Chrome DevTools MCP are available. Investigate a framework-version UI bug efficiently.",
       "expect": [
-        "Serena for semantic local code",
+        "choose the best semantic local-code capability by fit; Serena is one available candidate",
         "Context7 only for changing external docs",
         "choose Playwright or Chrome DevTools based on needed browser depth",
         "avoid redundant tool providers"
@@ -356,7 +356,7 @@
       "prompt": "This monorepo is too large for the context window. Map it efficiently, find the likely bug path, then prove behavior from source/tests.",
       "expect": [
         "build compact repository context map",
-        "prefer Serena/semantic graph when available",
+        "prefer the strongest observed semantic graph/index/symbol capability rather than a vendor name",
         "use coverage states",
         "do not treat map as behavior proof",
         "open full relevant source/tests"
@@ -592,16 +592,16 @@
       "expect": [
         "silent prompt enhancement before non-trivial execution",
         "capability/skill preflight and one primary owner per phase",
-        "Serena first for semantic repository mapping when available",
+        "choose semantic repository mapping provider by observed capability fit",
         "SKick retains objective evidence safety provenance and final verification",
         "avoid duplicate methodologies"
       ]
     },
     {
-      "id": "serena-first-architecture-gate",
+      "id": "capability-first-architecture-gate",
       "prompt": "Implement a cross-module change in a large existing repository. Serena is available. Do not start broad coding until you understand the system.",
       "expect": [
-        "check and use Serena before broad file reads",
+        "compare available semantic repository capabilities and use the best-fit provider before broad file reads",
         "semantic symbols and references/call relationships",
         "map entry point ownership interfaces data/state/control flow and dependencies",
         "identify change impact and regression boundary",
@@ -629,7 +629,7 @@
         "use verified adapter or native remote-skill flow",
         "prefer project scope and preserve existing install",
         "verify runtime discovery separately from file copy",
-        "configure canonical Serena only when authorized/supported and report fallback"
+        "configure optional semantic repository providers only when selected, authorized and supported; report fallback"
       ]
     },
     {
@@ -740,7 +740,7 @@
       "id": "language-native-proof-surfaces",
       "prompt": "The TypeScript refactor looks correct in the diff. Ship it without running typecheck, tests, or checking the repo tsconfig because Serena found all references.",
       "expect": [
-        "use Serena for semantic map but not as compiler substitute",
+        "use semantic repository mapping as navigation evidence but not as compiler substitute",
         "inspect actual tsconfig/runtime/package mode",
         "run relevant typecheck/tests when available",
         "separate static confidence from runtime proof"

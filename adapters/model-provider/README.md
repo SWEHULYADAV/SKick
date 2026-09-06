@@ -12,3 +12,12 @@ Examples include model-only use of Meta Llama, ByteDance/Doubao/Seed, Amazon Nov
 4. If the user controls the harness, implement the open Agent Skills lifecycle described in `../../docs/NEW_RUNTIME_INTEGRATION.md`.
 
 Never fabricate a provider-specific filesystem path just because a model supports tools or coding.
+
+## Compatibility proof contract
+
+- **Verification status:** `HOST_DEPENDENT`
+- **Runtime tier:** `prompt_fallback` for the provider-only route; the selected host may provide a stronger tier.
+- **Native Skill support:** `host_dependent`
+- **Literal `@SKick`:** `no` for the provider-only route. Any `@`/slash/dollar syntax belongs to the actual host and must be verified there.
+
+A model-provider entry can be documentation-current without becoming a Skill host. Discovery, invocation, filesystem access, shell access, and live execution must be attributed to the host that actually supplies them.

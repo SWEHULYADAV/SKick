@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "description": "Deterministic prompt-enhancement evaluations, including over-expansion negatives.",
+  "cases": [
+    {
+      "id": "weak-auth-prompt-structured",
+      "operation": "prompt",
+      "task": "check why auth broken",
+      "expect_domain": "software_engineering",
+      "expect_verification": true,
+      "max_success_criteria": 5
+    },
+    {
+      "id": "tiny-rename-no-research-expansion",
+      "operation": "prompt",
+      "task": "Rename variable foo to bar.",
+      "expect_research_needs_empty": true,
+      "max_success_criteria": 2
+    },
+    {
+      "id": "explicit-api-constraint-locked",
+      "operation": "prompt",
+      "task": "Fix OAuth callback but do not change the public API.",
+      "expect_constraint_contains": "do not change the public API"
+    },
+    {
+      "id": "contradictory-budget-visible",
+      "operation": "prompt",
+      "task": "Research this exhaustively but use almost no tokens.",
+      "expect_contradiction": true
+    }
+  ]
+}

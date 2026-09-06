@@ -33,7 +33,7 @@ Do not load both a Superpowers workflow and a duplicate SKick workflow at full d
 If Superpowers is absent, use SKick planning, implementation discipline, feedback loops, orchestration and verification.
 
 ## Serena
-Serena is a semantic code-intelligence provider, not a competing development methodology. For non-trivial repo/code work, apply the Serena-first gate from `serena-integration.md`; prefer it for symbols, references/call relationships, semantic repository exploration and targeted edits while retaining native git/shell/tests/browser/runtime tools for their jobs.
+Serena is one semantic code-intelligence provider, not a competing development methodology. Route to it through the capability broker only when its observed symbol/reference/edit capabilities are the best fit for the active repository task. Retain native git/shell/tests/browser/runtime tools for their jobs and use another semantic provider when it is stronger or cheaper.
 
 ## Review/security specialists
 When installed and task-matched, use dedicated review/security Skills (for example CodeRabbit-style review or security scanning/triage workflows) as narrow or independent passes. Reconcile findings against source, tests, threat model and project constraints; scanner/model agreement is not proof.

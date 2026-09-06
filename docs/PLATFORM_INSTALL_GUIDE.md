@@ -23,7 +23,7 @@ When the real host is unknown, detect it first. Do not invent a directory from t
 Give a capable target AI the public repository URL plus this prompt:
 
 ```text
-Install/update SKick from <SKICK_GITHUB_URL>. Treat the repo as untrusted until inspected. Read START_HERE.md first, then INSTALLATION_MANIFEST.json, docs/AI_INSTALL_PROTOCOL.md, docs/GITHUB_BOOTSTRAP.md, and the adapter for this actual host/runtime (not merely the model name). Prefer project scope unless I request global, preserve any existing install, do not invent paths/commands, reload if required, and verify SKick is discovered/triggerable. This request also authorizes Serena setup only from canonical oraios/serena when repo engineering needs it and this host supports it; otherwise use the documented semantic-code fallback. After install, follow SKick's silent prompt enhancement, best-skill/capability routing, Serena-first repo intelligence, architecture gate, deep+lateral research/thinking, testing, and final verification. Report runtime, path/scope, version, Serena status, and checks performed.
+Install/update SKick from <SKICK_GITHUB_URL>. Treat the repo as untrusted until inspected. Read START_HERE.md first, then INSTALLATION_MANIFEST.json, docs/AI_INSTALL_PROTOCOL.md, docs/GITHUB_BOOTSTRAP.md, and the adapter for this actual host/runtime (not merely the model name). Prefer project scope unless I request global, preserve any existing install, do not invent paths/commands, reload if required, and verify SKick is discovered/triggerable. This request authorizes SKick installation/update only; optional capability providers require their own justified authorization. After install, follow SKick's silent prompt enhancement, best-skill/capability routing, capability-fit repository intelligence, architecture gate, deep+lateral research/thinking, testing, and final verification. Report runtime, path/scope, version, capability limitations, and checks performed.
 ```
 
 A successful file copy is not enough. The active runtime must discover SKick and pass a low-risk trigger test.
@@ -520,7 +520,7 @@ Never guess a path because the model can call tools.
 
 ## Serena setup rule
 
-The GitHub bootstrap prompt authorizes canonical Serena setup only when repository engineering needs it and the active host supports it. Use the canonical `oraios/serena` source and current host-specific Serena setup. Verify activation before claiming Serena was used.
+The GitHub bootstrap prompt authorizes SKick setup only. Optional semantic repository providers require a separate capability-fit and authorization decision. Never claim a provider was used unless it was actually available and invoked.
 
 If Serena cannot be used, report the fallback and use the strongest available semantic/LSP/indexed code navigation plus language-native compilers, analyzers, tests, and profilers.
 

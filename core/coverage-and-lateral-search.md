@@ -1,5 +1,8 @@
 # Coverage, Lateral Search and Lateral Thinking
 
+
+## Executable-runtime ownership
+The full runtime seeds research coverage/frontier state and can select lateral/disconfirmation strategies before execution. `runtime/research_ledger.py` records covered/partial/unexplored/blocked dimensions. This module remains the procedural guidance for dynamically expanding or stopping branches; a planned lateral branch is not proof that the branch was researched.
 ## Purpose
 Find important clues, mechanisms and better ideas that narrow keyword matching misses, without turning research into unbounded browsing.
 

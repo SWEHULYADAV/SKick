@@ -1,4 +1,4 @@
-# SKick v1.0 — Start Here
+# SKick v1.1 — Start Here
 
 > **AI / agent instruction:** If a user gives you this SKick archive or GitHub repository URL and says only **"install this"**, **"set this up"**, **"use this"**, **"update this"**, or equivalent, read this file before taking installation actions.
 
@@ -27,7 +27,7 @@ Perform this sequence:
 4. **Match the host in `INSTALLATION_MANIFEST.json`.** Never copy an install path from a different runtime just because the model/provider is similar.
 5. **Choose scope conservatively.** If the user did not request global/personal installation, prefer a project-local install for coding repositories. Use personal/global scope only when requested or clearly appropriate. Managed web/app products must use their native UI when no writable filesystem install is supported.
 6. **Preserve existing installations.** Do not overwrite an existing `skick` directory blindly. Inspect version/diff first; back up or replace only with user approval or an explicitly safe update workflow.
-7. **Install only what is authorized.** By default install SKick only. Optional integrations such as Serena, MCP servers, browser tools, GitHub, Sentry, Superpowers, cloud CLIs, databases, or security scanners are separate dependencies. The universal GitHub prompt in `BOOTSTRAP_PROMPTS.md` explicitly authorizes canonical Serena setup only; it does not authorize unrelated dependencies.
+7. **Install only what is authorized.** By default install SKick only. Optional semantic repository providers, MCP servers, browser tools, GitHub, Sentry, Superpowers, cloud CLIs, databases, or security scanners are separate dependencies and require their own justified/authorized setup path.
 8. **Reload or refresh the host when required.** Use the runtime-specific adapter instructions.
 9. **Verify discovery.** Confirm the runtime can see a Skill named `skick`; then run a low-risk trigger smoke test.
 10. **Report what actually happened.** State the selected runtime, install scope/path or UI flow, version, verification performed, and anything that could not be completed from the current environment.
@@ -37,7 +37,7 @@ Perform this sequence:
 
 Treat GitHub as the source transport, not as the runtime. Read `BOOTSTRAP_PROMPTS.md` and `docs/GITHUB_BOOTSTRAP.md`, inspect the repository before execution, then detect the active host and use its manifest adapter. Use a native remote-Skill command only when current first-party runtime documentation confirms that the command accepts the repository URL and preserves the complete Skill. Otherwise fetch/clone safely and install/copy/upload through the verified adapter.
 
-After installation, non-trivial repo work should follow SKick's mandatory silent prompt enhancement, best-capability routing, Serena-first semantic mapping, architecture/change-impact gate, lateral research/thinking, testing and final verification.
+After installation, non-trivial repo work should follow SKick's mandatory silent prompt enhancement, best-capability routing, capability-fit semantic mapping, architecture/change-impact gate, lateral research/thinking, testing and final verification.
 
 ## If native installation is not verified
 
@@ -66,4 +66,4 @@ Do not stop at the named adapter list. Read `docs/RUNTIME_COMPATIBILITY.md` and 
 5. session prompt fallback;
 6. custom Agent Skills implementation using `docs/NEW_RUNTIME_INTEGRATION.md`.
 
-This is how SKick remains usable with future AI IDEs, code agents, browser agents, autonomous harnesses, and private/internal agents that did not exist when v1.0 shipped.
+This is how SKick remains usable with future AI IDEs, code agents, browser agents, autonomous harnesses, and private/internal agents that did not exist when SKick first shipped.

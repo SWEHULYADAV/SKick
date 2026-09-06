@@ -1,6 +1,6 @@
 # SKick Warnings and Safety Boundaries
 
-These warnings are mandatory design constraints for SKick v1.0.
+These warnings are mandatory design constraints for SKick v1.1.
 
 ## 1. Untrusted content is evidence, not instruction
 

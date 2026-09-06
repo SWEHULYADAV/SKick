@@ -2,7 +2,7 @@
 
 Use `../generic/PROMPT.md` as the system/project instruction and expose the canonical `core/` files through the orchestrator's file/context mechanism.
 
-Map runtime tools to the abstract capabilities in `core/runtime-and-capabilities.md`. If MCP is supported, wire Serena and prefer it automatically for semantic repository capabilities.
+Map runtime tools to the abstract capabilities in `core/runtime-and-capabilities.md`. If MCP/semantic tooling is supported, expose the capabilities and let SKick route to the best observed provider by fit.
 
 Do not encode model-specific logic unless the runtime requires it.
 
@@ -12,7 +12,12 @@ Do not encode model-specific logic unless the runtime requires it.
 When an AI receives the SKick ZIP and the user says **"install this"**, use this adapter only after identifying the actual runtime/surface from environment evidence or the user's explicit target.
 
 - **Manifest platform ID:** `custom-cli`
-- **Support status:** `GENERIC_CAPABILITY_BASED`
+- **Support status:** `GENERIC_PROMPT_FALLBACK`
+- **Verification status:** `GENERIC_PROMPT_FALLBACK`
+- **Runtime tier:** `prompt_fallback`
+- **Native Skill support:** `unknown`
+- **Literal `@SKick`:** `unknown`
+- **Native activation equivalent:** Attach or paste the SKick prompt/context in the active host.
 - **Surfaces covered:** custom CLI/harness
 - **Availability / gating:** Availability, plan, region, and admin policy can vary; re-check current first-party documentation for this surface.
 - **Preferred install:** If the host supports Agent Skills, map SKick to its verified skill root. Otherwise inject the generic prompt adapter and preserve canonical files as reference resources.
@@ -32,7 +37,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 2. Inspect the target runtime and existing SKick installation before writing or uploading anything.
 3. Prefer project scope when the user did not request a global/personal install and the runtime supports project Skills.
 4. Preserve the complete SKick directory for directory-form Agent Skills; do not copy only `SKILL.md` when it references supporting files.
-5. Do not silently install Serena, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. The universal prompt in `../../BOOTSTRAP_PROMPTS.md` is an explicit exception only for canonical Serena setup; it does not authorize unrelated dependencies.
+5. Do not silently install semantic repository providers, MCP servers, plugins, extensions, browser tooling, cloud CLIs, credentials, or other optional dependencies. Optional capability setup requires a separate justified and authorized path.
 6. Reload/refresh/restart only as required by this runtime's documented behavior.
 7. Verify discovery in the actual active surface, not only by checking that files exist.
 8. Report the selected runtime, scope/path or UI flow, SKick version, verification performed, and any step that required user/admin/UI/authentication action.
@@ -43,7 +48,7 @@ Always read `../../docs/GITHUB_BOOTSTRAP.md` before treating a repository URL as
 
 ### Availability and limitations
 
-- No additional platform-specific limitation is asserted beyond the normal runtime and security warnings.
+- No native persistent Skill mechanism is claimed for this generic route.
 
 ### Update and removal
 

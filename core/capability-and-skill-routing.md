@@ -44,13 +44,13 @@ Prefer the candidate with the best combined fit, not the most famous name. Evalu
 - **context/tool cost** — avoids loading a large Skill/toolchain for a tiny benefit;
 - **fallback quality** — failure does not strand the task.
 
-Reject a candidate when it cannot prove the needed claim/action, is stale for a version-sensitive task, has unacceptable trust/permission risk, or conflicts with higher-priority constraints.
+Reject a candidate when it cannot prove the needed claim/action, is stale for a version-sensitive task, has unacceptable trust/permission risk, or conflicts with higher-priority constraints. Vendor identity is never a global score bonus; a project policy may prefer a named implementation only when explicitly configured or supported by local evidence.
 
 ## Phase ownership
 Keep one primary owner per phase. A compact route may look like:
 
 ```text
-REPO_MAP       -> Serena       -> semantic symbols/references -> native LSP/search fallback
+REPO_MAP       -> best semantic capability -> symbols/references -> native index/LSP/search fallback
 ARCHITECTURE   -> SKick        -> project/research synthesis  -> project-native architecture docs
 IMPLEMENT      -> specialist   -> narrow workflow fit         -> SKick implementation discipline
 CODE_REVIEW    -> reviewer     -> independent review          -> SKick cold review
@@ -65,7 +65,7 @@ When many Skills/tools/MCP schemas exist, load `deferred-capability-loading.md`.
 ## Dynamic routing during work
 Re-route when evidence changes. Examples:
 - a repository turns out to use a framework with a dedicated installed Skill;
-- a host-native code index is weaker than Serena for references;
+- a host-native code index lacks the reference precision required for the task;
 - a specialist produces an unverifiable claim;
 - a browser issue requires network evidence rather than only screenshot evidence;
 - an external Skill is useful for discovery but unsafe to execute.

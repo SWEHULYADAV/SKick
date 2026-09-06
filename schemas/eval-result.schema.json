@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/eval-result.schema.json",
+  "title": "SKick Evaluation Result",
+  "type": "object",
+  "required": ["schema_version", "suite", "summary", "results"],
+  "properties": {
+    "schema_version": {"const": 2},
+    "suite": {"type": "string"},
+    "summary": {
+      "type": "object",
+      "required": ["runs", "scored_runs", "unscored_runs", "protocol_failures", "pass_rate", "candidate_reported_pass_rate"]
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["case_id", "run_index", "runner_protocol_ok", "scored_passed", "score_source"]
+      }
+    }
+  },
+  "additionalProperties": true
+}

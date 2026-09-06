@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/skick/runtime-state.schema.json",
+  "title": "SKick Runtime State",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "skick_version",
+    "created_at",
+    "task",
+    "evidence",
+    "claims",
+    "tests",
+    "blockers",
+    "trace",
+    "result_status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-"
+    },
+    "skick_version": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "task": {
+      "type": "string",
+      "minLength": 1
+    },
+    "host": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "mode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "depth": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "capabilities": {
+      "type": "object"
+    },
+    "module_plan": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "budget": {
+      "type": "object"
+    },
+    "evidence": {
+      "$ref": "evidence-ledger.schema.json"
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "$ref": "claim.schema.json"
+      }
+    },
+    "tests": {
+      "type": "array"
+    },
+    "blockers": {
+      "type": "array"
+    },
+    "trace": {
+      "type": "array"
+    },
+    "result_status": {
+      "enum": [
+        "running",
+        "completed",
+        "partial",
+        "blocked",
+        "failed"
+      ]
+    },
+    "task_interpretation": {
+      "$ref": "task-interpretation.schema.json"
+    },
+    "research_plan": {
+      "$ref": "research-plan.schema.json"
+    },
+    "teaming_plan": {
+      "$ref": "teaming-plan.schema.json"
+    },
+    "research_findings": {
+      "type": "array",
+      "items": {
+        "$ref": "research-finding.schema.json"
+      }
+    },
+    "research_frontier": {
+      "type": "object",
+      "properties": {
+        "resolved": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unresolved": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "research_coverage": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "unexplored",
+          "partial",
+          "covered",
+          "blocked"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

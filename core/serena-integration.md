@@ -1,15 +1,15 @@
-# Serena Integration — Serena-First Engineering Gate
+# Serena Integration — Semantic Repository Provider Profile
 
 ## Status
-**Serena is first-class and important to this research system.** For repository/code engineering, SKick must check for Serena before broad file-by-file exploration and **prefer Serena automatically** when it is available and appropriate. The workflow must still remain functional when Serena is unavailable.
+**Serena is an optional semantic repository capability provider, not a constitutional preference.** Select it when observed capabilities, project fit, trust, context cost, and measured utility make it the best owner for repository mapping/editing. The workflow must remain functional when Serena is absent or a host-native semantic index/LSP is a better fit.
 
 Serena provides semantic repository exploration, symbol discovery/search, references/call relationships and targeted symbol-level edits through language-server/IDE-backed capabilities and supported MCP clients.
 
-## Serena-first gate
+## Capability-fit gate
 For a non-trivial repository task:
-1. determine whether Serena is already available in the active host;
-2. activate/identify the correct project context;
-3. use semantic symbol/references tools to build the initial code map before broad reads;
+1. determine which semantic repository capabilities are actually available in the active host;
+2. compare Serena, native index/LSP, symbol/reference APIs, and exact-search fallbacks on task fit and proof quality;
+3. when Serena wins that comparison, activate/identify the correct Serena project context and use its semantic symbol/reference tools to build the initial code map;
 4. use native file/search/git/test/runtime tools for configuration, prose, generated assets, history and verification;
 5. if Serena is unavailable or unsuitable, use the strongest native semantic/LSP/indexed fallback and continue;
 6. report the fallback only when it materially affects confidence/editing safety or when the user explicitly requested Serena.
@@ -23,30 +23,26 @@ A general SKick task does **not** authorize silently installing Serena or any ot
 
 Current official patterns may include launching `serena start-mcp-server` and using `--project-from-cwd` for a single active repository, but adapters must re-verify exact commands/context names before execution.
 
-## Automatic selection rule
+## Selection rule
+
+Serena is selected only after the capability broker compares available semantic-repository implementations. Provider identity alone contributes no global score bonus.
 
 ```text
-IF repository/code work is non-trivial:
-    CHECK Serena availability first
-IF Serena is available and appropriate:
-    automatically prefer Serena for:
-    - semantic repository exploration
-    - symbol discovery/search
-    - references/call relationships
-    - code understanding/structure
-    - targeted symbol-level edits
-ELSE:
-    fall back to:
-    - host-native semantic code intelligence / LSP / index
-    - repository/file search
-    - grep/ripgrep or equivalent
-    - uploaded project files
-    - available coding/editing tools
+IF repository/code work benefits from semantic mapping:
+    DISCOVER available semantic repository capabilities
+    COMPARE task fit, trust, proof quality, context/latency cost, and edit/test support
+    SELECT the strongest suitable provider
+    IF selected provider is Serena:
+        use the Serena workflow below
+    ELSE:
+        use the selected native/LSP/index/search provider
+IF no semantic provider is usable:
+    fall back to repository/file search + targeted reads
 ```
 
-Do not make the user repeat this preference per task.
+Do not require the user to name a provider unless the provider choice materially changes permissions, cost, or outcome.
 
-## Preferred Serena workflow
+## Serena workflow when selected
 1. Activate/identify the correct project context.
 2. Get a compact repository/symbol overview around the public seam or suspected mechanism.
 3. Locate relevant definitions without reading whole files.
@@ -82,5 +78,5 @@ Web research, version verification, git history, shell, tests, browser and deplo
 ## Graceful fallback
 If Serena cannot be used, continue with the strongest available native semantic/indexed tools; otherwise use exact repository search plus targeted file reads and grep. Preserve the same architecture/change-impact and verification gates.
 
-## Why it is preferred
-Semantic definitions/references can reduce broad repository reads, improve call-relationship understanding and make targeted refactors safer in large codebases. This preference is about capability quality, not model/vendor identity.
+## Why it can be valuable
+Semantic definitions/references can reduce broad repository reads, improve call-relationship understanding and make targeted refactors safer in large codebases. Selection is about capability quality, not model/vendor identity. Prefer another provider when it produces stronger evidence or lower cost for the active task.

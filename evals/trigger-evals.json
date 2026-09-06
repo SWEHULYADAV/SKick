@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release": "v1.0",
+  "release": "v1.1",
   "note": "Balanced static trigger set; run repeatedly in each target runtime to measure actual trigger behavior.",
   "cases": [
     {
@@ -258,7 +258,7 @@
       "id": "p-github-bootstrap",
       "should_trigger": true,
       "class": "positive",
-      "prompt": "Install/update SKick from this GitHub URL into the AI runtime I am actually using, verify discovery, and use Serena for repository engineering when supported."
+      "prompt": "Install/update SKick from this GitHub URL into the AI runtime I am actually using, verify discovery, and use the strongest observed repository-intelligence capability for engineering work."
     },
     {
       "id": "p-language-framework-intelligence",

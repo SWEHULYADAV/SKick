@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "baseline_source": "artifacts/baseline-v1.json",
+  "baseline": {
+    "schema_version": 1,
+    "captured_at": "2026-09-05T00:00:00Z",
+    "source": {
+      "repository": "https://github.com/SWEHULYADAV/SKick",
+      "remote_clone": "BLOCKED: sandbox DNS could not resolve github.com",
+      "workspace": "synthetic local Git repository reconstructed from the verified source snapshot",
+      "synthetic_baseline_commit": "e379f59ec0c2ab9f0947568382058f08f072e958",
+      "branch": "vnext-runtime-upgrade",
+      "public_history_observation": "GitHub repository page showed 1 commit when checked 2026-09-05"
+    },
+    "release_version": "1.0",
+    "repository": {
+      "tracked_files": 240,
+      "core_modules": 73,
+      "adapter_directories": 57,
+      "platform_routes": 62,
+      "schemas": 7,
+      "python_scripts": 19,
+      "skill_md": {
+        "lines": 115,
+        "bytes": 20435,
+        "estimated_tokens_bytes_div_4": 5109,
+        "estimate_method": "UTF-8 bytes / 4; not tokenizer-exact"
+      }
+    },
+    "eval_definitions": {
+      "behavioral_eval_definitions": 97,
+      "trigger_eval_definitions": 53,
+      "portability_eval_definitions": 38
+    },
+    "baseline_commands": {
+      "python_compile": 0,
+      "strict_security_scan": 0,
+      "mcp_catalog_validation": 0,
+      "package_validation": 1,
+      "release_audit": 0,
+      "eval_suite_load_behavioral": 0,
+      "eval_suite_load_trigger": 0,
+      "eval_suite_load_portability": 0,
+      "distribution_build": 0,
+      "distribution_validation": 0,
+      "provenance_verification": 0
+    },
+    "baseline_failure": {
+      "command": "python scripts/validate_package.py .",
+      "message": "package manifest missing files: ['assets/icon.svg']",
+      "interpretation": "release-integrity drift: package file exists outside package/provenance manifest coverage"
+    },
+    "behavioral_baseline": {
+      "without_skick": "BASELINE_BLOCKED",
+      "skick_v1": "NOT_MEASURED",
+      "reason": "The active host did not expose an identical model/tool environment in which installed SKick could be disabled and rerun. Existing eval suites were only loaded/listed."
+    },
+    "proof_levels": {
+      "static_validation": "MEASURED",
+      "runtime_test": "PARTIAL: package scripts executed locally",
+      "behavioral_evaluation": "NOT_MEASURED",
+      "doc_verification": "PARTIAL: existing repository sources plus targeted web verification",
+      "live_platform_test": "NOT_MEASURED"
+    }
+  },
+  "vnext_development": {
+    "release_version": "1.0",
+    "canonical_files_pre_freeze": 335,
+    "skill_md": {
+      "lines": 119,
+      "bytes": 21270,
+      "estimated_tokens_bytes_div_4": 5318
+    },
+    "readme": {
+      "lines": 292,
+      "bytes": 15830,
+      "estimated_tokens_bytes_div_4": 3958
+    },
+    "core_modules": 73,
+    "compiled_modules": 78,
+    "runtime_python_files": 15,
+    "schemas": 18,
+    "python_scripts": 25,
+    "platform_routes": 62,
+    "compatibility_proof": {
+      "COMMUNITY_VERIFIED": 3,
+      "HOST_DEPENDENT": 11,
+      "DOC_VERIFIED": 45,
+      "GENERIC_PROMPT_FALLBACK": 2,
+      "UNKNOWN": 1
+    },
+    "literal_at_skick": {
+      "unknown": 28,
+      "no": 30,
+      "yes": 4
+    },
+    "local_deterministic_evals": {
+      "runs": 37,
+      "all_passed": true,
+      "routing_activation_confusion": {
+        "tp": 4,
+        "tn": 3,
+        "fp": 0,
+        "fn": 0
+      },
+      "routing_activation_accuracy": 1.0,
+      "routing_depth_accuracy": 1.0,
+      "behavioral_model_proof": "NOT_MEASURED",
+      "research_ablation_behavioral_quality": "NOT_MEASURED"
+    },
+    "security_behavioral_fixture": {
+      "fixture": "tests/fixtures/security_auth_lab",
+      "suite": "evals/security-behavioral-fixture.json",
+      "proof": "DEFINITION_AND_FIXTURE_ONLY",
+      "candidate_model_result": "NOT_MEASURED"
+    },
+    "behavioral_task_success": "NOT_MEASURED",
+    "no_skick_baseline": "BASELINE_BLOCKED",
+    "external_live_platform_tests": 0
+  },
+  "interpretation": {
+    "demonstrably_better": "PARTIALLY",
+    "proven_improvements": [
+      "deterministic runtime contracts",
+      "claim honesty enforcement",
+      "module compilation/budget observability",
+      "package/provenance completeness",
+      "compatibility proof granularity",
+      "installation proof-state separation",
+      "CI proof-layer separation",
+      "prompt interpretation contracts",
+      "research planning and lineage visibility",
+      "minimum-sufficient adversarial teaming plans"
+    ],
+    "not_proven": [
+      "same-model task success",
+      "cross-model robustness",
+      "external platform live compatibility",
+      "actual session token/latency/cost improvements",
+      "behavioral benefit from prompt/research/teaming planners",
+      "Red/Blue/Purple candidate-model performance on the controlled security fixture"
+    ]
+  }
+}

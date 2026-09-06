@@ -1,5 +1,8 @@
 # Prompt Enhancement
 
+
+## Executable-runtime ownership
+When the optional Python runtime is available, `runtime/prompt_intelligence.py` owns the deterministic task interpretation contract: original-request preservation, enhancement mode, constraint locking, prompt-quality fields, contradiction detection, success/verification needs, and strict-spec structure. This module remains the procedural/declarative fallback and contains guidance that still requires host/model judgment. Do not claim the runtime executed this contract on declarative-only hosts.
 ## Purpose
 Convert normalized user intent into a compact execution-quality technical brief without changing the user's objective, inventing facts, or making the user restate context.
 
@@ -40,7 +43,7 @@ VERSION / ENVIRONMENT / HOST:
 CANONICAL TERMS:
 PROJECT / REPOSITORY EVIDENCE TO INSPECT:
 CAPABILITIES / SPECIALISTS NEEDED:
-SERENA / SEMANTIC-REPO NEED:              # if code/repo work
+SEMANTIC-REPOSITORY CAPABILITY NEED:       # if code/repo work
 ARCHITECTURE / CHANGE-IMPACT GATE:        # if substantial engineering
 EXTERNAL EVIDENCE TO VERIFY:
 LATERAL ANGLES / SIDE-CLUE SURFACES:
@@ -59,7 +62,7 @@ Then:
 1. normalize terminology and scope;
 2. identify which evidence can resolve the task;
 3. run `capability-and-skill-routing.md` for non-trivial work;
-4. flag Serena-first repository intelligence for code/repo work when available;
+4. flag semantic repository intelligence for code/repo work and route to the best observed provider by capability fit;
 5. flag `system-design-and-architecture.md` when change impact is not obvious;
 6. create a bounded lateral-search/thinking plan for non-trivial research;
 7. state observable acceptance/verification criteria before implementation.
@@ -95,7 +98,7 @@ When returning an enhanced prompt, ensure it:
 1. states the intended outcome and non-goals;
 2. defines evidence, freshness/version and project-inspection requirements;
 3. asks the host to use the best task-matched installed capability rather than a fixed vendor stack;
-4. requires Serena-first semantic repository work when Serena is available, with an explicit fallback when it is not;
+4. requires capability-fit semantic repository work when it materially improves code understanding, with an explicit exact-search/file-read fallback;
 5. requires architecture/change-impact understanding before broad implementation;
 6. requires terminology mutation, lateral research/thinking and side-clue capture for non-trivial research;
 7. requires contradiction/negative-evidence checking;
