@@ -74,6 +74,38 @@ class ReleaseTruthOutputTests(unittest.TestCase):
         result = subprocess.run([sys.executable, str(script), '--check'], cwd=ROOT, text=True, capture_output=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
+    def test_package_manifest_order_is_platform_independent(self):
+        import runpy
+
+        module = runpy.run_path(str(ROOT / 'scripts' / 'generate_package_manifest.py'))
+
+        class FakeRel:
+            def __init__(self, name):
+                self.parts = (name,)
+                self._name = name
+
+            def as_posix(self):
+                return self._name
+
+        class WindowsOrderedPath:
+            def __init__(self, name):
+                self.name = name
+
+            def __lt__(self, other):
+                return self.name.lower() < other.name.lower()
+
+            def is_file(self):
+                return True
+
+            def relative_to(self, root):
+                return FakeRel(self.name)
+
+        class FakeRoot:
+            def rglob(self, pattern):
+                return [WindowsOrderedPath('a.txt'), WindowsOrderedPath('Z.txt')]
+
+        self.assertEqual(module['canonical_paths'](FakeRoot()), ['Z.txt', 'a.txt'])
+
 class IntelligenceReleaseGateTests(unittest.TestCase):
     def test_ci_runs_prompt_research_teaming_and_research_ablation_evals(self):
         workflow = (ROOT / ".github" / "workflows" / "validate.yml").read_text(encoding="utf-8")

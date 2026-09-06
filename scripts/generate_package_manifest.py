@@ -16,7 +16,7 @@ MANIFEST = 'tests/package-manifest.txt'
 
 def canonical_paths(root: Path) -> list[str]:
     paths: list[str] = []
-    for path in sorted(root.rglob('*')):
+    for path in root.rglob('*'):
         if not path.is_file():
             continue
         rel = path.relative_to(root)
@@ -26,7 +26,7 @@ def canonical_paths(root: Path) -> list[str]:
         if name == MANIFEST:
             continue
         paths.append(name)
-    return paths
+    return sorted(paths)
 
 
 def render(root: Path) -> str:
